@@ -328,15 +328,17 @@
         \normalsize\bfseries\MakeUppercase{GLOSSÁRIO}\par
       \end{center}
       \vspace{\baselineskip}%
-      \begin{description}
+      \setlength{\parindent}{0pt}%
+      \setlength{\parskip}{0.6\baselineskip}%
   }
   {%
-      \end{description}
     \endgroup
     \clearpage
   }
 
-\newcommand{\undfglossitem}[2]{\item[#1:] #2}
+\newcommand{\undfglossitem}[2]{%
+  \par\noindent\textbf{#1:} #2\par
+}
 
 % ----------------------------------------------------
 % Atalhos de identificação
