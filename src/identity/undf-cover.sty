@@ -1,0 +1,101 @@
+% ----------------------------------------------------
+% Projeto: UnDF-TeX
+% Arquivo: undf-cover.sty
+%
+% Copyright (c) 2026
+% Universidade do Distrito Federal (UnDF)
+%
+% Este arquivo faz parte do projeto UnDF-TeX.
+%
+% Licenciado sob a LaTeX Project Public License (LPPL),
+% versão 1.3c ou posterior.
+%
+% Implementação técnica baseada nas normas:
+% ABNT NBR 14724:2024
+% ABNT NBR 10520:2023
+% ABNT NBR 6023:2025
+%
+% Este projeto não reproduz o texto integral
+% das normas da ABNT.
+% ----------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{src/identity/undf-cover}[2026/04/13 UnDF-TeX cover]
+
+\RequirePackage{graphicx}
+\RequirePackage{etoolbox}
+\RequirePackage{textcase}
+
+\makeatletter
+
+% ----------------------------------------------------
+% Textos institucionais específicos da capa
+% ----------------------------------------------------
+\newcommand*{\undf@coverinstitutionmain}{%
+  \ifdefempty{\undf@instituicaocapa}
+    {\undf@instituicao}
+    {\undf@instituicaocapa}%
+}
+
+\newcommand*{\undf@coverinstitutionsub}{%
+  \undf@subinstituicaocapa
+}
+
+% ----------------------------------------------------
+% Bloco institucional da capa
+% A altura do bloco permanece fixa.
+% Assim, a logo pode crescer até o limite previsto
+% sem empurrar os demais elementos da capa.
+% ----------------------------------------------------
+\newcommand*{\undf@coveridentity}{%
+  \begin{minipage}[c][\undf@coveridentityheight][c]{\textwidth}
+    \centering
+    \ifdefempty{\undf@logocapa}
+      {}
+      {%
+        \includegraphics[
+          width=\undf@logocapawidth,
+          height=\undf@logocapaheight,
+          keepaspectratio
+        ]{\undf@logocapa}\par
+        \vspace{0.35cm}
+      }%
+    {\normalsize\MakeTextUppercase{\undf@coverinstitutionmain}\par}%
+    \ifdefempty{\undf@coverinstitutionsub}
+      {}
+      {%
+        \vspace{0.15cm}
+        {\small\MakeTextUppercase{\undf@coverinstitutionsub}\par}%
+      }%
+  \end{minipage}%
+}
+
+% ----------------------------------------------------
+% Capa institucional
+% ----------------------------------------------------
+\newcommand{\undfcover}{%
+  \begingroup
+    \renewcommand{\thepage}{capa-\arabic{page}}%
+    \begin{titlepage}
+      \centering
+
+      \undf@coveridentity
+
+      \vfill
+
+      {\bfseries\undfprintautores\par}
+
+      \vfill
+
+      {\bfseries\MakeTextUppercase{\undf@fulltitle}\par}
+
+      \vfill
+
+      \undf@local\par
+      \undf@ano\par
+    \end{titlepage}
+  \endgroup
+
+  \setcounter{page}{0}%
+}
+
+\makeatother

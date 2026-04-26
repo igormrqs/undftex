@@ -1,0 +1,113 @@
+% ----------------------------------------------------
+% Projeto: UnDF-TeX
+% Arquivo: undf-titles.sty
+%
+% Copyright (c) 2026
+% Universidade do Distrito Federal (UnDF)
+%
+% Este arquivo faz parte do projeto UnDF-TeX.
+%
+% Licenciado sob a LaTeX Project Public License (LPPL),
+% versão 1.3c ou posterior.
+%
+% Implementação técnica baseada nas normas:
+% ABNT NBR 14724:2024
+% ABNT NBR 6024:2012
+%
+% Este projeto não reproduz o texto integral
+% das normas da ABNT.
+% ----------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{src/core/undf-titles}[2026/01/01 UnDF-TeX titles]
+
+\RequirePackage{textcase}
+
+\makeatletter
+
+% ----------------------------------------------------
+% Profundidade de numeração e do sumário
+% ----------------------------------------------------
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+% ----------------------------------------------------
+% Comprimento institucional base
+% ----------------------------------------------------
+\newdimen\undf@titlesep
+\undf@titlesep=\dimexpr\baselineskip+\baselineskip/2\relax
+
+% ----------------------------------------------------
+% Compatibilidade com undf-headings.sty
+% ----------------------------------------------------
+\newcommand{\undf@sectioningfont}{\normalfont\bfseries\Large}
+\newcommand{\undf@sectioningtitle}[1]{\MakeTextUppercase{#1}}
+\newcommand{\undf@sectioningafterskip}{\the\undf@titlesep}
+
+% ----------------------------------------------------
+% Seção primária
+% ----------------------------------------------------
+% Saída institucional:
+% 1 INTRODUÇÃO
+% sem expor a palavra "Capítulo"
+% ----------------------------------------------------
+\def\@makechapterhead#1{%
+  \vspace*{0pt}%
+  {\parindent\z@
+   \raggedright
+   \normalfont
+   \bfseries
+   \Large
+   \ifnum\c@secnumdepth>\m@ne
+     \thechapter\space \MakeTextUppercase{#1}\par\nobreak
+   \else
+     \MakeTextUppercase{#1}\par\nobreak
+   \fi
+   \vskip\undf@titlesep
+  }%
+}
+
+\def\@makeschapterhead#1{%
+  \vspace*{0pt}%
+  {\parindent\z@
+   \centering
+   \normalfont
+   \bfseries
+   \Large
+   \MakeTextUppercase{#1}\par\nobreak
+   \vskip\undf@titlesep
+  }%
+}
+
+% ----------------------------------------------------
+% Seções secundárias a quinárias
+% ----------------------------------------------------
+\renewcommand\section{%
+  \@startsection{section}{1}{\z@}%
+    {\undf@titlesep}%
+    {\undf@titlesep}%
+    {\normalfont\bfseries}%
+}
+
+\renewcommand\subsection{%
+  \@startsection{subsection}{2}{\z@}%
+    {\undf@titlesep}%
+    {\undf@titlesep}%
+    {\normalfont\bfseries}%
+}
+
+\renewcommand\subsubsection{%
+  \@startsection{subsubsection}{3}{\z@}%
+    {\undf@titlesep}%
+    {\undf@titlesep}%
+    {\normalfont}%
+}
+
+\renewcommand\paragraph{%
+  \@startsection{paragraph}{4}{\z@}%
+    {\undf@titlesep}%
+    {\undf@titlesep}%
+    {\normalfont\itshape}%
+}
+
+\makeatother

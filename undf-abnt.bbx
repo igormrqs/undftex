@@ -1,0 +1,475 @@
+% ----------------------------------------------------
+% Projeto: UnDF-TeX
+% Arquivo: undf-abnt.bbx
+%
+% Copyright (c) 2026
+% Universidade do Distrito Federal (UnDF)
+%
+% Este arquivo faz parte do projeto UnDF-TeX.
+%
+% Licenciado sob a LaTeX Project Public License (LPPL),
+% versão 1.3c ou posterior.
+%
+% Implementação técnica baseada nas normas:
+% ABNT NBR 6023:2025
+%
+% Este projeto não reproduz o texto integral
+% das normas da ABNT.
+% ----------------------------------------------------
+
+\ProvidesFile{undf-abnt.bbx}[2026/04/11 UnDF bibliography style]
+
+\RequireBibliographyStyle{standard}
+
+% ----------------------------------------------------
+% Formatação de campos bibliográficos
+% ----------------------------------------------------
+\DeclareFieldFormat[article,incollection,inbook]{title}{#1}
+\DeclareFieldFormat[article,incollection,inbook]{pages}{#1}
+\DeclareFieldFormat[misc]{pages}{#1}
+\DeclareFieldFormat[online,misc,report,thesis]{title}{#1}
+
+% ----------------------------------------------------
+% Formatação de URL sem espaçamento artificial
+% ----------------------------------------------------
+\DeclareFieldFormat{url}{%
+  \begingroup
+    \urlstyle{same}%
+    \Urlmuskip=0mu\relax
+    \appto\UrlNoBreaks{\do\-}%
+    \url{#1}%
+  \endgroup}
+
+% ----------------------------------------------------
+% Bibliografia sem marcador visual
+% ----------------------------------------------------
+\defbibenvironment{bibliography}
+  {\list{}%
+     {%
+       \setlength{\leftmargin}{0pt}%
+       \setlength{\rightmargin}{0pt}%
+       \setlength{\labelwidth}{0pt}%
+       \setlength{\labelsep}{0pt}%
+       \setlength{\itemindent}{0pt}%
+       \setlength{\listparindent}{0pt}%
+       \setlength{\itemsep}{\baselineskip}%
+       \setlength{\parsep}{0pt}%
+       \setlength{\topsep}{0pt}%
+       \setlength{\partopsep}{0pt}%
+       \setlength{\parindent}{0pt}%
+       \setlength{\parskip}{0pt}%
+     }%
+   \singlespacing
+   \setlength{\parindent}{0pt}%
+   \setlength{\parskip}{0pt}%
+   \setlength{\leftskip}{0pt}%
+   \setlength{\rightskip}{0pt}%
+   \setlength{\parfillskip}{0pt plus 1fil}%
+   \hangindent=0pt\relax
+   \hangafter=1\relax
+   \everypar{}%
+   \emergencystretch=3em\relax
+   \fussy
+  }
+  {\endlist}
+  {\item\relax}
+
+% ----------------------------------------------------
+% Formato institucional de nomes
+% ----------------------------------------------------
+\DeclareNameAlias{undf:family-given}{family-given}
+
+\newcommand*{\undf@upperbibnames}{%
+  \renewcommand*{\mkbibnamefamily}[1]{\MakeUppercase{##1}}%
+  \renewcommand*{\mkbibnameprefix}[1]{\MakeUppercase{##1}}%
+}
+
+% ----------------------------------------------------
+% Macros auxiliares da bibliografia
+% ----------------------------------------------------
+\newbibmacro*{undf:printfulldate}{%
+  \iffieldundef{year}
+    {}
+    {%
+      \iffieldundef{day}
+        {}
+        {\printfield{day}\space de\space}%
+      \iffieldundef{month}
+        {}
+        {\mkbibmonth{\thefield{month}}\space de\space}%
+      \printfield{year}%
+    }%
+}
+
+\newbibmacro*{undf:printfullurldate}{%
+  \iffieldundef{urlyear}
+    {}
+    {%
+      \iffieldundef{urlday}
+        {}
+        {\printfield{urlday}\space de\space}%
+      \iffieldundef{urlmonth}
+        {}
+        {\mkbibmonth{\thefield{urlmonth}}\space de\space}%
+      \printfield{urlyear}%
+    }%
+}
+
+\newbibmacro*{undf:mainauthor}{%
+  \ifnameundef{author}
+    {%
+      \iflistundef{organization}
+        {%
+          \ifnameundef{editor}
+            {}
+            {{\undf@upperbibnames\printnames[undf:family-given]{editor}}}%
+        }
+        {\printlist{organization}}%
+    }
+    {{\undf@upperbibnames\printnames[undf:family-given]{author}}}%
+}
+
+\newbibmacro*{undf:containerauthor}{%
+  \ifnameundef{editor}
+    {%
+      \ifnameundef{bookauthor}
+        {}
+        {{\undf@upperbibnames\printnames[undf:family-given]{bookauthor}}}%
+    }
+    {{\undf@upperbibnames\printnames[undf:family-given]{editor}}}%
+}
+
+\newbibmacro*{undf:title}{%
+  \printfield{title}%
+  \iffieldundef{subtitle}
+    {}
+    {\setunit{\addcolon\space}\printfield{subtitle}}%
+}
+
+\newbibmacro*{undf:edition}{%
+  \iffieldundef{edition}
+    {}
+    {\printfield{edition}}%
+}
+
+\newbibmacro*{undf:imprenta}{%
+  \iflistundef{location}
+    {}
+    {%
+      \printlist{location}%
+      \iflistundef{publisher}
+        {}
+        {\addcolon\space}%
+    }%
+  \iflistundef{publisher}
+    {}
+    {\printlist{publisher}}%
+  \iffieldundef{year}
+    {%
+      \iffieldundef{date}
+        {}
+        {%
+          \ifboolexpr{
+            test {\iflistundef{location}}
+            and
+            test {\iflistundef{publisher}}
+          }
+            {}
+            {\addcomma\space}%
+          \usebibmacro{undf:printfulldate}%
+        }%
+    }
+    {%
+      \ifboolexpr{
+        test {\iflistundef{location}}
+        and
+        test {\iflistundef{publisher}}
+      }
+        {}
+        {\addcomma\space}%
+      \printfield{year}%
+    }%
+}
+
+\newbibmacro*{undf:journalinfo}{%
+  \printfield{journaltitle}%
+  \iflistundef{location}
+    {}
+    {\addcomma\space\printlist{location}}%
+  \iffieldundef{volume}
+    {}
+    {\addcomma\space v\adddot\space\printfield{volume}}%
+  \iffieldundef{number}
+    {}
+    {\addcomma\space n\adddot\space\printfield{number}}%
+  \iffieldundef{pages}
+    {}
+    {\addcomma\space p\adddot\space\printfield{pages}}%
+  \iffieldundef{year}
+    {%
+      \iffieldundef{date}
+        {}
+        {\addcomma\space\usebibmacro{undf:printfulldate}}%
+    }
+    {\addcomma\space\printfield{year}}%
+}
+
+\newbibmacro*{undf:urlaccess}{%
+  \iffieldundef{url}
+    {}
+    {%
+      \adddot\par
+      \noindent Disponível em:\space\printfield{url}%
+    }%
+  \iffieldundef{urlyear}
+    {}
+    {%
+      \par\noindent Acesso em:\space\usebibmacro{undf:printfullurldate}%
+    }%
+}
+
+\newbibmacro*{undf:legisource}{%
+  \printfield{journaltitle}%
+  \iflistundef{location}
+    {}
+    {\addcomma\space\printlist{location}}%
+  \iffieldundef{date}
+    {%
+      \iffieldundef{year}
+        {}
+        {\addcomma\space\printfield{year}}%
+    }
+    {\addcomma\space\usebibmacro{undf:printfulldate}}%
+  \iffieldundef{pages}
+    {}
+    {\addcomma\space p\adddot\space\printfield{pages}}%
+}
+
+% ----------------------------------------------------
+% Drivers bibliográficos
+% ----------------------------------------------------
+\DeclareBibliographyDriver{book}{%
+  \usebibmacro{begentry}%
+  \usebibmacro{undf:mainauthor}%
+  \setunit{\adddot\space}%
+  \usebibmacro{undf:title}%
+  \newunit\newblock
+  \usebibmacro{undf:edition}%
+  \newunit\newblock
+  \usebibmacro{undf:imprenta}%
+  \finentry
+}
+
+\DeclareBibliographyDriver{mvbook}{%
+  \usebibmacro{begentry}%
+  \usebibmacro{undf:mainauthor}%
+  \setunit{\adddot\space}%
+  \usebibmacro{undf:title}%
+  \newunit\newblock
+  \usebibmacro{undf:edition}%
+  \newunit\newblock
+  \usebibmacro{undf:imprenta}%
+  \finentry
+}
+
+\DeclareBibliographyDriver{collection}{%
+  \usebibmacro{begentry}%
+  \usebibmacro{undf:mainauthor}%
+  \setunit{\adddot\space}%
+  \usebibmacro{undf:title}%
+  \newunit\newblock
+  \usebibmacro{undf:edition}%
+  \newunit\newblock
+  \usebibmacro{undf:imprenta}%
+  \finentry
+}
+
+\DeclareBibliographyDriver{mvcollection}{%
+  \usebibmacro{begentry}%
+  \usebibmacro{undf:mainauthor}%
+  \setunit{\adddot\space}%
+  \usebibmacro{undf:title}%
+  \newunit\newblock
+  \usebibmacro{undf:edition}%
+  \newunit\newblock
+  \usebibmacro{undf:imprenta}%
+  \finentry
+}
+
+\DeclareBibliographyDriver{article}{%
+  \usebibmacro{begentry}%
+  \usebibmacro{undf:mainauthor}%
+  \setunit{\adddot\space}%
+  \usebibmacro{undf:title}%
+  \adddot\space
+  \usebibmacro{undf:journalinfo}%
+  \usebibmacro{undf:urlaccess}%
+  \finentry
+}
+
+\DeclareBibliographyDriver{incollection}{%
+  \usebibmacro{begentry}%
+  \usebibmacro{undf:mainauthor}%
+  \setunit{\adddot\space}%
+  \usebibmacro{undf:title}%
+  \adddot\space
+  In\addcolon\space
+  \usebibmacro{undf:containerauthor}%
+  \setunit{\adddot\space}%
+  \printfield{booktitle}%
+  \newunit\newblock
+  \usebibmacro{undf:edition}%
+  \newunit\newblock
+  \usebibmacro{undf:imprenta}%
+  \iffieldundef{pages}
+    {}
+    {\addcomma\space p\adddot\space\printfield{pages}}%
+  \usebibmacro{undf:urlaccess}%
+  \finentry
+}
+
+\DeclareBibliographyDriver{inbook}{%
+  \usebibmacro{begentry}%
+  \usebibmacro{undf:mainauthor}%
+  \setunit{\adddot\space}%
+  \usebibmacro{undf:title}%
+  \adddot\space
+  In\addcolon\space
+  \usebibmacro{undf:containerauthor}%
+  \setunit{\adddot\space}%
+  \printfield{booktitle}%
+  \newunit\newblock
+  \usebibmacro{undf:edition}%
+  \newunit\newblock
+  \usebibmacro{undf:imprenta}%
+  \iffieldundef{pages}
+    {}
+    {\addcomma\space p\adddot\space\printfield{pages}}%
+  \usebibmacro{undf:urlaccess}%
+  \finentry
+}
+
+% ----------------------------------------------------
+% Documentos online
+% ----------------------------------------------------
+\DeclareBibliographyDriver{online}{%
+  \usebibmacro{begentry}%
+  \usebibmacro{undf:mainauthor}%
+  \setunit{\adddot\space}%
+  \usebibmacro{undf:title}%
+  \newunit\newblock
+  \iflistundef{location}
+    {}
+    {\printlist{location}}%
+  \iflistundef{publisher}
+    {}
+    {%
+      \iflistundef{location}
+        {}
+        {\addcolon\space}%
+      \printlist{publisher}%
+    }%
+  \iffieldundef{date}
+    {%
+      \iffieldundef{year}
+        {}
+        {%
+          \ifboolexpr{
+            test {\iflistundef{location}}
+            and
+            test {\iflistundef{publisher}}
+          }
+            {}
+            {\addcomma\space}%
+          \printfield{year}%
+        }%
+    }
+    {%
+      \ifboolexpr{
+        test {\iflistundef{location}}
+        and
+        test {\iflistundef{publisher}}
+      }
+        {}
+        {\addcomma\space}%
+      \usebibmacro{undf:printfulldate}%
+    }%
+  \usebibmacro{undf:urlaccess}%
+  \finentry
+}
+
+% ----------------------------------------------------
+% Trabalhos acadêmicos
+% ----------------------------------------------------
+\DeclareBibliographyDriver{thesis}{%
+  \usebibmacro{begentry}%
+  \usebibmacro{undf:mainauthor}%
+  \setunit{\adddot\space}%
+  \usebibmacro{undf:title}%
+  \iffieldundef{type}
+    {}
+    {\adddot\space\printfield{type}}%
+  \iffieldundef{institution}
+    {}
+    {\addcomma\space\printlist{institution}}%
+  \iflistundef{location}
+    {}
+    {\addcomma\space\printlist{location}}%
+  \iffieldundef{year}
+    {}
+    {\addcomma\space\printfield{year}}%
+  \usebibmacro{undf:urlaccess}%
+  \finentry
+}
+
+% ----------------------------------------------------
+% Relatórios e documentos institucionais
+% ----------------------------------------------------
+\DeclareBibliographyDriver{report}{%
+  \usebibmacro{begentry}%
+  \usebibmacro{undf:mainauthor}%
+  \setunit{\adddot\space}%
+  \usebibmacro{undf:title}%
+  \iffieldundef{type}
+    {}
+    {\adddot\space\printfield{type}}%
+  \iffieldundef{number}
+    {}
+    {\addcomma\space n\adddot\space\printfield{number}}%
+  \newunit\newblock
+  \usebibmacro{undf:imprenta}%
+  \usebibmacro{undf:urlaccess}%
+  \finentry
+}
+
+% ----------------------------------------------------
+% Documento jurídico - legislação
+% ----------------------------------------------------
+\DeclareBibliographyDriver{legislation}{%
+  \usebibmacro{begentry}%
+  \printnames{author}%
+  \setunit{\adddot\space}%
+  \printfield[titlecase]{title}%
+  \iffieldundef{subtitle}
+    {}
+    {\setunit{\addcolon\space}\printfield[titlecase]{subtitle}}%
+  \setunit{\adddot\space}%
+  \printfield{journaltitle}%
+  \iffieldundef{location}
+    {}
+    {\setunit{\addcomma\space}\printlist{location}}%
+  \iffieldundef{year}
+    {}
+    {\setunit{\addcomma\space}\printfield{year}}%
+  \iffieldundef{pages}
+    {}
+    {\setunit{\addcomma\space}\printfield{pages}}%
+  \newunit\newblock
+  \iffieldundef{url}
+    {}
+    {\printtext{Disponível em:\space}\printfield{url}}%
+  \iffieldundef{urldate}
+    {}
+    {\setunit{\adddot\space}\printtext{Acesso em:\space}\printurldate}%
+  \usebibmacro{finentry}%
+}

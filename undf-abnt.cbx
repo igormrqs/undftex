@@ -1,0 +1,50 @@
+% ----------------------------------------------------
+% Projeto: UnDF-TeX
+% Arquivo: undf-abnt.cbx
+%
+% Copyright (c) 2026
+% Universidade do Distrito Federal (UnDF)
+%
+% Este arquivo faz parte do projeto UnDF-TeX.
+%
+% Licenciado sob a LaTeX Project Public License (LPPL),
+% versão 1.3c ou posterior.
+%
+% Implementação técnica baseada nas normas:
+% ABNT NBR 10520:2023
+%
+% Este projeto não reproduz o texto integral
+% das normas da ABNT.
+% ----------------------------------------------------
+
+\ProvidesFile{undf-abnt.cbx}[2026/04/11 UnDF citation style]
+
+\RequireCitationStyle{authoryear}
+
+% ----------------------------------------------------
+% Delimitadores do sistema autor-data
+% ----------------------------------------------------
+\renewcommand*{\nameyeardelim}{\addcomma\space}
+\DeclareDelimFormat{multinamedelim}{\addsemicolon\space}
+\DeclareDelimFormat{finalnamedelim}{\addsemicolon\space}
+
+% ----------------------------------------------------
+% Citação de citação (apud)
+% A fonte original aparece no texto.
+% A fonte consultada é citada via biblatex e entra nas referências.
+% ----------------------------------------------------
+\NewDocumentCommand{\textapud}{ m m O{} m O{} }{%
+  #1\space(#2%
+  \ifstrempty{#3}{}{,\space p.\space #3}%
+  \space apud\space \citeauthor{#4},\space \citeyear{#4}%
+  \ifstrempty{#5}{}{,\space p.\space #5}%
+  )%
+}
+
+\NewDocumentCommand{\parenciteapud}{ m m O{} m O{} }{%
+  (#1,\space #2%
+  \ifstrempty{#3}{}{,\space p.\space #3}%
+  \space apud\space \citeauthor{#4},\space \citeyear{#4}%
+  \ifstrempty{#5}{}{,\space p.\space #5}%
+  )%
+}

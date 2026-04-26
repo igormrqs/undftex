@@ -1,0 +1,63 @@
+% ----------------------------------------------------
+% Projeto: UnDF-TeX
+% Arquivo: abnt-nbr6023-2025.sty
+%
+% Copyright (c) 2026
+% Universidade do Distrito Federal (UnDF)
+%
+% Este arquivo faz parte do projeto UnDF-TeX.
+%
+% Licenciado sob a LaTeX Project Public License (LPPL),
+% versão 1.3c ou posterior.
+%
+% Implementação técnica baseada nas normas:
+% ABNT NBR 6023:2025
+%
+% Este projeto não reproduz o texto integral
+% das normas da ABNT.
+% ----------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{src/abnt/abnt-nbr6023-2025}[2026/01/01 NBR 6023 references]
+
+\makeatletter
+
+% ----------------------------------------------------
+% Referências
+% ----------------------------------------------------
+% Premissas institucionais assumidas:
+% - elemento pós-textual;
+% - entrada no sumário;
+% - alinhamento à margem esquerda;
+% - espaço simples internamente;
+% - separação entre referências por uma linha em branco.
+% ----------------------------------------------------
+\newenvironment{referencias}{%
+  \posttextual
+  \undf@specialheadingwithtoc{chapter}{REFERÊNCIAS}%
+  \begingroup
+  \singlespacing
+  \setlength{\parindent}{0pt}%
+  \setlength{\parskip}{0pt}%
+  \raggedright
+  \begin{list}{}{%
+    \setlength{\leftmargin}{0pt}%
+    \setlength{\rightmargin}{0pt}%
+    \setlength{\labelwidth}{0pt}%
+    \setlength{\labelsep}{0pt}%
+    \setlength{\itemindent}{0pt}%
+    \setlength{\listparindent}{0pt}%
+    \setlength{\itemsep}{\baselineskip}%
+    \setlength{\parsep}{0pt}%
+    \setlength{\topsep}{0pt}%
+    \setlength{\partopsep}{0pt}%
+  }%
+}{%
+  \end{list}%
+  \endgroup
+}
+
+\newcommand{\referencia}[1]{%
+  \item #1
+}
+
+\makeatother

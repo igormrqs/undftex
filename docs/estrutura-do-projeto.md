@@ -1,0 +1,79 @@
+# Estrutura do projeto
+
+Este documento descreve a organização técnica do UnDF-TeX para facilitar manutenção futura.
+
+## Entrada pública
+
+O arquivo `undftex.cls`, localizado na raiz, é a entrada pública usada por:
+
+```tex
+\documentclass{undftex}
+```
+
+Ele apenas encaminha para `src/undftex.cls`, onde a classe é realmente carregada.
+
+## Classe principal
+
+`src/undftex.cls`:
+
+- exige LuaLaTeX;
+- carrega `report` com `12pt`, `a4paper` e `oneside`;
+- define caminhos internos de entrada;
+- carrega os módulos do núcleo, identidade, ABNT e bibliografia.
+
+## Núcleo técnico
+
+`src/core/` concentra recursos gerais:
+
+- `undf-engine.sty`: configuração básica de motor e codificação;
+- `undf-metadata.sty`: metadados do trabalho, autoria, orientador, banca e ficha catalográfica;
+- `undf-files.sty`: leitura modular de arquivos e conteúdos opcionais;
+- `undf-layout.sty`: margens, espaçamentos e aparência geral;
+- `undf-titles.sty`: títulos e seções;
+- `undf-headings.sty`: títulos especiais sem numeração;
+- `undf-structure.sty`: transição entre partes pré-textual, textual e pós-textual;
+- `undf-toccore.sty`: ajustes de sumário;
+- `undf-crossrefs.sty`: figuras, tabelas, equações e referências cruzadas;
+- `undf-hyperref.sty`: configuração de links.
+
+## Identidade institucional
+
+`src/identity/` concentra a apresentação institucional:
+
+- `undf-identity.sty`: logo e textos institucionais da capa;
+- `undf-cover.sty`: capa;
+- `undf-titlepages.sty`: folha de rosto, folha de aprovação, errata, dedicatória, agradecimentos, epígrafe e atalhos relacionados.
+
+## Camada ABNT
+
+`src/abnt/` reúne módulos por norma ou família de elementos:
+
+- `abnt-nbr14724-2024.sty`: estrutura de trabalhos acadêmicos, listas, apêndices, anexos e glossário;
+- `abnt-nbr6028-2021.sty`: resumo, resumo em língua estrangeira, palavras-chave e avisos de tamanho;
+- `abnt-nbr6027-2012.sty`: sumário;
+- `abnt-nbr6023-2025.sty`: suporte básico a referências;
+- `abnt-nbr10520-2023.sty`: comandos auxiliares de citação textual.
+
+## Bibliografia
+
+`src/biblatex/undf-biblatex.sty` configura `biblatex` com:
+
+- backend `biber`;
+- estilo `undf-abnt`;
+- comandos amigáveis para citações indiretas, diretas, longas, apud e referência completa.
+
+Os arquivos `undf-abnt.bbx` e `undf-abnt.cbx` ficam na raiz para serem encontrados pelo `biblatex`.
+
+## Modelos de conteúdo
+
+O projeto mantém dois fluxos:
+
+- modelo em branco: `tcc.tex`, `capitulos/`, `obrigatorio/`, `opcional/`;
+- exemplo completo: `tcc-exemplo-undf.tex`, `exemplo/`.
+
+Ao alterar a interface pública do template, verifique os dois fluxos.
+
+## Regra de manutenção
+
+Mudanças devem ser pequenas, rastreáveis e compatíveis com a estrutura atual. Antes de criar um novo módulo, confirme se a responsabilidade não pertence a um arquivo já existente.
+

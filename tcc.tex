@@ -1,0 +1,155 @@
+% ----------------------------------------------------
+% Projeto: UnDF-TeX
+% Arquivo: tcc.tex
+%
+% Copyright (c) 2026
+% Universidade do Distrito Federal (UnDF)
+%
+% Este arquivo faz parte do projeto UnDF-TeX.
+%
+% Licenciado sob a LaTeX Project Public License (LPPL),
+% versão 1.3c ou posterior.
+%
+% Implementação técnica baseada nas normas:
+% ABNT NBR 14724:2024
+% ABNT NBR 6027:2012
+% ABNT NBR 6028:2021
+% ABNT NBR 10520:2023
+% ABNT NBR 6023:2025
+%
+% Este projeto não reproduz o texto integral
+% das normas da ABNT.
+% ----------------------------------------------------
+
+\documentclass{undftex}
+
+% ----------------------------------------------------
+% Metadados principais
+% ----------------------------------------------------
+\autor{Aluno}
+%\autores{Aluno 1//Aluno 2}
+
+\titulo{Título do Trabalho}
+\subtitulo{Subtítulo opcional}
+\curso{Nome do curso}
+\tipotrabalho{Trabalho de Conclusão de Curso}
+\graupretendido{bacharel em Nome do curso}
+\local{Cidade}
+\ano{Ano}
+\orientador{Nome do Orientador}
+\coorientador{}
+\areadeconcentracao{Área de concentração}
+\dataaprovacao{dia de mês de ano}
+
+% ----------------------------------------------------
+% Banca examinadora
+% Use o primeiro campo para o nome, sem Dr., Dra., Prof. ou similar.
+% Use o segundo campo para a titulação exigida na folha de aprovação.
+% ----------------------------------------------------
+\limparmembrosbanca
+\membrobanca{Nome do Orientador}{Titulação do Orientador}{Universidade do Distrito Federal -- UnDF}
+\membrobanca{Nome do Membro 1}{Titulação do Membro 1}{Universidade do Distrito Federal -- UnDF}
+\membrobanca{Nome do Membro 2}{Titulação do Membro 2}{Universidade do Distrito Federal -- UnDF}
+
+% ----------------------------------------------------
+% Bibliografia
+% ----------------------------------------------------
+\addbibresource{obrigatorio/referencias.bib}
+
+% ----------------------------------------------------
+% Conteúdos
+% ----------------------------------------------------
+\undfresetpretextualcontents
+
+\undfinputoptional{opcional/dedicatoria}
+\undfinputoptional{opcional/agradecimentos}
+\undfinputoptional{opcional/epigrafe}
+\undfinputoptional{obrigatorio/resumo}
+\undfinputoptional{obrigatorio/abstract}
+
+\undfwarnifempty{resumo}{Preencha o arquivo obrigatorio/resumo.tex}
+\undfwarnifempty{palavraschave}{Preencha as palavras-chave em obrigatorio/resumo.tex}
+\undfwarnifempty{abstract}{Preencha o arquivo obrigatorio/abstract.tex}
+\undfwarnifempty{keywords}{Preencha as keywords em obrigatorio/abstract.tex}
+
+\undfinputoptional{opcional/ficha-catalografica}
+\undfinputoptional{opcional/errata}
+
+\begin{document}
+	\undfvalidateonepagecontents
+	
+	\undfcover
+	
+	\pretextual
+	\undffolhaderosto
+	\undfversofolhaderostoopcional
+	\undferrata
+	\undffolhadeaprovacao
+	
+	\undfifcontent{dedicatoria}
+	{\dedicatoria{\undfusecontent{dedicatoria}}}
+	{}
+	
+	\undfifcontent{agradecimentos}
+	{%
+		\begin{agradecimentos}
+			\undfusecontent{agradecimentos}
+		\end{agradecimentos}
+	}
+	{}
+	
+	\undfifcontent{epigrafe}
+	{%
+		\undfifcontent{epigrafeautor}
+		{\epigrafe[\undfusecontent{epigrafeautor}]{\undfusecontent{epigrafe}}}
+		{\epigrafe{\undfusecontent{epigrafe}}}
+	}
+	{}
+	
+	\undfifcontent{resumo}
+	{%
+		\begin{resumo}
+			\undfusecontent{resumo}
+			\undfifcontent{palavraschave}
+			{\palavraschave{\undfusecontent{palavraschave}}}
+			{}
+		\end{resumo}
+	}
+	{}
+	
+	\undfifcontent{abstracttitle}
+	{\tituloresumoestrangeiro{\undfusecontent{abstracttitle}}}
+	{}
+	
+	\undfifcontent{keywordslabel}
+	{\rotulopalavraschaveestrangeiro{\undfusecontent{keywordslabel}}}
+	{}
+	
+	\undfifcontent{abstract}
+	{%
+		\begin{resumoestrangeiro}
+			\undfusecontent{abstract}
+			\undfifcontent{keywords}
+			{\keywords{\undfusecontent{keywords}}}
+			{}
+		\end{resumoestrangeiro}
+	}
+	{}
+	
+	\undfsumario
+	
+	\textual
+	
+	\undfincludechapter{capitulos/01-introducao}
+	\undfincludechapter{capitulos/02-referencial-teorico}
+	\undfincludechapter{capitulos/03-metodologia}
+	\undfincludechapter{capitulos/04-analise-e-discussao}
+	\undfincludechapter{capitulos/05-consideracoes-finais}
+	
+	\printundfreferences
+	
+	\undfinputoptional{opcional/glossario}
+	\undfinputoptional{opcional/apendices}
+	\undfinputoptional{opcional/anexos}
+	
+\end{document}

@@ -1,0 +1,53 @@
+% Projeto: UnDF-TeX
+% Arquivo: undf-hyperref.sty
+%
+% Copyright (c) 2026
+% Universidade do Distrito Federal (UnDF)
+%
+% Este arquivo faz parte do projeto UnDF-TeX.
+%
+% Licenciado sob a LaTeX Project Public License (LPPL),
+% versão 1.3c ou posterior.
+%
+% Implementação técnica baseada nas normas:
+% ABNT NBR 6027:2012
+% ABNT NBR 14724:2024
+%
+% Este projeto não reproduz o texto integral
+% das normas da ABNT.
+% ----------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{src/core/undf-hyperref}[2026/04/14 UnDF-TeX hyperlinks]
+
+\RequirePackage[
+  unicode=true,
+  psdextra,
+  hidelinks,
+  linktoc=all,
+  bookmarksopen=true,
+  bookmarksopenlevel=1,
+  bookmarksnumbered=true
+]{hyperref}
+
+\RequirePackage{bookmark}
+
+\makeatletter
+
+% Evita problemas em bookmarks/PDF strings
+\pdfstringdefDisableCommands{%
+  \def\MakeTextUppercase#1{#1}%
+  \def\MakeUppercase#1{#1}%
+  \def\\{ - }%
+}
+
+% Metadados básicos do PDF
+\AtBeginDocument{%
+  \hypersetup{%
+    pdftitle={\undf@fulltitle},
+    pdfauthor={\undf@autor},
+    pdfsubject={\undf@tipotrabalho},
+    pdfcreator={UnDF-TeX},
+  }%
+}
+
+\makeatother

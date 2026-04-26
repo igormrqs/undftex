@@ -1,0 +1,74 @@
+% ----------------------------------------------------
+% Projeto: UnDF-TeX
+% Arquivo: undf-layout.sty
+%
+% Copyright (c) 2026
+% Universidade do Distrito Federal (UnDF)
+%
+% Este arquivo faz parte do projeto UnDF-TeX.
+%
+% Licenciado sob a LaTeX Project Public License (LPPL),
+% versão 1.3c ou posterior.
+%
+% Implementação técnica baseada nas normas:
+% ABNT NBR 14724:2024
+% ABNT NBR 10520:2023
+% ABNT NBR 6023:2025
+%
+% Este projeto não reproduz o texto integral
+% das normas da ABNT.
+% ----------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{src/core/undf-layout}[2026/01/01 UnDF-TeX layout]
+
+% ----------------------------------------------------
+% Margens do documento
+% ----------------------------------------------------
+\RequirePackage{geometry}
+
+\geometry{
+  a4paper,
+  left=3cm,
+  right=2cm,
+  top=3cm,
+  bottom=2cm
+}
+
+% ----------------------------------------------------
+% Espaçamento entre linhas
+% ----------------------------------------------------
+\RequirePackage{setspace}
+\onehalfspacing
+
+% ----------------------------------------------------
+% Recuo também no primeiro parágrafo após títulos
+% ----------------------------------------------------
+\RequirePackage{indentfirst}
+
+% ----------------------------------------------------
+% Recuo de parágrafo
+% ----------------------------------------------------
+\setlength{\parindent}{1.25cm}
+
+% ----------------------------------------------------
+% Paginação textual e pós-textual
+% ----------------------------------------------------
+\RequirePackage{fancyhdr}
+
+% Valor ajustado para eliminar warning do fancyhdr
+\setlength{\headheight}{15pt}
+
+\fancypagestyle{undftextual}{
+  \fancyhf{}
+  \fancyhead[R]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[R]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}

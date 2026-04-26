@@ -1,0 +1,184 @@
+% ----------------------------------------------------
+% Projeto: UnDF-TeX
+% Arquivo: abnt-nbr14724-2024.sty
+%
+% Copyright (c) 2026
+% Universidade do Distrito Federal (UnDF)
+%
+% Este arquivo faz parte do projeto UnDF-TeX.
+%
+% Licenciado sob a LaTeX Project Public License (LPPL),
+% versão 1.3c ou posterior.
+%
+% Implementação técnica baseada nas normas:
+% ABNT NBR 14724:2024
+%
+% Este projeto não reproduz o texto integral
+% das normas da ABNT.
+% ----------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{src/abnt/abnt-nbr14724-2024}[2026/01/01 NBR 14724 structure]
+
+\RequirePackage{caption}
+\RequirePackage{tocloft}
+
+% ----------------------------------------------------
+% Legendas e listas de ilustrações/tabelas
+% ----------------------------------------------------
+% No texto:
+% Figura 1.1 --- Título
+% Tabela 1.1 --- Título
+%
+% Nas listas:
+% Figura 1.1 --- Título .......... página
+% Tabela 1.1 --- Título .......... página
+% ----------------------------------------------------
+
+\DeclareCaptionLabelSeparator{undfsep}{ --- }
+
+\captionsetup[figure]{
+  name=Figura,
+  labelsep=undfsep
+}
+
+\captionsetup[table]{
+  name=Tabela,
+  labelsep=undfsep
+}
+
+% Lista de ilustrações
+\renewcommand{\cftfigfont}{\normalfont}
+\renewcommand{\cftfigpagefont}{\normalfont}
+\renewcommand{\cftfigpresnum}{Figura~}
+\renewcommand{\cftfigaftersnum}{~---~}
+\settowidth{\cftfignumwidth}{Figura~99.9~---~}
+
+% Lista de tabelas
+\renewcommand{\cfttabfont}{\normalfont}
+\renewcommand{\cfttabpagefont}{\normalfont}
+\renewcommand{\cfttabpresnum}{Tabela~}
+\renewcommand{\cfttabaftersnum}{~---~}
+\settowidth{\cfttabnumwidth}{Tabela~99.9~---~}
+
+\makeatletter
+
+% ----------------------------------------------------
+% Interface estrutural principal
+% ----------------------------------------------------
+\newcommand{\pretextual}{%
+  \undf@beginpretextual
+}
+
+\newcommand{\textual}{%
+  \undf@begintextual
+}
+
+\newcommand{\posttextual}{%
+  \undf@beginposttextual
+}
+
+% ----------------------------------------------------
+% Listas pré-textuais
+% ----------------------------------------------------
+\newcommand{\listadeilustracoes}{%
+  \undf@specialheading{LISTA DE ILUSTRAÇÕES}%
+  \@mkboth{LISTA DE ILUSTRAÇÕES}{LISTA DE ILUSTRAÇÕES}%
+  \@starttoc{lof}%
+}
+
+\newcommand{\listadetabelas}{%
+  \undf@specialheading{LISTA DE TABELAS}%
+  \@mkboth{LISTA DE TABELAS}{LISTA DE TABELAS}%
+  \@starttoc{lot}%
+}
+
+\newenvironment{listadesiglas}{%
+  \undf@specialheading{LISTA DE ABREVIATURAS E SIGLAS}%
+  \begingroup
+  \setlength{\parindent}{0pt}%
+  \begin{list}{}{%
+    \setlength{\leftmargin}{4cm}%
+    \setlength{\labelwidth}{3.2cm}%
+    \setlength{\labelsep}{0.8cm}%
+    \setlength{\itemindent}{0pt}%
+    \setlength{\listparindent}{0pt}%
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parsep}{0pt}%
+    \setlength{\topsep}{0pt}%
+    \setlength{\partopsep}{0pt}%
+  }%
+}{%
+  \end{list}%
+  \endgroup
+}
+
+\newcommand{\sigla}[2]{%
+  \item[#1] #2
+}
+
+\newenvironment{listadesimbolos}{%
+  \undf@specialheading{LISTA DE SÍMBOLOS}%
+  \begingroup
+  \setlength{\parindent}{0pt}%
+  \begin{list}{}{%
+    \setlength{\leftmargin}{4cm}%
+    \setlength{\labelwidth}{3.2cm}%
+    \setlength{\labelsep}{0.8cm}%
+    \setlength{\itemindent}{0pt}%
+    \setlength{\listparindent}{0pt}%
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parsep}{0pt}%
+    \setlength{\topsep}{0pt}%
+    \setlength{\partopsep}{0pt}%
+  }%
+}{%
+  \end{list}%
+  \endgroup
+}
+
+\newcommand{\simbolo}[2]{%
+  \item[#1] #2
+}
+
+% ----------------------------------------------------
+% Glossário
+% ----------------------------------------------------
+\newenvironment{glossario}{%
+  \posttextual
+  \undf@specialheadingwithtoc{chapter}{GLOSSÁRIO}%
+  \begingroup
+  \setlength{\parindent}{0pt}%
+  \begin{description}
+}{%
+  \end{description}
+  \endgroup
+}
+
+\newcommand{\glossariotermo}[2]{%
+  \item[#1] #2
+}
+
+% ----------------------------------------------------
+% Apêndices
+% ----------------------------------------------------
+\newcounter{undfapendice}
+
+\newcommand{\apendice}[1]{%
+  \posttextual
+  \refstepcounter{undfapendice}%
+  \undf@specialheadingwithtoc{chapter}{APÊNDICE \Alph{undfapendice} --- #1}%
+}
+
+% ----------------------------------------------------
+% Anexos
+% ----------------------------------------------------
+\newcounter{undfanexo}
+
+\newcommand{\anexo}[1]{%
+  \posttextual
+  \refstepcounter{undfanexo}%
+  \undf@specialheadingwithtoc{chapter}{ANEXO \Alph{undfanexo} --- #1}%
+}
+
+\makeatother

@@ -1,0 +1,71 @@
+# Arquivos auxiliares de compilação LaTeX
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.fmt
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+*.nav
+*.snm
+*.vrb
+*.ilg
+*.ind
+*.idx
+*.ist
+*.lol
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+
+# Saídas e artefatos gerados
+*.dvi
+*.ps
+*.pdf
+*.pdfsync
+*.synctex(busy)
+build/
+dist/
+_release/
+
+# LuaLaTeX
+*.lua
+*.luac
+
+# Arquivos locais temporários
+.gitignore.txt
+
+# Temporários gerais
+*.tmp
+*.temp
+*.bak
+*.backup
+*~
+
+# Sistemas operacionais
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores e IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python e ferramentas auxiliares
+__pycache__/
+*.pyc
+.cache/
+coverage/

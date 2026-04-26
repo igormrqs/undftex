@@ -1,0 +1,113 @@
+% ----------------------------------------------------
+% Projeto: UnDF-TeX
+% Arquivo: undf-files.sty
+%
+% Copyright (c) 2026
+% Universidade do Distrito Federal (UnDF)
+%
+% Este arquivo faz parte do projeto UnDF-TeX.
+%
+% Licenciado sob a LaTeX Project Public License (LPPL),
+% versão 1.3c ou posterior.
+%
+% Camada de apoio para modularização de arquivos
+% e uso automático de conteúdos opcionais.
+% ----------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{src/core/undf-files}[2026/04/12 UnDF-TeX modular file helpers]
+
+\RequirePackage{etoolbox}
+
+\makeatletter
+
+% ----------------------------------------------------
+% Registro interno de conteúdos
+% ----------------------------------------------------
+\newcommand{\undfsetcontent}[2]{%
+  \expandafter\gdef\csname undfcontent@#1\endcsname{#2}%
+}
+
+\newcommand{\undfappendcontent}[2]{%
+  \ifcsname undfcontent@#1\endcsname
+    \csappto{undfcontent@#1}{#2}%
+  \else
+    \expandafter\gdef\csname undfcontent@#1\endcsname{#2}%
+  \fi
+}
+
+\newcommand{\undfclearcontent}[1]{%
+  \expandafter\gdef\csname undfcontent@#1\endcsname{}%
+}
+
+\newcommand{\undfusecontent}[1]{%
+  \ifcsname undfcontent@#1\endcsname
+    \csname undfcontent@#1\endcsname
+  \fi
+}
+
+\newcommand{\undfifcontent}[3]{%
+  \ifcsname undfcontent@#1\endcsname
+    \expandafter\ifdefempty\csname undfcontent@#1\endcsname
+      {#3}
+      {#2}%
+  \else
+    #3%
+  \fi
+}
+
+\newcommand{\undfwarnifempty}[2]{%
+  \undfifcontent{#1}{}{\PackageWarningNoLine{undf-files}{#2}}%
+}
+
+% ----------------------------------------------------
+% Inclusão opcional de arquivos
+% ----------------------------------------------------
+\newcommand{\undfinputoptional}[1]{%
+  \IfFileExists{#1.tex}{\input{#1}}{}%
+}
+
+\newcommand{\undfincludechapter}[1]{%
+  \IfFileExists{#1.tex}{\include{#1}}{}%
+}
+
+% ----------------------------------------------------
+% Limpeza dos conteúdos opcionais pré-textuais
+% ----------------------------------------------------
+\newcommand{\undfresetpretextualcontents}{%
+  \undfclearcontent{dedicatoria}%
+  \undfclearcontent{agradecimentos}%
+  \undfclearcontent{epigrafe}%
+  \undfclearcontent{epigrafeautor}%
+  \undfclearcontent{resumo}%
+  \undfclearcontent{palavraschave}%
+  \undfclearcontent{abstracttitle}%
+  \undfclearcontent{abstract}%
+  \undfclearcontent{keywordslabel}%
+  \undfclearcontent{keywords}%
+}
+
+\makeatother
+
+% ----------------------------------------------------
+% Inclusão prática de PDFs externos
+% ----------------------------------------------------
+\RequirePackage{pdfpages}
+
+\newcommand{\undfincluirpdf}[2][]{%
+  \includepdf[
+    pages=-,
+    pagecommand={},
+    #1
+  ]{#2}%
+}
+
+\newcommand{\undfanexarpdf}[3][]{%
+  \anexo{#2}%
+  \undfincluirpdf[#1]{#3}%
+}
+
+\newcommand{\undfapendicepdf}[3][]{%
+  \apendice{#2}%
+  \undfincluirpdf[#1]{#3}%
+}

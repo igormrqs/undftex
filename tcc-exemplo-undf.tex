@@ -1,0 +1,155 @@
+% ----------------------------------------------------
+% Projeto: UnDF-TeX
+% Arquivo: tcc-exemplo-undf.tex
+%
+% Copyright (c) 2026
+% Universidade do Distrito Federal (UnDF)
+%
+% Este arquivo faz parte do projeto UnDF-TeX.
+%
+% Licenciado sob a LaTeX Project Public License (LPPL),
+% versão 1.3c ou posterior.
+%
+% Implementação técnica baseada nas normas:
+% ABNT NBR 14724:2024
+% ABNT NBR 6027:2012
+% ABNT NBR 6028:2021
+% ABNT NBR 10520:2023
+% ABNT NBR 6023:2025
+%
+% Este projeto não reproduz o texto integral
+% das normas da ABNT.
+% ----------------------------------------------------
+
+\documentclass{undftex}
+
+% ----------------------------------------------------
+% Metadados principais
+% ----------------------------------------------------
+\autor{Maria Silva}
+\titulo{Trabalho de Conclusão de Curso}
+\subtitulo{estrutura, escrita acadêmica e normalização}
+\curso{Enfermagem}
+\tipotrabalho{Trabalho de Conclusão de Curso}
+\graupretendido{bacharel em Enfermagem}
+\local{Brasília}
+\ano{2026}
+\orientador{João Henrique Almeida}
+\coorientador{Helena Martins}
+\areadeconcentracao{Educação em Saúde}
+\dataaprovacao{10 de abril de 2026}
+
+% ----------------------------------------------------
+% Banca examinadora
+% Nome sem prefixo no primeiro campo; titulação no segundo campo.
+% ----------------------------------------------------
+\limparmembrosbanca
+\membrobanca{João Henrique Almeida}{Doutor em Educação}{Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes -- UnDF}
+\membrobanca{Helena Martins}{Doutora em Enfermagem}{Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes -- UnDF}
+\membrobanca{Carlos Eduardo Lima}{Doutor em Saúde Coletiva}{Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes -- UnDF}
+
+% ----------------------------------------------------
+% Bibliografia
+% ----------------------------------------------------
+\addbibresource{exemplo/obrigatorio/referencias.bib}
+
+% ----------------------------------------------------
+% Conteúdos
+% ----------------------------------------------------
+\undfresetpretextualcontents
+
+\undfinputoptional{exemplo/opcional/dedicatoria}
+\undfinputoptional{exemplo/opcional/agradecimentos}
+\undfinputoptional{exemplo/opcional/epigrafe}
+\undfinputoptional{exemplo/obrigatorio/resumo}
+\undfinputoptional{exemplo/obrigatorio/abstract}
+
+\undfwarnifempty{resumo}{Preencha o arquivo exemplo/obrigatorio/resumo.tex}
+\undfwarnifempty{palavraschave}{Preencha as palavras-chave em exemplo/obrigatorio/resumo.tex}
+\undfwarnifempty{abstract}{Preencha o arquivo exemplo/obrigatorio/abstract.tex}
+\undfwarnifempty{keywords}{Preencha as keywords em exemplo/obrigatorio/abstract.tex}
+
+\undfinputoptional{exemplo/opcional/ficha-catalografica}
+\undfinputoptional{exemplo/opcional/errata}
+
+\begin{document}
+	\undfvalidateonepagecontents
+	
+	\undfcover
+	
+	\pretextual
+	\undffolhaderosto
+	\undfversofolhaderostoopcional
+	\undferrata
+	\undffolhadeaprovacao
+	
+	\undfifcontent{dedicatoria}
+	{\dedicatoria{\undfusecontent{dedicatoria}}}
+	{}
+	
+	\undfifcontent{agradecimentos}
+	{%
+		\begin{agradecimentos}
+			\undfusecontent{agradecimentos}
+		\end{agradecimentos}
+	}
+	{}
+	
+	\undfifcontent{epigrafe}
+	{%
+		\undfifcontent{epigrafeautor}
+		{\epigrafe[\undfusecontent{epigrafeautor}]{\undfusecontent{epigrafe}}}
+		{\epigrafe{\undfusecontent{epigrafe}}}
+	}
+	{}
+	
+	\undfifcontent{resumo}
+	{%
+		\begin{resumo}
+			\undfusecontent{resumo}
+			\undfifcontent{palavraschave}
+			{\palavraschave{\undfusecontent{palavraschave}}}
+			{}
+		\end{resumo}
+	}
+	{}
+	
+	\undfifcontent{abstracttitle}
+	{\tituloresumoestrangeiro{\undfusecontent{abstracttitle}}}
+	{}
+	
+	\undfifcontent{keywordslabel}
+	{\rotulopalavraschaveestrangeiro{\undfusecontent{keywordslabel}}}
+	{}
+	
+	\undfifcontent{abstract}
+	{%
+		\begin{resumoestrangeiro}
+			\undfusecontent{abstract}
+			\undfifcontent{keywords}
+			{\keywords{\undfusecontent{keywords}}}
+			{}
+		\end{resumoestrangeiro}
+	}
+	{}
+	
+	\listadeilustracoes
+	\listadetabelas
+	
+	\undfsumario
+	
+	\textual
+	
+	\undfincludechapter{exemplo/capitulos/01-introducao}
+	\undfincludechapter{exemplo/capitulos/02-referencial-teorico}
+	\undfincludechapter{exemplo/capitulos/03-metodologia}
+	\undfincludechapter{exemplo/capitulos/04-analise-e-discussao}
+	\undfincludechapter{exemplo/capitulos/05-consideracoes-finais}
+	
+	\printundfreferences
+	
+	\undfinputoptional{exemplo/opcional/glossario}
+	\undfinputoptional{exemplo/opcional/apendices}
+	\undfinputoptional{exemplo/opcional/anexos}
+	
+\end{document}

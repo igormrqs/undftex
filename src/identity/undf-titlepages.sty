@@ -1,0 +1,356 @@
+% ----------------------------------------------------
+% Projeto: UnDF-TeX
+% Arquivo: undf-titlepages.sty
+%
+% Copyright (c) 2026
+% Universidade do Distrito Federal (UnDF)
+%
+% Este arquivo faz parte do projeto UnDF-TeX.
+%
+% Licenciado sob a LaTeX Project Public License (LPPL),
+% versão 1.3c ou posterior.
+%
+% Implementação técnica baseada nas normas:
+% ABNT NBR 14724:2024
+% ABNT NBR 6027:2012
+%
+% Este projeto não reproduz o texto integral
+% das normas da ABNT.
+% ----------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{src/identity/undf-titlepages}[2026/04/11 UnDF-TeX title pages]
+
+\RequirePackage{etoolbox}
+\RequirePackage{setspace}
+\RequirePackage{graphicx}
+\RequirePackage{pdfpages}
+
+\makeatletter
+
+% ----------------------------------------------------
+% Dados internos de errata
+% ----------------------------------------------------
+\def\undf@errataref{}
+\def\undf@erratatexto{}
+
+\newcommand{\errataref}[1]{\gdef\undf@errataref{#1}}
+\newcommand{\erratatexto}[1]{\gdef\undf@erratatexto{#1}}
+
+% ----------------------------------------------------
+% Blocos auxiliares
+% ----------------------------------------------------
+\newcommand*{\undf@nameblock}[1]{%
+  \begin{center}
+    \normalsize #1\par
+  \end{center}%
+}
+
+\newcommand*{\undf@titleblock}{%
+  \begin{center}
+    \normalsize\bfseries\MakeUppercase{\undf@titlefull}\par
+  \end{center}%
+}
+
+\newcommand*{\undf@folharostonatureza}{%
+  \noindent\hfill
+    \begin{minipage}[t]{0.55\textwidth}
+      \singlespacing
+      \small
+      \raggedright
+      \undf@naturezatexto\par
+    \ifdefempty{\undf@orientador}
+      {}
+      {\vspace{\baselineskip}Orientador: \undfprintpersonname{\undf@orientador}\par}%
+    \ifdefempty{\undf@coorientador}
+      {}
+      {Coorientador: \undfprintpersonname{\undf@coorientador}\par}%
+  \end{minipage}\par
+}
+
+\newcommand*{\undf@aprovacaonatureza}{%
+  \noindent\hfill
+    \begin{minipage}[t]{0.55\textwidth}
+      \singlespacing
+      \small
+      \raggedright
+      \undf@naturezatexto\par
+  \end{minipage}\par
+}
+
+\newcommand*{\undf@printbancamembro}[3]{%
+  \par\vspace{0.45cm}%
+  \noindent
+  \begin{center}
+    \begin{minipage}[t]{0.7\textwidth}
+      \centering
+      \rule{\linewidth}{0.4pt}\par
+      \undfprintpersonname{#1}\par
+      \ifstrempty{#2}{}{{#2}\par}%
+      \ifstrempty{#3}{}{{#3}\par}%
+    \end{minipage}
+  \end{center}%
+}
+
+\newcommand*{\undf@pretextualtitle}[1]{%
+  \clearpage
+  \thispagestyle{empty}
+  \begingroup
+    \begin{center}
+      \normalsize\bfseries\MakeUppercase{#1}\par
+    \end{center}
+    \vspace{\baselineskip}%
+    \ignorespaces
+}
+
+\newcommand*{\undf@endpretextualtitle}{%
+    \par
+  \endgroup
+  \clearpage
+}
+
+% ----------------------------------------------------
+% Folha de rosto
+% ----------------------------------------------------
+\newcommand{\undffolhaderosto}{%
+  \clearpage
+  \thispagestyle{empty}
+  \begingroup
+    \vspace*{0pt}
+    \undf@nameblock{\undfprintautores}
+    \vfill
+    \undf@titleblock
+    \ifdefempty{\undf@volumenumero}
+      {}
+      {%
+        \vspace{\baselineskip}
+        \begin{center}
+          \normalsize Volume \undf@volumenumero\par
+        \end{center}%
+      }%
+    \vfill
+    \undf@folharostonatureza
+    \vfill
+    \begin{center}
+      \normalsize \undf@local\par
+      \normalsize \undf@ano\par
+    \end{center}
+  \endgroup
+  \clearpage
+}
+
+% ----------------------------------------------------
+% Verso da folha de rosto / ficha catalográfica
+% Prioridade:
+% 1) PDF
+% 2) imagem
+% 3) texto
+% 4) placeholder
+% ----------------------------------------------------
+\newcommand{\undfversofolhaderosto}{%
+  \ifdefempty{\undf@catalogacaopdf}
+    {%
+      \clearpage
+      \thispagestyle{empty}
+      \null\vfill
+      \noindent\hfill
+      \begin{minipage}[t]{0.75\textwidth}
+        \singlespacing
+        \footnotesize
+        \ifdefempty{\undf@catalogacaoimagem}
+          {%
+            \ifdefempty{\undf@catalogacao}
+              {%
+                \fbox{%
+                  \parbox{0.95\linewidth}{%
+                    \centering
+                    Dados internacionais de catalogação na publicação\\
+                    Inserir a ficha catalográfica fornecida pela biblioteca.
+                  }%
+                }%
+              }
+              {\undf@catalogacao\par}%
+          }
+          {%
+            \begin{center}
+              \includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{\undf@catalogacaoimagem}
+            \end{center}
+          }%
+      \end{minipage}
+      \vfill\null
+      \clearpage
+    }
+    {%
+      \includepdf[
+        pages=1,
+        pagecommand={\thispagestyle{empty}}
+      ]{\undf@catalogacaopdf}%
+    }%
+}
+
+% ----------------------------------------------------
+% Verso da Folha de Rosto - OPCIONAL
+% ----------------------------------------------------
+
+\newcommand{\undfversofolhaderostoopcional}{%
+  \ifdefempty{\undf@catalogacaopdf}
+    {%
+      \ifdefempty{\undf@catalogacaoimagem}
+        {%
+          \ifdefempty{\undf@catalogacao}
+            {}
+            {\undfversofolhaderosto}%
+        }
+        {\undfversofolhaderosto}%
+    }
+    {\undfversofolhaderosto}%
+}
+
+% ----------------------------------------------------
+% Errata
+% ----------------------------------------------------
+\newcommand{\undferrata}{%
+  \ifdefempty{\undf@erratatexto}
+    {}
+    {%
+      \clearpage
+      \thispagestyle{empty}
+      \begingroup
+        \begin{center}
+          \normalsize\bfseries ERRATA\par
+        \end{center}
+        \vspace{\baselineskip}
+        \noindent
+        \singlespacing
+        \undf@errataref\par
+        \vspace{\baselineskip}
+        \undf@erratatexto\par
+      \endgroup
+      \clearpage
+    }%
+}
+
+% ----------------------------------------------------
+% Folha de aprovação
+% ----------------------------------------------------
+\newcommand{\undffolhadeaprovacao}{%
+  \clearpage
+  \thispagestyle{empty}
+  \begingroup
+    \vspace*{0pt}
+    \undf@nameblock{\undfprintautores}
+    \vspace{1cm}
+    \undf@titleblock
+    \ifdefempty{\undf@volumenumero}
+      {}
+      {%
+        \vspace{\baselineskip}
+        \begin{center}
+          \normalsize Volume \undf@volumenumero\par
+        \end{center}%
+      }%
+    \vspace{1cm}
+    \undf@aprovacaonatureza
+    \vspace{0.6cm}
+    \ifdefempty{\undf@dataaprovacao}
+      {}
+      {\noindent Data de aprovação: \undf@dataaprovacao\par}%
+    \vspace{0.5cm}%
+    \undf@bancalist
+  \endgroup
+  \clearpage
+}
+
+% ----------------------------------------------------
+% Dedicatória
+% ----------------------------------------------------
+\newcommand{\dedicatoria}[1]{%
+  \clearpage
+  \thispagestyle{empty}
+  \begingroup
+    \null\vfill
+    \noindent\hfill
+    \begin{minipage}[b]{0.42\textwidth}
+      \singlespacing
+      \raggedleft
+      \small
+      \normalfont
+      #1\par
+    \end{minipage}
+    \vspace*{2cm}
+  \endgroup
+  \clearpage
+}
+
+% ----------------------------------------------------
+% Agradecimentos
+% ----------------------------------------------------
+\newenvironment{agradecimentos}
+  {\undf@pretextualtitle{AGRADECIMENTOS}}
+  {\undf@endpretextualtitle}
+
+% ----------------------------------------------------
+% Epígrafe pré-textual
+% ----------------------------------------------------
+\newcommand{\epigrafe}[2][]{%
+  \clearpage
+  \thispagestyle{empty}
+  \begingroup
+    \null\vfill
+    \noindent\hfill
+    \begin{minipage}[b]{0.50\textwidth}
+      \singlespacing
+      \raggedleft
+      \itshape #2\par
+      \ifstrempty{#1}
+        {}
+        {%
+          \vspace{0.8\baselineskip}%
+          {\normalfont\footnotesize\upshape --- #1\par}%
+        }%
+    \end{minipage}
+    \vspace*{1.5cm}
+  \endgroup
+  \clearpage
+}
+
+% ----------------------------------------------------
+% Glossário
+% ----------------------------------------------------
+\newenvironment{undfglossario}
+  {%
+    \posttextual
+    \phantomsection
+    \addcontentsline{toc}{chapter}{GLOSSÁRIO}%
+    \thispagestyle{plain}%
+    \begingroup
+      \begin{center}
+        \normalsize\bfseries\MakeUppercase{GLOSSÁRIO}\par
+      \end{center}
+      \vspace{\baselineskip}%
+      \begin{description}
+  }
+  {%
+      \end{description}
+    \endgroup
+    \clearpage
+  }
+
+\newcommand{\undfglossitem}[2]{\item[#1:] #2}
+
+% ----------------------------------------------------
+% Atalhos de identificação
+% ----------------------------------------------------
+\newcommand{\undfidentificacaobasica}{%
+  \undffolhaderosto
+  \undffolhadeaprovacao
+}
+
+\newcommand{\undfidentificacaocompleta}{%
+  \undffolhaderosto
+  \undfversofolhaderosto
+  \undferrata
+  \undffolhadeaprovacao
+}
+
+\makeatother

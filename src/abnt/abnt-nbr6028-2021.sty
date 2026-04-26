@@ -1,0 +1,225 @@
+% ----------------------------------------------------
+% Projeto: UnDF-TeX
+% Arquivo: abnt-nbr6028-2021.sty
+%
+% Copyright (c) 2026
+% Universidade do Distrito Federal (UnDF)
+%
+% Este arquivo faz parte do projeto UnDF-TeX.
+%
+% Licenciado sob a LaTeX Project Public License (LPPL),
+% versão 1.3c ou posterior.
+%
+% Implementação técnica baseada nas normas:
+% ABNT NBR 6028:2021
+% ABNT NBR 14724:2024
+%
+% Este projeto não reproduz o texto integral
+% das normas da ABNT.
+% ----------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{src/abnt/abnt-nbr6028-2021}[2026/04/11 NBR 6028 resumo]
+
+\RequirePackage{etoolbox}
+\RequirePackage{xstring}
+
+\makeatletter
+
+% ----------------------------------------------------
+% Alertas institucionais de tamanho
+% ----------------------------------------------------
+\newsavebox{\undf@abstractmeasurebox}
+\newdimen\undf@abstractheight
+\newdimen\undf@abstractmaxheight
+\newcount\undf@keywordcount
+
+\ExplSyntaxOn
+\tl_new:N \l_undf_abstract_words_tl
+\int_new:N \l_undf_abstract_words_int
+\cs_generate_variant:Nn \regex_count:nnN { nVN }
+
+\cs_new_protected:Npn \undf_warn_abstract_words:nn #1#2
+  {
+    \tl_set:Nv \l_undf_abstract_words_tl { undfcontent@#1 }
+    \tl_set:Nx \l_undf_abstract_words_tl
+      { \tl_to_str:N \l_undf_abstract_words_tl }
+    \regex_replace_all:nnN { \\[A-Za-z@]+\*? } { ~ } \l_undf_abstract_words_tl
+    \regex_count:nVN { [A-Za-z0-9À-ÖØ-öø-ÿ]+ } \l_undf_abstract_words_tl \l_undf_abstract_words_int
+    \int_compare:nNnT { \l_undf_abstract_words_int } < { 150 }
+      {
+        \PackageWarningNoLine{abnt-nbr6028-2021}
+          {#2~tem~\int_use:N \l_undf_abstract_words_int\space palavra(s);~a~NBR~6028~recomenda~de~150~a~500}
+      }
+    \int_compare:nNnT { \l_undf_abstract_words_int } > { 500 }
+      {
+        \PackageWarningNoLine{abnt-nbr6028-2021}
+          {#2~tem~\int_use:N \l_undf_abstract_words_int\space palavras;~a~NBR~6028~recomenda~de~150~a~500}
+      }
+  }
+\cs_new_eq:NN \undf@warnabstractwords \undf_warn_abstract_words:nn
+\ExplSyntaxOff
+
+\newcommand{\undf@warnrawpagefit}[3][\textwidth]{%
+  \begingroup
+    \setbox\undf@abstractmeasurebox=\vbox{%
+      \hsize=#1
+      \setlength{\parindent}{0pt}%
+      \setlength{\parskip}{0pt}%
+      \noindent #2\par
+    }%
+    \undf@abstractheight=\dimexpr\ht\undf@abstractmeasurebox+\dp\undf@abstractmeasurebox\relax
+    \undf@abstractmaxheight=\dimexpr\textheight*85/100\relax
+    \ifdim\undf@abstractheight>\undf@abstractmaxheight
+      \PackageWarningNoLine{abnt-nbr6028-2021}{O #3 pode ultrapassar uma pagina; reduza o conteudo ou revise o elemento}%
+    \fi
+  \endgroup
+}
+
+\newcommand{\undfwarncontentpagefit}[3][\textwidth]{%
+  \undfifcontent{#2}
+    {\undf@warnrawpagefit[#1]{\undfusecontent{#2}}{#3}}
+    {}%
+}
+
+\newcommand{\undfwarnerratapagefit}{%
+  \ifdefempty{\undf@erratatexto}
+    {}
+    {\undf@warnrawpagefit{\undf@errataref\par\undf@erratatexto}{errata}}%
+}
+
+\newcommand{\undfwarncatalogacaopagefit}{%
+  \ifdefempty{\undf@catalogacao}
+    {}
+    {\undf@warnrawpagefit[0.75\textwidth]{\undf@catalogacao}{ficha catalografica textual}}%
+}
+
+\newcommand{\undfwarnabstractsize}[2]{%
+  \undfifcontent{#1}
+    {%
+      \begingroup
+        \setbox\undf@abstractmeasurebox=\vbox{%
+          \hsize=\textwidth
+          \setlength{\parindent}{0pt}%
+          \setlength{\parskip}{0pt}%
+          \noindent\undfusecontent{#1}\par
+        }%
+        \undf@abstractheight=\dimexpr\ht\undf@abstractmeasurebox+\dp\undf@abstractmeasurebox\relax
+        \undf@abstractmaxheight=\dimexpr\textheight*85/100\relax
+        \ifdim\undf@abstractheight<4\baselineskip
+          \PackageWarningNoLine{abnt-nbr6028-2021}{O #2 parece curto demais; verifique se ha substancia suficiente}%
+        \fi
+        \ifdim\undf@abstractheight>\undf@abstractmaxheight
+          \PackageWarningNoLine{abnt-nbr6028-2021}{O #2 parece longo demais; verifique se permanece em uma pagina}%
+        \fi
+      \endgroup
+    }
+    {}%
+}
+
+\newcommand{\undfwarnabstractwords}[2]{%
+  \undfifcontent{#1}
+    {\undf@warnabstractwords{#1}{#2}}
+    {}%
+}
+
+\newcommand{\undfvalidateabstractcontents}{%
+  \undfwarnabstractsize{resumo}{resumo}%
+  \undfwarnabstractwords{resumo}{resumo}%
+  \undfwarnabstractsize{abstract}{resumo em lingua estrangeira}%
+  \undfwarnabstractwords{abstract}{resumo em lingua estrangeira}%
+}
+
+\newcommand{\undfvalidateonepagecontents}{%
+  \undfvalidateabstractcontents
+  \undfwarncontentpagefit[0.42\textwidth]{dedicatoria}{dedicatoria}%
+  \undfwarncontentpagefit{agradecimentos}{agradecimentos}%
+  \undfwarncontentpagefit[0.50\textwidth]{epigrafe}{epigrafe}%
+  \undfwarnerratapagefit
+  \undfwarncatalogacaopagefit
+}
+
+\newcommand{\undf@warnkeywordcount}[2]{%
+  \ifstrempty{#2}
+    {}
+    {%
+      \begingroup
+        \StrCount{#2}{;}[\undf@keywordseparators]%
+        \undf@keywordcount=\numexpr\undf@keywordseparators+1\relax
+        \ifnum\undf@keywordcount<3
+          \PackageWarningNoLine{abnt-nbr6028-2021}{#1 tem \the\undf@keywordcount\space termo(s); recomenda-se de 3 a 6}%
+        \fi
+        \ifnum\undf@keywordcount>6
+          \PackageWarningNoLine{abnt-nbr6028-2021}{#1 tem \the\undf@keywordcount\space termos; recomenda-se de 3 a 6}%
+        \fi
+      \endgroup
+    }%
+}
+
+% ----------------------------------------------------
+% Títulos dos resumos em idioma estrangeiro
+% ----------------------------------------------------
+\newcommand{\tituloresumoestrangeiro}[1]{\gdef\undf@foreignabstracttitle{#1}}
+\def\undf@foreignabstracttitle{ABSTRACT}
+\newcommand{\rotulopalavraschaveestrangeiro}[1]{\gdef\undf@foreignkeywordslabel{#1}}
+\def\undf@foreignkeywordslabel{Keywords}
+
+% ----------------------------------------------------
+% Bloco de abertura dos resumos
+% ----------------------------------------------------
+\newcommand*{\undf@openabstract}[1]{%
+  \clearpage
+  \thispagestyle{empty}%
+  \begingroup
+    \setlength{\parindent}{0pt}%
+    \setlength{\parskip}{0pt}%
+    \begin{center}
+      \normalsize\bfseries\MakeUppercase{#1}\par
+    \end{center}
+    \vspace{\baselineskip}%
+    \noindent
+    \ignorespaces
+}
+
+\newcommand*{\undf@closeabstract}{%
+    \par
+  \endgroup
+  \clearpage
+}
+
+% ----------------------------------------------------
+% Ambiente de resumo em língua vernácula
+% ----------------------------------------------------
+\newenvironment{resumo}
+  {\undf@openabstract{RESUMO}}
+  {\undf@closeabstract}
+
+% ----------------------------------------------------
+% Ambiente de resumo em língua estrangeira
+% Uso padrão: \begin{resumoestrangeiro} ... \end{resumoestrangeiro}
+% Uso opcional: \begin{resumoestrangeiro}[RESUMEN] ... \end{resumoestrangeiro}
+% ----------------------------------------------------
+\newenvironment{resumoestrangeiro}[1][\undf@foreignabstracttitle]
+  {\undf@openabstract{#1}}
+  {\undf@closeabstract}
+
+% ----------------------------------------------------
+% Palavras-chave
+% O usuário deve informar os termos separados por ponto e vírgula,
+% sem ponto final; o comando acrescenta o ponto ao final.
+% ----------------------------------------------------
+\newcommand{\palavraschave}[1]{%
+  \undf@warnkeywordcount{Palavras-chave}{#1}%
+  \par
+  \noindent
+  Palavras-chave: #1.\par
+}
+
+\newcommand{\keywords}[1]{%
+  \undf@warnkeywordcount{\undf@foreignkeywordslabel}{#1}%
+  \par
+  \noindent
+  \undf@foreignkeywordslabel: #1.\par
+}
+
+\makeatother

@@ -1,0 +1,41 @@
+% ----------------------------------------------------
+% Projeto: UnDF-TeX
+% Arquivo: abnt-nbr6027-2012.sty
+%
+% Copyright (c) 2026
+% Universidade do Distrito Federal (UnDF)
+%
+% Este arquivo faz parte do projeto UnDF-TeX.
+%
+% Licenciado sob a LaTeX Project Public License (LPPL),
+% versão 1.3c ou posterior.
+%
+% Implementação técnica baseada nas normas:
+% ABNT NBR 6027:2012
+%
+% Este projeto não reproduz o texto integral
+% das normas da ABNT.
+% ----------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{src/abnt/abnt-nbr6027-2012}[2026/01/01 NBR 6027 sumario]
+
+\makeatletter
+
+\newcommand{\undf@sumarioname}{SUMÁRIO}
+
+% ----------------------------------------------------
+% Sumário
+% ----------------------------------------------------
+% O sumário:
+% - é o último elemento pré-textual;
+% - não inclui elementos pré-textuais;
+% - reflete a hierarquia tipográfica adotada no texto.
+% ----------------------------------------------------
+\newcommand{\undfsumario}{%
+  \undf@specialheading{\undf@sumarioname}%
+  \@mkboth{\undf@sumarioname}{\undf@sumarioname}%
+  \@starttoc{toc}%
+}
+
+\makeatother

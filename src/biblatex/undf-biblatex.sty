@@ -1,0 +1,150 @@
+% ----------------------------------------------------
+% Projeto: UnDF-TeX
+% Arquivo: undf-biblatex.sty
+%
+% Copyright (c) 2026
+% Universidade do Distrito Federal (UnDF)
+%
+% Este arquivo faz parte do projeto UnDF-TeX.
+%
+% Licenciado sob a LaTeX Project Public License (LPPL),
+% versão 1.3c ou posterior.
+%
+% Implementação técnica baseada nas normas:
+% ABNT NBR 10520:2023
+% ABNT NBR 6023:2025
+%
+% Este projeto não reproduz o texto integral
+% das normas da ABNT.
+% ----------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{src/biblatex/undf-biblatex}[2026/01/01 UnDF-TeX biblatex layer]
+
+\RequirePackage{xparse}
+\RequirePackage{etoolbox}
+\RequirePackage{csquotes}
+\RequirePackage{setspace}
+\RequirePackage{xurl}
+\urlstyle{same}
+
+\RequirePackage[
+  backend=biber,
+  style=undf-abnt,
+  citestyle=undf-abnt,
+  sorting=nyt,
+  maxcitenames=3,
+  mincitenames=1,
+  maxbibnames=99,
+  giveninits=false,
+  uniquelist=false,
+  uniquename=false
+]{biblatex}
+
+
+% ----------------------------------------------------
+% Título institucional da bibliografia
+% ----------------------------------------------------
+\defbibheading{undfreferences}[\refname]{%
+  \posttextual
+  \undf@specialheadingwithtoc{chapter}{REFERÊNCIAS}%
+}
+
+\newcommand{\printundfreferences}{%
+  \printbibliography[heading=undfreferences]
+}
+
+% ----------------------------------------------------
+% Aspas duplas para citação direta curta
+% ----------------------------------------------------
+\newcommand{\undfdoublequotes}[1]{``#1''}
+
+% ----------------------------------------------------
+% Utilitário interno
+% ----------------------------------------------------
+\newcommand{\undf@ifblankbibTF}[3]{%
+  \ifstrempty{#1}{#2}{#3}%
+}
+
+% ----------------------------------------------------
+% Citações principais
+% ----------------------------------------------------
+\NewDocumentCommand{\citeind}{O{}m}{%
+  \undf@ifblankbibTF{#1}
+    {\parencite{#2}}
+    {\parencite[#1]{#2}}%
+}
+
+\NewDocumentCommand{\citeindonline}{O{}m}{%
+  \undf@ifblankbibTF{#1}
+    {\textcite{#2}}
+    {\textcite[#1]{#2}}%
+}
+
+\NewDocumentCommand{\citedir}{O{}m m}{%
+  \undfdoublequotes{#3}%
+  \undf@ifblankbibTF{#1}
+    {\space\parencite{#2}}
+    {\space\parencite[#1]{#2}}%
+}
+
+\NewDocumentCommand{\citedironline}{O{}m m}{%
+  \undf@ifblankbibTF{#1}
+    {\textcite{#2}}
+    {\textcite[#1]{#2}}%
+  \space\undfdoublequotes{#3}%
+}
+
+\NewDocumentEnvironment{citacaolonga}{O{}m +b}
+{%
+  \begin{list}{}{%
+    \setlength{\leftmargin}{4cm}%
+    \setlength{\rightmargin}{0pt}%
+    \setlength{\listparindent}{0pt}%
+    \setlength{\itemindent}{0pt}%
+    \setlength{\parsep}{0pt}%
+    \setlength{\topsep}{0pt}%
+    \setlength{\partopsep}{0pt}%
+  }%
+  \item\small\singlespacing
+  #3\par
+  \undf@ifblankbibTF{#1}
+    {\parencite{#2}}
+    {\parencite[#1]{#2}}%
+  \end{list}%
+}
+{}
+
+% ----------------------------------------------------
+% Citação de citação (apud) com chaves .bib
+% ----------------------------------------------------
+\NewDocumentCommand{\apudbib}{O{} O{} m m}{%
+  (%
+  \ifstrempty{#1}
+    {\citeauthor{#3}, \citeyear{#3}}
+    {\citeauthor{#3}, \citeyear{#3}, #1}%
+  \space apud\space
+  \ifstrempty{#2}
+    {\citeauthor{#4}, \citeyear{#4}}
+    {\citeauthor{#4}, \citeyear{#4}, #2}%
+  )%
+}
+
+\NewDocumentCommand{\apudbibonline}{O{} O{} m m}{%
+  \citeauthor{#3} (%
+  \ifstrempty{#1}
+    {\citeyear{#3}}
+    {\citeyear{#3}, #1}%
+  \space apud\space
+  \ifstrempty{#2}
+    {\citeauthor{#4}, \citeyear{#4}}
+    {\citeauthor{#4}, \citeyear{#4}, #2}%
+  )%
+}
+
+% ----------------------------------------------------
+% Referência completa pontual
+% ----------------------------------------------------
+\NewDocumentCommand{\fullref}{m}{%
+  \fullcite{#1}%
+}

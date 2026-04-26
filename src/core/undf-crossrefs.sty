@@ -1,0 +1,136 @@
+% ----------------------------------------------------
+% Projeto: UnDF-TeX
+% Arquivo: undf-crossrefs.sty
+%
+% Camada estável de comandos amigáveis para:
+% - equações
+% - referências cruzadas
+% - seções
+% - figuras
+% - tabelas avançadas
+% - apêndices e anexos
+% ----------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{src/core/undf-crossrefs}[2026/04/12 UnDF-TeX cross references]
+
+\RequirePackage{amsmath}
+\RequirePackage{graphicx}
+\RequirePackage{float}
+\RequirePackage{xparse}
+
+% ----------------------------------------------------
+% Referências cruzadas amigáveis
+% ----------------------------------------------------
+\newcommand{\figuraref}[1]{Figura~\ref{fig:#1}}
+\newcommand{\tabelaref}[1]{Tabela~\ref{tab:#1}}
+\newcommand{\equacaoref}[1]{Equação~\eqref{eq:#1}}
+\newcommand{\secaoref}[1]{Seção~\ref{sec:#1}}
+\newcommand{\apendiceref}[1]{Apêndice~\ref{ap:#1}}
+\newcommand{\anexoref}[1]{Anexo~\ref{an:#1}}
+
+% ----------------------------------------------------
+% Seções amigáveis
+% ----------------------------------------------------
+\newcommand{\undfsecao}[2]{%
+  \section{#1}%
+  \label{sec:#2}%
+}
+
+\newcommand{\undfsubsecao}[2]{%
+  \subsection{#1}%
+  \label{sec:#2}%
+}
+
+\newcommand{\undfsubsubsecao}[2]{%
+  \subsubsection{#1}%
+  \label{sec:#2}%
+}
+
+% ----------------------------------------------------
+% Equações amigáveis
+% ----------------------------------------------------
+\NewDocumentCommand{\equacao}{o m}{%
+  \begin{equation}
+    \IfValueT{#1}{\label{eq:#1}}%
+    #2
+  \end{equation}
+}
+
+\NewDocumentCommand{\equacaosemnumero}{m}{%
+  \[
+    #1
+  \]
+}
+
+% ----------------------------------------------------
+% Figuras amigáveis
+% Uso:
+% \undffigura{arquivo}{legenda}{rotulo}
+% \undffigura[0.7\textwidth]{arquivo}{legenda}{rotulo}
+% \undffigura[0.7\textwidth]{arquivo}{legenda}{rotulo}[IBGE, 2024]
+% ----------------------------------------------------
+\NewDocumentCommand{\undffigura}{O{0.8\textwidth} m m m O{\undf@fontedefault}}{%
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=#1,keepaspectratio]{#2}
+    \caption{#3}
+    \label{fig:#4}
+    \undffonte{#5}
+  \end{figure}
+}
+
+% ----------------------------------------------------
+% Tabela avançada
+% Uso:
+% \begin{undftabela}{Legenda}{rotulo}
+% ...
+% \end{undftabela}
+%
+% \begin{undftabela}{Legenda}{rotulo}[IBGE, 1993]
+% ...
+% \end{undftabela}
+% ----------------------------------------------------
+\NewDocumentEnvironment{undftabela}{O{htb} m m O{\undf@fontedefault} +b}
+  {%
+    \begin{table}[#1]
+      \centering
+      \caption{#2}
+      \label{tab:#3}
+      #5
+      \undffonte{#4}
+    \end{table}
+  }
+  {}
+
+% ----------------------------------------------------
+% Apêndice e anexo amigáveis
+% ----------------------------------------------------
+\makeatletter
+
+\newcommand{\undfapendice}[2]{%
+  \apendice{#1}%
+  \protected@edef\@currentlabel{\Alph{undfapendice}}%
+  \label{ap:#2}%
+}
+
+\newcommand{\undfanexo}[2]{%
+  \anexo{#1}%
+  \protected@edef\@currentlabel{\Alph{undfanexo}}%
+  \label{an:#2}%
+}
+
+% ----------------------------------------------------
+% Fonte de ilustrações e tabelas
+% ----------------------------------------------------
+\newcommand{\undf@fontedefault}{elaboração própria}
+
+\newcommand{\undffonte}[1]{%
+  \par
+  \begingroup
+    \footnotesize
+    Fonte: #1.\par
+  \endgroup
+}
+
+\makeatother

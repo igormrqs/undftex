@@ -1,0 +1,42 @@
+Projeto: UnDF-TeX
+
+Copyright (c) 2026
+Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes (UnDF)
+
+Licenciamento
+-------------
+
+Este projeto é distribuído sob a LaTeX Project Public License (LPPL),
+versão 1.3c ou, a seu critério, qualquer versão posterior.
+
+Formulação canônica:
+
+This work may be distributed and/or modified under the conditions of the
+LaTeX Project Public License, either version 1.3c of this license or
+(at your option) any later version.
+
+Texto oficial
+-------------
+
+O texto oficial integral da LPPL 1.3c está preservado em:
+
+    LICENSE-LPPL-1.3c.tex
+
+O arquivo acima deve permanecer em sua redação original.
+
+Identificação do trabalho
+-------------------------
+
+Para fins de distribuição, os arquivos que compõem este trabalho estão
+descritos em:
+
+    MANIFEST.md
+
+Sem garantia
+------------
+
+Este projeto é disponibilizado no estado em que se encontra, sem garantia de
+adequação automática a exigências específicas de curso, banca, biblioteca,
+edital, unidade acadêmica ou interpretação normativa. A conferência final da
+conformidade do documento gerado permanece sob responsabilidade de quem o usa.
+

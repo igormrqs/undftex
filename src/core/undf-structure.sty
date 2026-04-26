@@ -1,0 +1,65 @@
+% ----------------------------------------------------
+% Projeto: UnDF-TeX
+% Arquivo: undf-structure.sty
+%
+% Copyright (c) 2026
+% Universidade do Distrito Federal (UnDF)
+%
+% Este arquivo faz parte do projeto UnDF-TeX.
+%
+% Licenciado sob a LaTeX Project Public License (LPPL),
+% versão 1.3c ou posterior.
+%
+% Implementação técnica baseada nas normas:
+% ABNT NBR 14724:2024
+%
+% Este projeto não reproduz o texto integral
+% das normas da ABNT.
+% ----------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{src/core/undf-structure}[2026/01/01 UnDF-TeX structure]
+
+\makeatletter
+
+% ----------------------------------------------------
+% Estado estrutural do documento
+% ----------------------------------------------------
+\newif\ifundf@pretextual
+\undf@pretextualfalse
+
+% ----------------------------------------------------
+% Transições estruturais do documento
+% ----------------------------------------------------
+% Pré-textual:
+% - páginas contadas;
+% - numeração não visível.
+%
+% Textual:
+% - numeração visível em arábico;
+% - página 1 reiniciada.
+% ----------------------------------------------------
+
+\newcommand{\undf@beginpretextual}{%
+  \cleardoublepage
+  \undf@pretextualtrue
+  \pagenumbering{roman}%
+  \setcounter{page}{1}%
+  \pagestyle{empty}%
+}
+
+\newcommand{\undf@begintextual}{%
+  \cleardoublepage
+  \undf@pretextualfalse
+  \pagenumbering{arabic}%
+  \setcounter{page}{1}%
+  \pagestyle{undftextual}%
+}
+
+\newcommand{\undf@beginposttextual}{%
+  \cleardoublepage
+  \undf@pretextualfalse
+  \pagestyle{undftextual}%
+}
+
+\makeatother

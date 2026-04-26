@@ -1,0 +1,191 @@
+% ----------------------------------------------------
+% Projeto: UnDF-TeX
+% Arquivo: undf-metadata.sty
+%
+% Copyright (c) 2026
+% Universidade do Distrito Federal (UnDF)
+%
+% Este arquivo faz parte do projeto UnDF-TeX.
+%
+% Licenciado sob a LaTeX Project Public License (LPPL),
+% versão 1.3c ou posterior.
+%
+% Implementação técnica baseada nas normas:
+% ABNT NBR 14724:2024
+%
+% Este projeto não reproduz o texto integral
+% das normas da ABNT.
+% ----------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{src/core/undf-metadata}[2026/04/11 UnDF-TeX metadata]
+
+\RequirePackage{etoolbox}
+\RequirePackage{xstring}
+
+\makeatletter
+
+% ----------------------------------------------------
+% Valores padrão
+% ----------------------------------------------------
+\def\undf@autor{}
+\def\undf@autoresraw{}
+\def\undf@titulo{}
+\def\undf@subtitulo{}
+\def\undf@curso{}
+\def\undf@instituicao{Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes -- UnDF}
+\def\undf@local{Brasília}
+\def\undf@ano{\number\year}
+\def\undf@tipotrabalho{Trabalho de Conclusão de Curso}
+\def\undf@graupretendido{graduação}
+\def\undf@objetivo{}
+\def\undf@areaconcentracao{}
+\def\undf@orientador{}
+\def\undf@coorientador{}
+\def\undf@dataaprovacao{}
+\def\undf@volumenumero{}
+\def\undf@catalogacao{}
+\def\undf@catalogacaopdf{}
+\def\undf@catalogacaoimagem{}
+\def\undf@bancalist{}
+
+
+% ----------------------------------------------------
+% Comandos públicos de metadados
+% ----------------------------------------------------
+% Autoria
+\newcommand{\autor}[1]{%
+  \gdef\undf@autor{#1}%
+  \gdef\undf@autoresraw{#1}%
+}
+
+\newcommand{\autores}[1]{%
+  \StrSubstitute{#1}{//}{, }[\undf@tmpautorlinha]%
+  \xdef\undf@autor{\undf@tmpautorlinha}%
+  \gdef\undf@autoresraw{#1}%
+}
+
+\newcommand{\undfprintautores}{%
+  \begingroup
+  \StrSubstitute{\undf@autoresraw}{//}{\\}[\undf@tmpautoresprint]%
+  \MakeTextUppercase{\undf@tmpautoresprint}%
+  \endgroup
+}
+\newcommand{\titulo}[1]{\gdef\undf@titulo{#1}}
+\newcommand{\subtitulo}[1]{\gdef\undf@subtitulo{#1}}
+\newcommand{\curso}[1]{\gdef\undf@curso{#1}}
+\newcommand{\instituicao}[1]{\gdef\undf@instituicao{#1}}
+\newcommand{\local}[1]{\gdef\undf@local{#1}}
+\newcommand{\ano}[1]{\gdef\undf@ano{#1}}
+\newcommand{\volume}[1]{\gdef\undf@volumenumero{#1}}
+
+\newcommand{\tipotrabalho}[1]{\gdef\undf@tipotrabalho{#1}}
+\newcommand{\graupretendido}[1]{\gdef\undf@graupretendido{#1}}
+\newcommand{\objetivo}[1]{\gdef\undf@objetivo{#1}}
+\newcommand{\areadeconcentracao}[1]{\gdef\undf@areaconcentracao{#1}}
+
+\newcommand{\orientador}[1]{\gdef\undf@orientador{#1}}
+\newcommand{\coorientador}[1]{\gdef\undf@coorientador{#1}}
+\newcommand{\dataaprovacao}[1]{\gdef\undf@dataaprovacao{#1}}
+
+% ----------------------------------------------------
+% Normalizacao de nomes de orientadores e banca
+% ----------------------------------------------------
+\ExplSyntaxOn
+\cs_new_protected:Npn \undf_print_person_name:n #1
+  {
+    \tl_set:Nx \l_tmpa_tl {#1}
+    \regex_replace_once:nnN {\A\s*Professora\s*} {} \l_tmpa_tl
+    \regex_replace_once:nnN {\A\s*Professor\s*} {} \l_tmpa_tl
+    \regex_replace_once:nnN {\A\s*Profa\.?\s*} {} \l_tmpa_tl
+    \regex_replace_once:nnN {\A\s*Prof\.?\s*} {} \l_tmpa_tl
+    \regex_replace_once:nnN {\A\s*Doutora\s*} {} \l_tmpa_tl
+    \regex_replace_once:nnN {\A\s*Doutor\s*} {} \l_tmpa_tl
+    \regex_replace_once:nnN {\A\s*Dra\.?\s*} {} \l_tmpa_tl
+    \regex_replace_once:nnN {\A\s*Dr\.?\s*} {} \l_tmpa_tl
+    \regex_replace_once:nnN {\A\s*Mestra\s*} {} \l_tmpa_tl
+    \regex_replace_once:nnN {\A\s*Mestre\s*} {} \l_tmpa_tl
+    \regex_replace_once:nnN {\A\s*Ma\.?\s*} {} \l_tmpa_tl
+    \regex_replace_once:nnN {\A\s*Me\.?\s*} {} \l_tmpa_tl
+    \regex_replace_once:nnN {\A\s*M\.?Sc\.?\s*} {} \l_tmpa_tl
+    \regex_replace_once:nnN {\A\s*Ms\.?\s*} {} \l_tmpa_tl
+    \regex_replace_once:nnN {\A\s*Especialista\s*} {} \l_tmpa_tl
+    \regex_replace_once:nnN {\A\s*Esp\.?\s*} {} \l_tmpa_tl
+    \tl_trim_spaces:N \l_tmpa_tl
+    \tl_use:N \l_tmpa_tl
+  }
+\cs_new_eq:NN \undfprintpersonname \undf_print_person_name:n
+\ExplSyntaxOff
+
+% ----------------------------------------------------
+% Ficha catalográfica / verso da folha de rosto
+% ----------------------------------------------------
+\newcommand{\limparcatalogacao}{%
+  \gdef\undf@catalogacao{}%
+  \gdef\undf@catalogacaopdf{}%
+  \gdef\undf@catalogacaoimagem{}%
+}
+
+\newcommand{\dadoscatalograficos}[1]{%
+  \gdef\undf@catalogacao{#1}%
+  \gdef\undf@catalogacaopdf{}%
+  \gdef\undf@catalogacaoimagem{}%
+}
+
+\newcommand{\fichacatalograficapdf}[1]{%
+  \gdef\undf@catalogacaopdf{#1}%
+  \gdef\undf@catalogacao{}%
+  \gdef\undf@catalogacaoimagem{}%
+}
+
+\newcommand{\fichacatalograficaimagem}[1]{%
+  \gdef\undf@catalogacaoimagem{#1}%
+  \gdef\undf@catalogacao{}%
+  \gdef\undf@catalogacaopdf{}%
+}
+
+% ----------------------------------------------------
+% Banca examinadora
+% ----------------------------------------------------
+\newcommand{\limparmembrosbanca}{\gdef\undf@bancalist{}}
+
+\newcommand{\membrobanca}[3]{%
+  \g@addto@macro\undf@bancalist{%
+    \undf@printbancamembro{#1}{#2}{#3}%
+  }%
+}
+
+% ----------------------------------------------------
+% Macros auxiliares internas
+% ----------------------------------------------------
+\newcommand*{\undf@titlefull}{%
+  \undf@titulo%
+  \ifdefempty{\undf@subtitulo}
+    {}
+    {: \undf@subtitulo}%
+}
+
+% Compatibilidade com arquivos antigos do projeto
+\newcommand*{\undf@fulltitle}{\undf@titlefull}
+
+\newcommand*{\undf@defaultobjetivo}{%
+  \undf@tipotrabalho%
+  \ifdefempty{\undf@curso}
+    {}
+    { apresentado ao curso de \undf@curso,}%
+  \ifdefempty{\undf@instituicao}
+    {}
+    { da \undf@instituicao,\space}%
+  como requisito parcial para obtenção do título de \undf@graupretendido.%
+}
+
+\newcommand*{\undf@naturezatexto}{%
+  \ifdefempty{\undf@objetivo}
+    {\undf@defaultobjetivo}
+    {\undf@objetivo}%
+  \ifdefempty{\undf@areaconcentracao}
+    {}
+    {\\Área de concentração: \undf@areaconcentracao.}%
+}
+
+\makeatother
