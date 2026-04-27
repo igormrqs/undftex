@@ -464,12 +464,6 @@
   \iffieldundef{pages}
     {}
     {\setunit{\addcomma\space}\printfield{pages}}%
-  \newunit\newblock
-  \iffieldundef{url}
-    {}
-    {\printtext{Disponível em:\space}\printfield{url}}%
-  \iffieldundef{urldate}
-    {}
-    {\setunit{\adddot\space}\printtext{Acesso em:\space}\printurldate}%
+  \usebibmacro{undf:urlaccess}%
   \usebibmacro{finentry}%
 }

@@ -62,7 +62,7 @@ Ele apenas encaminha para `src/undftex.cls`, onde a classe é realmente carregad
 - estilo `undf-abnt`;
 - comandos amigáveis para citações indiretas, diretas, longas, apud e referência completa.
 
-Os arquivos `undf-abnt.bbx` e `undf-abnt.cbx` ficam na raiz para serem encontrados pelo `biblatex`.
+Os arquivos `undf-abnt.bbx` e `undf-abnt.cbx` ficam em `src/biblatex/`, junto da camada institucional que configura o `biblatex`.
 
 ## Modelos de conteúdo
 
@@ -76,4 +76,3 @@ Ao alterar a interface pública do template, verifique os dois fluxos.
 ## Regra de manutenção
 
 Mudanças devem ser pequenas, rastreáveis e compatíveis com a estrutura atual. Antes de criar um novo módulo, confirme se a responsabilidade não pertence a um arquivo já existente.
-

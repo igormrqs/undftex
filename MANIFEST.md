@@ -9,7 +9,7 @@ O trabalho UnDF-TeX é composto por:
 - `undftex.cls`;
 - `src/undftex.cls`;
 - módulos LaTeX em `src/`;
-- estilos bibliográficos `undf-abnt.bbx` e `undf-abnt.cbx`;
+- estilos bibliográficos em `src/biblatex/`, incluindo `undf-abnt.bbx` e `undf-abnt.cbx`;
 - modelos `tcc.tex` e `tcc-exemplo-undf.tex`;
 - conteúdos de exemplo em `capitulos/`, `obrigatorio/`, `opcional/` e `exemplo/`;
 - recursos visuais próprios em `figuras/` e `identidade/`;
@@ -29,4 +29,3 @@ Não fazem parte do trabalho distribuído por padrão:
 ## Manutenção
 
 Ao adicionar arquivos de código, documentação, exemplo ou identidade visual que devam ser distribuídos com o projeto, atualize este manifesto.
-
