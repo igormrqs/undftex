@@ -368,6 +368,7 @@ Decisões adotadas:
 - tabelas podem usar ambiente `undftabela` quando houver necessidade de legenda, rótulo e fonte padronizados;
 - equações podem usar `\equacao` para criar rótulo automático com prefixo `eq:`;
 - pseudocódigos podem usar o ambiente `undfpseudocodigo`;
+- pseudocódigos curtos ou médios devem preferir `\clearpage` antes do bloco quando a quebra automática prejudicar a leitura ou a ordem visual;
 - referências cruzadas amigáveis usam comandos como `\figuraref`, `\tabelaref`, `\equacaoref`, `\algoritmoref`, `\secaoref`, `\apendiceref` e `\anexoref`.
 
 Implementação: `src/core/undf-crossrefs.sty`.

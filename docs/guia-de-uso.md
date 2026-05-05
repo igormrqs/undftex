@@ -209,6 +209,7 @@ Referência à equação:
 Pseudocódigo:
 
 ```tex
+\clearpage
 \begin{undfpseudocodigo}{Cálculo da média}{media}
 Entrada: lista de valores V
 Saída: média dos valores
@@ -222,6 +223,12 @@ Inicio
 Fim
 \end{undfpseudocodigo}
 ```
+
+Quando um pseudocódigo curto ou médio começar perto do fim da página, use
+`\clearpage` antes do bloco ou antes da seção que o apresenta. Essa é a forma
+mais previsível de manter o algoritmo inteiro e preservar a ordem visual do
+texto. Para pseudocódigos longos, prefira dividir o procedimento em partes
+menores.
 
 ## 9. Avisos de validação
 

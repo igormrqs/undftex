@@ -6,9 +6,9 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ## [Não lançado]
 
-### Observação
+### Alterado
 
-- Nenhuma mudança registrada após `0.1.0`.
+- Guia e exemplo de pseudocódigo atualizados para recomendar `\clearpage` antes de blocos curtos ou médios quando a quebra automática prejudicar a leitura.
 
 ## [0.1.0] - 2026-05-05
 
