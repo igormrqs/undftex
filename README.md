@@ -6,7 +6,7 @@ O objetivo do UnDF-TeX é oferecer um template claro, compilável e fácil de ad
 
 ## Estado do projeto
 
-O projeto está em consolidação. A versão atual já contém:
+A versão atual é `0.1.0` e já contém:
 
 - classe principal `undftex`;
 - modelo em branco em `tcc.tex`;
@@ -14,7 +14,7 @@ O projeto está em consolidação. A versão atual já contém:
 - capa, folha de rosto e folha de aprovação institucionais;
 - resumo e resumo em língua estrangeira com avisos de tamanho;
 - listas de ilustrações e tabelas;
-- comandos auxiliares para figuras, tabelas, equações, apêndices e anexos;
+- comandos auxiliares para figuras, figuras comparativas, tabelas, equações, pseudocódigo, apêndices e anexos;
 - camada de citações e referências com `biblatex` e `biber`;
 - documentação inicial para uso, manutenção e contribuição.
 
@@ -25,7 +25,7 @@ Este projeto não substitui a conferência acadêmica final exigida por curso, b
 - Distribuição TeX atualizada, preferencialmente TeX Live ou MiKTeX.
 - LuaLaTeX.
 - Biber.
-- Pacotes LaTeX usuais: `biblatex`, `csquotes`, `caption`, `tocloft`, `pdfpages`, `graphicx`, `hyperref`, `xparse`, `etoolbox`, `xstring`, entre outros.
+- Pacotes LaTeX usuais: `biblatex`, `csquotes`, `caption`, `subcaption`, `tocloft`, `pdfpages`, `graphicx`, `listings`, `tikz`, `hyperref`, `xparse`, `etoolbox`, `xstring`, entre outros.
 
 A classe exige LuaLaTeX. A compilação com pdfLaTeX ou XeLaTeX não é o alvo oficial do projeto.
 
@@ -47,7 +47,7 @@ Edite primeiro o arquivo `tcc.tex`.
 \orientador{Nome do Orientador}
 \coorientador{}
 \areadeconcentracao{Área de concentração}
-\dataaprovacao{dia de mês de ano}
+\dataaprovacao{Brasília, DF, dia de mês de ano}
 ```
 
 Preencha os arquivos de conteúdo:
@@ -124,4 +124,3 @@ Consulte:
 - `LICENSE`: nota de licenciamento do repositório;
 - `LICENSE-LPPL-1.3c.tex`: texto oficial integral da LPPL 1.3c;
 - `MANIFEST.md`: identificação dos arquivos que compõem o trabalho.
-

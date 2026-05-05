@@ -33,7 +33,7 @@ Ele apenas encaminha para `src/undftex.cls`, onde a classe é realmente carregad
 - `undf-headings.sty`: títulos especiais sem numeração;
 - `undf-structure.sty`: transição entre partes pré-textual, textual e pós-textual;
 - `undf-toccore.sty`: ajustes de sumário;
-- `undf-crossrefs.sty`: figuras, tabelas, equações e referências cruzadas;
+- `undf-crossrefs.sty`: figuras, figuras comparativas, tabelas, equações, pseudocódigo e referências cruzadas;
 - `undf-hyperref.sty`: configuração de links.
 
 ## Identidade institucional
@@ -49,7 +49,7 @@ Ele apenas encaminha para `src/undftex.cls`, onde a classe é realmente carregad
 `src/abnt/` reúne módulos por norma ou família de elementos:
 
 - `abnt-nbr14724-2024.sty`: estrutura de trabalhos acadêmicos, listas, apêndices, anexos e glossário;
-- `abnt-nbr6028-2021.sty`: resumo, resumo em língua estrangeira, palavras-chave e avisos de tamanho;
+- `abnt-nbr6028-2021.sty`: resumo, resumo em língua estrangeira, palavras-chave e validação de tamanho;
 - `abnt-nbr6027-2012.sty`: sumário;
 - `abnt-nbr6023-2025.sty`: suporte básico a referências;
 - `abnt-nbr10520-2023.sty`: comandos auxiliares de citação textual.

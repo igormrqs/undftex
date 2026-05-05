@@ -6,6 +6,12 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ## [Não lançado]
 
+### Observação
+
+- Nenhuma mudança registrada após `0.1.0`.
+
+## [0.1.0] - 2026-05-05
+
 ### Adicionado
 
 - Documentação inicial do repositório para publicação no GitHub.
@@ -14,24 +20,20 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 - Registro de decisões institucionais em `docs/decisoes-institucionais.md`.
 - Arquivo `MANIFEST.md` para apoiar a identificação do trabalho sob LPPL.
 - Arquivos de licenciamento LPPL.
+- Exemplo completo com nota de rodapé, citação curta, citação longa, listas, figuras comparativas, fluxograma e pseudocódigo.
+- Comando `\undffigurasladoalado` para comparação visual com duas imagens.
+- Ambiente `undfpseudocodigo` para blocos de pseudocódigo com numeração de linhas.
 
 ### Alterado
 
 - Organização do projeto para uso da classe pública `undftex`.
 - Modelo em branco e exemplo completo alinhados à estrutura modular do template.
-- Folha de rosto e folha de aprovação ajustadas para separar nome e titulação de orientador e banca.
-- Avisos de validação para resumo, abstract, palavras-chave e elementos pré-textuais de uma página.
+- Folha de aprovação ajustada para exibir banca no formato `Prof. Dr. Nome`, sem titulação em linha separada.
+- Data de aprovação padronizada no modelo `Brasília, DF, dia de mês de ano`.
+- Capa ajustada para não imprimir texto institucional quando a logo já estiver configurada.
+- Validação de resumo e abstract passa a bloquear compilação quando o conteúdo parece ultrapassar uma página.
+- Errata ajustada para evitar recuo de parágrafo no texto de correção.
 
 ### Observação
 
 - PDFs compilados e arquivos auxiliares de LaTeX não devem ser versionados por padrão.
-
-## [0.1.0] - a definir
-
-### Previsto
-
-- Primeira versão pública utilizável do template.
-- Exemplo em branco compilável.
-- Exemplo completo compilável.
-- Documentação inicial de uso e manutenção.
-

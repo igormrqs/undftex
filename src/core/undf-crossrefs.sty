@@ -18,6 +18,8 @@
 \RequirePackage{graphicx}
 \RequirePackage{float}
 \RequirePackage{xparse}
+\RequirePackage{subcaption}
+\RequirePackage{listings}
 
 % ----------------------------------------------------
 % Referências cruzadas amigáveis
@@ -28,6 +30,7 @@
 \newcommand{\secaoref}[1]{Seção~\ref{sec:#1}}
 \newcommand{\apendiceref}[1]{Apêndice~\ref{ap:#1}}
 \newcommand{\anexoref}[1]{Anexo~\ref{an:#1}}
+\newcommand{\algoritmoref}[1]{Algoritmo~\ref{alg:#1}}
 
 % ----------------------------------------------------
 % Seções amigáveis
@@ -79,6 +82,56 @@
     \undffonte{#5}
   \end{figure}
 }
+
+% ----------------------------------------------------
+% Figuras lado a lado para comparação visual
+% ----------------------------------------------------
+\NewDocumentCommand{\undffigurasladoalado}{O{0.47\textwidth} m m m m m m O{\undf@fontedefault}}{%
+  \begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{#1}
+      \centering
+      \includegraphics[width=\linewidth,keepaspectratio]{#2}
+      \caption{#3}
+    \end{subfigure}\hfill
+    \begin{subfigure}[t]{#1}
+      \centering
+      \includegraphics[width=\linewidth,keepaspectratio]{#4}
+      \caption{#5}
+    \end{subfigure}
+    \caption{#6}
+    \label{fig:#7}
+    \undffonte{#8}
+  \end{figure}
+}
+
+% ----------------------------------------------------
+% Pseudocódigo
+% ----------------------------------------------------
+\lstdefinestyle{undf-pseudocode}{
+  basicstyle=\small\ttfamily,
+  keywordstyle=\bfseries,
+  commentstyle=\itshape,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\scriptsize,
+  numbersep=0.8em,
+  frame=single,
+  framerule=0.4pt,
+  xleftmargin=1.5em,
+  framexleftmargin=1.2em,
+  breaklines=true,
+  tabsize=2,
+  morekeywords={Algoritmo,Entrada,Saida,Saída,Inicio,Início,Fim,Se,Entao,Então,Senao,Senão,Enquanto,Para,Faca,Faça,Retorne}
+}
+
+\renewcommand{\lstlistingname}{Algoritmo}
+
+\lstnewenvironment{undfpseudocodigo}[3][]{%
+  \lstset{style=undf-pseudocode,caption={#2},label={alg:#3},#1}%
+}{}
 
 % ----------------------------------------------------
 % Tabela avançada

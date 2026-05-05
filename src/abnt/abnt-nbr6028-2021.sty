@@ -33,6 +33,11 @@
 \newdimen\undf@abstractheight
 \newdimen\undf@abstractmaxheight
 \newcount\undf@keywordcount
+\newif\ifundf@blockoverlongabstracts
+\undf@blockoverlongabstractstrue
+
+\newcommand{\bloquearresumoslongos}{\undf@blockoverlongabstractstrue}
+\newcommand{\avisarresumoslongos}{\undf@blockoverlongabstractsfalse}
 
 \ExplSyntaxOn
 \tl_new:N \l_undf_abstract_words_tl
@@ -111,6 +116,9 @@
         \fi
         \ifdim\undf@abstractheight>\undf@abstractmaxheight
           \PackageWarningNoLine{abnt-nbr6028-2021}{O #2 parece longo demais; verifique se permanece em uma pagina}%
+          \ifundf@blockoverlongabstracts
+            \PackageError{abnt-nbr6028-2021}{O #2 ultrapassa o limite pratico de uma pagina}{Reduza o texto do #2 ou use \string\avisarresumoslongos\space antes de \string\undfvalidateonepagecontents\space para transformar o bloqueio em aviso.}%
+          \fi
         \fi
       \endgroup
     }

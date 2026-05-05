@@ -50,21 +50,21 @@
   \begin{minipage}[c][\undf@coveridentityheight][c]{\textwidth}
     \centering
     \ifdefempty{\undf@logocapa}
-      {}
+      {%
+        {\normalsize\MakeTextUppercase{\undf@coverinstitutionmain}\par}%
+        \ifdefempty{\undf@coverinstitutionsub}
+          {}
+          {%
+            \vspace{0.15cm}
+            {\small\MakeTextUppercase{\undf@coverinstitutionsub}\par}%
+          }%
+      }
       {%
         \includegraphics[
           width=\undf@logocapawidth,
           height=\undf@logocapaheight,
           keepaspectratio
         ]{\undf@logocapa}\par
-        \vspace{0.35cm}
-      }%
-    {\normalsize\MakeTextUppercase{\undf@coverinstitutionmain}\par}%
-    \ifdefempty{\undf@coverinstitutionsub}
-      {}
-      {%
-        \vspace{0.15cm}
-        {\small\MakeTextUppercase{\undf@coverinstitutionsub}\par}%
       }%
   \end{minipage}%
 }

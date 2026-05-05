@@ -26,7 +26,7 @@ Os metadados principais ficam no preâmbulo do arquivo `tcc.tex`.
 \orientador{Nome do Orientador}
 \coorientador{}
 \areadeconcentracao{Área de concentração}
-\dataaprovacao{dia de mês de ano}
+\dataaprovacao{Brasília, DF, dia de mês de ano}
 ```
 
 Para mais de um autor, use `//` como separador:
@@ -37,16 +37,16 @@ Para mais de um autor, use `//` como separador:
 
 ## 3. Informe a banca examinadora
 
-Use o primeiro campo para o nome, sem prefixos como `Dr.`, `Dra.`, `Prof.` ou `Professor`.
+Use o primeiro campo para o nome e o segundo para o prefixo acadêmico que deve aparecer antes dele na folha de aprovação.
 
 ```tex
 \limparmembrosbanca
-\membrobanca{Nome do Orientador}{Titulação do Orientador}{Universidade do Distrito Federal -- UnDF}
-\membrobanca{Nome do Membro 1}{Titulação do Membro 1}{Universidade do Distrito Federal -- UnDF}
-\membrobanca{Nome do Membro 2}{Titulação do Membro 2}{Universidade do Distrito Federal -- UnDF}
+\membrobanca{Nome do Orientador}{Prof. Dr.}{Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes -- UnDF}
+\membrobanca{Nome do Membro 1}{Profa. Dra.}{Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes -- UnDF}
+\membrobanca{Nome do Membro 2}{Prof. Dr.}{Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes -- UnDF}
 ```
 
-O template remove automaticamente prefixos de titulação quando eles forem digitados junto ao nome, mas o uso recomendado é manter nome e titulação separados.
+Na folha de aprovação, o resultado fica no formato `Prof. Dr. Nome`, sem linha separada para a titulação.
 
 ## 4. Edite os elementos obrigatórios
 
@@ -167,6 +167,17 @@ Figura com fonte:
 \undffigura[0.75\textwidth]{figuras/exemplo.jpg}{Legenda da figura}{rotulo}[Autor, ano]
 ```
 
+Figuras lado a lado:
+
+```tex
+\undffigurasladoalado
+  {figuras/antes.jpg}{Antes}
+  {figuras/depois.jpg}{Depois}
+  {Comparação entre dois registros}
+  {comparacao}
+  [elaboração própria]
+```
+
 Referência à figura:
 
 ```tex
@@ -195,6 +206,23 @@ Referência à equação:
 \equacaoref{rotulo}
 ```
 
+Pseudocódigo:
+
+```tex
+\begin{undfpseudocodigo}{Cálculo da média}{media}
+Entrada: lista de valores V
+Saída: média dos valores
+
+Inicio
+  soma <- 0
+  Para cada valor v em V Faca
+    soma <- soma + v
+  Fim
+  Retorne soma / tamanho(V)
+Fim
+\end{undfpseudocodigo}
+```
+
 ## 9. Avisos de validação
 
 O comando abaixo é chamado no início do documento:
@@ -203,7 +231,13 @@ O comando abaixo é chamado no início do documento:
 \undfvalidateonepagecontents
 ```
 
-Ele não bloqueia a compilação. O objetivo é emitir avisos quando elementos como resumo, abstract, dedicatória, agradecimentos, epígrafe, errata ou ficha catalográfica parecem curtos demais, longos demais ou próximos de ultrapassar uma página.
+Por padrão, o template bloqueia a compilação quando resumo ou abstract parecem ultrapassar o limite prático de uma página. Os demais elementos de uma página emitem avisos quando parecem longos demais ou próximos de ultrapassar uma página.
+
+Para transformar o bloqueio de resumo/abstract em aviso, use antes da validação:
+
+```tex
+\avisarresumoslongos
+```
 
 O template também emite aviso quando palavras-chave ou keywords ficam fora da faixa recomendada de 3 a 6 termos.
 
@@ -217,4 +251,3 @@ lualatex -interaction=nonstopmode -halt-on-error tcc.tex
 ```
 
 Quando houver mudança em sumário, listas, citações ou referências, compile novamente até que os avisos de referências pendentes desapareçam.
-

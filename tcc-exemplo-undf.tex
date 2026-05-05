@@ -23,6 +23,9 @@
 
 \documentclass{undftex}
 
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+
 % ----------------------------------------------------
 % Metadados principais
 % ----------------------------------------------------
@@ -37,16 +40,16 @@
 \orientador{João Henrique Almeida}
 \coorientador{Helena Martins}
 \areadeconcentracao{Educação em Saúde}
-\dataaprovacao{10 de abril de 2026}
+\dataaprovacao{Brasília, DF, 10 de abril de 2026}
 
 % ----------------------------------------------------
 % Banca examinadora
-% Nome sem prefixo no primeiro campo; titulação no segundo campo.
+% Nome no primeiro campo; prefixo acadêmico no segundo campo.
 % ----------------------------------------------------
 \limparmembrosbanca
-\membrobanca{João Henrique Almeida}{Doutor em Educação}{Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes -- UnDF}
-\membrobanca{Helena Martins}{Doutora em Enfermagem}{Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes -- UnDF}
-\membrobanca{Carlos Eduardo Lima}{Doutor em Saúde Coletiva}{Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes -- UnDF}
+\membrobanca{João Henrique Almeida}{Prof. Dr.}{Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes -- UnDF}
+\membrobanca{Helena Martins}{Profa. Dra.}{Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes -- UnDF}
+\membrobanca{Carlos Eduardo Lima}{Prof. Dr.}{Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes -- UnDF}
 
 % ----------------------------------------------------
 % Bibliografia
@@ -135,6 +138,17 @@
 	
 	\listadeilustracoes
 	\listadetabelas
+
+	\begin{listadesiglas}
+		\sigla{ABNT}{Associação Brasileira de Normas Técnicas}
+		\sigla{TCC}{Trabalho de Conclusão de Curso}
+		\sigla{UnDF}{Universidade do Distrito Federal}
+	\end{listadesiglas}
+
+	\begin{listadesimbolos}
+		\simbolo{$n$}{Quantidade de participantes ou registros analisados}
+		\simbolo{$\bar{x}$}{Média aritmética}
+	\end{listadesimbolos}
 	
 	\undfsumario
 	

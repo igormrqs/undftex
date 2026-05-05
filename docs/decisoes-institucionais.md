@@ -168,11 +168,10 @@ Decisões adotadas:
 - largura máxima da logo: `0.50\textwidth`;
 - altura máxima da logo: `4.0cm`;
 - altura fixa do bloco institucional: `5.8cm`;
-- instituição exibida em duas linhas institucionais:
-  - `Universidade do Distrito Federal`;
-  - `Professor Jorge Amaury Maia Nunes -- UnDF`.
+- quando há logo configurada, a capa não imprime texto institucional separado;
+- quando não há logo configurada, a capa usa texto institucional como fallback.
 
-Justificativa: a altura fixa do bloco evita que alterações no tamanho da logo empurrem autor, título, local e ano.
+Justificativa: a logo institucional adotada deve conter o nome da instituição. A altura fixa do bloco evita que alterações no tamanho da imagem empurrem autor, título, local e ano.
 
 Implementação: `src/identity/undf-identity.sty` e `src/identity/undf-cover.sty`.
 
@@ -211,25 +210,28 @@ BANCA EXAMINADORA
 
 Decisões adotadas:
 
-- manter a data de aprovação alinhada à esquerda;
+- manter a data de aprovação alinhada à esquerda no formato `Brasília, DF, dia de mês de ano`;
 - centralizar os blocos da banca;
 - usar linha de assinatura com largura de `0.7\textwidth`;
-- separar nome, titulação e vínculo institucional em linhas distintas;
-- não antepor `Dr.`, `Dra.`, `Prof.` ou equivalente ao nome.
+- exibir a banca no formato `Prof. Dr. Nome`;
+- exibir o vínculo institucional abaixo do nome;
+- não exibir titulação acadêmica em linha separada.
 
 Implementação: `src/identity/undf-titlepages.sty`.
 
 ## Decisão Institucional Nº 12 — Titulação de Orientador e Banca
 
-Nomes de orientador, coorientador e membros da banca devem ser informados sem prefixos.
+Na folha de aprovação, orientador e membros da banca devem aparecer com prefixo acadêmico antes do nome.
 
 Decisões adotadas:
 
-- `Dr.`, `Dra.`, `Prof.`, `Professor`, `Professora`, `Mestre`, `Mestra` e equivalentes são removidos automaticamente quando digitados junto ao nome;
-- a titulação deve ser registrada em campo próprio na banca;
-- a folha de aprovação exibe a titulação como linha separada, não como prefixo do nome.
+- o primeiro campo de `\membrobanca` recebe o nome;
+- o segundo campo recebe o prefixo acadêmico, como `Prof. Dr.` ou `Profa. Dra.`;
+- a folha de aprovação combina os campos no formato `Prof. Dr. Nome`;
+- o vínculo institucional permanece em linha própria;
+- na folha de rosto, orientador e coorientador continuam sem prefixos no nome.
 
-Justificativa: preserva a legibilidade e atende à orientação recebida para retirar titulação colada ao nome.
+Justificativa: atende à decisão institucional de manter a titulação no formato curto antes do nome, sem repetir titulação extensa em linha inferior.
 
 Implementação: `src/core/undf-metadata.sty` e `src/identity/undf-titlepages.sty`.
 
@@ -263,18 +265,20 @@ Decisões adotadas:
 
 Implementação: `src/abnt/abnt-nbr6028-2021.sty`.
 
-## Decisão Institucional Nº 15 — Avisos de Tamanho em Elementos de Uma Página
+## Decisão Institucional Nº 15 — Validação de Elementos de Uma Página
 
-O template não bloqueia conteúdo que ultrapasse uma página.
+O template valida elementos que institucionalmente devem permanecer em uma página.
 
 Decisões adotadas:
 
-- emitir avisos de compilação em vez de cortar conteúdo;
+- bloquear a compilação quando resumo ou abstract parecem ultrapassar uma página;
+- permitir rebaixar esse bloqueio para aviso com `\avisarresumoslongos`;
+- emitir avisos, sem cortar conteúdo, para os demais elementos pré-textuais de uma página;
 - verificar resumo, abstract, dedicatória, agradecimentos, epígrafe, errata e ficha catalográfica textual;
 - considerar como alerta prático conteúdo acima de aproximadamente 85% da altura textual disponível;
 - preservar a responsabilidade do usuário pela revisão final.
 
-Justificativa: bloquear ou cortar conteúdo poderia ocultar texto acadêmico importante.
+Justificativa: resumo e abstract têm forte expectativa de página única no fluxo institucional. Para os demais elementos, aviso é mais seguro do que cortar conteúdo acadêmico.
 
 Implementação: `src/abnt/abnt-nbr6028-2021.sty`.
 
@@ -348,6 +352,7 @@ Implementação: `src/abnt/abnt-nbr14724-2024.sty`.
 Decisões adotadas:
 
 - comando amigável principal: `\undffigura`;
+- comando de comparação visual: `\undffigurasladoalado`;
 - posicionamento padrão com `[H]` para reduzir deslocamentos inesperados no exemplo;
 - largura padrão: `0.8\textwidth`;
 - fonte padrão: `elaboração própria`;
@@ -356,15 +361,31 @@ Decisões adotadas:
 
 Implementação: `src/core/undf-crossrefs.sty`.
 
-## Decisão Institucional Nº 21 — Tabelas, Equações e Referências Cruzadas
+## Decisão Institucional Nº 21 — Tabelas, Equações, Pseudocódigo e Referências Cruzadas
 
 Decisões adotadas:
 
 - tabelas podem usar ambiente `undftabela` quando houver necessidade de legenda, rótulo e fonte padronizados;
 - equações podem usar `\equacao` para criar rótulo automático com prefixo `eq:`;
-- referências cruzadas amigáveis usam comandos como `\figuraref`, `\tabelaref`, `\equacaoref`, `\secaoref`, `\apendiceref` e `\anexoref`.
+- pseudocódigos podem usar o ambiente `undfpseudocodigo`;
+- referências cruzadas amigáveis usam comandos como `\figuraref`, `\tabelaref`, `\equacaoref`, `\algoritmoref`, `\secaoref`, `\apendiceref` e `\anexoref`.
 
 Implementação: `src/core/undf-crossrefs.sty`.
+
+## Decisão Institucional Nº 21-A — Fluxogramas
+
+Fluxogramas são tratados como ilustrações.
+
+Decisões adotadas:
+
+- inserir fluxogramas próximos ao trecho em que são citados;
+- usar legenda e fonte imediatamente associadas ao elemento;
+- usar `Figura` como palavra designativa padrão, com o termo `Fluxograma` no título quando necessário;
+- não criar lista própria de fluxogramas na versão `0.1.0`.
+
+Justificativa: a ABNT NBR 14724:2024 trata fluxogramas dentro do conjunto de ilustrações. A versão inicial mantém a experiência simples e compatível com a lista de ilustrações já existente.
+
+Implementação: `tcc-exemplo-undf.tex` e `exemplo/capitulos/04-analise-e-discussao.tex`.
 
 ## Decisão Institucional Nº 22 — Ficha Catalográfica
 
@@ -415,6 +436,7 @@ Decisões adotadas:
 - `tcc.tex` deve permanecer simples e adequado para início de um trabalho real;
 - `tcc-exemplo-undf.tex` deve demonstrar possibilidades do template;
 - o exemplo completo pode conter elementos opcionais para fins didáticos;
+- o exemplo completo demonstra nota de rodapé, citações, listas, figuras, comparação visual, fluxograma, pseudocódigo, tabela, equação, referências, glossário, apêndice e anexo;
 - o modelo em branco deve evitar excesso de demonstrações para não confundir o usuário final.
 
 ## Decisão Institucional Nº 26 — Arquivos Gerados e Distribuição
@@ -437,4 +459,3 @@ Decisões adotadas:
 - texto oficial preservado em `LICENSE-LPPL-1.3c.tex`;
 - nota explicativa em português em `LICENSE`;
 - manifesto de arquivos do trabalho em `MANIFEST.md`.
-
