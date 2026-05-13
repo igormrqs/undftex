@@ -6,13 +6,15 @@ O objetivo do UnDF-TeX é oferecer um template claro, compilável e fácil de ad
 
 ## Estado do projeto
 
-A versão atual é `0.1.0` e já contém:
+A versão registrada é `0.1.0`. Alterações posteriores à versão registrada ficam documentadas na seção `[Não lançado]` do `CHANGELOG.md`.
+
+O estado atual já contém:
 
 - classe principal `undftex`;
 - modelo em branco em `tcc.tex`;
 - modelo completo de demonstração em `tcc-exemplo-undf.tex`;
 - capa, folha de rosto e folha de aprovação institucionais;
-- resumo e resumo em língua estrangeira com avisos de tamanho;
+- resumo e resumo em língua estrangeira com validação de tamanho e contagem de palavras;
 - listas de ilustrações e tabelas;
 - comandos auxiliares para figuras, figuras comparativas, tabelas, equações, pseudocódigo, apêndices e anexos;
 - camada de citações e referências com `biblatex` e `biber`;

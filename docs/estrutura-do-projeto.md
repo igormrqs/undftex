@@ -30,7 +30,7 @@ Ele apenas encaminha para `src/undftex.cls`, onde a classe é realmente carregad
 - `undf-files.sty`: leitura modular de arquivos e conteúdos opcionais;
 - `undf-layout.sty`: margens, espaçamentos e aparência geral;
 - `undf-titles.sty`: títulos e seções;
-- `undf-headings.sty`: títulos especiais sem numeração;
+- `undf-headings.sty`: títulos especiais sem numeração e âncoras para entradas manuais no sumário;
 - `undf-structure.sty`: transição entre partes pré-textual, textual e pós-textual;
 - `undf-toccore.sty`: ajustes de sumário;
 - `undf-crossrefs.sty`: figuras, figuras comparativas, tabelas, equações, pseudocódigo e referências cruzadas;
@@ -46,13 +46,14 @@ Ele apenas encaminha para `src/undftex.cls`, onde a classe é realmente carregad
 
 ## Camada ABNT
 
-`src/abnt/` reúne módulos por norma ou família de elementos:
+`src/abnt/` reúne módulos por norma ou família de elementos carregados pela classe:
 
 - `abnt-nbr14724-2024.sty`: estrutura de trabalhos acadêmicos, listas, apêndices, anexos e glossário;
 - `abnt-nbr6028-2021.sty`: resumo, resumo em língua estrangeira, palavras-chave e validação de tamanho;
 - `abnt-nbr6027-2012.sty`: sumário;
-- `abnt-nbr6023-2025.sty`: suporte básico a referências;
-- `abnt-nbr10520-2023.sty`: comandos auxiliares de citação textual.
+- `abnt-nbr6023-2025.sty`: suporte básico a referências manuais.
+
+Também existem arquivos normativos auxiliares em `src/abnt/`, como `abnt-nbr10520-2023.sty` e `abnt-nbr6024-2012.sty`. No fluxo atual, as citações usadas pelo modelo são fornecidas por `src/biblatex/undf-biblatex.sty`, e a numeração progressiva é aplicada pela combinação de `undf-titles.sty`, `undf-toccore.sty` e `abnt-nbr6027-2012.sty`.
 
 ## Bibliografia
 

@@ -181,6 +181,8 @@ Figura com fonte:
 \undffigura[0.75\textwidth]{figuras/exemplo.jpg}{Legenda da figura}{rotulo}[Autor, ano]
 ```
 
+No PDF, a identificação da figura aparece acima da ilustração e a fonte aparece logo abaixo dela.
+
 Figuras lado a lado:
 
 ```tex

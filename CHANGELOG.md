@@ -17,6 +17,7 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 - Entradas manuais do sumário agora recebem âncoras próprias para melhorar hyperlinks no PDF.
 - Figuras agora exibem identificação acima da ilustração e fonte abaixo da ilustração.
 - Logo da capa ampliada no bloco institucional.
+- Documentação revisada para refletir versão registrada, validações, módulos carregados e padrão de commits.
 
 ## [0.1.0] - 2026-05-05
 

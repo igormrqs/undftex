@@ -53,12 +53,12 @@ lualatex -interaction=nonstopmode -halt-on-error tcc-exemplo-undf.tex
 
 ## Commits
 
-Use mensagens objetivas. Exemplos:
+Use mensagens objetivas, preferencialmente em inglês para manter o histórico uniforme. Exemplos:
 
-- `docs: adiciona guia de uso`
-- `fix: corrige espaçamento da folha de aprovação`
-- `feat: adiciona comando para lista de símbolos`
-- `chore: atualiza arquivos de licença`
+- `docs: add usage guide`
+- `fix: adjust approval page spacing`
+- `feat: add symbols list command`
+- `chore: update license files`
 
 ## Mudanças normativas
 
@@ -72,4 +72,3 @@ Quando a mudança envolver ABNT ou padrão institucional, registre:
 ## Licença das contribuições
 
 Ao contribuir, você concorda que sua contribuição seja distribuída sob a mesma licença do projeto: LPPL 1.3c ou posterior.
-
