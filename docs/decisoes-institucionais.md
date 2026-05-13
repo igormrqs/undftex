@@ -165,8 +165,8 @@ A capa usa logo institucional por padrão.
 Decisões adotadas:
 
 - arquivo padrão da logo: `identidade/logo_vertical.png`;
-- largura máxima da logo: `0.50\textwidth`;
-- altura máxima da logo: `4.0cm`;
+- largura máxima da logo: `0.66\textwidth`;
+- altura máxima da logo: `5.2cm`;
 - altura fixa do bloco institucional: `5.8cm`;
 - quando há logo configurada, a capa não imprime texto institucional separado;
 - quando não há logo configurada, a capa usa texto institucional como fallback.
@@ -240,8 +240,10 @@ Implementação: `src/core/undf-metadata.sty` e `src/identity/undf-titlepages.st
 Decisões adotadas:
 
 - capa sem numeração visível;
-- elementos pré-textuais com numeração não visível;
-- parte textual reiniciada na página 1;
+- folha de rosto como primeira página contada;
+- verso da folha de rosto com ficha catalográfica sem contagem;
+- elementos pré-textuais contados, mas sem numeração visível;
+- parte textual preserva a contagem iniciada na folha de rosto;
 - numeração visível em algarismos arábicos no canto superior direito;
 - pós-textuais continuam a numeração da parte textual.
 
@@ -323,6 +325,19 @@ Para agradecimentos e errata:
 
 Implementação: `src/abnt/abnt-nbr6028-2021.sty`, `src/core/undf-headings.sty` e `src/identity/undf-titlepages.sty`.
 
+## Decisão Institucional Nº 17-A — Modelo de Errata
+
+A errata deve seguir o modelo visual da ABNT NBR 14724:2024: referência do trabalho seguida de tabela com folha, linha, trecho incorreto e correção.
+
+Decisões adotadas:
+
+- manter a referência do trabalho por `\errataref`;
+- registrar as correções em tabela por `\erratatabela`;
+- usar linhas de correção por `\erratalinha{folha}{linha}{onde se lê}{leia-se}`;
+- não aplicar recuo de parágrafo na errata.
+
+Implementação: `src/identity/undf-titlepages.sty`.
+
 ## Decisão Institucional Nº 18 — Sumário
 
 Decisões adotadas:
@@ -330,10 +345,13 @@ Decisões adotadas:
 - o sumário é o último elemento pré-textual;
 - elementos pré-textuais não entram no sumário;
 - capítulos e seções textuais entram conforme profundidade configurada;
+- entradas de capítulos primários usam caixa alta, acompanhando a grafia exibida no texto;
+- entradas de apêndices e anexos usam caixa alta, acompanhando a grafia exibida no texto;
+- entradas manuais de pós-textuais usam âncoras próprias para hyperlinks do PDF;
 - a profundidade de numeração e sumário vai até o quarto nível;
 - a hierarquia tipográfica do sumário acompanha a hierarquia do texto.
 
-Implementação: `src/abnt/abnt-nbr6027-2012.sty`, `src/core/undf-titles.sty` e `src/core/undf-toccore.sty`.
+Implementação: `src/abnt/abnt-nbr6027-2012.sty`, `src/abnt/abnt-nbr14724-2024.sty`, `src/core/undf-headings.sty`, `src/core/undf-titles.sty` e `src/core/undf-toccore.sty`.
 
 ## Decisão Institucional Nº 19 — Listas de Ilustrações e Tabelas
 
@@ -352,11 +370,12 @@ Implementação: `src/abnt/abnt-nbr14724-2024.sty`.
 Decisões adotadas:
 
 - comando amigável principal: `\undffigura`;
-- comando de comparação visual: `\undffigurasladoalado`;
+- comando de comparação visual: `\undffigurasladoalado`, mantendo duas figuras independentes lado a lado, sem sublegendas do tipo `(a)` e `(b)`;
 - posicionamento padrão com `[H]` para reduzir deslocamentos inesperados no exemplo;
 - largura padrão: `0.8\textwidth`;
 - fonte padrão: `elaboração própria`;
-- fonte exibida abaixo da legenda;
+- identificação exibida acima da ilustração;
+- fonte exibida imediatamente abaixo da ilustração;
 - rótulos internos recebem prefixo `fig:`.
 
 Implementação: `src/core/undf-crossrefs.sty`.

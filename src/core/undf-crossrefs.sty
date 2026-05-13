@@ -18,7 +18,6 @@
 \RequirePackage{graphicx}
 \RequirePackage{float}
 \RequirePackage{xparse}
-\RequirePackage{subcaption}
 \RequirePackage{listings}
 
 % ----------------------------------------------------
@@ -76,9 +75,9 @@
 \NewDocumentCommand{\undffigura}{O{0.8\textwidth} m m m O{\undf@fontedefault}}{%
   \begin{figure}[H]
     \centering
-    \includegraphics[width=#1,keepaspectratio]{#2}
     \caption{#3}
     \label{fig:#4}
+    \includegraphics[width=#1,keepaspectratio]{#2}
     \undffonte{#5}
   \end{figure}
 }
@@ -86,22 +85,23 @@
 % ----------------------------------------------------
 % Figuras lado a lado para comparação visual
 % ----------------------------------------------------
-\NewDocumentCommand{\undffigurasladoalado}{O{0.47\textwidth} m m m m m m O{\undf@fontedefault}}{%
+\NewDocumentCommand{\undffigurasladoalado}{O{0.47\textwidth} m m m O{\undf@fontedefault} m m m O{\undf@fontedefault}}{%
   \begin{figure}[H]
     \centering
-    \begin{subfigure}[t]{#1}
+    \begin{minipage}[t]{#1}
       \centering
-      \includegraphics[width=\linewidth,keepaspectratio]{#2}
       \caption{#3}
-    \end{subfigure}\hfill
-    \begin{subfigure}[t]{#1}
+      \label{fig:#4}
+      \includegraphics[width=\linewidth,keepaspectratio]{#2}
+      \undffonte{#5}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{#1}
       \centering
-      \includegraphics[width=\linewidth,keepaspectratio]{#4}
-      \caption{#5}
-    \end{subfigure}
-    \caption{#6}
-    \label{fig:#7}
-    \undffonte{#8}
+      \caption{#7}
+      \label{fig:#8}
+      \includegraphics[width=\linewidth,keepaspectratio]{#6}
+      \undffonte{#9}
+    \end{minipage}
   \end{figure}
 }
 

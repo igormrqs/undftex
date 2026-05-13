@@ -9,6 +9,14 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 ### Alterado
 
 - Guia e exemplo de pseudocódigo atualizados para recomendar `\clearpage` antes de blocos curtos ou médios quando a quebra automática prejudicar a leitura.
+- Figuras lado a lado agora são tratadas como figuras independentes, cada uma com legenda, rótulo, fonte e numeração próprios.
+- Exemplo de errata atualizado para usar tabela no padrão visual da ABNT NBR 14724:2024.
+- Paginação textual agora preserva a contagem iniciada na folha de rosto, sem contar o verso da folha de rosto com ficha catalográfica.
+- Entradas de capítulos primários no sumário agora acompanham a grafia em caixa alta usada no texto.
+- Entradas de apêndices e anexos no sumário agora acompanham a grafia em caixa alta usada no texto.
+- Entradas manuais do sumário agora recebem âncoras próprias para melhorar hyperlinks no PDF.
+- Figuras agora exibem identificação acima da ilustração e fonte abaixo da ilustração.
+- Logo da capa ampliada no bloco institucional.
 
 ## [0.1.0] - 2026-05-05
 

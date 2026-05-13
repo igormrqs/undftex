@@ -36,6 +36,26 @@
 
 \newcommand{\errataref}[1]{\gdef\undf@errataref{#1}}
 \newcommand{\erratatexto}[1]{\gdef\undf@erratatexto{#1}}
+\newcommand{\erratalinha}[4]{#1 & #2 & #3 & #4\\\hline}
+\newcommand{\erratatabela}[1]{%
+  \begingroup
+    \begin{center}
+      \renewcommand{\arraystretch}{1.25}%
+      \begin{tabular}{|c|c|p{0.28\textwidth}|p{0.28\textwidth}|}
+        \hline
+        \textbf{Folha} & \textbf{Linha} & \textbf{Onde se lê} & \textbf{Leia-se}\\
+        \hline
+        #1
+      \end{tabular}
+    \end{center}
+  \endgroup
+}
+\newcommand*{\undf@disablepageanchor}{%
+  \@ifpackageloaded{hyperref}{\hypersetup{pageanchor=false}}{}%
+}
+\newcommand*{\undf@enablepageanchor}{%
+  \@ifpackageloaded{hyperref}{\hypersetup{pageanchor=true}}{}%
+}
 
 % ----------------------------------------------------
 % Blocos auxiliares
@@ -150,6 +170,7 @@
   \ifdefempty{\undf@catalogacaopdf}
     {%
       \clearpage
+      \undf@disablepageanchor
       \thispagestyle{empty}
       \null\vfill
       \noindent\hfill
@@ -178,12 +199,17 @@
       \end{minipage}
       \vfill\null
       \clearpage
+      \addtocounter{page}{-1}%
+      \undf@enablepageanchor
     }
     {%
+      \undf@disablepageanchor
       \includepdf[
         pages=1,
         pagecommand={\thispagestyle{empty}}
       ]{\undf@catalogacaopdf}%
+      \addtocounter{page}{-1}%
+      \undf@enablepageanchor
     }%
 }
 
@@ -219,11 +245,10 @@
           \normalsize\bfseries ERRATA\par
         \end{center}
         \vspace{\baselineskip}
-        \noindent
         \singlespacing
-        \undf@errataref\par
-        \vspace{\baselineskip}
         \setlength{\parindent}{0pt}%
+        \noindent\undf@errataref\par
+        \vspace{\baselineskip}
         \setlength{\parskip}{0.5\baselineskip}%
         \undf@erratatexto\par
       \endgroup

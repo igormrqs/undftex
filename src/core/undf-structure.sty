@@ -37,7 +37,7 @@
 %
 % Textual:
 % - numeração visível em arábico;
-% - página 1 reiniciada.
+% - contagem preservada desde a folha de rosto.
 % ----------------------------------------------------
 
 \newcommand{\undf@beginpretextual}{%
@@ -51,8 +51,9 @@
 \newcommand{\undf@begintextual}{%
   \cleardoublepage
   \undf@pretextualfalse
+  \edef\undf@textualstartpage{\number\value{page}}%
   \pagenumbering{arabic}%
-  \setcounter{page}{1}%
+  \setcounter{page}{\undf@textualstartpage}%
   \pagestyle{undftextual}%
 }
 

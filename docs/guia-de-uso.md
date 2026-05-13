@@ -93,6 +93,20 @@ Os arquivos opcionais ficam em `opcional/`.
 
 Arquivos opcionais vazios ou inexistentes não são exibidos.
 
+Exemplo de errata:
+
+```tex
+\errataref{SOBRENOME, Nome. Título do trabalho. 2026. Trabalho de Conclusão de Curso
+(Graduação em Curso) -- Universidade do Distrito Federal Professor Jorge Amaury
+Maia Nunes -- UnDF, Brasília, 2026.}
+
+\erratatexto{%
+  \erratatabela{%
+    \erratalinha{16}{10}{auto-clavado}{autoclavado}
+  }
+}
+```
+
 ## 6. Escreva os capítulos
 
 Os capítulos do modelo em branco ficam em `capitulos/`:
@@ -171,17 +185,17 @@ Figuras lado a lado:
 
 ```tex
 \undffigurasladoalado
-  {figuras/antes.jpg}{Antes}
-  {figuras/depois.jpg}{Depois}
-  {Comparação entre dois registros}
-  {comparacao}
-  [elaboração própria]
+  {figuras/antes.jpg}{Registro anterior}{registro-anterior}[elaboração própria]
+  {figuras/depois.jpg}{Registro posterior}{registro-posterior}[elaboração própria]
 ```
+
+Esse comando gera duas figuras independentes, cada uma com numeração, legenda,
+rótulo e fonte próprios, apenas posicionadas lado a lado.
 
 Referência à figura:
 
 ```tex
-\figuraref{rotulo}
+\figuraref{registro-anterior}
 ```
 
 Tabela:

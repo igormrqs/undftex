@@ -167,7 +167,7 @@
 \newcommand{\apendice}[1]{%
   \posttextual
   \refstepcounter{undfapendice}%
-  \undf@specialheadingwithtoc{chapter}{APÊNDICE \Alph{undfapendice} --- #1}%
+  \undf@specialheadingwithtoc{chapter}{APÊNDICE \Alph{undfapendice} --- \MakeTextUppercase{#1}}%
 }
 
 % ----------------------------------------------------
@@ -178,7 +178,7 @@
 \newcommand{\anexo}[1]{%
   \posttextual
   \refstepcounter{undfanexo}%
-  \undf@specialheadingwithtoc{chapter}{ANEXO \Alph{undfanexo} --- #1}%
+  \undf@specialheadingwithtoc{chapter}{ANEXO \Alph{undfanexo} --- \MakeTextUppercase{#1}}%
 }
 
 \makeatother

@@ -21,6 +21,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{src/core/undf-titles}[2026/01/01 UnDF-TeX titles]
 
+\RequirePackage{etoolbox}
 \RequirePackage{textcase}
 
 \makeatletter
@@ -66,6 +67,11 @@
    \vskip\undf@titlesep
   }%
 }
+
+\patchcmd{\@chapter}
+  {\protect\numberline{\thechapter}#1}
+  {\protect\numberline{\thechapter}\MakeTextUppercase{#1}}
+  {}{}
 
 \def\@makeschapterhead#1{%
   \vspace*{0pt}%

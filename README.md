@@ -25,7 +25,7 @@ Este projeto não substitui a conferência acadêmica final exigida por curso, b
 - Distribuição TeX atualizada, preferencialmente TeX Live ou MiKTeX.
 - LuaLaTeX.
 - Biber.
-- Pacotes LaTeX usuais: `biblatex`, `csquotes`, `caption`, `subcaption`, `tocloft`, `pdfpages`, `graphicx`, `listings`, `tikz`, `hyperref`, `xparse`, `etoolbox`, `xstring`, entre outros.
+- Pacotes LaTeX usuais: `biblatex`, `csquotes`, `caption`, `tocloft`, `pdfpages`, `graphicx`, `listings`, `tikz`, `hyperref`, `xparse`, `etoolbox`, `xstring`, entre outros.
 
 A classe exige LuaLaTeX. A compilação com pdfLaTeX ou XeLaTeX não é o alvo oficial do projeto.
 

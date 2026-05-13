@@ -50,6 +50,7 @@
 
 \newcommand{\undf@specialheadingwithtoc}[2]{%
   \undf@specialheading{#2}%
+  \@ifundefined{phantomsection}{}{\phantomsection}%
   \addcontentsline{toc}{#1}{#2}%
 }
 
