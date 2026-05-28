@@ -85,30 +85,32 @@ As Figuras \figuraref{comparacao-coppersmith} e \figuraref{comparacao-starry} de
 
 \section{Exemplo de fluxograma}
 
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[
-		node distance=1.1cm,
-		etapa/.style={rectangle, rounded corners, draw, align=center, minimum width=4.2cm, minimum height=0.8cm},
-		decisao/.style={diamond, draw, align=center, aspect=2, inner sep=1pt},
-		seta/.style={-{Latex[length=2mm]}, thick}
-	]
-		\node[etapa] (inicio) {Definir tema};
-		\node[etapa, below=of inicio] (problema) {Formular problema};
-		\node[decisao, below=of problema] (viavel) {Tema viável?};
-		\node[etapa, below=of viavel] (metodo) {Escolher método};
-		\node[etapa, below=of metodo] (texto) {Redigir TCC};
+\begin{undffluxograma}{Planejamento do TCC com início e fim}{fluxograma-planejamento}
+\centering
+\begin{tikzpicture}[
+  node distance=1.1cm,
+  terminal/.style={ellipse, draw, align=center, minimum width=3.4cm, minimum height=0.8cm},
+  etapa/.style={rectangle, rounded corners, draw, align=center, minimum width=4.2cm, minimum height=0.8cm},
+  decisao/.style={diamond, draw, align=center, aspect=2, inner sep=1pt},
+  seta/.style={-{Latex[length=2mm]}, thick}
+]
+  \node[terminal] (inicio) {Início};
+  \node[etapa, below=of inicio] (tema) {Definir tema};
+  \node[etapa, below=of tema] (problema) {Formular problema};
+  \node[decisao, below=of problema] (viavel) {Tema viável?};
+  \node[etapa, below=of viavel] (metodo) {Escolher método};
+  \node[etapa, below=of metodo] (texto) {Redigir TCC};
+  \node[terminal, below=of texto] (fim) {Fim};
 
-		\draw[seta] (inicio) -- (problema);
-		\draw[seta] (problema) -- (viavel);
-		\draw[seta] (viavel) -- node[right]{sim} (metodo);
-		\draw[seta] (metodo) -- (texto);
-		\draw[seta] (viavel.east) -- ++(1.6,0) |- node[pos=0.25,right]{não} (inicio.east);
-	\end{tikzpicture}
-	\caption{Fluxograma simplificado do planejamento do TCC}
-	\label{fig:fluxograma-planejamento}
-	\undffonte{elaboração própria}
-\end{figure}
+  \draw[seta] (inicio) -- (tema);
+  \draw[seta] (tema) -- (problema);
+  \draw[seta] (problema) -- (viavel);
+  \draw[seta] (viavel) -- node[right]{sim} (metodo);
+  \draw[seta] (metodo) -- (texto);
+  \draw[seta] (texto) -- (fim);
+  \draw[seta] (viavel.east) -- ++(1.6,0) |- node[pos=0.25,right]{não} (tema.east);
+\end{tikzpicture}
+\end{undffluxograma}
 
 \clearpage
 \section{Exemplo de pseudocódigo}
@@ -124,17 +126,19 @@ Inicio
     Se r for valida Entao
       soma <- soma + r
       n <- n + 1
-    Fim
-  Fim
+    Fim-se
+  Fim-para
   Se n > 0 Entao
     Retorne soma / n
   Senao
     Retorne "sem respostas validas"
-  Fim
+  Fim-se
 Fim
 \end{undfpseudocodigo}
 
 O \algoritmoref{media-respostas} exemplifica pseudocódigo em bloco numerado, útil para descrever procedimentos de análise.
+
+O ambiente \verb|undfpseudocodigo| é o comando único recomendado: ele evita quebra quando há pouco espaço restante na página e permite a quebra natural quando o bloco não couber.
 
 \section{Exemplo de articulação interna}
 
