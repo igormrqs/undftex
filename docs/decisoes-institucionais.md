@@ -399,7 +399,8 @@ Decisões adotadas:
 - tabelas podem usar ambiente `undftabela` quando houver necessidade de legenda, rótulo e fonte padronizados;
 - equações podem usar `\equacao` para criar rótulo automático com prefixo `eq:`;
 - pseudocódigos usam o ambiente `undfpseudocodigo` como comando único recomendado;
-- o título do pseudocódigo fica dentro da caixa, centralizado no topo;
+- a assinatura do pseudocódigo segue o padrão Cormen, com nome e entradas entre parênteses, como `PARTITION(A, p, r)`;
+- a assinatura aparece dentro da caixa, centralizada no topo do bloco;
 - pseudocódigos usam numeração de linhas e palavras-chave em destaque;
 - finalizadores locais como `Fim-se`, `Fim-para` e `Fim-enquanto` são preferidos para facilitar leitura;
 - o ambiente tenta evitar quebra quando há pouco espaço restante na página e permite quebra natural quando o bloco não couber;

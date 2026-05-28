@@ -10,7 +10,7 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 - Fluxogramas agora possuem ambiente `undffluxograma`, rótulo superior como `Fluxograma`, fonte padronizada e exemplo com início/fim.
 - Documentação revisada para refletir comandos atuais, política de imagens, BibLaTeX/Biber e decisões institucionais recentes.
-- Pseudocódigo padronizado com título dentro da caixa, numeração de linhas, palavras-chave em destaque e finalizadores locais como `Fim-se` e `Fim-para`.
+- Pseudocódigo padronizado com assinatura estilo Cormen, como `PARTITION(A, p, r)`, numeração de linhas, palavras-chave em destaque e finalizadores locais como `Fim-se` e `Fim-para`.
 - Figuras lado a lado agora são tratadas como figuras independentes, cada uma com legenda, rótulo, fonte e numeração próprios.
 - Exemplo de errata atualizado para usar tabela no padrão visual da ABNT NBR 14724:2024.
 - Paginação textual agora preserva a contagem iniciada na folha de rosto, sem contar o verso da folha de rosto com ficha catalográfica.

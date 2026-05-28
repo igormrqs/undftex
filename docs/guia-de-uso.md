@@ -259,7 +259,7 @@ Referência à equação:
 Pseudocódigo:
 
 ```tex
-\begin{undfpseudocodigo}{Cálculo da média}{media}
+\begin{undfpseudocodigo}{MEDIA(V)}{media}
 Entrada: lista de valores V
 Saída: média dos valores
 
@@ -273,7 +273,7 @@ Fim
 \end{undfpseudocodigo}
 ```
 
-O título do pseudocódigo aparece dentro da caixa, centralizado no topo. O ambiente `undfpseudocodigo` é o comando único recomendado: ele evita quebra quando há pouco espaço restante na página e permite a quebra natural quando o bloco não couber. Prefira finalizadores locais, como `Fim-se`, `Fim-para` e `Fim-enquanto`, para melhorar a leitura de blocos longos.
+A assinatura do pseudocódigo aparece dentro da caixa, centralizada no topo do bloco, no padrão Cormen, como `MEDIA(V)` ou `PARTITION(A, p, r)`. O ambiente `undfpseudocodigo` é o comando único recomendado: ele evita quebra quando há pouco espaço restante na página e permite a quebra natural quando o bloco não couber. Prefira finalizadores locais, como `Fim-se`, `Fim-para` e `Fim-enquanto`, para melhorar a leitura de blocos longos.
 
 ## 9. Avisos de validação
 

@@ -153,6 +153,8 @@
   framerule=0.4pt,
   xleftmargin=1.5em,
   framexleftmargin=1.2em,
+  framextopmargin=1.8em,
+  belowcaptionskip=-1.55em,
   breaklines=true,
   tabsize=2,
   captionpos=t,
@@ -160,7 +162,8 @@
   morekeywords={Algoritmo,Entrada,Saida,Saída,Inicio,Início,Fim,Se,Entao,Então,Senao,Senão,Enquanto,Para,Faca,Faça,Retorne,Fim-se,Fim-para,Fim-enquanto,Fim-funcao,Fim-função}
 }
 
-\newcommand{\undf@pseudocodetitle}[1]{\hfill\textbf{Algoritmo~\theundfalgoritmo{} --- #1}\hfill\mbox{}}
+% O primeiro argumento do ambiente e a assinatura estilo Cormen, ex.: MEDIA(V).
+\newcommand{\undf@pseudocodetitle}[1]{\hfill\textsc{#1}\hfill\mbox{}}
 
 \lstnewenvironment{undfpseudocodigo}[3][]{%
   \undf@needhalfpage%
