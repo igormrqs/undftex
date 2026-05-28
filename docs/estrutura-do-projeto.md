@@ -33,14 +33,14 @@ Ele apenas encaminha para `src/undftex.cls`, onde a classe é realmente carregad
 - `undf-headings.sty`: títulos especiais sem numeração e âncoras para entradas manuais no sumário;
 - `undf-structure.sty`: transição entre partes pré-textual, textual e pós-textual;
 - `undf-toccore.sty`: ajustes de sumário;
-- `undf-crossrefs.sty`: figuras, figuras comparativas, tabelas, equações, pseudocódigo e referências cruzadas;
+- `undf-crossrefs.sty`: figuras, figuras comparativas, fluxogramas, tabelas, equações, pseudocódigo e referências cruzadas;
 - `undf-hyperref.sty`: configuração de links.
 
 ## Identidade institucional
 
 `src/identity/` concentra a apresentação institucional:
 
-- `undf-identity.sty`: logo e textos institucionais da capa;
+- `undf-identity.sty`: logo institucional fixa e parâmetros internos da capa;
 - `undf-cover.sty`: capa;
 - `undf-titlepages.sty`: folha de rosto, folha de aprovação, errata, dedicatória, agradecimentos, epígrafe e atalhos relacionados.
 
@@ -51,9 +51,9 @@ Ele apenas encaminha para `src/undftex.cls`, onde a classe é realmente carregad
 - `abnt-nbr14724-2024.sty`: estrutura de trabalhos acadêmicos, listas, apêndices, anexos e glossário;
 - `abnt-nbr6028-2021.sty`: resumo, resumo em língua estrangeira, palavras-chave e validação de tamanho;
 - `abnt-nbr6027-2012.sty`: sumário;
-- `abnt-nbr6023-2025.sty`: suporte básico a referências manuais.
+- `abnt-nbr6023-2025.sty`: registro da decisão de usar BibLaTeX/Biber como fluxo oficial de referências.
 
-Também existem arquivos normativos auxiliares em `src/abnt/`, como `abnt-nbr10520-2023.sty` e `abnt-nbr6024-2012.sty`. No fluxo atual, as citações usadas pelo modelo são fornecidas por `src/biblatex/undf-biblatex.sty`, e a numeração progressiva é aplicada pela combinação de `undf-titles.sty`, `undf-toccore.sty` e `abnt-nbr6027-2012.sty`.
+Também existem arquivos normativos auxiliares em `src/abnt/`, como `abnt-nbr10520-2023.sty` e `abnt-nbr6024-2012.sty`. No fluxo atual, citações e referências são fornecidas por `src/biblatex/undf-biblatex.sty`, e a numeração progressiva é aplicada pela combinação de `undf-titles.sty`, `undf-toccore.sty` e `abnt-nbr6027-2012.sty`.
 
 ## Bibliografia
 

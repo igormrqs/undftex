@@ -23,7 +23,7 @@ Não fazem parte do trabalho distribuído por padrão:
 - PDFs compilados localmente;
 - caches, logs e arquivos temporários;
 - cópias integrais de normas ABNT;
-- arquivos grandes usados apenas para teste local;
+- arquivos grandes, imagens originais pesadas ou arquivos usados apenas para teste local;
 - credenciais, configurações pessoais de editor ou dados privados.
 
 ## Manutenção

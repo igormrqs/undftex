@@ -160,7 +160,7 @@ Implementação: `src/core/undf-layout.sty`, `src/identity/undf-titlepages.sty` 
 
 ## Decisão Institucional Nº 9 — Identidade Visual da Capa
 
-A capa usa logo institucional por padrão.
+A capa usa a logo institucional da UnDF por padrão.
 
 Decisões adotadas:
 
@@ -168,10 +168,10 @@ Decisões adotadas:
 - largura máxima da logo: `0.66\textwidth`;
 - altura máxima da logo: `5.2cm`;
 - altura fixa do bloco institucional: `5.8cm`;
-- quando há logo configurada, a capa não imprime texto institucional separado;
-- quando não há logo configurada, a capa usa texto institucional como fallback.
+- a capa não oferece interface pública para trocar instituição, texto institucional ou logo;
+- a instituição é fixa no backend como Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes -- UnDF.
 
-Justificativa: a logo institucional adotada deve conter o nome da instituição. A altura fixa do bloco evita que alterações no tamanho da imagem empurrem autor, título, local e ano.
+Justificativa: o modelo é institucional e deve evitar variações acidentais na identidade da UnDF. A altura fixa do bloco evita que alterações no tamanho da imagem empurrem autor, título, local e ano.
 
 Implementação: `src/identity/undf-identity.sty` e `src/identity/undf-cover.sty`.
 
@@ -365,7 +365,7 @@ Decisões adotadas:
 
 Implementação: `src/abnt/abnt-nbr14724-2024.sty`.
 
-## Decisão Institucional Nº 20 — Figuras e Fontes
+## Decisão Institucional Nº 20 — Figuras, Fontes e Qualidade de Imagem
 
 Decisões adotadas:
 
@@ -376,9 +376,21 @@ Decisões adotadas:
 - fonte padrão: `elaboração própria`;
 - identificação exibida acima da ilustração;
 - fonte exibida imediatamente abaixo da ilustração;
-- rótulos internos recebem prefixo `fig:`.
+- rótulos internos recebem prefixo `fig:`;
+- o template não compacta imagens automaticamente.
 
-Implementação: `src/core/undf-crossrefs.sty`.
+Recomendações editoriais:
+
+- até `2 MB` por imagem é a faixa recomendada para a maioria dos casos;
+- imagens entre `2 MB` e `5 MB` devem ser avaliadas;
+- imagens acima de `5 MB` exigem justificativa ou otimização antes da entrega final;
+- lado maior entre `1200 px` e `3000 px` costuma atender figuras comuns no corpo do texto;
+- lado maior acima de `4000 px` tende a ser excesso quando a imagem será exibida pequena;
+- lado maior abaixo de `1000 px` pode gerar perda de nitidez se houver ampliação.
+
+Justificativa: a qualidade da imagem precisa equilibrar legibilidade e tamanho do PDF. Imagens muito pesadas dificultam envio e arquivamento; imagens pequenas demais podem comprometer a leitura.
+
+Implementação: `src/core/undf-crossrefs.sty` e documentação de uso.
 
 ## Decisão Institucional Nº 21 — Tabelas, Equações, Pseudocódigo e Referências Cruzadas
 
@@ -386,26 +398,31 @@ Decisões adotadas:
 
 - tabelas podem usar ambiente `undftabela` quando houver necessidade de legenda, rótulo e fonte padronizados;
 - equações podem usar `\equacao` para criar rótulo automático com prefixo `eq:`;
-- pseudocódigos podem usar o ambiente `undfpseudocodigo`;
-- pseudocódigos curtos ou médios devem preferir `\clearpage` antes do bloco quando a quebra automática prejudicar a leitura ou a ordem visual;
-- referências cruzadas amigáveis usam comandos como `\figuraref`, `\tabelaref`, `\equacaoref`, `\algoritmoref`, `\secaoref`, `\apendiceref` e `\anexoref`.
+- pseudocódigos usam o ambiente `undfpseudocodigo` como comando único recomendado;
+- o título do pseudocódigo fica dentro da caixa, centralizado no topo;
+- pseudocódigos usam numeração de linhas e palavras-chave em destaque;
+- finalizadores locais como `Fim-se`, `Fim-para` e `Fim-enquanto` são preferidos para facilitar leitura;
+- o ambiente tenta evitar quebra quando há pouco espaço restante na página e permite quebra natural quando o bloco não couber;
+- referências cruzadas amigáveis usam comandos como `\figuraref`, `\fluxogramaref`, `\tabelaref`, `\equacaoref`, `\algoritmoref`, `\secaoref`, `\apendiceref` e `\anexoref`.
 
 Implementação: `src/core/undf-crossrefs.sty`.
 
 ## Decisão Institucional Nº 21-A — Fluxogramas
 
-Fluxogramas são tratados como ilustrações.
+Fluxogramas são tratados como ilustrações, mas podem usar palavra designativa própria no corpo do trabalho.
 
 Decisões adotadas:
 
+- usar o ambiente `undffluxograma` para fluxogramas;
+- exibir identificação acima do desenho no formato `Fluxograma n --- Título`;
+- exibir fonte imediatamente abaixo do desenho;
 - inserir fluxogramas próximos ao trecho em que são citados;
-- usar legenda e fonte imediatamente associadas ao elemento;
-- usar `Figura` como palavra designativa padrão, com o termo `Fluxograma` no título quando necessário;
-- não criar lista própria de fluxogramas na versão `0.1.0`.
+- usar balões de início e fim quando o fluxograma representar um processo completo;
+- manter os fluxogramas na lista de ilustrações, sem lista própria na versão atual.
 
-Justificativa: a ABNT NBR 14724:2024 trata fluxogramas dentro do conjunto de ilustrações. A versão inicial mantém a experiência simples e compatível com a lista de ilustrações já existente.
+Justificativa: a ABNT NBR 14724:2024 inclui fluxogramas no conjunto de ilustrações. A interface própria melhora a clareza textual sem exigir uma lista separada nesta fase do projeto.
 
-Implementação: `tcc-exemplo-undf.tex` e `exemplo/capitulos/04-analise-e-discussao.tex`.
+Implementação: `src/core/undf-crossrefs.sty` e `exemplo/capitulos/04-analise-e-discussao.tex`.
 
 ## Decisão Institucional Nº 22 — Ficha Catalográfica
 
@@ -457,19 +474,22 @@ Decisões adotadas:
 - `tcc-exemplo-undf.tex` deve demonstrar possibilidades do template;
 - o exemplo completo pode conter elementos opcionais para fins didáticos;
 - o exemplo completo demonstra nota de rodapé, citações, listas, figuras, comparação visual, fluxograma, pseudocódigo, tabela, equação, referências, glossário, apêndice e anexo;
-- o modelo em branco deve evitar excesso de demonstrações para não confundir o usuário final.
+- o modelo em branco deve evitar excesso de demonstrações para não confundir o usuário final;
+- comandos em português devem ser preferidos na interface pública sempre que possível, como `\notarodape`.
 
-## Decisão Institucional Nº 26 — Arquivos Gerados e Distribuição
+## Decisão Institucional Nº 26 — Arquivos Gerados, Imagens e Distribuição
 
 Decisões adotadas:
 
 - PDFs compilados não devem ser versionados por padrão;
 - arquivos auxiliares de LaTeX não devem ser versionados;
-- imagens usadas pelo modelo podem ser versionadas quando fizerem parte do exemplo;
+- imagens usadas pelo modelo podem ser versionadas quando fizerem parte do exemplo ou da identidade visual;
+- imagens versionadas devem ser adequadas ao uso no PDF e não devem ser desnecessariamente pesadas;
 - arquivos grandes devem ser avaliados antes de entrar no histórico Git;
+- imagens originais muito pesadas devem ser preservadas fora do repositório ou em distribuição própria, quando necessário;
 - distribuições fechadas podem ser publicadas por release, não necessariamente no histórico principal.
 
-Implementação: `.gitignore` e `MANIFEST.md`.
+Implementação: `.gitignore`, `MANIFEST.md` e documentação de uso.
 
 ## Decisão Institucional Nº 27 — Licenciamento
 

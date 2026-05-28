@@ -8,7 +8,7 @@ Use:
 
 - `tcc.tex` para começar um trabalho real;
 - `tcc-exemplo-undf.tex` para consultar um exemplo completo;
-- a pasta `exemplo/` para ver usos demonstrativos de figuras, tabelas, citações, apêndices, anexos e elementos opcionais.
+- a pasta `exemplo/` para ver usos demonstrativos de nota de rodapé, citações, figuras, fluxogramas, tabelas, pseudocódigo, apêndices, anexos e elementos opcionais.
 
 ## 2. Preencha os metadados
 
@@ -129,9 +129,9 @@ Referencie depois com:
 \secaoref{rotulo-da-secao}
 ```
 
-## 7. Citações e referências
+## 7. Citações, referências e notas
 
-Cadastre as referências em `obrigatorio/referencias.bib` e use as chaves BibTeX no texto.
+Cadastre as referências em `obrigatorio/referencias.bib` e use as chaves BibTeX no texto. O fluxo oficial do projeto é BibLaTeX com Biber, usando `\addbibresource{...}` no arquivo principal e `\printundfreferences` ao final da parte textual.
 
 Citação indireta:
 
@@ -167,7 +167,15 @@ Citação de citação:
 \apudbib[p. 13][p. 25]{obra-original}{obra-consultada}
 ```
 
-## 8. Figuras, tabelas e equações
+Nota de rodapé:
+
+```tex
+\notarodape{Texto explicativo da nota.}
+```
+
+Use notas de rodapé com parcimônia, apenas quando a explicação complementar não couber bem no corpo do texto.
+
+## 8. Figuras, fluxogramas, tabelas, equações e pseudocódigo
 
 Figura:
 
@@ -191,14 +199,40 @@ Figuras lado a lado:
   {figuras/depois.jpg}{Registro posterior}{registro-posterior}[elaboração própria]
 ```
 
-Esse comando gera duas figuras independentes, cada uma com numeração, legenda,
-rótulo e fonte próprios, apenas posicionadas lado a lado.
+Esse comando gera duas figuras independentes, cada uma com numeração, legenda, rótulo e fonte próprios, apenas posicionadas lado a lado.
+
+Qualidade e peso das imagens:
+
+- prefira imagens de até `2 MB` quando possível;
+- revise imagens acima de `5 MB` antes da entrega final;
+- evite imagens com lado maior acima de `4000 px` quando serão exibidas pequenas no PDF;
+- evite ampliar imagens com lado maior abaixo de `1000 px`, pois podem ficar borradas;
+- preserve o arquivo original fora do projeto e use em `figuras/` uma cópia adequada ao PDF.
 
 Referência à figura:
 
 ```tex
 \figuraref{registro-anterior}
 ```
+
+Fluxograma:
+
+```tex
+\begin{undffluxograma}{Planejamento do TCC}{planejamento-tcc}
+\centering
+\begin{tikzpicture}
+  % nós e setas do fluxograma
+\end{tikzpicture}
+\end{undffluxograma}
+```
+
+No corpo do texto, cite com:
+
+```tex
+\fluxogramaref{planejamento-tcc}
+```
+
+O título do fluxograma aparece acima do desenho e a fonte aparece abaixo, como nas demais ilustrações. Use balões de início e fim quando estiver representando um processo completo.
 
 Tabela:
 
@@ -225,7 +259,6 @@ Referência à equação:
 Pseudocódigo:
 
 ```tex
-\clearpage
 \begin{undfpseudocodigo}{Cálculo da média}{media}
 Entrada: lista de valores V
 Saída: média dos valores
@@ -234,17 +267,13 @@ Inicio
   soma <- 0
   Para cada valor v em V Faca
     soma <- soma + v
-  Fim
+  Fim-para
   Retorne soma / tamanho(V)
 Fim
 \end{undfpseudocodigo}
 ```
 
-Quando um pseudocódigo curto ou médio começar perto do fim da página, use
-`\clearpage` antes do bloco ou antes da seção que o apresenta. Essa é a forma
-mais previsível de manter o algoritmo inteiro e preservar a ordem visual do
-texto. Para pseudocódigos longos, prefira dividir o procedimento em partes
-menores.
+O título do pseudocódigo aparece dentro da caixa, centralizado no topo. O ambiente `undfpseudocodigo` é o comando único recomendado: ele evita quebra quando há pouco espaço restante na página e permite a quebra natural quando o bloco não couber. Prefira finalizadores locais, como `Fim-se`, `Fim-para` e `Fim-enquanto`, para melhorar a leitura de blocos longos.
 
 ## 9. Avisos de validação
 

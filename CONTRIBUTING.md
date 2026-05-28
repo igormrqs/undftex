@@ -51,6 +51,15 @@ lualatex -interaction=nonstopmode -halt-on-error tcc-exemplo-undf.tex
 lualatex -interaction=nonstopmode -halt-on-error tcc-exemplo-undf.tex
 ```
 
+## Imagens e arquivos grandes
+
+Antes de adicionar imagens ao repositório:
+
+- confira peso, largura e altura do arquivo;
+- evite versionar imagens acima de `5 MB`, salvo justificativa clara;
+- prefira cópias otimizadas para uso no PDF, preservando originais fora do projeto;
+- não substitua imagens técnicas por versões comprimidas sem verificar legibilidade;
+- compile o exemplo quando alterar imagens usadas por `tcc-exemplo-undf.tex`.
 ## Commits
 
 Use mensagens objetivas, preferencialmente em inglês para manter o histórico uniforme. Exemplos:

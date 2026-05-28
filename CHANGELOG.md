@@ -8,7 +8,9 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Alterado
 
-- Guia e exemplo de pseudocódigo atualizados para recomendar `\clearpage` antes de blocos curtos ou médios quando a quebra automática prejudicar a leitura.
+- Fluxogramas agora possuem ambiente `undffluxograma`, rótulo superior como `Fluxograma`, fonte padronizada e exemplo com início/fim.
+- Documentação revisada para refletir comandos atuais, política de imagens, BibLaTeX/Biber e decisões institucionais recentes.
+- Pseudocódigo padronizado com título dentro da caixa, numeração de linhas, palavras-chave em destaque e finalizadores locais como `Fim-se` e `Fim-para`.
 - Figuras lado a lado agora são tratadas como figuras independentes, cada uma com legenda, rótulo, fonte e numeração próprios.
 - Exemplo de errata atualizado para usar tabela no padrão visual da ABNT NBR 14724:2024.
 - Paginação textual agora preserva a contagem iniciada na folha de rosto, sem contar o verso da folha de rosto com ficha catalográfica.
@@ -17,7 +19,7 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 - Entradas manuais do sumário agora recebem âncoras próprias para melhorar hyperlinks no PDF.
 - Figuras agora exibem identificação acima da ilustração e fonte abaixo da ilustração.
 - Logo da capa ampliada no bloco institucional.
-- Documentação revisada para refletir versão registrada, validações, módulos carregados e padrão de commits.
+- Documentação revisada para refletir versão registrada, validações, módulos carregados, política de imagens e padrão de commits.
 
 ## [0.1.0] - 2026-05-05
 
