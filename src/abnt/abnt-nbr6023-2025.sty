@@ -24,40 +24,10 @@
 % ----------------------------------------------------
 % Referências
 % ----------------------------------------------------
-% Premissas institucionais assumidas:
-% - elemento pós-textual;
-% - entrada no sumário;
-% - alinhamento à margem esquerda;
-% - espaço simples internamente;
-% - separação entre referências por uma linha em branco.
+% A interface oficial do projeto usa BibLaTeX/Biber:
+% \addbibresource{...} + \printundfreferences.
+% Referências manuais foram removidas da interface pública
+% para evitar divergência entre citações no texto e lista final.
 % ----------------------------------------------------
-\newenvironment{referencias}{%
-  \posttextual
-  \undf@specialheadingwithtoc{chapter}{REFERÊNCIAS}%
-  \begingroup
-  \singlespacing
-  \setlength{\parindent}{0pt}%
-  \setlength{\parskip}{0pt}%
-  \raggedright
-  \begin{list}{}{%
-    \setlength{\leftmargin}{0pt}%
-    \setlength{\rightmargin}{0pt}%
-    \setlength{\labelwidth}{0pt}%
-    \setlength{\labelsep}{0pt}%
-    \setlength{\itemindent}{0pt}%
-    \setlength{\listparindent}{0pt}%
-    \setlength{\itemsep}{\baselineskip}%
-    \setlength{\parsep}{0pt}%
-    \setlength{\topsep}{0pt}%
-    \setlength{\partopsep}{0pt}%
-  }%
-}{%
-  \end{list}%
-  \endgroup
-}
-
-\newcommand{\referencia}[1]{%
-  \item #1
-}
 
 \makeatother

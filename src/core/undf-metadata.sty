@@ -74,7 +74,6 @@
 \newcommand{\titulo}[1]{\gdef\undf@titulo{#1}}
 \newcommand{\subtitulo}[1]{\gdef\undf@subtitulo{#1}}
 \newcommand{\curso}[1]{\gdef\undf@curso{#1}}
-\newcommand{\instituicao}[1]{\gdef\undf@instituicao{#1}}
 \newcommand{\local}[1]{\gdef\undf@local{#1}}
 \newcommand{\ano}[1]{\gdef\undf@ano{#1}}
 \newcommand{\volume}[1]{\gdef\undf@volumenumero{#1}}
@@ -173,9 +172,7 @@
   \ifdefempty{\undf@curso}
     {}
     { apresentado ao curso de \undf@curso,}%
-  \ifdefempty{\undf@instituicao}
-    {}
-    { da \undf@instituicao,\space}%
+  da \undf@instituicao,\space%
   como requisito parcial para obtenção do título de \undf@graupretendido.%
 }
 

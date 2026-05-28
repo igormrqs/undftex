@@ -28,19 +28,6 @@
 \makeatletter
 
 % ----------------------------------------------------
-% Textos institucionais específicos da capa
-% ----------------------------------------------------
-\newcommand*{\undf@coverinstitutionmain}{%
-  \ifdefempty{\undf@instituicaocapa}
-    {\undf@instituicao}
-    {\undf@instituicaocapa}%
-}
-
-\newcommand*{\undf@coverinstitutionsub}{%
-  \undf@subinstituicaocapa
-}
-
-% ----------------------------------------------------
 % Bloco institucional da capa
 % A altura do bloco permanece fixa.
 % Assim, a logo pode crescer até o limite previsto
@@ -49,23 +36,11 @@
 \newcommand*{\undf@coveridentity}{%
   \begin{minipage}[c][\undf@coveridentityheight][c]{\textwidth}
     \centering
-    \ifdefempty{\undf@logocapa}
-      {%
-        {\normalsize\MakeTextUppercase{\undf@coverinstitutionmain}\par}%
-        \ifdefempty{\undf@coverinstitutionsub}
-          {}
-          {%
-            \vspace{0.15cm}
-            {\small\MakeTextUppercase{\undf@coverinstitutionsub}\par}%
-          }%
-      }
-      {%
-        \includegraphics[
-          width=\undf@logocapawidth,
-          height=\undf@logocapaheight,
-          keepaspectratio
-        ]{\undf@logocapa}\par
-      }%
+    \includegraphics[
+      width=\undf@logocapawidth,
+      height=\undf@logocapaheight,
+      keepaspectratio
+    ]{\undf@logocapa}\par
   \end{minipage}%
 }
 

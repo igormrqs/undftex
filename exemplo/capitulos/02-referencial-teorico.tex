@@ -20,13 +20,44 @@
 
 \chapter{Referencial teórico}
 
-A produção acadêmica exige rigor na construção das ideias e clareza na forma de apresentá-las. Segundo \textcite{severino2017}, o método não se separa da inteligibilidade do texto, pois organizar bem o trabalho é também organizar o pensamento.\footnote{Esta nota de rodapé exemplifica um recurso textual permitido quando necessário ao esclarecimento pontual do texto.}
+A produção acadêmica exige rigor na construção das ideias e clareza na forma de apresentá-las. Segundo \textcite{severino2017}, o método não se separa da inteligibilidade do texto, pois organizar bem o trabalho é também organizar o pensamento. Este período contém uma nota de rodapé explicativa\notarodape{Esta nota de rodapé exemplifica um recurso textual permitido quando necessário ao esclarecimento pontual do texto.}, útil quando uma informação complementar não precisa interromper a linha principal da argumentação.
 
-A citação direta curta pode ser exemplificada assim: \citedir[p. 293]{derrida1967}{a desconstrução do logocentrismo não é uma psicanálise da filosofia [...]}. Já a citação de citação pode ser exemplificada assim:
-\apudbibonline[p. 13][p. 25]{freire1994}{streck2017}.
+\section{Citações indiretas}
 
-A citação direta longa, por sua vez, deve aparecer destacada, sem aspas, com fonte menor, espaçamento simples e recuo em relação à margem esquerda. O bloco a seguir usa um texto didático do próprio projeto apenas para demonstrar a forma:
+A citação indireta sintetiza a ideia de uma fonte sem transcrição literal. Ela pode aparecer com autoria entre parênteses, como em \citeind{brasil1996ldb}, ou com autoria integrada à frase, como em \citeindonline{severino2017}. Quando necessário, também é possível indicar localização: \citeind[p. 45]{severino2017}.
+
+\section{Citação direta curta}
+
+A citação direta curta, com até três linhas, permanece no corpo do parágrafo e recebe aspas. Um exemplo com autoria entre parênteses é: \citedir[p. 293]{derrida1967}{a desconstrução do logocentrismo não é uma psicanálise da filosofia [...]}. Também é possível usar a autoria na sentença: \citedironline[p. 293]{derrida1967}{a desconstrução do logocentrismo não é uma psicanálise da filosofia [...]}.
+
+\section{Citação direta longa}
+
+A citação direta longa, com mais de três linhas, deve aparecer destacada, sem aspas, com fonte menor, espaçamento simples e recuo em relação à margem esquerda. O bloco a seguir usa texto didático do próprio projeto apenas para demonstrar a forma:
 
 \begin{citacaolonga}[p. 1]{undftex2026}
-Transcreva aqui, literalmente, um trecho com mais de três linhas. Este bloco demonstra a forma de apresentação da citação direta longa: fonte menor, espaçamento simples, recuo à esquerda e ausência de aspas. Substitua este texto por uma citação real, conferida na fonte consultada.
+Transcreva aqui, literalmente, um trecho com mais de três linhas. Este bloco demonstra a forma de apresentação da citação direta longa: fonte menor, espaçamento simples, recuo à esquerda e ausência de aspas. Substitua este texto por uma citação real, conferida na fonte consultada, mantendo a paginação e a referência correspondente.
 \end{citacaolonga}
+
+\section{Citação de citação}
+
+A citação de citação deve ser usada com parcimônia, quando não houver acesso direto à obra original. No exemplo com autoria na sentença, tem-se \apudbibonline[p. 13][p. 25]{freire1994}{streck2017}. Em forma parentética, a mesma lógica pode ser demonstrada assim: \apudbib[p. 13][p. 25]{freire1994}{streck2017}.
+
+\section{Referência completa no texto}
+
+Em situações didáticas, pode ser útil apresentar a referência completa de uma obra no corpo do texto. O comando \verb|\fullref| produz uma referência completa pontual, como no exemplo: \fullref{severino2017}.
+
+\section{Níveis de seção}
+
+O projeto permite a numeração progressiva em diferentes níveis, conforme a estrutura do trabalho exigir.
+
+\subsection{Seção secundária}
+
+Este é um exemplo de seção secundária.
+
+\subsubsection{Seção terciária}
+
+Este é um exemplo de seção terciária.
+
+\paragraph{Seção quaternária}
+
+Este é um exemplo de seção quaternária, útil quando o trabalho precisa de detalhamento adicional sem criar capítulos excessivamente longos.

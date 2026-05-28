@@ -20,25 +20,22 @@
 
 \chapter{Análise e discussão}
 
-Este capítulo reúne exemplos práticos de elementos frequentemente presentes em um TCC.
+Este capítulo reúne exemplos práticos de elementos frequentemente presentes em um TCC. Os exemplos também funcionam como testes de compilação para os comandos de apoio do projeto.
 
 \section{Exemplo de equação}
 
-A equação de segundo grau pode ser representada por:
-\begin{equation}
-	x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-\end{equation}
+A equação de segundo grau pode ser representada por meio do comando amigável \verb|\equacao|:
+\equacao[formula-bhaskara]{x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}}
 
-Também é possível usar uma fórmula destacada sem numeração:
-\[
-E = mc^2
-\]
+A \equacaoref{formula-bhaskara} apresenta uma expressão numerada e referenciável. Também é possível usar uma fórmula destacada sem numeração:
+\equacaosemnumero{E = mc^2}
 
-\section{Exemplo de tabela}
+\section{Exemplo de tabela tradicional}
 
 \begin{table}[htbp]
 	\centering
 	\caption{Etapas do planejamento do TCC}
+	\label{tab:planejamento-tcc}
 	\begin{tabular}{p{0.28\textwidth} p{0.45\textwidth}}
 		\hline
 		\textbf{Etapa} & \textbf{Finalidade} \\
@@ -50,14 +47,32 @@ E = mc^2
 	\end{tabular}
 \end{table}
 
-A Tabela 4.1 sintetiza as etapas iniciais do planejamento do TCC.
+A \tabelaref{planejamento-tcc} sintetiza as etapas iniciais do planejamento do TCC.
+
+\section{Exemplo de tabela com fonte}
+
+\begin{undftabela}{Síntese de elementos do TCC}{elementos-tcc}
+	\begin{tabular}{p{0.25\textwidth} p{0.48\textwidth}}
+		\hline
+		\textbf{Elemento} & \textbf{Função no trabalho} \\
+		\hline
+		Introdução & Apresenta tema, problema, objetivos e justificativa \\
+		Metodologia & Explica o percurso da pesquisa \\
+		Referências & Identificam as fontes utilizadas \\
+		\hline
+	\end{tabular}
+\end{undftabela}
+
+A \tabelaref{elementos-tcc} demonstra o ambiente \verb|undftabela|, que já inclui legenda, rótulo e fonte padronizada.
 
 \section{Exemplo de figura}
+
 \undffigura[0.42\textwidth]{figuras/exemplo.jpg}{The Coppersmith}{ilustracao-tcc}[Edgar Melville Ward]
 
 Como mostra a \figuraref{ilustracao-tcc}, a imagem pode ser utilizada como recurso visual de apoio ao texto acadêmico.
 
 \section{Outro exemplo de figura}
+
 \undffigura[0.42\textwidth]{figuras/exemplo2.jpg}{The Starry Night}{ilustracao-fonte-externa}[Vincent Van Gogh, 1889]
 
 \section{Exemplo de comparação visual}
@@ -123,4 +138,4 @@ O \algoritmoref{media-respostas} exemplifica pseudocódigo em bloco numerado, ú
 
 \section{Exemplo de articulação interna}
 
-O tema foi apresentado anteriormente na Seção 1.1. O instrumento complementar está no Apêndice A. O documento de apoio está no Anexo A.
+O tema foi apresentado anteriormente na \secaoref{contextualizacao}. O problema de pesquisa aparece na \secaoref{problema-pesquisa}. A equação demonstrativa aparece na \equacaoref{formula-bhaskara}. O instrumento complementar está no \apendiceref{roteiro-planejamento}. O documento de apoio está no \anexoref{documento-apoio}.
