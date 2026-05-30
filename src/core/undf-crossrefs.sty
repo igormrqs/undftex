@@ -21,6 +21,46 @@
 \RequirePackage{listings}
 
 % ----------------------------------------------------
+% Validacao de imagens oficiais do modelo
+% ----------------------------------------------------
+\newif\ifundf@avisosimagem
+\undf@avisosimagemtrue
+
+\newcommand{\undfdesabilitaravisosimagem}{\undf@avisosimagemfalse}
+\newcommand{\undfhabilitaravisosimagem}{\undf@avisosimagemtrue}
+
+\newcommand{\undf@validarimagem}[1]{%
+  \ifundf@avisosimagem
+    \directlua{
+      undf_image_warnings_seen = undf_image_warnings_seen or {}
+      local raw = "\luaescapestring{#1}"
+      local path = kpse.find_file(raw) or raw
+      local file = io.open(path, "rb")
+      if file then
+        local size = file:seek("end")
+        file:close()
+        if size then
+          local mb = size / 1048576
+          if mb > 5 and not undf_image_warnings_seen[path] then
+            undf_image_warnings_seen[path] = true
+            local rounded = math.floor(mb * 10 + 0.5) / 10
+            local level = "imagem pesada"
+            local advice = "recomenda-se otimizar antes da entrega final"
+            if mb > 10 then
+              level = "imagem muito pesada"
+              advice = "recomenda-se fortemente otimizar antes da entrega final"
+            end
+            texio.write_nl("term and log", "")
+            texio.write_nl("term and log", "Package undftex Warning: " .. level .. ": " .. raw .. " (" .. tostring(rounded) .. " MB); " .. advice .. ".")
+            texio.write_nl("term and log", "")
+          end
+        end
+      end
+    }%
+  \fi
+}
+
+% ----------------------------------------------------
 % Referências cruzadas amigáveis
 % ----------------------------------------------------
 \newcommand{\figuraref}[1]{Figura~\ref{fig:#1}}
@@ -78,6 +118,7 @@
     \centering
     \caption{#3}
     \label{fig:#4}
+    \undf@validarimagem{#2}
     \includegraphics[width=#1,keepaspectratio]{#2}
     \undffonte{#5}
   \end{figure}
@@ -93,6 +134,7 @@
       \centering
       \caption{#3}
       \label{fig:#4}
+      \undf@validarimagem{#2}
       \includegraphics[width=\linewidth,keepaspectratio]{#2}
       \undffonte{#5}
     \end{minipage}\hfill
@@ -100,6 +142,7 @@
       \centering
       \caption{#7}
       \label{fig:#8}
+      \undf@validarimagem{#6}
       \includegraphics[width=\linewidth,keepaspectratio]{#6}
       \undffonte{#9}
     \end{minipage}

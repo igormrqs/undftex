@@ -101,12 +101,14 @@ Para manter o PDF final leve e legível, prefira imagens já dimensionadas para 
 
 - até `2 MB` por imagem: faixa recomendada para a maioria dos casos;
 - entre `2 MB` e `5 MB`: aceitável, mas vale avaliar se há excesso de resolução;
-- acima de `5 MB`: revise antes de entregar ou versionar;
+- acima de `5 MB`: os comandos oficiais de figura emitem aviso na compilação;
+- acima de `10 MB`: os comandos oficiais emitem aviso mais forte, recomendando otimização;
 - lado maior entre `1200 px` e `3000 px`: costuma ser suficiente para figuras comuns no corpo do texto;
 - lado maior acima de `4000 px`: geralmente é exagero para uso em TCC, salvo mapas, pranchas ou imagens técnicas específicas;
 - lado maior abaixo de `1000 px`: pode ficar borrado se a imagem for ampliada no PDF.
 
-O template não compacta imagens automaticamente. A recomendação é preservar o original fora do projeto, exportar uma cópia otimizada para `figuras/` e sempre conferir o PDF final.
+O template não compacta imagens automaticamente. A validação automática ocorre em `\undffigura` e `\undffigurasladoalado`; imagens inseridas diretamente por `\includegraphics` ficam sob responsabilidade do usuário. A recomendação é preservar o original fora do projeto, exportar uma cópia otimizada para `figuras/` e sempre conferir o PDF final.
+
 ## Documentação
 
 - `docs/guia-de-uso.md`: guia prático para estudantes e usuários do template.

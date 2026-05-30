@@ -377,6 +377,10 @@ Decisões adotadas:
 - identificação exibida acima da ilustração;
 - fonte exibida imediatamente abaixo da ilustração;
 - rótulos internos recebem prefixo `fig:`;
+- o template valida automaticamente o peso de imagens usadas por `\undffigura` e `\undffigurasladoalado`;
+- imagens acima de `5 MB` geram aviso na compilação;
+- imagens acima de `10 MB` geram aviso mais forte, recomendando otimização;
+- `\includegraphics` direto não é interceptado, ficando sob responsabilidade do usuário;
 - o template não compacta imagens automaticamente.
 
 Recomendações editoriais:

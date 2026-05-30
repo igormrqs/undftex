@@ -204,10 +204,14 @@ Esse comando gera duas figuras independentes, cada uma com numeração, legenda,
 Qualidade e peso das imagens:
 
 - prefira imagens de até `2 MB` quando possível;
-- revise imagens acima de `5 MB` antes da entrega final;
+- imagens acima de `5 MB` geram aviso na compilação quando usadas por `\undffigura` ou `\undffigurasladoalado`;
+- imagens acima de `10 MB` geram aviso mais forte, recomendando otimização antes da entrega final;
+- imagens inseridas diretamente por `\includegraphics` não são validadas automaticamente;
 - evite imagens com lado maior acima de `4000 px` quando serão exibidas pequenas no PDF;
 - evite ampliar imagens com lado maior abaixo de `1000 px`, pois podem ficar borradas;
 - preserve o arquivo original fora do projeto e use em `figuras/` uma cópia adequada ao PDF.
+
+Para desligar temporariamente esses avisos, use `\undfdesabilitaravisosimagem`; para reativar, use `\undfhabilitaravisosimagem`.
 
 Referência à figura:
 
