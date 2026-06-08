@@ -87,6 +87,16 @@
   \@starttoc{lof}%
 }
 
+\newcommand{\listadefluxogramas}{%
+  \ifnum\undf@fluxogramatotal>3
+    \undf@specialheading{LISTA DE FLUXOGRAMAS}%
+    \@mkboth{LISTA DE FLUXOGRAMAS}{LISTA DE FLUXOGRAMAS}%
+    \@starttoc{lofl}%
+  \fi
+}
+
+\newcommand*\l@fluxograma{\@dottedtocline{1}{0em}{7em}}
+
 \newcommand{\listadetabelas}{%
   \undf@specialheading{LISTA DE TABELAS}%
   \@mkboth{LISTA DE TABELAS}{LISTA DE TABELAS}%

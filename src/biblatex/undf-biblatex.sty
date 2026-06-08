@@ -66,6 +66,18 @@
   \ifstrempty{#1}{#2}{#3}%
 }
 
+\newcommand{\undf@needcitationblockspace}{%
+  \par
+  \begingroup
+    \dimen0=0.35\textheight
+    \dimen2=\pagegoal
+    \advance\dimen2 by -\pagetotal
+    \ifdim\dimen2<\dimen0
+      \newpage
+    \fi
+  \endgroup
+}
+
 % ----------------------------------------------------
 % Citações principais
 % ----------------------------------------------------
@@ -79,6 +91,14 @@
   \undf@ifblankbibTF{#1}
     {\textcite{#2}}
     {\textcite[#1]{#2}}%
+}
+
+\NewDocumentCommand{\citarparenteses}{O{}m}{%
+  \citeind[#1]{#2}%
+}
+
+\NewDocumentCommand{\citartexto}{O{}m}{%
+  \citeindonline[#1]{#2}%
 }
 
 \NewDocumentCommand{\citedir}{O{}m m}{%
@@ -95,8 +115,17 @@
   \space\undfdoublequotes{#3}%
 }
 
+\NewDocumentCommand{\citardireta}{O{}m m}{%
+  \citedir[#1]{#2}{#3}%
+}
+
+\NewDocumentCommand{\citardiretatexto}{O{}m m}{%
+  \citedironline[#1]{#2}{#3}%
+}
+
 \NewDocumentEnvironment{citacaolonga}{O{}m +b}
 {%
+  \undf@needcitationblockspace
   \begin{list}{}{%
     \setlength{\leftmargin}{4cm}%
     \setlength{\rightmargin}{0pt}%
@@ -108,6 +137,7 @@
   }%
   \item\small\singlespacing
   #3\par
+  \nobreak
   \undf@ifblankbibTF{#1}
     {\parencite{#2}}
     {\parencite[#1]{#2}}%

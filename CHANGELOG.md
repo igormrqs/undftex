@@ -8,10 +8,12 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Alterado
 
-- Fluxogramas agora possuem ambiente `undffluxograma`, rótulo superior como `Fluxograma`, fonte padronizada e exemplo com início/fim.
+- Fluxogramas agora possuem ambiente `undffluxograma`, fonte padronizada e exemplo com início/fim.
+- Fluxogramas agora alternam automaticamente entre figura e lista própria quando passam de três ocorrências.
 - Documentação revisada para refletir comandos atuais, política de imagens, BibLaTeX/Biber e decisões institucionais recentes.
-- Comandos oficiais de figura agora avisam na compilação quando imagens passam de `5 MB` e reforçam o aviso acima de `10 MB`.
-- Pseudocódigo padronizado com assinatura estilo Cormen, como `PARTITION(A, p, r)`, numeração de linhas, palavras-chave em destaque e finalizadores locais como `Fim-se` e `Fim-para`.
+- Comandos amigáveis em português para citações parentéticas, citações com autoria no texto e citações diretas curtas.
+- Comandos oficiais de figura agora avisam na compilação quando imagens passam de `5 MB` e reforçam o aviso acima de `10 MB`, recomendando otimização para abaixo de `5 MB`.
+- Pseudocódigo padronizado com rótulo e título acima do bloco, assinatura estilo Cormen alinhada à esquerda dentro do quadro, fonte abaixo e finalizadores locais como `Fim-se` e `Fim-para`.
 - Figuras lado a lado agora são tratadas como figuras independentes, cada uma com legenda, rótulo, fonte e numeração próprios.
 - Exemplo de errata atualizado para usar tabela no padrão visual da ABNT NBR 14724:2024.
 - Paginação textual agora preserva a contagem iniciada na folha de rosto, sem contar o verso da folha de rosto com ficha catalográfica.

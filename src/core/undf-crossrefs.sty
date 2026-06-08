@@ -45,10 +45,10 @@
             undf_image_warnings_seen[path] = true
             local rounded = math.floor(mb * 10 + 0.5) / 10
             local level = "imagem pesada"
-            local advice = "recomenda-se otimizar antes da entrega final"
+            local advice = "recomenda-se otimizar para um tamanho abaixo de 5 MB antes da entrega final"
             if mb > 10 then
               level = "imagem muito pesada"
-              advice = "recomenda-se fortemente otimizar antes da entrega final"
+              advice = "recomenda-se fortemente otimizar para um tamanho abaixo de 5 MB antes da entrega final"
             end
             texio.write_nl("term and log", "")
             texio.write_nl("term and log", "Package undftex Warning: " .. level .. ": " .. raw .. " (" .. tostring(rounded) .. " MB); " .. advice .. ".")
@@ -69,8 +69,15 @@
 \newcommand{\secaoref}[1]{Seção~\ref{sec:#1}}
 \newcommand{\apendiceref}[1]{Apêndice~\ref{ap:#1}}
 \newcommand{\anexoref}[1]{Anexo~\ref{an:#1}}
-\newcommand{\algoritmoref}[1]{Algoritmo~\ref{alg:#1}}
-\newcommand{\fluxogramaref}[1]{Fluxograma~\ref{fig:#1}}
+\newcommand{\algoritmoref}[1]{Pseudocódigo~\ref{alg:#1}}
+\newcommand{\pseudocodigoref}[1]{Pseudocódigo~\ref{alg:#1}}
+\newcommand{\fluxogramaref}[1]{%
+  \ifnum\undf@fluxogramatotal>3
+    Fluxograma~\ref{flux:#1}%
+  \else
+    Figura~\ref{fig:#1}%
+  \fi
+}
 
 % ----------------------------------------------------
 % Seções amigáveis
@@ -152,19 +159,41 @@
 % ----------------------------------------------------
 % Fluxogramas
 % ----------------------------------------------------
+% A decisao entre Figura e Fluxograma usa a contagem registrada no .aux.
+% Compile novamente quando a quantidade de fluxogramas mudar.
+\newcounter{undf@fluxogramacount}
+\newcounter{undffluxograma}
+\providecommand{\undf@fluxogramatotal}{0}
+
+\AtEndDocument{%
+  \ifnum\value{undf@fluxogramacount}=\undf@fluxogramatotal\relax
+  \else
+    \PackageWarning{undftex}{A quantidade de fluxogramas mudou. Recompile para estabilizar listas e rotulos}%
+  \fi
+  \if@filesw
+    \immediate\write\@auxout{\string\gdef\string\undf@fluxogramatotal{\arabic{undf@fluxogramacount}}}%
+  \fi
+}
+
 \NewDocumentEnvironment{undffluxograma}{O{H} m m O{\undf@fontedefault} +b}
   {%
+    \stepcounter{undf@fluxogramacount}%
     \begin{figure}[#1]
       \centering
-      \captionsetup{name=Fluxograma}
-      \caption{#2}
-      \label{fig:#3}
+      \ifnum\undf@fluxogramatotal>3
+        \refstepcounter{undffluxograma}%
+        \caption*{Fluxograma~\theundffluxograma{} --- #2}%
+        \addcontentsline{lofl}{fluxograma}{Fluxograma~\theundffluxograma{} --- #2}%
+        \label{flux:#3}%
+      \else
+        \caption{#2}%
+        \label{fig:#3}%
+      \fi
       #5
       \undffonte{#4}
-    \end{figure}
+    \end{figure}%
   }
   {}
-
 % ----------------------------------------------------
 % Pseudocódigo
 % ----------------------------------------------------
@@ -205,21 +234,27 @@
   morekeywords={Algoritmo,Entrada,Saida,Saída,Inicio,Início,Fim,Se,Entao,Então,Senao,Senão,Enquanto,Para,Faca,Faça,Retorne,Fim-se,Fim-para,Fim-enquanto,Fim-funcao,Fim-função}
 }
 
-% O primeiro argumento do ambiente e a assinatura estilo Cormen, ex.: MEDIA(V).
-\newcommand{\undf@pseudocodetitle}[1]{\hfill\textsc{#1}\hfill\mbox{}}
+% A assinatura fica dentro do quadro, alinhada a esquerda, ex.: MEDIA(V).
+\newcommand{\undf@pseudocodetitle}[1]{\textsc{#1}\hfill\mbox{}}
 
-\lstnewenvironment{undfpseudocodigo}[3][]{%
+\lstnewenvironment{undfpseudocodigo}[4][\undf@fontedefault]{%
   \undf@needhalfpage%
   \refstepcounter{undfalgoritmo}%
   \label{alg:#3}%
-  \lstset{style=undf-pseudocode,title={\undf@pseudocodetitle{#2}},#1}%
-}{}
+  \noindent\makebox[\linewidth][c]{Pseudocódigo~\theundfalgoritmo{} --- #4}\endgraf\nobreak%
+  \lstset{style=undf-pseudocode,title={\undf@pseudocodetitle{#2}}}%
+}{%
+  \undffonte{#1}%
+}
 
-\lstnewenvironment{undfpseudocodigolongo}[3][]{%
+\lstnewenvironment{undfpseudocodigolongo}[4][\undf@fontedefault]{%
   \refstepcounter{undfalgoritmo}%
   \label{alg:#3}%
-  \lstset{style=undf-pseudocode,title={\undf@pseudocodetitle{#2}},#1}%
-}{}
+  \noindent\makebox[\linewidth][c]{Pseudocódigo~\theundfalgoritmo{} --- #4}\endgraf\nobreak%
+  \lstset{style=undf-pseudocode,title={\undf@pseudocodetitle{#2}}}%
+}{%
+  \undffonte{#1}%
+}
 
 % ----------------------------------------------------
 % Tabela avançada

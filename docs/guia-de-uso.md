@@ -136,21 +136,22 @@ Cadastre as referências em `obrigatorio/referencias.bib` e use as chaves BibTeX
 Citação indireta:
 
 ```tex
-\citeind{chave}
-\citeind[p. 25]{chave}
+\citarparenteses{chave}
+\citarparenteses[p. 25]{chave}
 ```
 
 Citação indireta com autor no texto:
 
 ```tex
-\citeindonline{chave}
-\citeindonline[p. 25]{chave}
+\citartexto{chave}
+\citartexto[p. 25]{chave}
 ```
 
 Citação direta curta:
 
 ```tex
-\citedir[p. 25]{chave}{Texto citado.}
+\citardireta[p. 25]{chave}{Texto citado.}
+\citardiretatexto[p. 25]{chave}{Texto citado.}
 ```
 
 Citação direta longa:
@@ -205,7 +206,7 @@ Qualidade e peso das imagens:
 
 - prefira imagens de até `2 MB` quando possível;
 - imagens acima de `5 MB` geram aviso na compilação quando usadas por `\undffigura` ou `\undffigurasladoalado`;
-- imagens acima de `10 MB` geram aviso mais forte, recomendando otimização antes da entrega final;
+- imagens acima de `10 MB` geram aviso mais forte, recomendando otimização para um tamanho abaixo de `5 MB` antes da entrega final;
 - imagens inseridas diretamente por `\includegraphics` não são validadas automaticamente;
 - evite imagens com lado maior acima de `4000 px` quando serão exibidas pequenas no PDF;
 - evite ampliar imagens com lado maior abaixo de `1000 px`, pois podem ficar borradas;
@@ -236,7 +237,7 @@ No corpo do texto, cite com:
 \fluxogramaref{planejamento-tcc}
 ```
 
-O título do fluxograma aparece acima do desenho e a fonte aparece abaixo, como nas demais ilustrações. Use balões de início e fim quando estiver representando um processo completo.
+Com até três fluxogramas no trabalho, o ambiente entra na lista de ilustrações e usa numeração de figura. Com mais de três, o template passa a tratá-los como objeto próprio, usa numeração `Fluxograma n` e a chamada `\listadefluxogramas` passa a exibir a lista própria. Como essa decisão depende da contagem registrada no `.aux`, recompile quando a quantidade de fluxogramas mudar. Use balões de início e fim quando estiver representando um processo completo.
 
 Tabela:
 
@@ -263,7 +264,7 @@ Referência à equação:
 Pseudocódigo:
 
 ```tex
-\begin{undfpseudocodigo}{MEDIA(V)}{media}
+\begin{undfpseudocodigo}{MEDIA(V)}{media}{Calcular média dos valores de uma lista}
 Entrada: lista de valores V
 Saída: média dos valores
 
@@ -277,7 +278,7 @@ Fim
 \end{undfpseudocodigo}
 ```
 
-A assinatura do pseudocódigo aparece dentro da caixa, centralizada no topo do bloco, no padrão Cormen, como `MEDIA(V)` ou `PARTITION(A, p, r)`. O ambiente `undfpseudocodigo` é o comando único recomendado: ele evita quebra quando há pouco espaço restante na página e permite a quebra natural quando o bloco não couber. Prefira finalizadores locais, como `Fim-se`, `Fim-para` e `Fim-enquanto`, para melhorar a leitura de blocos longos.
+O rótulo numerado e o título descritivo aparecem acima do bloco, no formato `Pseudocódigo n --- Título`. A assinatura aparece dentro da caixa, alinhada à esquerda, no padrão Cormen, como `MEDIA(V)` ou `PARTITION(A, p, r)`. A fonte aparece abaixo do quadro e usa `elaboração própria` por padrão; para trocar a fonte, use o argumento opcional, como `\begin{undfpseudocodigo}[Cormen, 2022]{PARTITION(A, p, r)}{partition}{Particionar o arranjo}`. Prefira finalizadores locais, como `Fim-se`, `Fim-para` e `Fim-enquanto`, para melhorar a leitura de blocos longos.
 
 ## 9. Avisos de validação
 

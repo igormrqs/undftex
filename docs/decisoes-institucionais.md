@@ -379,7 +379,7 @@ Decisões adotadas:
 - rótulos internos recebem prefixo `fig:`;
 - o template valida automaticamente o peso de imagens usadas por `\undffigura` e `\undffigurasladoalado`;
 - imagens acima de `5 MB` geram aviso na compilação;
-- imagens acima de `10 MB` geram aviso mais forte, recomendando otimização;
+- imagens acima de `10 MB` geram aviso mais forte, recomendando otimização para um tamanho abaixo de `5 MB`;
 - `\includegraphics` direto não é interceptado, ficando sob responsabilidade do usuário;
 - o template não compacta imagens automaticamente.
 
@@ -404,30 +404,45 @@ Decisões adotadas:
 - equações podem usar `\equacao` para criar rótulo automático com prefixo `eq:`;
 - pseudocódigos usam o ambiente `undfpseudocodigo` como comando único recomendado;
 - a assinatura do pseudocódigo segue o padrão Cormen, com nome e entradas entre parênteses, como `PARTITION(A, p, r)`;
-- a assinatura aparece dentro da caixa, centralizada no topo do bloco;
+- o rótulo numerado e o título descritivo aparecem acima do bloco, no formato `Pseudocódigo n --- Título`;
+- a assinatura aparece dentro da caixa, alinhada à esquerda;
+- a fonte aparece abaixo do quadro, com `elaboração própria` como padrão;
 - pseudocódigos usam numeração de linhas e palavras-chave em destaque;
 - finalizadores locais como `Fim-se`, `Fim-para` e `Fim-enquanto` são preferidos para facilitar leitura;
 - o ambiente tenta evitar quebra quando há pouco espaço restante na página e permite quebra natural quando o bloco não couber;
-- referências cruzadas amigáveis usam comandos como `\figuraref`, `\fluxogramaref`, `\tabelaref`, `\equacaoref`, `\algoritmoref`, `\secaoref`, `\apendiceref` e `\anexoref`.
+- referências cruzadas amigáveis usam comandos como `\figuraref`, `\fluxogramaref`, `\tabelaref`, `\equacaoref`, `\pseudocodigoref`, `\secaoref`, `\apendiceref` e `\anexoref`.
 
 Implementação: `src/core/undf-crossrefs.sty`.
 
 ## Decisão Institucional Nº 21-A — Fluxogramas
 
-Fluxogramas são tratados como ilustrações, mas podem usar palavra designativa própria no corpo do trabalho.
+Fluxogramas são tratados como ilustrações quando aparecem poucas vezes e ganham lista própria quando se tornam recorrentes no trabalho.
 
 Decisões adotadas:
 
 - usar o ambiente `undffluxograma` para fluxogramas;
-- exibir identificação acima do desenho no formato `Fluxograma n --- Título`;
+- exibir identificação acima do desenho como `Figura n --- Título` até três ocorrências ou `Fluxograma n --- Título` quando houver lista própria;
 - exibir fonte imediatamente abaixo do desenho;
 - inserir fluxogramas próximos ao trecho em que são citados;
 - usar balões de início e fim quando o fluxograma representar um processo completo;
-- manter os fluxogramas na lista de ilustrações, sem lista própria na versão atual.
+- manter fluxogramas como figuras quando houver até três ocorrências no trabalho;
+- criar lista própria e numeração `Fluxograma n` quando houver mais de três ocorrências.
 
-Justificativa: a ABNT NBR 14724:2024 inclui fluxogramas no conjunto de ilustrações. A interface própria melhora a clareza textual sem exigir uma lista separada nesta fase do projeto.
+Justificativa: a ABNT NBR 14724:2024 inclui fluxogramas no conjunto de ilustrações, mas trabalhos com muitos fluxogramas se beneficiam de lista própria. O limite de três evita criar uma lista pré-textual para poucos itens e preserva consistência quando o uso é recorrente.
 
-Implementação: `src/core/undf-crossrefs.sty` e `exemplo/capitulos/04-analise-e-discussao.tex`.
+Implementação: `src/core/undf-crossrefs.sty`, `src/abnt/abnt-nbr14724-2024.sty` e `exemplo/capitulos/04-analise-e-discussao.tex`.
+
+## Decisão Institucional Nº 21-B — Citações amigáveis
+
+Decisões adotadas:
+
+- preferir comandos em português para a interface pública de citações;
+- `\citarparenteses` gera citação indireta parentética;
+- `\citartexto` gera citação indireta com autoria integrada ao texto;
+- `\citardireta` e `\citardiretatexto` geram citações diretas curtas;
+- citações diretas longas tentam evitar corte ruim entre bloco citado e referência, mas podem quebrar naturalmente quando forem extensas.
+
+Implementação: `src/biblatex/undf-biblatex.sty`.
 
 ## Decisão Institucional Nº 22 — Ficha Catalográfica
 

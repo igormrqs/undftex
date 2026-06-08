@@ -16,7 +16,7 @@ O estado atual já contém:
 - capa, folha de rosto e folha de aprovação institucionais;
 - resumo e resumo em língua estrangeira com validação de tamanho e contagem de palavras;
 - listas de ilustrações e tabelas;
-- comandos auxiliares para nota de rodapé, figuras, figuras comparativas, fluxogramas, tabelas, equações, pseudocódigo, apêndices e anexos;
+- comandos auxiliares para nota de rodapé, figuras, figuras comparativas, fluxogramas, tabelas, equações, pseudocódigo, citações, apêndices e anexos;
 - camada de citações e referências com `biblatex` e `biber`;
 - documentação inicial para uso, manutenção e contribuição.
 
@@ -102,7 +102,7 @@ Para manter o PDF final leve e legível, prefira imagens já dimensionadas para 
 - até `2 MB` por imagem: faixa recomendada para a maioria dos casos;
 - entre `2 MB` e `5 MB`: aceitável, mas vale avaliar se há excesso de resolução;
 - acima de `5 MB`: os comandos oficiais de figura emitem aviso na compilação;
-- acima de `10 MB`: os comandos oficiais emitem aviso mais forte, recomendando otimização;
+- acima de `10 MB`: os comandos oficiais emitem aviso mais forte, recomendando otimização para abaixo de `5 MB`;
 - lado maior entre `1200 px` e `3000 px`: costuma ser suficiente para figuras comuns no corpo do texto;
 - lado maior acima de `4000 px`: geralmente é exagero para uso em TCC, salvo mapas, pranchas ou imagens técnicas específicas;
 - lado maior abaixo de `1000 px`: pode ficar borrado se a imagem for ampliada no PDF.
