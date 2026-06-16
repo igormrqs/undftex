@@ -349,6 +349,10 @@ Decisões adotadas:
 - entradas de apêndices e anexos usam caixa alta, acompanhando a grafia exibida no texto;
 - entradas manuais de pós-textuais usam âncoras próprias para hyperlinks do PDF;
 - a profundidade de numeração e sumário vai até o quarto nível;
+- seções primárias usam caixa alta e negrito;
+- seções secundárias usam negrito;
+- seções terciárias usam negrito e itálico;
+- seções quaternárias usam itálico sem negrito;
 - a hierarquia tipográfica do sumário acompanha a hierarquia do texto.
 
 Implementação: `src/abnt/abnt-nbr6027-2012.sty`, `src/abnt/abnt-nbr14724-2024.sty`, `src/core/undf-headings.sty`, `src/core/undf-titles.sty` e `src/core/undf-toccore.sty`.

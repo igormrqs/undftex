@@ -37,6 +37,10 @@
 % ----------------------------------------------------
 \newdimen\undf@titlesep
 \undf@titlesep=\dimexpr\baselineskip+\baselineskip/2\relax
+\newdimen\undf@lowtitlesep
+\undf@lowtitlesep=\baselineskip
+\newdimen\undf@lowtitleafterskip
+\undf@lowtitleafterskip=.5\baselineskip
 
 % ----------------------------------------------------
 % Compatibilidade com undf-headings.sty
@@ -104,15 +108,15 @@
 
 \renewcommand\subsubsection{%
   \@startsection{subsubsection}{3}{\z@}%
-    {\undf@titlesep}%
-    {\undf@titlesep}%
-    {\normalfont}%
+    {\undf@lowtitlesep}%
+    {\undf@lowtitleafterskip}%
+    {\normalfont\bfseries\itshape}%
 }
 
 \renewcommand\paragraph{%
   \@startsection{paragraph}{4}{\z@}%
-    {\undf@titlesep}%
-    {\undf@titlesep}%
+    {\undf@lowtitlesep}%
+    {\undf@lowtitleafterskip}%
     {\normalfont\itshape}%
 }
 

@@ -8,6 +8,7 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Alterado
 
+- Hierarquia visual de seções terciárias e quaternárias refinada para seguir diferenciação tipográfica progressiva.
 - Fluxogramas agora possuem ambiente `undffluxograma`, fonte padronizada e exemplo com início/fim.
 - Fluxogramas agora alternam automaticamente entre figura e lista própria quando passam de três ocorrências.
 - Documentação revisada para refletir comandos atuais, política de imagens, BibLaTeX/Biber e decisões institucionais recentes.
