@@ -1,0 +1,40 @@
+\chapter{Preparação do Ambiente}
+
+\section{Requisitos}
+
+O projeto exige uma distribuição LaTeX atualizada com LuaLaTeX e Biber. Também é necessário um editor de texto com suporte a arquivos UTF-8 e, para conferência, um leitor de PDF.
+
+Ambientes locais podem usar MiKTeX ou TeX Live. Em serviços online, selecione LuaLaTeX como compilador e envie a estrutura completa do projeto, preservando nomes e caminhos relativos.
+
+\section{Obtenção da versão correta}
+
+Obtenha o pacote pelo repositório controlado do projeto ou por canal institucional indicado. Não copie apenas \texttt{tcc.tex}: a classe, os módulos de \texttt{src/}, a identidade visual e os arquivos bibliográficos são necessários.
+
+Depois de extrair ou clonar o projeto, confirme a presença de:
+
+\begin{lstlisting}
+undftex.cls
+tcc.tex
+src/
+identidade/
+obrigatorio/
+opcional/
+capitulos/
+\end{lstlisting}
+
+\section{Teste inicial}
+
+Compile o modelo em branco antes de inserir conteúdo. O teste separa problemas de instalação de erros introduzidos durante a edição.
+
+\begin{lstlisting}
+lualatex -interaction=nonstopmode -halt-on-error tcc.tex
+biber tcc
+lualatex -interaction=nonstopmode -halt-on-error tcc.tex
+lualatex -interaction=nonstopmode -halt-on-error tcc.tex
+\end{lstlisting}
+
+O resultado esperado é \texttt{tcc.pdf}. Mensagens sobre campos ainda não preenchidos são normais no primeiro teste; interrupção do processo, arquivo ausente ou comando desconhecido exigem correção.
+
+\section{Editor e codificação}
+
+Mantenha os arquivos em UTF-8. Não substitua caracteres acentuados por sequências incompatíveis nem altere a codificação de apenas um capítulo. Configure o editor para mostrar final de linha, pares de chaves e erros de sintaxe.

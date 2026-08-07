@@ -1,0 +1,25 @@
+\chapter{Exemplo de Contagem e Exibição da Paginação}
+\label{ap:paginacao}
+
+O quadro mostra um trabalho hipotético. A quantidade real de páginas pré-textuais varia conforme os elementos utilizados.
+
+\begin{longtable}{p{0.34\linewidth}p{0.20\linewidth}p{0.18\linewidth}p{0.16\linewidth}}
+\toprule
+Elemento & Participa da contagem? & Número lógico & Número visível? \\
+\midrule
+Capa & Não & -- & Não \\
+Folha de rosto & Sim & 1 & Não \\
+Dados catalográficos & Não & -- & Não \\
+Folha de aprovação & Sim & 2 & Não \\
+Dedicatória & Sim & 3 & Não \\
+Agradecimentos & Sim & 4 & Não \\
+Resumo & Sim & 5 & Não \\
+Resumo estrangeiro & Sim & 6 & Não \\
+Lista de ilustrações & Sim & 7 & Não \\
+Sumário & Sim & 8 & Não \\
+Primeira página da introdução & Sim & 9 & Sim: 9 \\
+Demais textuais e pós-textuais & Sim & Sequencial & Sim \\
+\bottomrule
+\end{longtable}
+
+\caixaatencao{Não se imprime numeração romana nos elementos pré-textuais do TCC. A tabela usa “número lógico” apenas para explicar a contagem que será exibida a partir da primeira página textual.}

@@ -1,0 +1,94 @@
+\chapter{Figuras, Tabelas, Equações e Outros Objetos}
+
+\section{Figura individual}
+
+\begin{lstlisting}
+\undffigura[0.75\textwidth]
+  {figuras/exemplo.jpg}
+  {Legenda da figura}
+  {rotulo}
+  [Autor, ano]
+\end{lstlisting}
+
+A largura e a fonte são opcionais. Sem indicação, o comando usa \texttt{0.8\string\textwidth} e \texttt{elaboração própria}. Referencie com \texttt{\string\figuraref\{rotulo\}}.
+
+\section{Duas figuras independentes lado a lado}
+
+\begin{lstlisting}
+\undffigurasladoalado
+  {figuras/antes.jpg}{Registro anterior}{antes}[elaboração própria]
+  {figuras/depois.jpg}{Registro posterior}{depois}[elaboração própria]
+\end{lstlisting}
+
+O comando cria duas figuras independentes, cada uma com número, legenda, rótulo e fonte. Não há legenda coletiva nem subdivisões ``a'' e ``b''. A largura opcional inicial controla cada coluna.
+
+\section{Tabela}
+
+\begin{lstlisting}
+\begin{undftabela}{Legenda da tabela}{rotulo}[Fonte]
+  \begin{tabular}{ll}
+    Item & Valor \\
+  \end{tabular}
+\end{undftabela}
+\end{lstlisting}
+
+Use \texttt{\string\tabelaref\{rotulo\}} para a chamada no texto. Tabelas extensas que atravessam páginas devem ser construídas com um ambiente multipágina apropriado, como \texttt{longtable}, pois \texttt{undftabela} é um flutuante de uma página.
+
+\section{Gráficos e quadros}
+
+Na versão 0.1.0, um gráfico fornecido como imagem é inserido por \texttt{\string\undffigura}; a saída o identifica na categoria geral ``Figura''. Um gráfico produzido diretamente em LaTeX pode ser colocado em um ambiente \texttt{figure}, com \texttt{\string\caption}, rótulo iniciado por \texttt{fig:} e \texttt{\string\undffonte}.
+
+Não há ambiente público dedicado a quadro na versão 0.1.0. Não use \texttt{undftabela} apenas para obter bordas quando o objeto for semanticamente um quadro, pois a identificação sairia como ``Tabela''. Até que uma interface própria seja incorporada e testada, quadros exigem implementação manual controlada pelo mantenedor. Essa limitação está registrada para uma versão posterior e não deve ser ocultada por documentação de um comando inexistente.
+
+\section{Equações}
+
+\begin{lstlisting}
+\equacao[energia]{E = mc^2}
+\equacaosemnumero{x + y = z}
+\end{lstlisting}
+
+Somente a equação numerada e rotulada pode ser referenciada:
+
+\begin{lstlisting}
+\equacaoref{energia}
+\end{lstlisting}
+
+\section{Fluxograma}
+
+\begin{lstlisting}
+\begin{undffluxograma}{Fluxo de análise}{analise}
+  \centering
+  \begin{tikzpicture}
+    % nós e conexões
+  \end{tikzpicture}
+\end{undffluxograma}
+\end{lstlisting}
+
+Até três ocorrências, o recurso integra a numeração e a lista de figuras. Acima desse total, passa a usar numeração e lista próprias. Após adicionar ou remover fluxogramas, compile novamente até os rótulos e as listas estabilizarem.
+
+\section{Pseudocódigo}
+
+\begin{lstlisting}
+\begin{undfpseudocodigo}{MEDIA(V)}{media}{Calcular a média}
+Entrada: lista V
+Saida: média dos valores
+...
+\end{undfpseudocodigo}
+\end{lstlisting}
+
+O ambiente comum tenta iniciar o bloco apenas quando há espaço suficiente para cerca de meia página. Para um algoritmo que precise continuar na página seguinte, use \texttt{undfpseudocodigolongo}; ele permite a quebra interna do bloco. Referencie ambos com \texttt{\string\pseudocodigoref\{rotulo\}}.
+
+\section{Apêndices, anexos e PDFs externos}
+
+\begin{lstlisting}
+\undfapendice{Título}{rotulo}
+\undfanexo{Título}{rotulo}
+\undfapendicepdf{Título}{arquivo.pdf}
+\undfanexarpdf{Título}{arquivo.pdf}
+\end{lstlisting}
+
+Para inclusão sem criar apêndice ou anexo, use \texttt{\string\undfincluirpdf\{arquivo.pdf\}}. Os comandos de referência são \texttt{\string\apendiceref} e \texttt{\string\anexoref}.
+
+\section{Imagens e paginação}
+
+Os comandos de figura verificam o tamanho do arquivo e emitem avisos para imagens pesadas. Uma figura fixada que não caiba no espaço restante avança inteira para a próxima página, podendo deixar área em branco. Isso preserva a unidade do objeto. Ajuste a largura, reposicione a chamada no texto ou use uma imagem mais compacta; não force sobreposição com texto ou margens.

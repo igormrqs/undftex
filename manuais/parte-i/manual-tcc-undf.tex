@@ -1,0 +1,79 @@
+% Manual de Trabalhos de Conclusao de Curso da UnDF
+% Fonte em LaTeX; conteudo editorial sem foco em comandos LaTeX.
+% Compilacao:
+%   lualatex -interaction=nonstopmode -halt-on-error manual-tcc-undf.tex
+%   lualatex -interaction=nonstopmode -halt-on-error manual-tcc-undf.tex
+
+\DocumentMetadata{lang=pt-BR,tagging=on}
+\tagpdfsetup{math/mathml/luamml/load=false}
+\documentclass[12pt,a4paper,oneside]{report}
+\usepackage{../estilos/manual-style-tcc}
+
+\begin{document}
+\pagenumbering{gobble}
+
+\begin{titlepage}
+  \centering
+  \vspace*{1.4cm}
+  {\large Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes -- UnDF\par}
+  \vspace{3.2cm}
+  {\bfseries\Large MANUAL DE TRABALHOS DE CONCLUSÃO DE CURSO\par}
+  \vspace{0.45cm}
+  {\bfseries\normalsize PARTE I\par}
+  \vspace{0.8cm}
+  {\normalsize Orientações acadêmicas, metodológicas e normativas para elaboração de TCC\par}
+  \vspace{1.2cm}
+  {\small Versão 0.3.1-preliminar\par}
+  {\small Minuta preliminar — não constitui orientação institucional definitiva.\par}
+  \vfill
+  {\normalsize Brasília\par}
+  {\normalsize 2026\par}
+\end{titlepage}
+
+\manualfrontmatter
+\input{capitulos/00-apresentacao}
+\clearpage
+\tableofcontents
+\clearpage
+
+\manualmainmatter
+\input{capitulos/00-contexto-institucional}
+\input{capitulos/01-principios}
+\input{capitulos/02-percurso}
+\input{capitulos/03-modalidades}
+\input{capitulos/03-tema-problema}
+\input{capitulos/04-projeto}
+\input{capitulos/05-etica}
+\input{capitulos/06-metodologia}
+\input{capitulos/06-estrutura}
+\input{capitulos/07-pre-textuais}
+\input{capitulos/08-textuais}
+\input{capitulos/09-pos-textuais}
+\input{capitulos/10-escrita}
+\input{capitulos/11-normalizacao}
+\input{capitulos/19-modelos-elementos}
+\input{capitulos/12-citacoes}
+\input{capitulos/20-casos-citacao}
+\input{capitulos/13-ilustracoes}
+\input{capitulos/14-avaliacao}
+\input{capitulos/17-acessibilidade}
+\input{capitulos/15-entrega}
+\input{capitulos/16-integridade}
+\input{capitulos/23-governanca}
+\input{capitulos/17-referencias}
+\input{capitulos/21-exemplos-referencias}
+\input{capitulos/18-problemas-recorrentes}
+
+\appendix
+\input{apendices/a-roteiro-projeto}
+\input{apendices/b-matriz-coerencia}
+\input{apendices/c-checklists}
+\input{apendices/d-rubrica}
+\input{apendices/e-cronograma}
+\input{apendices/f-declaracao-ia}
+\input{apendices/g-paginacao}
+
+\clearpage
+\input{capitulos/00-controle-documental}
+
+\end{document}

@@ -1,0 +1,133 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{manual-style}[2026/08/07 Manual UnDF-TeX]
+
+\RequirePackage{fontspec}
+\RequirePackage[brazilian]{babel}
+\RequirePackage[a4paper,top=3cm,left=3cm,right=2cm,bottom=2cm]{geometry}
+\RequirePackage{setspace}
+\RequirePackage{indentfirst}
+\RequirePackage{microtype}
+\RequirePackage{titlesec}
+\RequirePackage{tocloft}
+\RequirePackage{booktabs}
+\RequirePackage{longtable}
+\RequirePackage{pdflscape}
+\RequirePackage{tabularx}
+\RequirePackage{array}
+\RequirePackage{enumitem}
+\RequirePackage{amssymb}
+\RequirePackage{xcolor}
+\RequirePackage{fancyvrb}
+\RequirePackage{hyperref}
+\RequirePackage{bookmark}
+
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
+\onehalfspacing
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+
+\definecolor{undfBlue}{HTML}{1D4D7A}
+\definecolor{undfGreen}{HTML}{27705C}
+\definecolor{undfGray}{HTML}{F2F4F7}
+\definecolor{undfDark}{HTML}{1F2933}
+\definecolor{undfRule}{HTML}{D5D9E0}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=undfBlue,
+  citecolor=undfBlue,
+  urlcolor=undfBlue,
+  pdftitle={Guia de Uso do UnDF-TeX},
+  pdfauthor={Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes},
+  pdfsubject={Preparação, edição, compilação e verificação técnica do UnDF-TeX},
+  pdfkeywords={UnDF, UnDF-TeX, LuaLaTeX, BibLaTeX, Biber, versão 0.3.1-preliminar}
+}
+
+\DeclareRobustCommand{\marcaUnDF}{\NoCaseChange{UnDF}}
+\DeclareRobustCommand{\marcaUnDFTeX}{\NoCaseChange{UnDF-TeX}}
+\pdfstringdefDisableCommands{%
+  \def\marcaUnDF{UnDF}%
+  \def\marcaUnDFTeX{UnDF-TeX}%
+}
+
+\titleformat{\chapter}
+  {\normalfont\bfseries\large\raggedright}
+  {\thechapter}
+  {1em}
+  {\MakeUppercase}
+\titlespacing*{\chapter}{0pt}{0pt}{1.2\baselineskip}
+
+\titleformat{\section}
+  {\normalfont\bfseries\normalsize}
+  {\thesection}
+  {1em}
+  {}
+\titleformat{\subsection}
+  {\normalfont\bfseries\normalsize}
+  {\thesubsection}
+  {1em}
+  {}
+\titleformat{\subsubsection}
+  {\normalfont\bfseries\itshape\normalsize}
+  {\thesubsubsection}
+  {1em}
+  {}
+
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftchappagefont}{\bfseries}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftbeforechapskip}{0.45em}
+
+\setlist[itemize]{leftmargin=2em,itemsep=0.15em,topsep=0.35em}
+\setlist[enumerate]{leftmargin=2em,itemsep=0.15em,topsep=0.35em}
+
+\DefineVerbatimEnvironment{lstlisting}{Verbatim}{fontsize=\small,frame=single,framesep=3mm}
+
+\newcommand{\manualnote}[1]{%
+  \par\smallskip
+  \noindent\begingroup
+  \setlength{\fboxsep}{8pt}%
+  \colorbox{undfGray}{%
+    \begin{minipage}{0.95\linewidth}
+      \textbf{Nota.} #1
+    \end{minipage}}%
+  \endgroup\par\smallskip
+}
+
+\newcommand{\manualdecision}[1]{%
+  \par\smallskip
+  \noindent\begingroup
+  \setlength{\fboxsep}{8pt}%
+  \colorbox{undfGray}{%
+    \begin{minipage}{0.95\linewidth}
+      \textbf{Configuração do projeto.} #1
+    \end{minipage}}%
+  \endgroup\par\smallskip
+}
+
+\newcommand{\manualwarning}[1]{%
+  \par\smallskip
+  \noindent\begingroup
+  \setlength{\fboxsep}{8pt}%
+  \fcolorbox{undfGreen}{white}{%
+    \begin{minipage}{0.93\linewidth}
+      \textbf{Atenção.} #1
+    \end{minipage}}%
+  \endgroup\par\smallskip
+}
+
+\newcommand{\manualfrontmatter}{%
+  \pagenumbering{roman}
+}
+
+\newcommand{\manualmainmatter}{%
+  \cleardoublepage
+  \pagenumbering{arabic}
+}
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}

@@ -1,0 +1,83 @@
+% Guia técnico do UnDF-TeX.
+% Compilação: LuaLaTeX, em ciclos até estabilizar o sumário.
+
+\DocumentMetadata{lang=pt-BR,tagging=on}
+\tagpdfsetup{math/mathml/luamml/load=false}
+\documentclass[12pt,a4paper,oneside]{report}
+\usepackage{../estilos/manual-style-guia}
+
+\hypersetup{
+  pdftitle={Guia de Uso do UnDF-TeX},
+  pdfauthor={Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes},
+  pdfsubject={Documentação técnica do UnDF-TeX 0.1.0},
+  pdfkeywords={UnDF, UnDF-TeX, LuaLaTeX, BibLaTeX, Biber, versão 0.3.1-preliminar}
+}
+
+\begin{document}
+
+\pagenumbering{gobble}
+
+\begin{titlepage}
+  \centering
+  \vspace*{1.5cm}
+  {\large Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes -- UnDF\par}
+  \vspace{3cm}
+  {\bfseries\Large GUIA DE USO DO UnDF-TeX\par}
+  \vspace{0.45cm}
+  {\bfseries\normalsize PARTE II\par}
+  \vspace{0.8cm}
+  {\normalsize Preparação, edição, compilação e verificação técnica do template\par}
+  \vfill
+  {\normalsize Versão do guia: 0.3.1-preliminar\par}
+  {\normalsize Compatível com o UnDF-TeX: 0.1.0\par}
+  {\normalsize Situação: minuta para validação institucional\par}
+  {\normalsize Brasília\par}
+  {\normalsize 7 de agosto de 2026\par}
+\end{titlepage}
+
+\manualfrontmatter
+
+\chapter*{Apresentação}
+\addcontentsline{toc}{chapter}{Apresentação}
+
+Este guia documenta o uso do UnDF-TeX, desde a preparação do ambiente até a geração e a conferência do PDF. Seu público inclui estudantes que adotam o template, pessoas que prestam apoio técnico e responsáveis por manutenção.
+
+O guia explica implementação e operação. As regras acadêmicas, metodológicas e de normalização pertencem ao \emph{Manual de Trabalhos de Conclusão de Curso da UnDF}. Quando um comando produz capa, citação, tabela ou outro elemento, este documento descreve como usar o recurso; o manual acadêmico explica o que o elemento significa e quando deve ser utilizado.
+
+\manualwarning{O UnDF-TeX 0.1.0 é um projeto técnico em validação. Sua existência não torna o uso obrigatório e não substitui PPC, regulamento de curso, orientação, decisão de colegiado ou ato institucional.}
+
+\clearpage
+\tableofcontents
+
+\manualmainmatter
+
+\input{guia/01-ferramenta}
+\input{guia/02-ambiente}
+\input{guia/03-arquivos}
+\input{guia/04-informacoes}
+\input{guia/05-pretextuais}
+\input{guia/06-citacoes-referencias}
+\input{guia/07-objetos}
+\input{guia/08-compilacao}
+\input{guia/09-validacoes}
+\input{guia/10-problemas}
+\input{guia/11-checklist}
+\input{guia/12-compatibilidade-manutencao}
+
+\appendix
+\input{apendices/a-comandos}
+
+\chapter*{Referências Técnicas e Documentos Relacionados}
+\addcontentsline{toc}{chapter}{Referências Técnicas e Documentos Relacionados}
+
+\begin{itemize}
+  \item \emph{Manual de Trabalhos de Conclusão de Curso da UnDF}, versão 0.3.1-preliminar;
+  \item documentação do projeto em \texttt{README.md}, \texttt{docs/guia-de-uso.md} e \texttt{docs/estrutura-do-projeto.md};
+  \item documentação do LuaLaTeX, Biber, BibLaTeX e dos pacotes carregados pela classe;
+  \item LaTeX Project Public License, versão 1.3c ou posterior;
+  \item código-fonte do UnDF-TeX 0.1.0.
+\end{itemize}
+
+\input{guia/13-controle-documental}
+
+\end{document}

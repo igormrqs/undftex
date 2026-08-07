@@ -1,8 +1,10 @@
-# Decisões institucionais do projeto UnDF-TeX
+# Decisões institucionais validadas no âmbito do projeto
 
-Este documento registra decisões consolidadas do projeto UnDF-TeX para reduzir retrabalho, preservar coerência entre os arquivos e separar o que é exigência normativa do que é escolha institucional do template.
+Este documento registra decisões institucionais validadas durante o desenvolvimento do manual e do UnDF-TeX. O registro reduz retrabalho, preserva coerência entre os artefatos e separa requisito normativo, recomendação normativa, decisão do projeto e fluxo externo ainda não definido.
 
-As normas ABNT indicam elementos, estrutura geral e critérios de apresentação, mas nem sempre fixam todos os detalhes visuais, técnicos ou editoriais. Quando houve margem de escolha, o projeto adotou as decisões abaixo.
+> A validação no âmbito do projeto registra o padrão deliberado e implementado. Ela não equivale à publicação oficial do manual por ato ou canal institucional. Fluxos externos ainda não definidos são controlados separadamente em `manuais/parte-i/revisao/PENDENCIAS_INSTITUCIONAIS.md`.
+
+As normas ABNT indicam elementos, estrutura geral e critérios de apresentação, mas nem sempre fixam todos os detalhes visuais, técnicos ou editoriais. Quando houve margem de escolha, o projeto deliberou e incorporou as configurações abaixo ao modelo em branco, ao TCC de exemplo e à documentação.
 
 ## Referência de verificação
 
@@ -13,11 +15,11 @@ As decisões abaixo foram conferidas contra:
 - classe e módulos em `src/`;
 - arquivos de entrada `tcc.tex` e `tcc-exemplo-undf.tex`.
 
-## Decisão Institucional Nº 0 — Compilador Oficial
+## Decisão Institucional Validada Nº 0 — Compilador Padrão
 
 O compilador padrão do UnDF-TeX é o LuaLaTeX.
 
-Justificativa institucional:
+Justificativa técnica:
 
 - suporte moderno a Unicode;
 - melhor integração com tipografia contemporânea;
@@ -27,9 +29,9 @@ Justificativa institucional:
 
 Implementação: `src/undftex.cls`.
 
-## Decisão Institucional Nº 1 — Modelo de Capítulo
+## Decisão Institucional Validada Nº 1 — Modelo de Seção Primária
 
-Os capítulos textuais devem aparecer no formato:
+As seções primárias textuais devem aparecer no formato:
 
 ```text
 1 INTRODUÇÃO
@@ -39,14 +41,14 @@ Decisões adotadas:
 
 - não exibir a palavra `Capítulo`;
 - manter número e título na mesma linha;
-- usar caixa alta no título do capítulo;
+- usar caixa alta no título da seção primária;
 - alinhar o título à esquerda;
 - não inserir linha em branco entre número e título;
 - inserir espaçamento vertical após o título antes do início do texto.
 
 Implementação: `src/core/undf-titles.sty`.
 
-## Decisão Institucional Nº 2 — Local na Capa e nas Páginas de Identificação
+## Decisão Institucional Validada Nº 2 — Local na Capa e nas Páginas de Identificação
 
 O campo `\local{...}` controla o local exibido na capa e na folha de rosto.
 
@@ -61,7 +63,7 @@ Observação: os PDFs verificados exibem apenas cidade, sem UF. Portanto, `Bras�
 
 Implementação: `src/core/undf-metadata.sty`, `tcc.tex` e `tcc-exemplo-undf.tex`.
 
-## Decisão Institucional Nº 3 — Ordem da Capa
+## Decisão Institucional Validada Nº 3 — Ordem da Capa
 
 A capa institucional segue a ordem:
 
@@ -82,7 +84,7 @@ Decisões adotadas:
 
 Implementação: `src/identity/undf-cover.sty`.
 
-## Decisão Institucional Nº 4 — Texto da Natureza do Trabalho
+## Decisão Institucional Validada Nº 4 — Texto da Natureza do Trabalho
 
 Quando o usuário não fornece texto personalizado por `\objetivo{...}`, o template gera automaticamente a natureza do trabalho.
 
@@ -104,7 +106,7 @@ Decisões adotadas:
 
 Implementação: `src/core/undf-metadata.sty`.
 
-## Decisão Institucional Nº 5 — Largura do Bloco de Natureza
+## Decisão Institucional Validada Nº 5 — Largura do Bloco de Natureza
 
 Na folha de rosto e na folha de aprovação, o bloco de natureza do trabalho usa largura de `0.55\textwidth`.
 
@@ -120,7 +122,7 @@ Observação: a anotação inicial mencionava `0.6\textwidth`, mas a verificaç�
 
 Implementação: `src/identity/undf-titlepages.sty`.
 
-## Decisão Institucional Nº 6 — Margens do Documento
+## Decisão Institucional Validada Nº 6 — Margens do Documento
 
 As margens do documento são:
 
@@ -135,7 +137,7 @@ Decisão adotada para manter conformidade visual e previsibilidade nos PDFs A4.
 
 Implementação: `src/core/undf-layout.sty`.
 
-## Decisão Institucional Nº 7 — Recuo de Parágrafo
+## Decisão Institucional Validada Nº 7 — Recuo de Parágrafo
 
 O recuo de parágrafo é de `1.25cm`.
 
@@ -147,7 +149,7 @@ Decisões adotadas:
 
 Implementação: `src/core/undf-layout.sty`.
 
-## Decisão Institucional Nº 8 — Espaçamento Geral entre Linhas
+## Decisão Institucional Validada Nº 8 — Espaçamento Geral entre Linhas
 
 O corpo do trabalho usa espaçamento de uma linha e meia.
 
@@ -158,7 +160,7 @@ Decisões adotadas:
 
 Implementação: `src/core/undf-layout.sty`, `src/identity/undf-titlepages.sty` e `src/biblatex/undf-biblatex.sty`.
 
-## Decisão Institucional Nº 9 — Identidade Visual da Capa
+## Decisão Institucional Validada Nº 9 — Identidade Visual da Capa
 
 A capa usa a logo institucional da UnDF por padrão.
 
@@ -175,7 +177,7 @@ Justificativa: o modelo é institucional e deve evitar variações acidentais na
 
 Implementação: `src/identity/undf-identity.sty` e `src/identity/undf-cover.sty`.
 
-## Decisão Institucional Nº 10 — Folha de Rosto
+## Decisão Institucional Validada Nº 10 — Folha de Rosto
 
 A folha de rosto segue a ordem:
 
@@ -196,7 +198,7 @@ Decisões adotadas:
 
 Implementação: `src/identity/undf-titlepages.sty`.
 
-## Decisão Institucional Nº 11 — Folha de Aprovação
+## Decisão Institucional Validada Nº 11 — Folha de Aprovação
 
 A folha de aprovação segue a ordem:
 
@@ -219,7 +221,7 @@ Decisões adotadas:
 
 Implementação: `src/identity/undf-titlepages.sty`.
 
-## Decisão Institucional Nº 12 — Titulação de Orientador e Banca
+## Decisão Institucional Validada Nº 12 — Titulação de Orientador e Banca
 
 Na folha de aprovação, orientador e membros da banca devem aparecer com prefixo acadêmico antes do nome.
 
@@ -231,11 +233,11 @@ Decisões adotadas:
 - o vínculo institucional permanece em linha própria;
 - na folha de rosto, orientador e coorientador continuam sem prefixos no nome.
 
-Justificativa: atende à decisão institucional de manter a titulação no formato curto antes do nome, sem repetir titulação extensa em linha inferior.
+Justificativa: atende à decisão técnica do projeto de manter a titulação no formato curto antes do nome, sem repetir titulação extensa em linha inferior.
 
 Implementação: `src/core/undf-metadata.sty` e `src/identity/undf-titlepages.sty`.
 
-## Decisão Institucional Nº 13 — Paginação
+## Decisão Institucional Validada Nº 13 — Paginação
 
 Decisões adotadas:
 
@@ -249,9 +251,9 @@ Decisões adotadas:
 
 Implementação: `src/core/undf-structure.sty` e `src/core/undf-layout.sty`.
 
-## Decisão Institucional Nº 14 — Resumo e Abstract
+## Decisão Institucional Validada Nº 14 — Resumo e Abstract
 
-O resumo e o resumo em língua estrangeira usam estrutura própria, sem depender de capítulos.
+O resumo e o resumo em língua estrangeira usam estrutura própria, sem depender das seções textuais.
 
 Decisões adotadas:
 
@@ -267,38 +269,40 @@ Decisões adotadas:
 
 Implementação: `src/abnt/abnt-nbr6028-2021.sty`.
 
-## Decisão Institucional Nº 15 — Validação de Elementos de Uma Página
+## Decisão Institucional Validada Nº 15 — Validação de Elementos de Uma Página
 
-O template valida elementos que institucionalmente devem permanecer em uma página.
+O template estima o ajuste de elementos normalmente apresentados em uma página e informa riscos no log.
 
 Decisões adotadas:
 
-- bloquear a compilação quando resumo ou abstract parecem ultrapassar uma página;
-- permitir rebaixar esse bloqueio para aviso com `\avisarresumoslongos`;
+- emitir aviso, por padrão, quando resumo ou abstract parecem ultrapassar uma página;
+- permitir elevar esse aviso a erro com `\bloquearresumoslongos`, apenas como opção explícita de revisão;
 - emitir avisos, sem cortar conteúdo, para os demais elementos pré-textuais de uma página;
 - verificar resumo, abstract, dedicatória, agradecimentos, epígrafe, errata e ficha catalográfica textual;
 - considerar como alerta prático conteúdo acima de aproximadamente 85% da altura textual disponível;
 - preservar a responsabilidade do usuário pela revisão final.
 
-Justificativa: resumo e abstract têm forte expectativa de página única no fluxo institucional. Para os demais elementos, aviso é mais seguro do que cortar conteúdo acadêmico.
+Justificativa: não há decisão institucional formal que autorize bloquear a geração por limite de uma página. O aviso preserva o conteúdo e chama atenção para a conferência visual; o erro optativo atende revisões controladas.
 
 Implementação: `src/abnt/abnt-nbr6028-2021.sty`.
 
-## Decisão Institucional Nº 16 — Palavras-chave e Keywords
+## Decisão Institucional Validada Nº 16 — Palavras-chave e Keywords
 
 Decisões adotadas:
 
 - termos separados por ponto e vírgula;
 - ponto final acrescentado pelo template;
-- faixa recomendada: 3 a 6 termos;
-- aviso de compilação quando a quantidade fica fora da faixa;
+- quantidade adequada ao conteúdo, sem faixa numérica tratada como exigência ABNT;
+- ausência de validação automática de quantidade enquanto não houver decisão formal da UnDF;
 - rótulo padrão em português: `Palavras-chave`;
 - rótulo padrão em inglês: `Keywords`;
 - rótulo estrangeiro configurável por `keywordslabel`.
 
 Implementação: `src/abnt/abnt-nbr6028-2021.sty`.
 
-## Decisão Institucional Nº 17 — Tamanho dos Títulos Pré-textuais
+Justificativa: a ABNT NBR 6028:2021 define apresentação e separação das palavras-chave, mas não estabelece quantidade universal. Uma faixa somente poderá ser aplicada após deliberação institucional.
+
+## Decisão Institucional Validada Nº 17 — Tamanho dos Títulos Pré-textuais
 
 Há dois grupos de títulos pré-textuais.
 
@@ -325,7 +329,7 @@ Para agradecimentos e errata:
 
 Implementação: `src/abnt/abnt-nbr6028-2021.sty`, `src/core/undf-headings.sty` e `src/identity/undf-titlepages.sty`.
 
-## Decisão Institucional Nº 17-A — Modelo de Errata
+## Decisão Institucional Validada Nº 17-A — Modelo de Errata
 
 A errata deve seguir o modelo visual da ABNT NBR 14724:2024: referência do trabalho seguida de tabela com folha, linha, trecho incorreto e correção.
 
@@ -338,14 +342,14 @@ Decisões adotadas:
 
 Implementação: `src/identity/undf-titlepages.sty`.
 
-## Decisão Institucional Nº 18 — Sumário
+## Decisão Institucional Validada Nº 18 — Sumário
 
 Decisões adotadas:
 
 - o sumário é o último elemento pré-textual;
 - elementos pré-textuais não entram no sumário;
-- capítulos e seções textuais entram conforme profundidade configurada;
-- entradas de capítulos primários usam caixa alta, acompanhando a grafia exibida no texto;
+- seções textuais entram conforme a profundidade configurada;
+- entradas de seções primárias usam caixa alta, acompanhando a grafia exibida no texto;
 - entradas de apêndices e anexos usam caixa alta, acompanhando a grafia exibida no texto;
 - entradas manuais de pós-textuais usam âncoras próprias para hyperlinks do PDF;
 - a profundidade de numeração e sumário vai até o quarto nível;
@@ -357,7 +361,7 @@ Decisões adotadas:
 
 Implementação: `src/abnt/abnt-nbr6027-2012.sty`, `src/abnt/abnt-nbr14724-2024.sty`, `src/core/undf-headings.sty`, `src/core/undf-titles.sty` e `src/core/undf-toccore.sty`.
 
-## Decisão Institucional Nº 19 — Listas de Ilustrações e Tabelas
+## Decisão Institucional Validada Nº 19 — Listas de Ilustrações e Tabelas
 
 Decisões adotadas:
 
@@ -369,7 +373,7 @@ Decisões adotadas:
 
 Implementação: `src/abnt/abnt-nbr14724-2024.sty`.
 
-## Decisão Institucional Nº 20 — Figuras, Fontes e Qualidade de Imagem
+## Decisão Institucional Validada Nº 20 — Figuras, Fontes e Qualidade de Imagem
 
 Decisões adotadas:
 
@@ -400,7 +404,7 @@ Justificativa: a qualidade da imagem precisa equilibrar legibilidade e tamanho d
 
 Implementação: `src/core/undf-crossrefs.sty` e documentação de uso.
 
-## Decisão Institucional Nº 21 — Tabelas, Equações, Pseudocódigo e Referências Cruzadas
+## Decisão Institucional Validada Nº 21 — Tabelas, Equações, Pseudocódigo e Referências Cruzadas
 
 Decisões adotadas:
 
@@ -418,7 +422,7 @@ Decisões adotadas:
 
 Implementação: `src/core/undf-crossrefs.sty`.
 
-## Decisão Institucional Nº 21-A — Fluxogramas
+## Decisão Institucional Validada Nº 21-A — Fluxogramas
 
 Fluxogramas são tratados como ilustrações quando aparecem poucas vezes e ganham lista própria quando se tornam recorrentes no trabalho.
 
@@ -436,7 +440,7 @@ Justificativa: a ABNT NBR 14724:2024 inclui fluxogramas no conjunto de ilustraç
 
 Implementação: `src/core/undf-crossrefs.sty`, `src/abnt/abnt-nbr14724-2024.sty` e `exemplo/capitulos/04-analise-e-discussao.tex`.
 
-## Decisão Institucional Nº 21-B — Citações amigáveis
+## Decisão Institucional Validada Nº 21-B — Citações amigáveis
 
 Decisões adotadas:
 
@@ -448,22 +452,23 @@ Decisões adotadas:
 
 Implementação: `src/biblatex/undf-biblatex.sty`.
 
-## Decisão Institucional Nº 22 — Ficha Catalográfica
+## Decisão Institucional Validada Nº 22 — Dados Internacionais de Catalogação
 
 Decisões adotadas:
 
-- a ficha catalográfica é opcional no modelo;
+- o posicionamento dos dados catalográficos segue o verso da folha de rosto;
+- a obrigatoriedade e o fluxo operacional permanecem vinculados a PI-008, sem presumir manifestação da unidade competente;
+- o template permite omiti-los durante a elaboração e só imprime o elemento quando houver conteúdo;
 - prioridade de entrada:
   1. PDF externo;
   2. imagem;
   3. texto;
   4. placeholder apenas no comando completo;
-- a versão opcional só aparece quando houver conteúdo;
 - ficha textual usa bloco de `0.75\textwidth`, tamanho `\footnotesize` e espaçamento simples.
 
 Implementação: `src/core/undf-metadata.sty` e `src/identity/undf-titlepages.sty`.
 
-## Decisão Institucional Nº 23 — Dedicatória, Agradecimentos e Epígrafe
+## Decisão Institucional Validada Nº 23 — Dedicatória, Agradecimentos e Epígrafe
 
 Decisões adotadas:
 
@@ -476,7 +481,7 @@ Decisões adotadas:
 
 Implementação: `src/identity/undf-titlepages.sty`.
 
-## Decisão Institucional Nº 24 — Resumo em Mais de Uma Língua Estrangeira
+## Decisão Institucional Validada Nº 24 — Resumo em Mais de Uma Língua Estrangeira
 
 O template oferece um resumo em língua estrangeira como fluxo padrão.
 
@@ -490,7 +495,7 @@ Decisões adotadas:
 
 Implementação: `src/abnt/abnt-nbr6028-2021.sty`.
 
-## Decisão Institucional Nº 25 — Modelo em Branco e Exemplo Completo
+## Decisão Institucional Validada Nº 25 — Modelo em Branco e Exemplo Completo
 
 Decisões adotadas:
 
@@ -501,7 +506,7 @@ Decisões adotadas:
 - o modelo em branco deve evitar excesso de demonstrações para não confundir o usuário final;
 - comandos em português devem ser preferidos na interface pública sempre que possível, como `\notarodape`.
 
-## Decisão Institucional Nº 26 — Arquivos Gerados, Imagens e Distribuição
+## Decisão Institucional Validada Nº 26 — Arquivos Gerados, Imagens e Distribuição
 
 Decisões adotadas:
 
@@ -515,11 +520,13 @@ Decisões adotadas:
 
 Implementação: `.gitignore`, `MANIFEST.md` e documentação de uso.
 
-## Decisão Institucional Nº 27 — Licenciamento
+## Decisão Institucional Validada Nº 27 — Licenciamento
 
 Decisões adotadas:
 
-- licença do projeto: LPPL 1.3c ou posterior;
+- licença dos arquivos de código expressamente identificados: LPPL 1.3c ou posterior;
 - texto oficial preservado em `LICENSE-LPPL-1.3c.tex`;
 - nota explicativa em português em `LICENSE`;
 - manifesto de arquivos do trabalho em `MANIFEST.md`.
+
+Marcas, logotipos, identidade institucional, fontes, imagens, documentação, documentos oficiais e recursos de terceiros não são automaticamente abrangidos pela LPPL e seguem os respectivos termos de uso.

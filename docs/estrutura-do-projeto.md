@@ -51,9 +51,9 @@ Ele apenas encaminha para `src/undftex.cls`, onde a classe é realmente carregad
 - `abnt-nbr14724-2024.sty`: estrutura de trabalhos acadêmicos, listas, apêndices, anexos e glossário;
 - `abnt-nbr6028-2021.sty`: resumo, resumo em língua estrangeira, palavras-chave e validação de tamanho;
 - `abnt-nbr6027-2012.sty`: sumário;
-- `abnt-nbr6023-2025.sty`: registro da decisão de usar BibLaTeX/Biber como fluxo oficial de referências.
+- `abnt-nbr6023-2025.sty`: registro da implementação bibliográfica atual com BibLaTeX/Biber.
 
-Também existem arquivos normativos auxiliares em `src/abnt/`, como `abnt-nbr10520-2023.sty` e `abnt-nbr6024-2012.sty`. No fluxo atual, citações e referências são fornecidas por `src/biblatex/undf-biblatex.sty`, e a numeração progressiva é aplicada pela combinação de `undf-titles.sty`, `undf-toccore.sty` e `abnt-nbr6027-2012.sty`.
+Também existem dois arquivos puramente documentais em `src/abnt/`, sem código executável, mantidos para preservar o mapa "um arquivo por norma": `abnt-nbr10520-2023.sty` (citações, implementadas de fato por `src/biblatex/undf-biblatex.sty` e `undf-abnt.cbx`) e `abnt-nbr6024-2012.sty` (numeração progressiva, implementada de fato por `undf-titles.sty` e `undf-toccore.sty`). Carregá-los é inofensivo: cada um aponta, em comentário, onde a norma correspondente é implementada.
 
 ## Bibliografia
 
@@ -69,10 +69,32 @@ Os arquivos `undf-abnt.bbx` e `undf-abnt.cbx` ficam em `src/biblatex/`, junto da
 
 O projeto mantém dois fluxos:
 
-- modelo em branco: `tcc.tex`, `capitulos/`, `obrigatorio/`, `opcional/`;
+- modelo em branco: `tcc.tex`, `capitulos/` (incluindo a seção opcional `04-dados.tex`), `obrigatorio/`, `opcional/`;
 - exemplo completo: `tcc-exemplo-undf.tex`, `exemplo/`.
 
 Ao alterar a interface pública do template, verifique os dois fluxos.
+
+## Manuais
+
+O projeto mantém dois documentos autônomos e um volume integrado:
+
+- `manuais/parte-ii/`: manual técnico de uso e manutenção do UnDF-TeX;
+- `manuais/parte-i/`: manual acadêmico de elaboração de TCC, sem foco em comandos LaTeX;
+- `manuais/estilos/`: estilos LaTeX específicos de cada parte e do volume integrado;
+- `manuais/manual-completo.tex`: fonte do volume integrado, com um único sumário.
+
+Alterações de estrutura ou aparência do template devem ser conferidas nos exemplos visuais e nas orientações correspondentes dos dois manuais.
+
+Para compilar os documentos, execute LuaLaTeX no diretório de cada fonte principal:
+
+- `manuais/parte-i/`: `manual-tcc-undf.tex`;
+- `manuais/parte-ii/`: `manual-undf.tex`;
+- `manuais/`: `manual-completo.tex`.
+
+## Infraestrutura de compilação
+
+- `.latexmkrc`: configuração do `latexmk` (LuaLaTeX + Biber, extensão `lofl` da lista de fluxogramas, limpeza de artefatos). Lida automaticamente pelo Overleaf.
+- `.github/workflows/build.yml`: integração contínua que compila `tcc.tex` e `tcc-exemplo-undf.tex` em ambiente limpo a cada push/pull request.
 
 ## Regra de manutenção
 

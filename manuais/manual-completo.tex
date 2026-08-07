@@ -1,0 +1,209 @@
+% Volume unificado do Manual de TCC da UnDF e do Guia de Uso do UnDF-TeX.
+% Os documentos autônomos permanecem em manuais/parte-i e manuais/parte-ii.
+
+\DocumentMetadata{lang=pt-BR,tagging=on}
+\tagpdfsetup{math/mathml/luamml/load=false}
+\documentclass[12pt,a4paper,oneside]{report}
+\usepackage{estilos/manual-style-integrado}
+\usepackage{pdflscape}
+\usepackage{amssymb}
+\usepackage{fancyvrb}
+
+\hypersetup{
+  pdftitle={Manual de Trabalhos de Conclusão de Curso e Guia de Uso do UnDF-TeX},
+  pdfauthor={Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes},
+  pdfsubject={Orientações acadêmicas, metodológicas, normativas e técnicas},
+  pdfkeywords={UnDF, UnDF-TeX, TCC, trabalhos acadêmicos, ABNT, versão 0.3.1-preliminar}
+}
+
+\titleformat{\part}[display]
+  {\centering\normalfont\bfseries\Large}
+  {PARTE \thepart}
+  {0.8em}
+  {\MakeUppercase}
+\titlespacing*{\part}{0pt}{0.20\textheight}{0pt}
+
+\renewcommand{\cftpartfont}{\bfseries}
+\renewcommand{\cftpartpagefont}{\bfseries}
+\setlength{\cftbeforepartskip}{1em}
+
+\DefineVerbatimEnvironment{lstlisting}{Verbatim}{fontsize=\small,frame=single,framesep=3mm}
+
+\newcommand{\manualnote}[1]{%
+  \par\smallskip
+  \noindent\begingroup
+  \setlength{\fboxsep}{8pt}%
+  \colorbox{undfGray}{%
+    \begin{minipage}{0.95\linewidth}
+      \textbf{Nota.} #1
+    \end{minipage}}%
+  \endgroup\par\smallskip
+}
+
+\newcommand{\manualdecision}[1]{%
+  \par\smallskip
+  \noindent\begingroup
+  \setlength{\fboxsep}{8pt}%
+  \colorbox{undfGray}{%
+    \begin{minipage}{0.95\linewidth}
+      \textbf{Configuração do projeto.} #1
+    \end{minipage}}%
+  \endgroup\par\smallskip
+}
+
+\newcommand{\manualwarning}[1]{%
+  \par\smallskip
+  \noindent\begingroup
+  \setlength{\fboxsep}{8pt}%
+  \fcolorbox{undfGreen}{white}{%
+    \begin{minipage}{0.93\linewidth}
+      \textbf{Atenção.} #1
+    \end{minipage}}%
+  \endgroup\par\smallskip
+}
+
+\newcounter{capitulosparteum}
+
+\begin{document}
+\pagenumbering{gobble}
+
+\begin{titlepage}
+  \centering
+  \vspace*{1.2cm}
+  {\large Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes -- UnDF\par}
+  \vspace{2.7cm}
+  {\bfseries\Large MANUAL DE TRABALHOS DE CONCLUSÃO DE CURSO\par}
+  \vspace{0.35cm}
+  {\bfseries\Large E GUIA DE USO DO UnDF-TeX\par}
+  \vspace{0.9cm}
+  {\normalsize Orientações acadêmicas, metodológicas, normativas e técnicas\par}
+  \vfill
+  {\normalsize Versão do manual: 0.3.1-preliminar\par}
+  {\normalsize Compatível com o UnDF-TeX: 0.1.0\par}
+  {\normalsize Situação: minuta para validação institucional\par}
+  {\normalsize Brasília\par}
+  {\normalsize 7 de agosto de 2026\par}
+\end{titlepage}
+
+\manualfrontmatter
+
+\chapter*{Apresentação}
+
+Este volume reúne, em uma publicação única, o \emph{Manual de Trabalhos de Conclusão de Curso da UnDF} e o \emph{Guia de Uso do UnDF-TeX}. A Parte I orienta o percurso acadêmico, metodológico e normativo, independentemente da ferramenta de escrita. A Parte II apresenta a preparação, a edição, a compilação e a verificação técnica do template.
+
+As duas partes permanecem disponíveis como documentos autônomos. Nesta edição unificada, porém, a capa, o sumário, a paginação e o controle documental são comuns a todo o volume.
+
+\caixaorientacao{A paginação editorial desta publicação não constitui modelo de paginação para o TCC. Para a contagem e a exibição das páginas do trabalho acadêmico, consulte a seção específica sobre paginação e o respectivo exemplo.}
+
+\caixaatencao{Esta versão é uma minuta para validação institucional. Regulamentos de curso, deliberações de colegiado, normas de comitês de ética e atos oficiais prevalecem quando estabelecerem requisitos específicos.}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+\manualmainmatter
+
+\part{Manual de Trabalhos de Conclusão de Curso da \marcaUnDF}
+
+\phantomsection
+\addcontentsline{toc}{chapter}{Apresentação da Parte I}
+\input{parte-i/capitulos/00-apresentacao}
+\input{parte-i/capitulos/00-contexto-institucional}
+\input{parte-i/capitulos/01-principios}
+\input{parte-i/capitulos/02-percurso}
+\input{parte-i/capitulos/03-modalidades}
+\input{parte-i/capitulos/03-tema-problema}
+\input{parte-i/capitulos/04-projeto}
+\input{parte-i/capitulos/05-etica}
+\input{parte-i/capitulos/06-metodologia}
+\input{parte-i/capitulos/06-estrutura}
+\input{parte-i/capitulos/07-pre-textuais}
+\input{parte-i/capitulos/08-textuais}
+\input{parte-i/capitulos/09-pos-textuais}
+\input{parte-i/capitulos/10-escrita}
+\input{parte-i/capitulos/11-normalizacao}
+\input{parte-i/capitulos/19-modelos-elementos}
+\input{parte-i/capitulos/12-citacoes}
+\input{parte-i/capitulos/20-casos-citacao}
+\input{parte-i/capitulos/13-ilustracoes}
+\input{parte-i/capitulos/14-avaliacao}
+\input{parte-i/capitulos/17-acessibilidade}
+\input{parte-i/capitulos/15-entrega}
+\input{parte-i/capitulos/16-integridade}
+\input{parte-i/capitulos/23-governanca}
+\input{parte-i/capitulos/17-referencias}
+\input{parte-i/capitulos/21-exemplos-referencias}
+\input{parte-i/capitulos/18-problemas-recorrentes}
+
+\setcounter{capitulosparteum}{\value{chapter}}
+\appendix
+\input{parte-i/apendices/a-roteiro-projeto}
+\input{parte-i/apendices/b-matriz-coerencia}
+\input{parte-i/apendices/c-checklists}
+\input{parte-i/apendices/d-rubrica}
+\input{parte-i/apendices/e-cronograma}
+\input{parte-i/apendices/f-declaracao-ia}
+\input{parte-i/apendices/g-paginacao}
+
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\theHchapter}{parteii.\arabic{chapter}}
+\makeatletter
+\gdef\@chapapp{Capítulo}
+\makeatother
+\setcounter{chapter}{\value{capitulosparteum}}
+\setcounter{section}{0}
+
+\part{Guia de Uso do \marcaUnDFTeX}
+
+\chapter*{Apresentação da Parte II}
+\addcontentsline{toc}{chapter}{Apresentação da Parte II}
+
+Esta parte documenta o uso do UnDF-TeX, desde a preparação do ambiente até a geração e a conferência do PDF. Seu público inclui estudantes que adotam o template, pessoas que prestam apoio técnico e responsáveis por manutenção.
+
+O guia explica implementação e operação. As regras acadêmicas, metodológicas e de normalização pertencem à Parte I. Quando um comando produz capa, citação, tabela ou outro elemento, esta parte descreve como usar o recurso; a Parte I explica o que o elemento significa e quando deve ser utilizado.
+
+\manualwarning{O UnDF-TeX 0.1.0 é um projeto técnico em validação. Sua existência não torna o uso obrigatório e não substitui PPC, regulamento de curso, orientação, decisão de colegiado ou ato institucional.}
+
+\input{parte-ii/guia/01-ferramenta}
+\input{parte-ii/guia/02-ambiente}
+\input{parte-ii/guia/03-arquivos}
+\input{parte-ii/guia/04-informacoes}
+\input{parte-ii/guia/05-pretextuais}
+\input{parte-ii/guia/06-citacoes-referencias}
+\input{parte-ii/guia/07-objetos}
+\input{parte-ii/guia/08-compilacao}
+\input{parte-ii/guia/09-validacoes}
+\input{parte-ii/guia/10-problemas}
+\input{parte-ii/guia/11-checklist}
+\makeatletter
+\gdef\@chapapp{Capítulo}
+\makeatother
+\input{parte-ii/guia/12-compatibilidade-manutencao}
+\input{parte-ii/apendices/a-comandos}
+
+\chapter*{Referências Técnicas e Documentos Relacionados}
+\addcontentsline{toc}{chapter}{Referências Técnicas e Documentos Relacionados}
+
+\begin{itemize}
+  \item \emph{Manual de Trabalhos de Conclusão de Curso da UnDF}, versão 0.3.1-preliminar;
+  \item documentação do projeto em \texttt{README.md}, \texttt{docs/guia-de-uso.md} e \texttt{docs/estrutura-do-projeto.md};
+  \item documentação do LuaLaTeX, Biber, BibLaTeX e dos pacotes carregados pela classe;
+  \item LaTeX Project Public License, versão 1.3c ou posterior;
+  \item código-fonte do UnDF-TeX 0.1.0.
+\end{itemize}
+
+\chapter*{Controle Documental}
+\addcontentsline{toc}{chapter}{Controle Documental}
+
+\noindent\begin{tabularx}{\textwidth}{@{}>{\bfseries}p{0.31\textwidth}Y@{}}
+\toprule
+Título & Manual de Trabalhos de Conclusão de Curso da UnDF e Guia de Uso do UnDF-TeX \\
+Versão do manual & 0.3.1-preliminar \\
+Compatibilidade & UnDF-TeX 0.1.0 \\
+Situação & Minuta para validação institucional \\
+Data & 7 de agosto de 2026 \\
+Escopo & Orientações acadêmicas, metodológicas, normativas e técnicas \\
+\bottomrule
+\end{tabularx}
+
+\end{document}

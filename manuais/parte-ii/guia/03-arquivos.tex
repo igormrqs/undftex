@@ -1,0 +1,47 @@
+\chapter{Organização dos Arquivos}
+
+\section{Entradas públicas}
+
+Use \texttt{tcc.tex} para um trabalho real. Use \texttt{tcc-exemplo-undf.tex} e a pasta \texttt{exemplo/} apenas para consultar recursos demonstrativos. Não desenvolva o trabalho diretamente sobre o exemplo completo, pois ele contém elementos opcionais e textos destinados a teste.
+
+\section{Mapa do projeto}
+
+\begin{longtable}{p{0.31\linewidth}p{0.57\linewidth}}
+\toprule
+Caminho & Finalidade \\
+\midrule
+\endfirsthead
+\toprule
+Caminho & Finalidade \\
+\midrule
+\endhead
+\texttt{tcc.tex} & Entrada do modelo em branco e ordem de montagem do documento. \\
+\texttt{capitulos/} & Conteúdo textual do trabalho. \\
+\texttt{obrigatorio/} & Resumos e base bibliográfica. \\
+\texttt{opcional/} & Errata, dedicatória, agradecimentos, epígrafe, glossário, apêndices e anexos. \\
+\texttt{figuras/} & Imagens usadas pelo trabalho. \\
+\texttt{identidade/} & Ativos institucionais carregados pelo template. \\
+\texttt{src/core/} & Metadados, estrutura, títulos, layout, arquivos e referências cruzadas. \\
+\texttt{src/abnt/} & Camadas técnicas organizadas por norma. \\
+\texttt{src/identity/} & Capa e páginas de identificação. \\
+\texttt{src/biblatex/} & Estilo e comandos bibliográficos. \\
+\bottomrule
+\end{longtable}
+
+\section{Arquivos que o usuário edita}
+
+Edite \texttt{tcc.tex}, os arquivos de \texttt{capitulos/}, \texttt{obrigatorio/}, \texttt{opcional/} e os ativos inseridos em \texttt{figuras/}. Arquivos internos de \texttt{src/} devem ser modificados apenas durante manutenção do template e acompanhados de testes nos modelos em branco e de exemplo.
+
+\section{Inclusão de capítulos}
+
+O arquivo principal usa \texttt{\textbackslash undfincludechapter}. Para ativar a seção opcional de dados ou corpus, retire o comentário da linha correspondente:
+
+\begin{lstlisting}
+\undfincludechapter{capitulos/04-dados}
+\end{lstlisting}
+
+Para adicionar outra seção primária, crie o arquivo na pasta \texttt{capitulos/} e inclua-o na posição desejada. Evite renomear arquivos internos apenas por preferência estética; caminhos inconsistentes são causa frequente de falha.
+
+\section{Arquivos auxiliares}
+
+LuaLaTeX e Biber criam arquivos como \texttt{.aux}, \texttt{.bcf}, \texttt{.bbl}, \texttt{.log}, \texttt{.toc}, \texttt{.lof} e \texttt{.lot}. Eles não devem ser editados manualmente. Use limpeza controlada quando houver estado inconsistente e recompile o documento completo.

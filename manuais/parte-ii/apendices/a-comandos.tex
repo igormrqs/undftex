@@ -1,0 +1,158 @@
+\chapter{Referência Rápida de Comandos}
+
+As tabelas reúnem a interface pública mais usada. Nos exemplos, argumentos entre colchetes são opcionais; argumentos entre chaves são obrigatórios.
+
+\section{Informações gerais}
+
+\begin{longtable}{>{\ttfamily\footnotesize\raggedright\arraybackslash}p{0.40\textwidth}p{0.20\textwidth}p{0.30\textwidth}}
+\toprule
+\normalfont\textbf{Comando} & \textbf{Finalidade} & \textbf{Uso e observações} \\
+\midrule
+\endhead
+\string\autor & Autor único & Parâmetro: nome. Use \string\autores para trabalho coletivo. \\
+\string\autores & Dois ou mais autores & Parâmetro: nomes separados por \texttt{//}. \\
+\string\titulo & Título principal & Parâmetro: texto sem a pontuação do subtítulo. \\
+\string\subtitulo & Subtítulo opcional & Parâmetro: texto; deixe vazio quando inexistente. \\
+\string\curso & Curso & Parâmetro: nome por extenso. \\
+\string\tipotrabalho & Tipo documental & Parâmetro: tipo do trabalho. \\
+\string\graupretendido & Grau pretendido & Parâmetro: texto que completa a natureza. \\
+\string\local & Local & Parâmetro: cidade. \\
+\string\ano & Ano & Parâmetro: quatro algarismos. \\
+\string\orientador & Orientador & Parâmetro: nome sem prefixo acadêmico. \\
+\string\coorientador & Coorientador & Parâmetro: nome; pode ficar vazio. \\
+\string\areadeconcentracao & Área de concentração & Parâmetro: área, quando pertinente. \\
+\string\dataaprovacao & Data de aprovação & Parâmetro: local e data por extenso. \\
+\string\membrobanca & Membro da banca & Parâmetros: nome, prefixo e instituição. \\
+\bottomrule
+\end{longtable}
+
+\section{Conteúdo e arquivos}
+
+\begin{longtable}{>{\ttfamily\footnotesize\raggedright\arraybackslash}p{0.40\textwidth}p{0.20\textwidth}p{0.30\textwidth}}
+\toprule
+\normalfont\textbf{Comando} & \textbf{Finalidade} & \textbf{Uso e observações} \\
+\midrule
+\endhead
+\string\undfsetcontent & Registrar conteúdo & Parâmetros: chave e conteúdo. \\
+\string\undfusecontent & Recuperar conteúdo & Parâmetro: chave. \\
+\string\undfifcontent & Testar conteúdo & Parâmetros: chave, saída preenchida e saída vazia. \\
+\string\undfinputoptional & Incluir arquivo opcional & Parâmetro: caminho sem \texttt{.tex}. \\
+\string\undfincludechapter & Incluir capítulo & Parâmetro: caminho sem \texttt{.tex}. \\
+\string\undfwarnifempty & Avisar ausência & Parâmetros: chave e mensagem; não interrompe. \\
+\string\undfincluirpdf & Incluir PDF integral & Parâmetro: arquivo; aceita opções em colchetes. \\
+\bottomrule
+\end{longtable}
+
+\section{Elementos pré e pós-textuais}
+
+\begin{longtable}{>{\ttfamily\footnotesize\raggedright\arraybackslash}p{0.40\textwidth}p{0.22\textwidth}p{0.28\textwidth}}
+\toprule
+\normalfont\textbf{Comando} & \textbf{Resultado} & \textbf{Observações} \\
+\midrule
+\endhead
+\string\undfcover & Capa & Usa as informações gerais. \\
+\string\undffolhaderosto & Folha de rosto & Usa natureza e orientação. \\
+\string\undfversofolhaderostoopcional & Ficha no verso & Só aparece com conteúdo configurado. \\
+\string\undferrata & Errata & Só aparece quando preenchida. \\
+\string\undffolhadeaprovacao & Folha de aprovação & Usa data e membros da banca. \\
+\string\listadeilustracoes & Lista de figuras & Gerada a partir das legendas. \\
+\string\listadefluxogramas & Lista própria & Exibida quando a contagem exige. \\
+\string\listadetabelas & Lista de tabelas & Gerada a partir das legendas. \\
+\string\undfsumario & Sumário & Exige novas passagens após mudanças. \\
+\string\printundfreferences & Referências & Usa a base ligada por \string\addbibresource. \\
+\string\undfapendice & Apêndice & Parâmetros: título e rótulo. \\
+\string\undfanexo & Anexo & Parâmetros: título e rótulo. \\
+\string\undfapendicepdf & Apêndice em PDF & Parâmetros: título e arquivo. \\
+\string\undfanexarpdf & Anexo em PDF & Parâmetros: título e arquivo. \\
+\bottomrule
+\end{longtable}
+
+\section{Citações e referências}
+
+\begin{longtable}{>{\ttfamily\footnotesize\raggedright\arraybackslash}p{0.40\textwidth}p{0.22\textwidth}p{0.28\textwidth}}
+\toprule
+\normalfont\textbf{Comando} & \textbf{Resultado} & \textbf{Erro comum} \\
+\midrule
+\endhead
+\string\citarparenteses & Citação parentética & Localizador opcional e chave obrigatória. \\
+\string\citartexto & Autor integrado ao texto & Localizador opcional e chave obrigatória. \\
+\string\citardireta & Citação curta parentética & Localizador, chave e texto. \\
+\string\citardiretatexto & Citação curta narrativa & Localizador, chave e texto. \\
+\string\citacaolonga & Bloco de citação longa & Localizador opcional e chave obrigatória. \\
+\string\apudbib & Citação de citação & Dois localizadores e duas chaves. \\
+\string\fullref & Referência completa pontual & Parâmetro: chave. \\
+\string\notarodape & Nota de rodapé & Parâmetro: texto. \\
+\bottomrule
+\end{longtable}
+
+\section{Objetos e referências cruzadas}
+
+\begin{longtable}{>{\ttfamily\footnotesize\raggedright\arraybackslash}p{0.43\textwidth}p{0.20\textwidth}p{0.27\textwidth}}
+\toprule
+\normalfont\textbf{Comando ou ambiente} & \textbf{Resultado} & \textbf{Observações} \\
+\midrule
+\endhead
+\string\undfsecao & Seção rotulada & Parâmetros: título e rótulo. \\
+\string\undfsubsecao & Subseção rotulada & Parâmetros: título e rótulo. \\
+\string\equacao & Equação numerada & Rótulo opcional e expressão. \\
+\string\undffigura & Figura & Largura, arquivo, legenda, rótulo e fonte. \\
+\string\undffigurasladoalado... & Duas figuras independentes & Cada figura recebe seus próprios dados. \\
+\string\undftabela & Tabela flutuante & Legenda, rótulo e fonte opcional. \\
+\string\undffluxograma & Fluxograma & Legenda, rótulo e fonte opcional. \\
+\string\undfpseudocodigo & Pseudocódigo comum & Assinatura, rótulo e título. \\
+\string\undfpseudocodigolongo & Pseudocódigo multipágina & Mesmos parâmetros; permite quebra. \\
+\string\figuraref & Chamada de figura & Parâmetro: rótulo sem \texttt{fig:}. \\
+\string\tabelaref & Chamada de tabela & Parâmetro: rótulo sem \texttt{tab:}. \\
+\string\equacaoref & Chamada de equação & Parâmetro: rótulo sem \texttt{eq:}. \\
+\string\pseudocodigoref & Chamada de pseudocódigo & Parâmetro: rótulo sem \texttt{alg:}. \\
+\bottomrule
+\end{longtable}
+
+\section{Validações}
+
+\begin{longtable}{>{\ttfamily\footnotesize\raggedright\arraybackslash}p{0.40\textwidth}p{0.24\textwidth}p{0.26\textwidth}}
+\toprule
+\normalfont\textbf{Comando} & \textbf{Efeito} & \textbf{Observação} \\
+\midrule
+\endhead
+\string\undfvalidateonepagecontents & Executa estimativas & Chame antes da capa. \\
+\string\bloquearresumoslongos & Excesso vira erro & Opção de revisão, não padrão. \\
+\string\avisarresumoslongos & Excesso permanece aviso & Comportamento padrão. \\
+\string\undfdesabilitaravisosimagem & Suspende avisos de peso & Não altera a imagem. \\
+\string\undfhabilitaravisosimagem & Reativa avisos & Ativo por padrão. \\
+\bottomrule
+\end{longtable}
+
+\section{Exemplos e resultados esperados}
+
+As duas tabelas seguintes se complementam. A primeira apresenta finalidade, parâmetros e uso básico; a segunda registra resultado esperado, erro comum e solução. Os comandos de apoio menos frequentes permanecem documentados nas tabelas temáticas anteriores.
+
+\begin{landscape}
+\begin{longtable}{>{\ttfamily\footnotesize\raggedright\arraybackslash}p{0.25\linewidth}p{0.19\linewidth}p{0.22\linewidth}>{\ttfamily\footnotesize\raggedright\arraybackslash}p{0.26\linewidth}}
+\toprule
+\normalfont\textbf{Comando} & \textbf{Finalidade} & \textbf{Parâmetros} & \normalfont\textbf{Uso básico} \\
+\midrule
+\endhead
+\string\autor & Registrar autoria & Nome obrigatório & \string\autor\{Ana Lima\} \\
+\string\citarparenteses & Inserir citação parentética & Localizador opcional e chave obrigatória & \string\citarparenteses\{silva2025\} \\
+\string\undffigura & Inserir figura & Largura opcional, arquivo, título, rótulo e fonte opcional & \string\undffigura\{img\}\{Título\}\{id\} \\
+\string\equacao & Inserir equação & Rótulo opcional e expressão obrigatória & \string\equacao[e]\{E=mc\string^2\} \\
+\string\undfsecao & Criar seção rotulada & Título e rótulo obrigatórios & \string\undfsecao\{Objetivos\}\{obj\} \\
+\string\bloquearresumoslongos & Ativar erro optativo de revisão & Nenhum & \string\bloquearresumoslongos \\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}{>{\ttfamily\footnotesize\raggedright\arraybackslash}p{0.25\linewidth}p{0.23\linewidth}p{0.21\linewidth}p{0.23\linewidth}}
+\toprule
+\normalfont\textbf{Comando} & \textbf{Resultado esperado} & \textbf{Erro comum} & \textbf{Solução} \\
+\midrule
+\endhead
+\string\autor & Autoria nas páginas iniciais & Deixar o exemplo padrão & Substituir pelo nome real antes de compilar \\
+\string\citarparenteses & Chamada autor-data vinculada à bibliografia & Usar chave inexistente & Conferir a chave no arquivo bibliográfico e executar o Biber \\
+\string\undffigura & Figura numerada, com legenda, rótulo e fonte & Informar caminho incorreto & Conferir nome, extensão e caminho relativo do arquivo \\
+\string\equacao & Equação numerada e referenciável & Repetir o rótulo & Usar um identificador único e recompilar \\
+\string\undfsecao & Seção numerada e referenciável & Repetir o rótulo & Adotar rótulo único e descritivo \\
+\string\bloquearresumoslongos & Excesso estimado tratado como erro & Ativar como comportamento comum de escrita & Reservar o comando para revisão controlada; o padrão oficial é aviso \\
+\bottomrule
+\end{longtable}
+\end{landscape}

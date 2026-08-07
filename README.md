@@ -2,7 +2,7 @@
 
 Classe e conjunto de módulos LaTeX para produção de Trabalhos de Conclusão de Curso da Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes (UnDF), com estrutura acadêmica baseada nas normas ABNT adotadas pelo projeto.
 
-O objetivo do UnDF-TeX é oferecer um template claro, compilável e fácil de adaptar, reduzindo retrabalho de formatação e mantendo uma separação simples entre metadados, elementos pré-textuais, capítulos, referências e módulos internos.
+O objetivo do UnDF-TeX é oferecer um template claro, compilável e fácil de adaptar, reduzindo retrabalho de formatação e mantendo uma separação simples entre metadados, elementos pré-textuais, seções textuais, referências e módulos internos.
 
 ## Estado do projeto
 
@@ -60,7 +60,25 @@ Preencha os arquivos de conteúdo:
 - `capitulos/*.tex`
 - `opcional/*.tex`, quando desejar usar elementos opcionais.
 
-Compile com:
+Compile com `latexmk`, que executa LuaLaTeX e Biber quantas vezes forem necessárias (a configuração está em `.latexmkrc`):
+
+```powershell
+latexmk
+```
+
+Para compilar o exemplo completo:
+
+```powershell
+latexmk tcc-exemplo-undf.tex
+```
+
+Para remover os artefatos de compilação:
+
+```powershell
+latexmk -C
+```
+
+Se preferir o fluxo manual equivalente:
 
 ```powershell
 lualatex -interaction=nonstopmode -halt-on-error tcc.tex
@@ -69,14 +87,7 @@ lualatex -interaction=nonstopmode -halt-on-error tcc.tex
 lualatex -interaction=nonstopmode -halt-on-error tcc.tex
 ```
 
-Para compilar o exemplo completo:
-
-```powershell
-lualatex -interaction=nonstopmode -halt-on-error tcc-exemplo-undf.tex
-biber tcc-exemplo-undf
-lualatex -interaction=nonstopmode -halt-on-error tcc-exemplo-undf.tex
-lualatex -interaction=nonstopmode -halt-on-error tcc-exemplo-undf.tex
-```
+No Overleaf, o arquivo `.latexmkrc` é lido automaticamente; basta definir o compilador do projeto como LuaLaTeX em Menu > Settings > Compiler.
 
 ## Estrutura principal
 
@@ -85,19 +96,25 @@ lualatex -interaction=nonstopmode -halt-on-error tcc-exemplo-undf.tex
 ├── tcc.tex                  # modelo em branco para o usuário final
 ├── tcc-exemplo-undf.tex     # exemplo completo de uso do template
 ├── undftex.cls              # entrada pública da classe
+├── .latexmkrc               # configuração de compilação (latexmk + LuaLaTeX + Biber)
 ├── src/                     # implementação da classe e dos módulos
-├── capitulos/               # capítulos do modelo em branco
+├── capitulos/               # seções textuais do modelo em branco
 ├── obrigatorio/             # resumo, abstract e referências do modelo em branco
 ├── opcional/                # elementos opcionais do modelo em branco
 ├── exemplo/                 # conteúdo completo de demonstração
 ├── figuras/                 # imagens usadas pelos modelos
 ├── identidade/              # recursos de identidade visual
+├── manuais/                 # manuais e fontes do volume integrado
+│   ├── parte-i/             # manual acadêmico de TCC da UnDF
+│   ├── parte-ii/            # manual técnico do template
+│   ├── estilos/             # estilos específicos das partes
+│   └── manual-completo.tex  # volume integrado com um único sumário
 └── docs/                    # documentação do projeto
 ```
 
 ## Imagens no trabalho
 
-Para manter o PDF final leve e legível, prefira imagens já dimensionadas para uso acadêmico:
+Para manter o PDF gerado leve e legível, prefira imagens já dimensionadas para uso acadêmico:
 
 - até `2 MB` por imagem: faixa recomendada para a maioria dos casos;
 - entre `2 MB` e `5 MB`: aceitável, mas vale avaliar se há excesso de resolução;
@@ -107,7 +124,7 @@ Para manter o PDF final leve e legível, prefira imagens já dimensionadas para 
 - lado maior acima de `4000 px`: geralmente é exagero para uso em TCC, salvo mapas, pranchas ou imagens técnicas específicas;
 - lado maior abaixo de `1000 px`: pode ficar borrado se a imagem for ampliada no PDF.
 
-O template não compacta imagens automaticamente. A validação automática ocorre em `\undffigura` e `\undffigurasladoalado`; imagens inseridas diretamente por `\includegraphics` ficam sob responsabilidade do usuário. A recomendação é preservar o original fora do projeto, exportar uma cópia otimizada para `figuras/` e sempre conferir o PDF final.
+O template não compacta imagens automaticamente. A validação automática ocorre em `\undffigura` e `\undffigurasladoalado`; imagens inseridas diretamente por `\includegraphics` ficam sob responsabilidade do usuário. A recomendação é preservar o original fora do projeto, exportar uma cópia otimizada para `figuras/` e sempre conferir o PDF gerado.
 
 ## Documentação
 

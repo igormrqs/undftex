@@ -1,0 +1,47 @@
+\chapter{Informações Gerais do Trabalho}
+
+As informações gerais, também chamadas de metadados, ficam no preâmbulo de \texttt{tcc.tex}. Elas alimentam páginas iniciais e propriedades do PDF.
+
+\section{Autoria, título e vínculo}
+
+\begin{lstlisting}
+\autor{Nome do Aluno}
+% \autores{Aluno 1//Aluno 2}
+\titulo{Título do Trabalho}
+\subtitulo{Subtítulo opcional}
+\curso{Nome do curso}
+\tipotrabalho{Trabalho de Conclusão de Curso}
+\graupretendido{bacharel em Nome do curso}
+\local{Cidade}
+\ano{Ano}
+\end{lstlisting}
+
+Use \texttt{\textbackslash autor} para uma autoria. Para múltiplas autorias admitidas pelo curso, use \texttt{\textbackslash autores} e separe nomes com \texttt{//}. Não use os dois comandos ao mesmo tempo.
+
+\section{Orientação e aprovação}
+
+\begin{lstlisting}
+\orientador{Nome do Orientador}
+\coorientador{}
+\areadeconcentracao{Área de concentração}
+\dataaprovacao{Brasília, DF, dia de mês de ano}
+\end{lstlisting}
+
+Deixe o argumento de \texttt{\textbackslash coorientador} vazio quando não houver coorientação. A data e o formato da banca devem acompanhar a decisão institucional aplicável; os valores do modelo são exemplos editáveis.
+
+\section{Banca examinadora}
+
+Limpe a lista padrão e cadastre cada membro com nome, prefixo acadêmico e vínculo:
+
+\begin{lstlisting}
+\limparmembrosbanca
+\membrobanca{Nome do Orientador}{Prof. Dr.}{UnDF}
+\membrobanca{Nome do Membro 1}{Profa. Dra.}{Instituição}
+\membrobanca{Nome do Membro 2}{Prof. Dr.}{Instituição}
+\end{lstlisting}
+
+O primeiro argumento contém o nome sem titulação. O segundo é impresso antes do nome. O terceiro aparece na linha de vínculo institucional. Cadastre apenas a composição efetivamente aprovada.
+
+\section{Conferência}
+
+Depois de preencher os campos, confira capa, folha de rosto, folha de aprovação e propriedades do PDF. Um erro no preâmbulo pode aparecer em mais de uma página.

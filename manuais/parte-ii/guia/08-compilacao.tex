@@ -1,0 +1,40 @@
+\chapter{Compilação e Geração do PDF}
+
+\section{Fluxo automatizado}
+
+Na raiz do projeto, execute:
+
+\begin{lstlisting}
+latexmk
+\end{lstlisting}
+
+O arquivo \texttt{.latexmkrc} seleciona LuaLaTeX, aciona o Biber quando necessário e define \texttt{tcc.tex} como entrada padrão. Para o exemplo completo:
+
+\begin{lstlisting}
+latexmk tcc-exemplo-undf.tex
+\end{lstlisting}
+
+\section{Fluxo manual}
+
+Quando o \texttt{latexmk} não estiver disponível, use:
+
+\begin{lstlisting}
+lualatex -interaction=nonstopmode -halt-on-error tcc.tex
+biber tcc
+lualatex -interaction=nonstopmode -halt-on-error tcc.tex
+lualatex -interaction=nonstopmode -halt-on-error tcc.tex
+\end{lstlisting}
+
+O Biber deve receber o nome-base, sem a extensão \texttt{.tex}. Passagens adicionais podem ser necessárias após alterações em sumário, listas, citações ou referências cruzadas.
+
+\section{Overleaf}
+
+Envie a estrutura completa do projeto e selecione LuaLaTeX como compilador. O arquivo \texttt{.latexmkrc} acompanha o repositório. Confirme no painel de logs se a bibliografia foi processada e se não restaram referências indefinidas.
+
+\section{Arquivos auxiliares}
+
+Arquivos como \texttt{.aux}, \texttt{.bcf}, \texttt{.bbl}, \texttt{.toc}, \texttt{.lof}, \texttt{.lot} e \texttt{.lofl} registram dados entre as passagens. Eles não fazem parte do texto autoral e podem ser regenerados. Para limpar artefatos pelo \texttt{latexmk}, use \texttt{latexmk -c}; faça nova compilação completa em seguida.
+
+\section{Critério de conclusão}
+
+Considere a geração tecnicamente estabilizada somente quando: o comando terminar sem erro fatal; o PDF abrir normalmente; não houver pedido de nova execução do Biber; sumário, listas e referências cruzadas estiverem resolvidos; e a inspeção visual das páginas críticas tiver sido feita.

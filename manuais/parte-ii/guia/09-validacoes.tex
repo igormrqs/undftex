@@ -1,0 +1,58 @@
+\chapter{Validações e Avisos}
+
+\section{Estimativa de ocupação dos elementos pré-textuais}
+
+O arquivo principal chama, antes da capa:
+
+\begin{lstlisting}
+\undfvalidateonepagecontents
+\end{lstlisting}
+
+O comando estima o espaço ocupado por resumo, resumo em língua estrangeira, dedicatória, agradecimentos, epígrafe, errata e ficha catalográfica textual. A medição é preventiva: caixas, fontes, imagens e outros elementos podem fazer o resultado visual diferir da estimativa. Sempre confira o PDF.
+
+A estimativa é um recurso técnico do projeto e não cria, por si só, obrigação normativa ou institucional de limitar o elemento a uma página. Quando houver limite definido pelo curso ou por decisão institucional aplicável, essa origem deve ser identificada separadamente.
+
+\section{Resumo e resumo em língua estrangeira}
+
+Por padrão, excesso estimado de conteúdo gera aviso técnico no log e a compilação continua. Para transformar esse caso em erro intencional durante uma revisão controlada, use antes da validação:
+
+\begin{lstlisting}
+\bloquearresumoslongos
+\undfvalidateonepagecontents
+\end{lstlisting}
+
+Para restabelecer explicitamente o modo de aviso:
+
+\begin{lstlisting}
+\avisarresumoslongos
+\end{lstlisting}
+
+O sistema também estima a contagem de palavras e avisa quando o resumo parece ficar fora da faixa configurada. Essa contagem pode divergir de editores de texto diante de comandos, siglas, números e palavras compostas.
+
+O modo de erro é uma ferramenta optativa de revisão e não representa o comportamento oficial de entrega. Uma recomendação normativa ou editorial, isoladamente, não justifica bloquear a compilação.
+
+\section{Conteúdo ausente}
+
+\texttt{\string\undfwarnifempty} produz aviso quando um conteúdo obrigatório não foi preenchido. Arquivos opcionais vazios ou inexistentes são ignorados por \texttt{\string\undfinputoptional}.
+
+\section{Imagens}
+
+Os comandos de figura podem avisar sobre arquivos acima dos limiares configurados. Para suspender e reativar a verificação:
+
+\begin{lstlisting}
+\undfdesabilitaravisosimagem
+\undfhabilitaravisosimagem
+\end{lstlisting}
+
+Esses avisos avaliam peso do arquivo, não nitidez, contraste, legibilidade nem adequação de resolução. A conferência visual continua obrigatória.
+
+\section{Natureza dos diagnósticos}
+
+\begin{description}
+  \item[Erro] interrompe ou invalida a geração; deve ser corrigido.
+  \item[Aviso] sinaliza risco ou pendência; exige avaliação humana.
+  \item[Informação] registra uma decisão do processamento e não implica defeito.
+  \item[Estimativa] aproxima ocupação ou contagem e sempre exige conferência humana.
+\end{description}
+
+Requisito normativo, decisão institucional validada, recomendação e regra de curso pertencem à documentação acadêmica; aviso, estimativa e erro de compilação pertencem ao diagnóstico técnico. Não trate um PDF gerado como prova automática de conformidade. O template automatiza forma e diagnósticos limitados, mas não avalia conteúdo, método, autoria ou decisão institucional.

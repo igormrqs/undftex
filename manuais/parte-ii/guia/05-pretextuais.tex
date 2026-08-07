@@ -1,0 +1,76 @@
+\chapter{Elementos Pré-textuais no \marcaUnDFTeX}
+
+Este capítulo descreve a implementação. Consulte a Parte I para obrigatoriedade, conteúdo e finalidade acadêmica.
+
+\section{Montagem automática}
+
+O arquivo principal chama, em ordem, capa, folha de rosto, verso, errata, folha de aprovação, elementos opcionais, resumos e sumário. Não duplique esses comandos dentro dos arquivos de conteúdo.
+
+\begin{lstlisting}
+\undfcover
+\pretextual
+\undffolhaderosto
+\undfversofolhaderostoopcional
+\undferrata
+\undffolhadeaprovacao
+\end{lstlisting}
+
+\section{Resumos}
+
+Preencha \texttt{obrigatorio/resumo.tex}:
+
+\begin{lstlisting}
+\undfsetcontent{resumo}{Texto do resumo.}
+\undfsetcontent{palavraschave}{termo 1; termo 2; termo 3}
+\end{lstlisting}
+
+No arquivo \texttt{obrigatorio/abstract.tex}, informe título, texto e palavras-chave. Para idioma diferente do inglês, altere também o rótulo:
+
+\begin{lstlisting}
+\undfsetcontent{abstracttitle}{RESUMEN}
+\undfsetcontent{abstract}{Texto em língua estrangeira.}
+\undfsetcontent{keywordslabel}{Palabras clave}
+\undfsetcontent{keywords}{término 1; término 2}
+\end{lstlisting}
+
+O template acrescenta o ponto ao final das palavras-chave. Por isso, informe os termos separados por ponto e vírgula, sem ponto adicional no argumento.
+
+\section{Dados catalográficos}
+
+O arquivo \texttt{opcional/ficha-catalografica.tex} aceita conteúdo textual, imagem ou PDF conforme os comandos públicos do modelo. Utilize apenas o material fornecido pelo fluxo institucional competente.
+
+\begin{lstlisting}
+\dadoscatalograficos{Texto fornecido pela unidade responsável.}
+% \fichacatalograficaimagem{figuras/ficha.png}
+% \fichacatalograficapdf{figuras/ficha.pdf}
+\end{lstlisting}
+
+\section{Errata}
+
+\begin{lstlisting}
+\errataref{Referência completa do trabalho.}
+\erratatexto{%
+  \erratatabela{%
+    \erratalinha{16}{10}{auto-clavado}{autoclavado}
+  }
+}
+\end{lstlisting}
+
+\section{Elementos opcionais}
+
+Arquivos vazios ou inexistentes não são impressos. O carregamento é feito pelo comando mostrado a seguir. Preencha apenas os elementos usados e não remova a lógica condicional do arquivo principal sem necessidade.
+
+\begin{lstlisting}
+\undfinputoptional{opcional/nome-do-arquivo}
+\end{lstlisting}
+
+\section{Listas e sumário}
+
+\begin{lstlisting}
+\listadeilustracoes
+\listadefluxogramas
+\listadetabelas
+\undfsumario
+\end{lstlisting}
+
+O modelo em branco chama apenas o sumário por padrão. Ative listas quando forem adequadas ao trabalho e recompile até que títulos e páginas se estabilizem.

@@ -1,0 +1,56 @@
+\chapter{Citações, Notas e Referências}
+
+Este capítulo descreve a operação dos recursos bibliográficos. Os critérios para selecionar fontes, citar com integridade e elaborar referências são tratados na Parte I.
+
+\section{Arquivo bibliográfico}
+
+Cadastre as obras em \texttt{obrigatorio/referencias.bib} e associe o arquivo ao documento principal:
+
+\begin{lstlisting}
+\addbibresource{obrigatorio/referencias.bib}
+\end{lstlisting}
+
+Cada entrada possui uma chave única, usada pelos comandos de citação. Evite espaços, acentos e chaves duplicadas. Sempre confira no PDF se nomes, título, edição, data, endereço eletrônico e data de acesso foram processados como esperado.
+
+\section{Citações no texto}
+
+\begin{lstlisting}
+\citarparenteses{chave}
+\citarparenteses[p. 25]{chave}
+\citartexto{chave}
+\citartexto[p. 25]{chave}
+
+\citardireta[p. 25]{chave}{Texto citado.}
+\citardiretatexto[p. 25]{chave}{Texto citado.}
+\end{lstlisting}
+
+O argumento entre colchetes é opcional e recebe o localizador, por exemplo \texttt{p. 25}. O argumento seguinte é a chave da entrada bibliográfica.
+
+Para citação direta longa, use:
+
+\begin{lstlisting}
+\begin{citacaolonga}[p. 25]{chave}
+Texto da citação.
+\end{citacaolonga}
+\end{lstlisting}
+
+Para citação de citação, informe a obra original e a obra efetivamente consultada:
+
+\begin{lstlisting}
+\apudbib[p. 13][p. 25]{original}{consultada}
+\apudbibonline[p. 13][p. 25]{original}{consultada}
+\end{lstlisting}
+
+\section{Notas de rodapé}
+
+\begin{lstlisting}
+\notarodape{Texto explicativo da nota.}
+\end{lstlisting}
+
+\section{Lista de referências}
+
+Insira \texttt{\string\printundfreferences} após a parte textual. A lista é produzida apenas com as entradas citadas, salvo configuração bibliográfica adicional.
+
+\section{Diagnóstico bibliográfico}
+
+Uma citação com a chave impressa em negrito ou como marcador indefinido geralmente indica chave inexistente ou ciclo de compilação incompleto. Mensagens como \texttt{Please (re)run Biber} pedem a execução do Biber e novas passagens do LuaLaTeX.

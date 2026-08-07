@@ -13,7 +13,11 @@ O trabalho UnDF-TeX é composto por:
 - modelos `tcc.tex` e `tcc-exemplo-undf.tex`;
 - conteúdos de exemplo em `capitulos/`, `obrigatorio/`, `opcional/` e `exemplo/`;
 - recursos visuais próprios em `figuras/` e `identidade/`;
-- documentação e metadados de distribuição em `README.md`, `CONTRIBUTING.md`, `CHANGELOG.md`, `VERSION.txt`, `LICENSE`, `LICENSE-LPPL-1.3c.tex`, `MANIFEST.md` e `docs/`.
+- manual técnico do template em `manuais/parte-ii/`;
+- manual acadêmico de TCC em `manuais/parte-i/`;
+- volume integrado em `manuais/manual-completo.tex`;
+- documentação e metadados de distribuição em `README.md`, `CONTRIBUTING.md`, `CHANGELOG.md`, `VERSION.txt`, `LICENSE`, `LICENSE-LPPL-1.3c.tex`, `MANIFEST.md` e `docs/`;
+- infraestrutura de compilação e verificação em `.latexmkrc` e `.github/workflows/`.
 
 ## Fora do trabalho distribuído
 

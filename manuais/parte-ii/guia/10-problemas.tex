@@ -1,0 +1,48 @@
+\chapter{Solução de Problemas}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.25\textwidth} >{\raggedright\arraybackslash}p{0.31\textwidth} >{\raggedright\arraybackslash}p{0.34\textwidth}}
+\toprule
+\textbf{Sintoma} & \textbf{Causa provável} & \textbf{Ação recomendada} \\
+\midrule
+\endhead
+Classe não encontrada & Compilação fora da raiz ou pacote incompleto & Compile na raiz e confira \texttt{undftex.cls} e a pasta \texttt{src/}. \\
+\addlinespace
+LuaLaTeX exigido & Motor incorreto & Selecione LuaLaTeX no editor ou serviço. \\
+\addlinespace
+Citações indefinidas & Chave ausente ou Biber não executado & Confira o \texttt{.bib}, execute Biber e repita LuaLaTeX. \\
+\addlinespace
+Referência cruzada com ``??'' & Passagens insuficientes ou rótulo divergente & Confira o rótulo e recompile até estabilizar. \\
+\addlinespace
+Sumário ou listas desatualizados & Arquivos auxiliares antigos & Faça novas passagens; se persistir, limpe auxiliares e recompile. \\
+\addlinespace
+Figura não encontrada & Caminho, extensão ou maiúsculas divergentes & Confira o nome real e use caminho relativo à raiz. \\
+\addlinespace
+Fonte ausente ou substituída & Distribuição incompleta ou cache de fontes & Atualize a distribuição, confira o log e não aceite substituição silenciosa sem revisar o PDF. \\
+\addlinespace
+Caractere especial causa erro & Símbolo reservado ou arquivo fora de UTF-8 & Preserve UTF-8 e use a sintaxe LaTeX adequada para caracteres reservados. \\
+\addlinespace
+Grande espaço antes de figura & Objeto fixado não cabe no restante da página & Reduza a largura, reposicione a chamada ou aceite o avanço integral. \\
+\addlinespace
+Página em branco inesperada & Quebra explícita, inclusão vazia ou ajuste de objeto & Localize a transição no fonte e verifique \texttt{clearpage}, arquivos opcionais e objetos anteriores. \\
+\addlinespace
+Conteúdo fora da margem & Linha de código, URL, tabela ou imagem larga & Reduza ou permita quebra; procure \texttt{Overfull} no log e confira a página. \\
+\addlinespace
+Pseudocódigo ocupa página seguinte & Bloco não cabe ou é longo & Use \texttt{undfpseudocodigolongo} quando a quebra interna for necessária. \\
+\addlinespace
+Fluxograma com lista incorreta & Contagem mudou desde a última passagem & Recompile até desaparecer o aviso de contagem. \\
+\addlinespace
+Resumo gera aviso de uma página & Estimativa de altura excedida & Revise o texto e confira o PDF; o padrão não bloqueia a compilação. \\
+\addlinespace
+PDF externo com página cortada & Dimensões ou opções de inclusão incompatíveis & Ajuste opções de \texttt{pdfpages} no argumento opcional e confira todas as páginas. \\
+\addlinespace
+Compilação interrompida & Erro de sintaxe, arquivo ausente ou ferramenta indisponível & Corrija a primeira mensagem iniciada por \texttt{!} e execute novamente o ciclo completo. \\
+\bottomrule
+\end{longtable}
+
+\section{Leitura do log}
+
+Procure primeiro a primeira linha iniciada por \texttt{!}, pois erros posteriores podem ser consequência dela. Em seguida, busque \texttt{Undefined}, \texttt{Warning}, \texttt{Overfull} e pedidos de nova compilação. Registre o comando executado e a primeira mensagem relevante ao solicitar suporte.
+
+\section{Isolamento do problema}
+
+Quando a causa não estiver clara, reproduza o erro no menor conjunto possível: comente temporariamente a inclusão do capítulo suspeito, reduza o conteúdo até identificar o trecho e restaure as partes gradualmente. Faça esse diagnóstico em cópia ou sob controle de versão para não perder conteúdo.
