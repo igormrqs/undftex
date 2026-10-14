@@ -104,5 +104,7 @@ da pasta ativa deve ocorrer depois da validação, preservando seu histórico, a
 locais e material comparativo em um arquivo de salvaguarda em `../arquivo/`.
 O arquivo preparado é `undf-article-tex-encerramento-2026-10-14.zip`; seus 119
 arquivos, incluindo `.git` e as três alterações locais pendentes, foram comparados
-por SHA-256 com a pasta original antes da retirada. Registro de restauração em
+por SHA-256 com a pasta original. A retirada permanece pendente: a revisão
+automática bloqueou a operação de exclusão com a mensagem `blocked by policy`,
+sem detalhar o motivo; a pasta ativa continua intacta. Registro de restauração em
 `../arquivo/undf-article-tex-encerramento.md`.
