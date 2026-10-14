@@ -18,141 +18,31 @@
 % ----------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{src/abnt/abnt-nbr10520-2023}[2026/01/01 NBR 10520 citations]
-
-\RequirePackage{xparse}
-\RequirePackage{setspace}
-
-\makeatletter
+\ProvidesPackage{src/abnt/abnt-nbr10520-2023}[2026/07/07 NBR 10520 citations (documentacao)]
 
 % ----------------------------------------------------
-% Utilitário interno para argumentos opcionais vazios
+% Citações (NBR 10520:2023)
 % ----------------------------------------------------
-\newcommand{\undf@ifblankTF}[3]{%
-  \if\relax\detokenize{#1}\relax
-    #2%
-  \else
-    #3%
-  \fi
-}
-
+% Este arquivo é apenas o registro documental da norma
+% dentro da pasta src/abnt/ e não contém código executável.
+%
+% A norma é implementada, no fluxo oficial do projeto, por:
+%
+% - src/biblatex/undf-biblatex.sty:
+%   citações indiretas (\citeind, \citeindonline),
+%   citações diretas curtas (\citedir, \citedironline),
+%   citação direta longa (ambiente citacaolonga:
+%   recuo de 4 cm, fonte menor, espaço simples, sem aspas),
+%   citação de citação (\apudbib, \apudbibonline)
+%   e referência completa pontual (\fullref);
+%
+% - src/biblatex/undf-abnt.cbx:
+%   formato autor-data das chamadas (Sobrenome, ano),
+%   conforme a grafia adotada pela edição de 2023.
+%
+% A antiga interface manual de citações (autor e ano
+% digitados diretamente, sem arquivo .bib) foi removida
+% da interface pública para evitar divergência entre as
+% citações no texto e a lista final de referências.
+% Consulte o histórico do repositório se precisar dela.
 % ----------------------------------------------------
-% Helpers internos de chamada
-% ----------------------------------------------------
-\newcommand{\undf@citepar}[2]{(#1, #2)}
-\newcommand{\undf@citeparloc}[3]{(#1, #2, #3)}
-\newcommand{\undf@citeonline}[2]{#1 (#2)}
-\newcommand{\undf@citeonlineloc}[3]{#1 (#2, #3)}
-
-% ----------------------------------------------------
-% Citações indiretas
-% ----------------------------------------------------
-% Autor-data entre parênteses
-% Ex. (Silva, 2019)
-% Ex. (Silva, 2019, p. 25)
-% ----------------------------------------------------
-\NewDocumentCommand{\citacaoindireta}{m m O{}}{%
-  \undf@ifblankTF{#3}
-    {\undf@citepar{#1}{#2}}
-    {\undf@citeparloc{#1}{#2}{#3}}%
-}
-
-% ----------------------------------------------------
-% Citações indiretas com autoria na sentença
-% Ex. Silva (2019)
-% Ex. Silva (2019, p. 25)
-% ----------------------------------------------------
-\NewDocumentCommand{\citacaoindiretaonline}{m m O{}}{%
-  \undf@ifblankTF{#3}
-    {\undf@citeonline{#1}{#2}}
-    {\undf@citeonlineloc{#1}{#2}{#3}}%
-}
-
-% ----------------------------------------------------
-% Citações diretas curtas
-% Até 3 linhas, entre aspas duplas
-% Ex. “texto” (Silva, 2019, p. 25)
-% ----------------------------------------------------
-\NewDocumentCommand{\citacaodireta}{m m m O{}}{%
-  ``#1''%
-  \undf@ifblankTF{#4}
-    {\space\undf@citepar{#2}{#3}}
-    {\space\undf@citeparloc{#2}{#3}{#4}}%
-}
-
-% ----------------------------------------------------
-% Citações diretas curtas com autoria na sentença
-% Ex. Silva (2019, p. 25) afirma: “texto”
-% ----------------------------------------------------
-\NewDocumentCommand{\citacaodiretaonline}{m m m O{}}{%
-  \undf@ifblankTF{#4}
-    {\undf@citeonline{#2}{#3}}
-    {\undf@citeonlineloc{#2}{#3}{#4}}%
-  \space ``#1''%
-}
-
-% ----------------------------------------------------
-% Citação direta longa
-% Mais de 3 linhas:
-% - recuo de 4 cm
-% - fonte menor
-% - espaço simples
-% - sem aspas
-% ----------------------------------------------------
-\NewDocumentEnvironment{citacaolonga}{m m O{} +b}
-{%
-  \begin{list}{}{%
-    \setlength{\leftmargin}{4cm}%
-    \setlength{\rightmargin}{0pt}%
-    \setlength{\listparindent}{0pt}%
-    \setlength{\itemindent}{0pt}%
-    \setlength{\parsep}{0pt}%
-    \setlength{\topsep}{0pt}%
-    \setlength{\partopsep}{0pt}%
-  }%
-  \item\small\singlespacing
-  #4\par
-  \undf@ifblankTF{#3}
-    {\undf@citepar{#1}{#2}}
-    {\undf@citeparloc{#1}{#2}{#3}}%
-  \end{list}%
-}
-{}
-
-% ----------------------------------------------------
-% Citação de citação (apud) entre parênteses
-% Ordem:
-% autor original; data; localização original; apud;
-% autor consultado; data; localização consultada
-% ----------------------------------------------------
-\NewDocumentCommand{\apud}{m m O{} m m O{}}{%
-  (%
-  #1, #2%
-  \undf@ifblankTF{#3}{}{, #3}%
-  \space apud\space
-  #4, #5%
-  \undf@ifblankTF{#6}{}{, #6}%
-  )%
-}
-
-% ----------------------------------------------------
-% Citação de citação (apud) com autoria na sentença
-% Ex. Freire (1994, p. 13 apud Streck..., 2017, p. 25)
-% ----------------------------------------------------
-\NewDocumentCommand{\apudonline}{m m O{} m m O{}}{%
-  #1 (%
-  #2%
-  \undf@ifblankTF{#3}{}{, #3}%
-  \space apud\space
-  #4, #5%
-  \undf@ifblankTF{#6}{}{, #6}%
-  )%
-}
-
-% ----------------------------------------------------
-% Alias curtos de conveniência
-% ----------------------------------------------------
-\let\citepar\citacaoindireta
-\let\citeonline\citacaoindiretaonline
-
-\makeatother

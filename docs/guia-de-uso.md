@@ -107,15 +107,20 @@ Maia Nunes -- UnDF, Brasília, 2026.}
 }
 ```
 
-## 6. Escreva os capítulos
+## 6. Escreva as seções textuais
 
-Os capítulos do modelo em branco ficam em `capitulos/`:
+Os arquivos das seções primárias do modelo em branco ficam em `capitulos/`:
 
 - `01-introducao.tex`
 - `02-referencial-teorico.tex`
 - `03-metodologia.tex`
+- `04-dados.tex` (opcional; use quando os dados ou o corpus exigirem caracterização extensa)
 - `04-analise-e-discussao.tex`
 - `05-consideracoes-finais.tex`
+
+Para ativar a seção opcional de dados, retire o comentário da linha correspondente em `tcc.tex`. Se a caracterização for breve, mantenha-a na metodologia e não inclua esse arquivo.
+
+O `tcc-exemplo-undf.tex` inclui essa seção para demonstrar seu posicionamento entre metodologia e análise, sem torná-la obrigatória no modelo em branco.
 
 Para criar uma seção com rótulo:
 
@@ -131,7 +136,7 @@ Referencie depois com:
 
 ## 7. Citações, referências e notas
 
-Cadastre as referências em `obrigatorio/referencias.bib` e use as chaves BibTeX no texto. O fluxo oficial do projeto é BibLaTeX com Biber, usando `\addbibresource{...}` no arquivo principal e `\printundfreferences` ao final da parte textual.
+Cadastre as referências em `obrigatorio/referencias.bib` e use as chaves BibTeX no texto. O projeto usa BibLaTeX com Biber, com `\addbibresource{...}` no arquivo principal e `\printundfreferences` ao final da parte textual.
 
 Citação indireta:
 
@@ -288,17 +293,27 @@ O comando abaixo é chamado no início do documento:
 \undfvalidateonepagecontents
 ```
 
-Por padrão, o template bloqueia a compilação quando resumo ou abstract parecem ultrapassar o limite prático de uma página. Os demais elementos de uma página emitem avisos quando parecem longos demais ou próximos de ultrapassar uma página.
+Por padrão, o template emite aviso quando resumo ou abstract parecem ultrapassar o limite prático de uma página, mas continua a compilação. Os demais elementos de uma página também emitem avisos quando parecem longos demais ou próximos de ultrapassar uma página.
 
-Para transformar o bloqueio de resumo/abstract em aviso, use antes da validação:
+Para transformar o excesso estimado de resumo/abstract em erro durante uma revisão, use antes da validação:
 
 ```tex
-\avisarresumoslongos
+\bloquearresumoslongos
 ```
 
-O template também emite aviso quando palavras-chave ou keywords ficam fora da faixa recomendada de 3 a 6 termos.
+O template não impõe quantidade de palavras-chave. Escolha termos suficientes para representar o conteúdo e siga eventual regra formal do curso. A ABNT exige a apresentação logo abaixo do resumo, com termos separados por ponto e vírgula e encerrados por ponto.
 
 ## 10. Compilação recomendada
+
+Use `latexmk`, que executa LuaLaTeX e Biber quantas vezes forem necessárias (a configuração do projeto está em `.latexmkrc`):
+
+```powershell
+latexmk
+```
+
+No Overleaf, o `.latexmkrc` é lido automaticamente; defina o compilador do projeto como LuaLaTeX.
+
+Se preferir o fluxo manual equivalente:
 
 ```powershell
 lualatex -interaction=nonstopmode -halt-on-error tcc.tex
@@ -307,4 +322,4 @@ lualatex -interaction=nonstopmode -halt-on-error tcc.tex
 lualatex -interaction=nonstopmode -halt-on-error tcc.tex
 ```
 
-Quando houver mudança em sumário, listas, citações ou referências, compile novamente até que os avisos de referências pendentes desapareçam.
+No fluxo manual, quando houver mudança em sumário, listas, citações ou referências, compile novamente até que os avisos de referências pendentes desapareçam.

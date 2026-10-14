@@ -28,6 +28,8 @@
 *.glg
 *.glo
 *.gls
+*.lofl
+texput.log
 
 # Saídas e artefatos gerados
 *.dvi
@@ -39,9 +41,11 @@ build/
 dist/
 _release/
 
-# LuaLaTeX
-*.lua
-*.luac
+# Exceções: PDFs que são FONTE do trabalho, não artefato de compilação
+# (figuras vetoriais, identidade visual, ficha catalográfica, anexos)
+!figuras/**/*.pdf
+!identidade/**/*.pdf
+!opcional/**/*.pdf
 
 # Arquivos locais temporários
 .gitignore.txt

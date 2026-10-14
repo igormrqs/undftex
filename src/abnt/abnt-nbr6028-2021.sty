@@ -22,7 +22,6 @@
 \ProvidesPackage{src/abnt/abnt-nbr6028-2021}[2026/04/11 NBR 6028 resumo]
 
 \RequirePackage{etoolbox}
-\RequirePackage{xstring}
 
 \makeatletter
 
@@ -32,9 +31,8 @@
 \newsavebox{\undf@abstractmeasurebox}
 \newdimen\undf@abstractheight
 \newdimen\undf@abstractmaxheight
-\newcount\undf@keywordcount
 \newif\ifundf@blockoverlongabstracts
-\undf@blockoverlongabstractstrue
+\undf@blockoverlongabstractsfalse
 
 \newcommand{\bloquearresumoslongos}{\undf@blockoverlongabstractstrue}
 \newcommand{\avisarresumoslongos}{\undf@blockoverlongabstractsfalse}
@@ -147,23 +145,6 @@
   \undfwarncatalogacaopagefit
 }
 
-\newcommand{\undf@warnkeywordcount}[2]{%
-  \ifstrempty{#2}
-    {}
-    {%
-      \begingroup
-        \StrCount{#2}{;}[\undf@keywordseparators]%
-        \undf@keywordcount=\numexpr\undf@keywordseparators+1\relax
-        \ifnum\undf@keywordcount<3
-          \PackageWarningNoLine{abnt-nbr6028-2021}{#1 tem \the\undf@keywordcount\space termo(s); recomenda-se de 3 a 6}%
-        \fi
-        \ifnum\undf@keywordcount>6
-          \PackageWarningNoLine{abnt-nbr6028-2021}{#1 tem \the\undf@keywordcount\space termos; recomenda-se de 3 a 6}%
-        \fi
-      \endgroup
-    }%
-}
-
 % ----------------------------------------------------
 % Títulos dos resumos em idioma estrangeiro
 % ----------------------------------------------------
@@ -217,14 +198,12 @@
 % sem ponto final; o comando acrescenta o ponto ao final.
 % ----------------------------------------------------
 \newcommand{\palavraschave}[1]{%
-  \undf@warnkeywordcount{Palavras-chave}{#1}%
   \par
   \noindent
   Palavras-chave: #1.\par
 }
 
 \newcommand{\keywords}[1]{%
-  \undf@warnkeywordcount{\undf@foreignkeywordslabel}{#1}%
   \par
   \noindent
   \undf@foreignkeywordslabel: #1.\par

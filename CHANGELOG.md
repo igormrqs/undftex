@@ -6,6 +6,20 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ## [Não lançado]
 
+### Adicionado
+
+- Arquivo `.latexmkrc` para compilação em uma única chamada (`latexmk`), com LuaLaTeX + Biber, compatível com uso local e Overleaf.
+- Workflow de integração contínua em `.github/workflows/build.yml` compilando o modelo em branco e o exemplo completo em ambiente limpo.
+- Seção opcional de dados ou corpus após a metodologia, disponível no modelo em branco e demonstrada no exemplo completo.
+- Manual acadêmico de TCC da UnDF em fonte LaTeX, separado do manual técnico do template.
+
+### Corrigido
+
+- `.gitignore`: adicionadas as extensões `*.lofl` (lista de fluxogramas) e `texput.log`; removida a regra `*.lua`, que ocultaria código Lua legítimo; abertas exceções para PDFs que são fonte do trabalho em `figuras/`, `identidade/` e `opcional/` (ficha catalográfica, anexos e figuras vetoriais).
+- Removidos artefatos de compilação órfãos espalhados em `capitulos/`, `exemplo/`, `obrigatorio/`, `opcional/` e `src/core/`.
+- Glossário unificado em uma única implementação: o ambiente oficial `undfglossario` e o comando `\undfglossitem` passam a ser definidos em `abnt-nbr14724-2024.sty`, junto dos demais elementos pós-textuais; os nomes antigos `glossario`/`\glossariotermo` (implementação paralela não usada, com visual divergente) viram sinônimos de compatibilidade da mesma implementação, sem mudança visual para os modelos.
+- `abnt-nbr10520-2023.sty` convertido em registro documental sem código executável: a interface manual legada de citações duplicava o fluxo oficial BibLaTeX/Biber e conflitava com o ambiente `citacaolonga` de `undf-biblatex.sty` caso fosse carregada manualmente. `abnt-nbr6024-2012.sty` recebeu o mesmo formato, apontando onde a numeração progressiva é implementada.
+
 ### Alterado
 
 - Hierarquia visual de seções terciárias e quaternárias refinada para seguir diferenciação tipográfica progressiva.
@@ -18,12 +32,17 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 - Figuras lado a lado agora são tratadas como figuras independentes, cada uma com legenda, rótulo, fonte e numeração próprios.
 - Exemplo de errata atualizado para usar tabela no padrão visual da ABNT NBR 14724:2024.
 - Paginação textual agora preserva a contagem iniciada na folha de rosto, sem contar o verso da folha de rosto com ficha catalográfica.
-- Entradas de capítulos primários no sumário agora acompanham a grafia em caixa alta usada no texto.
+- Entradas de seções primárias no sumário agora acompanham a grafia em caixa alta usada no texto.
 - Entradas de apêndices e anexos no sumário agora acompanham a grafia em caixa alta usada no texto.
 - Entradas manuais do sumário agora recebem âncoras próprias para melhorar hyperlinks no PDF.
 - Figuras agora exibem identificação acima da ilustração e fonte abaixo da ilustração.
 - Logo da capa ampliada no bloco institucional.
 - Documentação revisada para refletir versão registrada, validações, módulos carregados, política de imagens e padrão de commits.
+- Modalidades de TCC reorganizadas, com a escolha da modalidade em seção própria e pôster tratado como forma de apresentação.
+- Orientações ampliadas sobre ética, autorizações, proteção de dados, autenticidade da coleta, plágio, população, amostra e gestão de dados.
+- Estrutura textual esclarecida conforme a ABNT NBR 14724:2024, incluindo alternativas para resultados e discussão e para o título da parte conclusiva.
+- Terminologia pública revisada para tratar as divisões do TCC como seções, preservando os comandos e diretórios internos por compatibilidade.
+- Obrigatoriedade de dados catalográficos, folha de aprovação, resumo em língua estrangeira e referências explicitada para a versão final.
 
 ## [0.1.0] - 2026-05-05
 

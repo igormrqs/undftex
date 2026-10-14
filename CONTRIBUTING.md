@@ -33,23 +33,14 @@ Leia:
 
 ## Verificação mínima
 
-Para o modelo em branco:
+Compile os dois modelos com `latexmk` (a configuração está em `.latexmkrc`):
 
 ```powershell
-lualatex -interaction=nonstopmode -halt-on-error tcc.tex
-biber tcc
-lualatex -interaction=nonstopmode -halt-on-error tcc.tex
-lualatex -interaction=nonstopmode -halt-on-error tcc.tex
+latexmk tcc.tex
+latexmk tcc-exemplo-undf.tex
 ```
 
-Para o exemplo completo:
-
-```powershell
-lualatex -interaction=nonstopmode -halt-on-error tcc-exemplo-undf.tex
-biber tcc-exemplo-undf
-lualatex -interaction=nonstopmode -halt-on-error tcc-exemplo-undf.tex
-lualatex -interaction=nonstopmode -halt-on-error tcc-exemplo-undf.tex
-```
+Ambos devem terminar sem erros e sem warnings novos. O fluxo manual equivalente (lualatex, biber, lualatex, lualatex) continua válido e está documentado no `README.md`.
 
 ## Imagens e arquivos grandes
 

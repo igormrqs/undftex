@@ -341,30 +341,10 @@
 }
 
 % ----------------------------------------------------
-% Glossário
+% Glossário: definido em src/abnt/abnt-nbr14724-2024.sty,
+% junto dos demais elementos pós-textuais da NBR 14724
+% (ambiente undfglossario e comando \undfglossitem).
 % ----------------------------------------------------
-\newenvironment{undfglossario}
-  {%
-    \posttextual
-    \phantomsection
-    \addcontentsline{toc}{chapter}{GLOSSÁRIO}%
-    \thispagestyle{plain}%
-    \begingroup
-      \begin{center}
-        \normalsize\bfseries\MakeUppercase{GLOSSÁRIO}\par
-      \end{center}
-      \vspace{\baselineskip}%
-      \setlength{\parindent}{0pt}%
-      \setlength{\parskip}{0.6\baselineskip}%
-  }
-  {%
-    \endgroup
-    \clearpage
-  }
-
-\newcommand{\undfglossitem}[2]{%
-  \par\noindent\textbf{#1:} #2\par
-}
 
 % ----------------------------------------------------
 % Atalhos de identificação

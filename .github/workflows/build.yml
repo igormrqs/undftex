@@ -1,0 +1,38 @@
+# ----------------------------------------------------
+# Projeto: UnDF-TeX
+# Arquivo: .github/workflows/build.yml
+#
+# Integração contínua: compila o modelo em branco e o
+# exemplo completo em ambiente limpo (TeX Live atual),
+# garantindo que o template permaneça reprodutível.
+# ----------------------------------------------------
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obter o repositório
+        uses: actions/checkout@v4
+
+      - name: Compilar tcc.tex e tcc-exemplo-undf.tex (LuaLaTeX + Biber via latexmk)
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: |
+            tcc.tex
+            tcc-exemplo-undf.tex
+          latexmk_use_lualatex: true
+
+      - name: Publicar PDFs como artefatos
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdfs
+          path: |
+            tcc.pdf
+            tcc-exemplo-undf.pdf
