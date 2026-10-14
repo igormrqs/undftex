@@ -1,0 +1,21 @@
+\documentclass[perfil=monografia]{undftex}
+\begin{document}
+\chapter{Seção primária}
+\section{Seção secundária}
+\stepcounter{figure}
+\stepcounter{table}
+\stepcounter{equation}
+\newcommand{\verificarnumero}[2]{%
+  \edef\observado{#1}\def\esperado{#2}%
+  \ifx\observado\esperado\else
+    \errmessage{Numeracao incorreta: \observado; esperado: \esperado}%
+  \fi
+}
+\verificarnumero{\thechapter}{1}
+\verificarnumero{\thesection}{1.1}
+\verificarnumero{\thefigure}{1.1}
+\verificarnumero{\thetable}{1.1}
+\verificarnumero{\theequation}{1.1}
+\typeout{PERFIL MONOGRAFIA: CONTADORES OK}
+Texto para concluir a página de teste.
+\end{document}

@@ -1,0 +1,81 @@
+% Projeto: UnDF-TeX
+% Copyright (c) 2026 Universidade do Distrito Federal (UnDF)
+% Licenciado sob LPPL 1.3c ou posterior.
+% Perfil experimental de TCC com miolo em formato de artigo.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{src/profiles/undf-artigo}[2026/10/14 TCC em formato de artigo]
+
+\makeatletter
+
+% Seções contínuas, independentes do contador de capítulos da classe report.
+\counterwithout{section}{chapter}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\counterwithout{equation}{chapter}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\renewcommand\section{%
+  \@startsection{section}{1}{\z@}{\baselineskip}{.5\baselineskip}{\normalfont\bfseries}%
+}
+\renewcommand\subsection{%
+  \@startsection{subsection}{2}{\z@}{\baselineskip}{.5\baselineskip}{\normalfont\bfseries}%
+}
+\renewcommand\subsubsection{%
+  \@startsection{subsubsection}{3}{\z@}{\baselineskip}{.5\baselineskip}{\normalfont\bfseries\itshape}%
+}
+\renewcommand\chapter{%
+  \ClassError{undftex}{O perfil artigo usa \string\section, nao \string\chapter}%
+    {Use \string\section\space e \string\input\space no miolo do artigo.}%
+}
+
+% O sumário do volume acompanha a hierarquia real do miolo.
+\titlecontents{section}[0em]{\bfseries}{\contentslabel{2.3em}}{}{\hfill\contentspage}
+\titlecontents{subsection}[2.3em]{\normalfont}{\contentslabel{2.8em}}{}{\hfill\contentspage}
+\titlecontents{subsubsection}[5.1em]{\itshape}{\contentslabel{3.3em}}{}{\hfill\contentspage}
+
+% Referências pertencem ao artigo e seguem o texto sem quebra obrigatória.
+\defbibheading{undfreferences}[REFERÊNCIAS]{%
+  \section*{#1}%
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}%
+}
+
+\def\undf@artigotituloestrangeiro{}
+\newcommand{\tituloartigoestrangeiro}[1]{\gdef\undf@artigotituloestrangeiro{#1}}
+
+\newcommand{\undf@resumoartigo}[4]{%
+  \undfifcontent{#1}{%
+    \begingroup
+      \renewcommand{\undf@abstractminwords}{100}%
+      \renewcommand{\undf@abstractmaxwords}{250}%
+      \undfwarnabstractwords{#1}{#3 do artigo}%
+      \par\addvspace{\baselineskip}%
+      \noindent\textbf{#3}\par\nobreak
+      \noindent
+      \ifstrequal{#1}{abstract}
+        {\foreignlanguage{english}{\undfusecontent{#1}\par}}
+        {\undfusecontent{#1}\par}%
+      \undfifcontent{#2}{\noindent #4: \undfusecontent{#2}.\par}{}%
+    \endgroup
+  }{\PackageWarningNoLine{undf-artigo}{Preencha o #3 do artigo}}%
+}
+
+% Mantém a paginação do TCC, sem reiniciar a contagem do miolo.
+\newcommand{\undfinicioartigo}{%
+  \textual
+  \singlespacing
+  \begin{center}
+    {\large\bfseries\undf@titlefull\par}%
+    \ifdefempty{\undf@artigotituloestrangeiro}{}{\medskip\undf@artigotituloestrangeiro\par}%
+    \medskip
+    \undf@autor\par
+    \undf@curso\par
+    \undf@instituicao\par
+    \ifdefempty{\undf@orientador}{}{\medskip Orientação: \undf@orientador\par}%
+    \ifdefempty{\undf@coorientador}{}{Coorientação: \undf@coorientador\par}%
+  \end{center}
+  \undf@resumoartigo{resumo}{palavraschave}{Resumo}{Palavras-chave}%
+  \undf@resumoartigo{abstract}{keywords}{Abstract}{Keywords}%
+}
+
+\makeatother

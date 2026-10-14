@@ -89,12 +89,34 @@ lualatex -interaction=nonstopmode -halt-on-error tcc.tex
 
 No Overleaf, o arquivo `.latexmkrc` é lido automaticamente; basta definir o compilador do projeto como LuaLaTeX em Menu > Settings > Compiler.
 
+## Perfis de TCC em desenvolvimento
+
+O modelo atual continua sendo o padrão: `\documentclass{undftex}` ou
+`\documentclass[perfil=monografia]{undftex}`. O perfil experimental
+`\documentclass[perfil=artigo]{undftex}` é demonstrado em `tcc-artigo.tex`:
+mantém os elementos institucionais do volume e organiza o miolo em seções
+contínuas, com abertura própria e espaçamento simples.
+
+Leia [a pesquisa e as decisões do perfil](docs/perfis-tcc.md) antes de usá-lo
+para entrega. A implementação não representa aprovação institucional do formato.
+A [integração TeXstudio–GitHub](docs/texstudio-github.md) também está documentada.
+
+Para compilar os três modelos no Windows, inclusive sem Perl:
+
+```powershell
+.\scripts\verificar-perfis.ps1
+```
+
+Os PDFs e logs ficam em `build/perfis/`. Com Perl disponível, use
+`latexmk -outdir=build/perfis tcc-artigo.tex` para o perfil de artigo.
+
 ## Estrutura principal
 
 ```text
 .
 ├── tcc.tex                  # modelo em branco para o usuário final
 ├── tcc-exemplo-undf.tex     # exemplo completo de uso do template
+├── tcc-artigo.tex           # TCC com miolo de artigo (experimental)
 ├── undftex.cls              # entrada pública da classe
 ├── .latexmkrc               # configuração de compilação (latexmk + LuaLaTeX + Biber)
 ├── src/                     # implementação da classe e dos módulos
@@ -102,6 +124,7 @@ No Overleaf, o arquivo `.latexmkrc` é lido automaticamente; basta definir o com
 ├── obrigatorio/             # resumo, abstract e referências do modelo em branco
 ├── opcional/                # elementos opcionais do modelo em branco
 ├── exemplo/                 # conteúdo completo de demonstração
+├── artigo/                  # resumos e miolo do perfil de artigo
 ├── figuras/                 # imagens usadas pelos modelos
 ├── identidade/              # recursos de identidade visual
 ├── manuais/                 # manuais e fontes do volume integrado

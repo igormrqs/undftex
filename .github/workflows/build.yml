@@ -10,7 +10,7 @@ name: build
 
 on:
   push:
-    branches: [main]
+    branches: [main, feature/perfis-tcc]
   pull_request:
   workflow_dispatch:
 
@@ -21,12 +21,15 @@ jobs:
       - name: Obter o repositório
         uses: actions/checkout@v4
 
-      - name: Compilar tcc.tex e tcc-exemplo-undf.tex (LuaLaTeX + Biber via latexmk)
+      - name: Compilar os modelos e verificar os perfis (LuaLaTeX + Biber via latexmk)
         uses: xu-cheng/latex-action@v3
         with:
           root_file: |
             tcc.tex
             tcc-exemplo-undf.tex
+            tcc-artigo.tex
+            tests/perfil-artigo.tex
+            tests/perfil-monografia.tex
           latexmk_use_lualatex: true
 
       - name: Publicar PDFs como artefatos
@@ -36,3 +39,4 @@ jobs:
           path: |
             tcc.pdf
             tcc-exemplo-undf.pdf
+            tcc-artigo.pdf

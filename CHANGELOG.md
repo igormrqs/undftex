@@ -8,6 +8,11 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Adicionado
 
+- Perfis `monografia` (padrão preservado) e `artigo` (experimental) na classe `undftex`.
+- Modelo `tcc-artigo.tex`, com apresentação institucional compartilhada e miolo em seções contínuas, abertura com metadados, resumos e referências sem quebra obrigatória.
+- Pesquisa das características de TCC em formato de artigo, sem adotar SBC/REIC como base editorial, e guia de integração TeXstudio–GitHub.
+- Verificação local dos perfis sem dependência de Perl e compilação do artigo e dos testes de numeração na integração contínua.
+
 - Arquivo `.latexmkrc` para compilação em uma única chamada (`latexmk`), com LuaLaTeX + Biber, compatível com uso local e Overleaf.
 - Workflow de integração contínua em `.github/workflows/build.yml` compilando o modelo em branco e o exemplo completo em ambiente limpo.
 - Seção opcional de dados ou corpus após a metodologia, disponível no modelo em branco e demonstrada no exemplo completo.

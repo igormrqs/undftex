@@ -24,6 +24,12 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{undftex}[2026/01/01 UnDF-TeX class]
 
+\newif\ifundfartigo
+\DeclareOption{perfil=monografia}{\undfartigofalse}
+\DeclareOption{perfil=artigo}{\undfartigotrue}
+\DeclareOption*{\ClassError{undftex}{Opcao desconhecida: \CurrentOption}{Use perfil=monografia ou perfil=artigo.}}
+\ExecuteOptions{perfil=monografia}
+\ProcessOptions\relax
 \LoadClass[12pt,a4paper,oneside]{report}
 
 \makeatletter
@@ -45,6 +51,9 @@
 % ----------------------------------------------------
 % Núcleo técnico
 % ----------------------------------------------------
+\ifundfartigo
+  \PassOptionsToPackage{english}{babel}
+\fi
 \RequirePackage{undf-engine}
 \RequirePackage{undf-metadata}
 \RequirePackage{undf-identity}
@@ -75,3 +84,8 @@
 % Identidade institucional
 % ----------------------------------------------------
 \RequirePackage{undf-cover}
+
+% O perfil altera somente o miolo; a estrutura institucional é compartilhada.
+\ifundfartigo
+  \RequirePackage{src/profiles/undf-artigo}
+\fi
