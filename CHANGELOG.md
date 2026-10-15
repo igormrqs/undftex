@@ -9,7 +9,10 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 ### Adicionado
 
 - Perfis `monografia` (padrão preservado) e `artigo` (experimental) na classe `undftex`.
-- Modelo `tcc-artigo.tex`, com apresentação institucional compartilhada e miolo em seções contínuas, abertura com metadados, resumos e referências sem quebra obrigatória.
+- Modelos `artigo.tex` (autônomo) e `tcc-artigo.tex` (entrega institucional demonstrativa), com conteúdo compartilhado, resumo único e apresentação institucional condicionada ao curso.
+- Identificação, vínculo e contato do autor em nota própria, título traduzido e abstract/keywords opcionais, e complementos pós-textuais em fluxo contínuo no perfil de artigo.
+- Especificação consolidada da modalidade artigo, com adaptações institucionais explícitas e distinção entre monografia, TCC-artigo e manuscrito destinado a publicação.
+- Verificações de resumo único, ausência de apresentação institucional no artigo autônomo, campos obrigatórios e limites inclusivos da faixa orientadora de 100–250 palavras.
 - Pesquisa das características de TCC em formato de artigo, sem adotar SBC/REIC como base editorial, e guia de integração TeXstudio–GitHub.
 - Verificação local dos perfis sem dependência de Perl e compilação do artigo e dos testes de numeração na integração contínua.
 

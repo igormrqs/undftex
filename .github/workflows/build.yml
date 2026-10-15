@@ -27,10 +27,20 @@ jobs:
           root_file: |
             tcc.tex
             tcc-exemplo-undf.tex
+            artigo.tex
             tcc-artigo.tex
+            tests/artigo-opcionais.tex
+            tests/artigo-validacao.tex
             tests/perfil-artigo.tex
             tests/perfil-monografia.tex
           latexmk_use_lualatex: true
+
+      - name: Instalar ferramenta de leitura dos PDFs
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Verificar resumo único e elementos opcionais
+        shell: pwsh
+        run: ./scripts/verificar-artigo.ps1
 
       - name: Publicar PDFs como artefatos
         uses: actions/upload-artifact@v4
@@ -39,4 +49,5 @@ jobs:
           path: |
             tcc.pdf
             tcc-exemplo-undf.pdf
+            artigo.pdf
             tcc-artigo.pdf

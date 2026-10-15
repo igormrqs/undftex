@@ -1,0 +1,25 @@
+\documentclass[perfil=artigo]{undftex}
+\input{artigo/metadados}
+\tituloartigoestrangeiro{Final paper in article format}
+\input{artigo/resumos}
+\input{artigo/abstract}
+\addbibresource{obrigatorio/referencias.bib}
+\begin{document}
+  \undfinicioartigo
+  \input{artigo/conteudo}
+  Uma nota textual deve iniciar em um\notarodape{Nota textual de teste.}.
+  \ifnum\value{footnote}=1\else
+    \errmessage{A nota de autoria consumiu a numeracao das notas textuais}%
+  \fi
+  \printundfreferences
+  \begin{undfglossario}
+    \undfglossitem{Artigo}{Documento com recorte de pesquisa delimitado.}
+  \end{undfglossario}
+  \apendice{Instrumento de pesquisa}
+  Material elaborado pelo autor.
+  \anexo{Documento de apoio}
+  Material de outra autoria, incluído com autorização quando aplicável.
+  \begin{agradecimentos}
+    Agradecimento demonstrativo ao apoio acadêmico.
+  \end{agradecimentos}
+\end{document}

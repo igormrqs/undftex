@@ -93,22 +93,29 @@ No Overleaf, o arquivo `.latexmkrc` é lido automaticamente; basta definir o com
 
 O modelo atual continua sendo o padrão: `\documentclass{undftex}` ou
 `\documentclass[perfil=monografia]{undftex}`. O perfil experimental
-`\documentclass[perfil=artigo]{undftex}` é demonstrado em `tcc-artigo.tex`:
-mantém os elementos institucionais do volume e organiza o miolo em seções
-contínuas, com abertura própria e espaçamento simples.
+`\documentclass[perfil=artigo]{undftex}` é demonstrado em `artigo.tex` (autônomo)
+e `tcc-artigo.tex` (entrega institucional). Ambos compartilham o mesmo conteúdo,
+com resumo único, seções contínuas e espaçamento simples. A apresentação
+institucional deve ser ajustada às exigências do curso.
+
+Preencha `artigo/metadados.tex`, `artigo/resumos.tex` e `artigo/conteudo.tex`.
+Abstract e keywords são opcionais: habilite `\input{artigo/abstract}` no arquivo
+principal escolhido. Título traduzido, identificação, vínculo e e-mail do autor
+também possuem comandos próprios no arquivo de metadados.
 
 Leia [a pesquisa e as decisões do perfil](docs/perfis-tcc.md) antes de usá-lo
 para entrega. A implementação não representa aprovação institucional do formato.
 A [integração TeXstudio–GitHub](docs/texstudio-github.md) também está documentada.
 
-Para compilar os três modelos no Windows, inclusive sem Perl:
+Para compilar os quatro modelos e verificar o artigo com e sem elementos opcionais
+no Windows, inclusive sem Perl (a verificação dos PDFs requer `pdftotext`):
 
 ```powershell
 .\scripts\verificar-perfis.ps1
 ```
 
 Os PDFs e logs ficam em `build/perfis/`. Com Perl disponível, use
-`latexmk -outdir=build/perfis tcc-artigo.tex` para o perfil de artigo.
+`latexmk -outdir=build/perfis artigo.tex` para o artigo autônomo.
 
 ## Estrutura principal
 
@@ -116,7 +123,8 @@ Os PDFs e logs ficam em `build/perfis/`. Com Perl disponível, use
 .
 ├── tcc.tex                  # modelo em branco para o usuário final
 ├── tcc-exemplo-undf.tex     # exemplo completo de uso do template
-├── tcc-artigo.tex           # TCC com miolo de artigo (experimental)
+├── artigo.tex               # artigo acadêmico autônomo (experimental)
+├── tcc-artigo.tex           # exemplo de entrega institucional do mesmo artigo
 ├── undftex.cls              # entrada pública da classe
 ├── .latexmkrc               # configuração de compilação (latexmk + LuaLaTeX + Biber)
 ├── src/                     # implementação da classe e dos módulos

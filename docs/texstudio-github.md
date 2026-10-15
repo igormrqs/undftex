@@ -17,7 +17,7 @@ existe, em `undftex/`, com `origin` apontando para
 
 ## Configuração e rotina
 
-1. Abra `tcc-artigo.tex` dentro da pasta `undftex/` no TeXstudio.
+1. Abra `artigo.tex` (autônomo) ou `tcc-artigo.tex` (entrega institucional) dentro da pasta `undftex/` no TeXstudio.
 2. Em Opções → Configurar TeXstudio, habilite a visualização das opções avançadas,
    procure SVN/GIT e selecione Git. Configure o executável Git se necessário.
 3. Abra o painel Git na barra lateral e confira a branch `feature/perfis-tcc`.

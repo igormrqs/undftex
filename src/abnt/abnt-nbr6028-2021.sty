@@ -40,6 +40,7 @@
 % Valores locais ao contexto: TCC (padrão) ou resumo do miolo de artigo.
 \newcommand{\undf@abstractminwords}{150}
 \newcommand{\undf@abstractmaxwords}{500}
+\newcommand{\undf@abstractwordsguidance}{a NBR 6028 recomenda de}
 
 \ExplSyntaxOn
 \tl_new:N \l_undf_abstract_words_tl
@@ -56,12 +57,12 @@
     \int_compare:nNnT { \l_undf_abstract_words_int } < { \undf@abstractminwords }
       {
         \PackageWarningNoLine{abnt-nbr6028-2021}
-          {#2~tem~\int_use:N \l_undf_abstract_words_int\space palavra(s);~a~NBR~6028~recomenda~de~\undf@abstractminwords~a~\undf@abstractmaxwords}
+          {#2~tem~\int_use:N \l_undf_abstract_words_int\space palavra(s);~\undf@abstractwordsguidance\space\undf@abstractminwords\space a~\undf@abstractmaxwords}
       }
     \int_compare:nNnT { \l_undf_abstract_words_int } > { \undf@abstractmaxwords }
       {
         \PackageWarningNoLine{abnt-nbr6028-2021}
-          {#2~tem~\int_use:N \l_undf_abstract_words_int\space palavras;~a~NBR~6028~recomenda~de~\undf@abstractminwords~a~\undf@abstractmaxwords}
+          {#2~tem~\int_use:N \l_undf_abstract_words_int\space palavras;~\undf@abstractwordsguidance\space\undf@abstractminwords\space a~\undf@abstractmaxwords}
       }
   }
 \cs_new_eq:NN \undf@warnabstractwords \undf_warn_abstract_words:nn

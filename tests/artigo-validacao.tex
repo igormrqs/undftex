@@ -1,0 +1,19 @@
+\documentclass[perfil=artigo]{undftex}
+\begin{document}
+% Quatro avisos esperados: título, autoria, resumo e palavras-chave ausentes.
+% A ausência de abstract e keywords opcionais não deve gerar aviso.
+\undfinicioartigo
+\ExplSyntaxOn
+\cs_new_protected:Npn \testarresumo #1
+  {
+    \tl_gset:cx { undfcontent@resumo } { \prg_replicate:nn {#1} { palavra~ } }
+    \undfwarnabstractwords{resumo}{resumo-#1}
+  }
+% Apenas 99 e 251 devem emitir aviso; os limites são inclusivos.
+\testarresumo{99}
+\testarresumo{100}
+\testarresumo{250}
+\testarresumo{251}
+\ExplSyntaxOff
+Texto de verificação dos campos obrigatórios e dos limites orientadores.
+\end{document}

@@ -1,19 +1,14 @@
 % !TeX program = lualatex
 % !BIB program = biber
 % Projeto UnDF-TeX. LPPL 1.3c ou posterior.
-% Perfil experimental: conferir exigências de entrega com o curso.
+% Exemplo de entrega institucional: mantenha os elementos exigidos pelo curso.
 \documentclass[perfil=artigo]{undftex}
 
-\autor{Nome do Estudante}
-\titulo{TCC em formato de artigo}
-\subtitulo{modelo experimental do UnDF-TeX}
-% \tituloartigoestrangeiro{Final paper in article format}
-\curso{Nome do curso}
+\input{artigo/metadados}
 \tipotrabalho{Trabalho de Conclusão de Curso em formato de artigo}
 \graupretendido{bacharel em Nome do curso}
 \local{Brasília}
 \ano{2026}
-\orientador{Nome do Orientador}
 \dataaprovacao{Brasília, DF, dia de mês de ano}
 \limparmembrosbanca
 \membrobanca{Nome do Orientador}{Prof. Dr.}{UnDF}
@@ -22,32 +17,25 @@
 \addbibresource{obrigatorio/referencias.bib}
 
 \undfresetpretextualcontents
-% O mesmo resumo aparece na apresentação institucional e na abertura do miolo.
-% A faixa de 150 a 250 palavras atende às duas recomendações de extensão.
 \input{artigo/resumos}
-\undfinputoptional{opcional/ficha-catalografica}
+% \input{artigo/abstract}
+% Inclua ficha catalográfica somente se exigida para esta entrega.
+% \undfinputoptional{opcional/ficha-catalografica}
 
 \begin{document}
-  \undfvalidateonepagecontents
+  % Apresentação institucional demonstrativa, sem impor estes elementos ao artigo.
   \undfcover
   \pretextual
   \undffolhaderosto
   \undfversofolhaderostoopcional
   \undffolhadeaprovacao
-  \begin{resumo}
-    \undfusecontent{resumo}
-    \palavraschave{\undfusecontent{palavraschave}}
-  \end{resumo}
-  \begin{resumoestrangeiro}
-    \begin{otherlanguage}{english}
-      \undfusecontent{abstract}
-      \keywords{\undfusecontent{keywords}}
-    \end{otherlanguage}
-  \end{resumoestrangeiro}
-  \undfsumario
+  % Listas e sumário pertencem à entrega; habilite apenas quando exigidos.
+  % \listadeilustracoes
+  % \listadetabelas
+  % \undfsumario
 
   \undfinicioartigo
   \input{artigo/conteudo}
   \printundfreferences
-  % Apêndices e anexos usam os comandos institucionais existentes.
+  % O resumo aparece uma única vez, na abertura acima.
 \end{document}

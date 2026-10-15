@@ -85,7 +85,7 @@
 % ----------------------------------------------------
 \RequirePackage{undf-cover}
 
-% O perfil altera somente o miolo; a estrutura institucional é compartilhada.
+% O artigo compartilha mecanismos; a apresentação institucional é chamada pelo modelo de entrega.
 \ifundfartigo
   \RequirePackage{src/profiles/undf-artigo}
 \fi

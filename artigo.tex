@@ -1,0 +1,18 @@
+% !TeX program = lualatex
+% !BIB program = biber
+% Projeto UnDF-TeX. LPPL 1.3c ou posterior.
+% Artigo acadêmico independente de periódicos, sem apresentação institucional automática.
+\documentclass[perfil=artigo]{undftex}
+\input{artigo/metadados}
+\addbibresource{obrigatorio/referencias.bib}
+\undfresetpretextualcontents
+\input{artigo/resumos}
+% Opcional: remova o comentário se desejar abstract e keywords.
+% \input{artigo/abstract}
+
+\begin{document}
+  \undfinicioartigo
+  \input{artigo/conteudo}
+  \printundfreferences
+  % Glossário, apêndices, anexos e agradecimentos são opcionais.
+\end{document}
