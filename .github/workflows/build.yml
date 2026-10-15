@@ -33,6 +33,12 @@ jobs:
             tests/artigo-validacao.tex
             tests/perfil-artigo.tex
             tests/perfil-monografia.tex
+            tests/complementos-artigo.tex
+            tests/complementos-monografia.tex
+            tests/apud.tex
+            tests/objetos-extensos.tex
+            tests/pagina-externa.tex
+            tests/inclusao-pdf.tex
           latexmk_use_lualatex: true
 
       - name: Instalar ferramenta de leitura dos PDFs
@@ -41,6 +47,10 @@ jobs:
       - name: Verificar resumo único e elementos opcionais
         shell: pwsh
         run: ./scripts/verificar-artigo.ps1
+
+      - name: Verificar complementos, apud e objetos multipágina
+        shell: pwsh
+        run: ./scripts/verificar-estrutura.ps1
 
       - name: Publicar PDFs como artefatos
         uses: actions/upload-artifact@v4

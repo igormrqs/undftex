@@ -173,6 +173,10 @@ funcionamento técnico; não comprova atendimento às exigências de cada curso.
 
 ## Fontes complementares
 
+As correções e os casos mínimos de apêndices/anexos, referências cruzadas, `apud`
+e objetos extensos estão registrados em [Verificação estrutural](verificacao-estrutural.md).
+
+
 - [Biblioteca da UNILA: estrutura do artigo segundo a NBR 6022](https://portal.unila.edu.br/informes/normas-da-abnt-6): distingue os elementos do artigo e a opcionalidade do título e resumo em outro idioma.
 - [Sistema de Bibliotecas da UFJ: NBR 6028:2021](https://sibi.ufj.edu.br/resumo-resenha-e-recensao-abnt-nbr-60282021/): parágrafo único, palavras-chave e faixas de extensão por tipo documental.
 - [IFESP: Manual de normalização de artigo científico, 2022](https://www.ifesp.edu.br/pk/wp-content/uploads/2024/Documentos/Biblioteca/artigo.pdf): exemplo de instituição que acrescenta exigências de TCC ao artigo. Suas regras locais e referências antigas de citações não foram transplantadas.

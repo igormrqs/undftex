@@ -19,6 +19,7 @@
 \RequirePackage{float}
 \RequirePackage{xparse}
 \RequirePackage{listings}
+\RequirePackage{needspace}
 
 % ----------------------------------------------------
 % Validacao de imagens oficiais do modelo
@@ -199,16 +200,8 @@
 % ----------------------------------------------------
 \newcounter{undfalgoritmo}
 
-\newcommand{\undf@needhalfpage}{%
-  \par
-  \begingroup
-    \dimen0=0.5\textheight
-    \dimen2=\pagegoal
-    \advance\dimen2 by -\pagetotal
-    \ifdim\dimen2<\dimen0
-      \newpage
-    \fi
-  \endgroup
+\newcommand{\undf@needpseudocodespace}{%
+  \Needspace{5\baselineskip}%
 }
 
 \lstdefinestyle{undf-pseudocode}{
@@ -238,10 +231,10 @@
 \newcommand{\undf@pseudocodetitle}[1]{\textsc{#1}\hfill\mbox{}}
 
 \lstnewenvironment{undfpseudocodigo}[4][\undf@fontedefault]{%
-  \undf@needhalfpage%
+  \undf@needpseudocodespace%
   \refstepcounter{undfalgoritmo}%
   \label{alg:#3}%
-  \noindent\makebox[\linewidth][c]{Pseudocódigo~\theundfalgoritmo{} --- #4}\endgraf\nobreak%
+  \noindent\parbox{\linewidth}{\centering Pseudocódigo~\theundfalgoritmo{} --- #4}\endgraf\nobreak%
   \lstset{style=undf-pseudocode,title={\undf@pseudocodetitle{#2}}}%
 }{%
   \undffonte{#1}%
@@ -250,7 +243,7 @@
 \lstnewenvironment{undfpseudocodigolongo}[4][\undf@fontedefault]{%
   \refstepcounter{undfalgoritmo}%
   \label{alg:#3}%
-  \noindent\makebox[\linewidth][c]{Pseudocódigo~\theundfalgoritmo{} --- #4}\endgraf\nobreak%
+  \noindent\parbox{\linewidth}{\centering Pseudocódigo~\theundfalgoritmo{} --- #4}\endgraf\nobreak%
   \lstset{style=undf-pseudocode,title={\undf@pseudocodetitle{#2}}}%
 }{%
   \undffonte{#1}%

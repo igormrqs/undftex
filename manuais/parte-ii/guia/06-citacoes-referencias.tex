@@ -34,12 +34,19 @@ Texto da citação.
 \end{citacaolonga}
 \end{lstlisting}
 
-Para citação de citação, informe a obra original e a obra efetivamente consultada:
+Para citação de citação, prefira informar autoria e ano da original como texto,
+usando uma chave apenas para a fonte efetivamente consultada:
 
 \begin{lstlisting}
-\apudbib[p. 13][p. 25]{original}{consultada}
-\apudbibonline[p. 13][p. 25]{original}{consultada}
+\parenciteapud{Freire}{1994}[13]{consultada}[25]
+\textapud{Freire}{1994}[13]{consultada}[25]
 \end{lstlisting}
+
+Os comandos anteriores \texttt{\string\apudbib} e \texttt{\string\apudbibonline}
+continuam aceitando duas chaves. Ao usar \texttt{\string\printundfreferences},
+a obra original usada somente nessa citação indireta é omitida da lista; uma
+citação independente da original na mesma seção bibliográfica a inclui. Essa
+filtragem não é aplicada a chamadas diretas a \texttt{\string\printbibliography}.
 
 \section{Notas de rodapé}
 

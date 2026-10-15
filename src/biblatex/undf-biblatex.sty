@@ -25,6 +25,7 @@
 \RequirePackage{etoolbox}
 \RequirePackage{csquotes}
 \RequirePackage{setspace}
+\RequirePackage{needspace}
 \RequirePackage{xurl}
 \urlstyle{same}
 
@@ -51,7 +52,23 @@
 }
 
 \newcommand{\printundfreferences}{%
-  \printbibliography[heading=undfreferences]
+  \printbibliography[heading=undfreferences,check=undfconsultadas]
+}
+
+% A consulta de dados da original nos comandos apud não equivale à sua leitura.
+% O estado é separado por refsection e por chave; citações independentes a preservam.
+\newif\ifundf@apudoriginal
+\AtEveryCitekey{%
+  \ifundf@apudoriginal
+    \csgdef{undf@apudoriginal@\therefsection:\thefield{entrykey}}{}%
+  \else
+    \csgdef{undf@consultada@\therefsection:\thefield{entrykey}}{}%
+  \fi
+}
+\defbibcheck{undfconsultadas}{%
+  \ifcsdef{undf@apudoriginal@\therefsection:\thefield{entrykey}}
+    {\ifcsundef{undf@consultada@\therefsection:\thefield{entrykey}}{\skipentry}{}}%
+    {}%
 }
 
 % ----------------------------------------------------
@@ -67,15 +84,7 @@
 }
 
 \newcommand{\undf@needcitationblockspace}{%
-  \par
-  \begingroup
-    \dimen0=0.35\textheight
-    \dimen2=\pagegoal
-    \advance\dimen2 by -\pagetotal
-    \ifdim\dimen2<\dimen0
-      \newpage
-    \fi
-  \endgroup
+  \Needspace{4\baselineskip}%
 }
 
 % ----------------------------------------------------
@@ -150,9 +159,11 @@
 % ----------------------------------------------------
 \NewDocumentCommand{\apudbib}{O{} O{} m m}{%
   (%
+  \begingroup\undf@apudoriginaltrue
   \ifstrempty{#1}
     {\citeauthor{#3}, \citeyear{#3}}
     {\citeauthor{#3}, \citeyear{#3}, #1}%
+  \endgroup
   \space apud\space
   \ifstrempty{#2}
     {\citeauthor{#4}, \citeyear{#4}}
@@ -161,10 +172,12 @@
 }
 
 \NewDocumentCommand{\apudbibonline}{O{} O{} m m}{%
+  \begingroup\undf@apudoriginaltrue
   \citeauthor{#3} (%
   \ifstrempty{#1}
     {\citeyear{#3}}
     {\citeyear{#3}, #1}%
+  \endgroup
   \space apud\space
   \ifstrempty{#2}
     {\citeauthor{#4}, \citeyear{#4}}

@@ -1,0 +1,122 @@
+\documentclass[perfil=artigo]{undftex}
+\usepackage{longtable}
+\addbibresource{tests/apud.bib}
+\ExplSyntaxOn
+\cs_new:Npn \linhasteste { \prg_replicate:nn {65} { Dado~de~teste & Conteúdo~de~linha~para~teste~multipágina. \\ } }
+\cs_new:Npn \citacaoteste { \prg_replicate:nn {24} { Este~é~um~texto~fictício~para~testar~a~quebra~de~uma~citação~extensa.~Não~representa~transcrição~de~obra~real.~\par } }
+\ExplSyntaxOff
+\begin{document}
+\textual\singlespacing
+\noindent Teste: um bloco curto deve caber no espaço disponível.
+\vspace*{.58\textheight}
+\begin{undfpseudocodigo}{TESTE(V)}{curto}{Título descritivo suficientemente extenso para verificar a quebra automática de linha sem ultrapassar a largura do texto}
+Entrada: vetor V
+Inicio
+  Retorne V
+Fim
+\end{undfpseudocodigo}
+\ifnum\value{page}=1\else\errmessage{Bloco curto foi antecipado para outra pagina}\fi
+\clearpage
+\noindent Teste: uma citação curta deve caber no espaço disponível.
+\vspace*{.69\textheight}
+\begin{citacaolonga}[9]{consultada}
+Este trecho fictício verifica a composição da citação em bloco. Não é uma
+transcrição de obra real. Seu tamanho foi escolhido para caber no espaço
+restante da página, sem a reserva de uma fração fixa da altura textual.
+\end{citacaolonga}
+\ifnum\value{page}=2\else\errmessage{Citacao curta foi antecipada para outra pagina}\fi
+\clearpage
+\section{Pseudocódigo multipágina}
+\label{obj:pseudocodigo-inicio}
+\begin{undfpseudocodigolongo}{PERCORRER(V)}{longo}{Percurso extenso usado somente para verificar a continuação do quadro entre páginas}
+Entrada: vetor V
+Inicio
+  Execute etapa 01
+  Execute etapa 02
+  Execute etapa 03
+  Execute etapa 04
+  Execute etapa 05
+  Execute etapa 06
+  Execute etapa 07
+  Execute etapa 08
+  Execute etapa 09
+  Execute etapa 10
+  Execute etapa 11
+  Execute etapa 12
+  Execute etapa 13
+  Execute etapa 14
+  Execute etapa 15
+  Execute etapa 16
+  Execute etapa 17
+  Execute etapa 18
+  Execute etapa 19
+  Execute etapa 20
+  Execute etapa 21
+  Execute etapa 22
+  Execute etapa 23
+  Execute etapa 24
+  Execute etapa 25
+  Execute etapa 26
+  Execute etapa 27
+  Execute etapa 28
+  Execute etapa 29
+  Execute etapa 30
+  Execute etapa 31
+  Execute etapa 32
+  Execute etapa 33
+  Execute etapa 34
+  Execute etapa 35
+  Execute etapa 36
+  Execute etapa 37
+  Execute etapa 38
+  Execute etapa 39
+  Execute etapa 40
+  Execute etapa 41
+  Execute etapa 42
+  Execute etapa 43
+  Execute etapa 44
+  Execute etapa 45
+  Execute etapa 46
+  Execute etapa 47
+  Execute etapa 48
+  Execute etapa 49
+  Execute etapa 50
+  Execute etapa 51
+  Execute etapa 52
+  Execute etapa 53
+  Execute etapa 54
+  Execute etapa 55
+  Execute etapa 56
+  Execute etapa 57
+  Execute etapa 58
+  Execute etapa 59
+  Execute etapa 60
+  Execute etapa 61
+  Execute etapa 62
+  Execute etapa 63
+  Execute etapa 64
+  Execute etapa 65
+  Retorne V
+Fim
+\end{undfpseudocodigolongo}
+\label{obj:pseudocodigo-fim}
+\clearpage
+\section{Tabela multipágina}
+\label{obj:tabela-inicio}
+\begin{longtable}{p{.25\textwidth}p{.60\textwidth}}
+\caption{Tabela de teste multipágina}\label{tab:longa}\\
+\textbf{Item} & \textbf{Descrição}\\\hline\endfirsthead
+\textbf{Item} & \textbf{Descrição (continuação)}\\\hline\endhead
+\linhasteste
+\end{longtable}
+\label{obj:tabela-fim}
+\undffonte{dados fictícios para teste}
+\section{Figura e citação extensa}
+\undffigura[.4\textwidth]{identidade/logo_horizontal.png}{Figura de teste com proporções preservadas}{objeto}
+\label{obj:citacao-inicio}
+\begin{citacaolonga}{consultada}
+\citacaoteste
+\end{citacaolonga}
+\label{obj:citacao-fim}
+\printundfreferences
+\end{document}

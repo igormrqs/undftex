@@ -23,6 +23,10 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Corrigido
 
+- Apêndices e anexos reiniciam seções e objetos com prefixo alfabético nos dois perfis, preservando sequências e destinos de hyperlinks distintos, inclusive nas referências por título.
+- A bibliografia institucional omite obras originais usadas somente pelos comandos `apud` com duas chaves e as mantém quando citadas independentemente na mesma seção bibliográfica.
+- Início de citações em bloco e pseudocódigos usa uma reserva de linhas, evitando que blocos curtos sejam antecipados por percentuais fixos da página; títulos extensos de pseudocódigo passam a quebrar na largura do texto.
+
 - `.gitignore`: adicionadas as extensões `*.lofl` (lista de fluxogramas) e `texput.log`; removida a regra `*.lua`, que ocultaria código Lua legítimo; abertas exceções para PDFs que são fonte do trabalho em `figuras/`, `identidade/` e `opcional/` (ficha catalográfica, anexos e figuras vetoriais).
 - Removidos artefatos de compilação órfãos espalhados em `capitulos/`, `exemplo/`, `obrigatorio/`, `opcional/` e `src/core/`.
 - Glossário unificado em uma única implementação: o ambiente oficial `undfglossario` e o comando `\undfglossitem` passam a ser definidos em `abnt-nbr14724-2024.sty`, junto dos demais elementos pós-textuais; os nomes antigos `glossario`/`\glossariotermo` (implementação paralela não usada, com visual divergente) viram sinônimos de compatibilidade da mesma implementação, sem mudança visual para os modelos.

@@ -27,7 +27,7 @@ Este projeto não substitui a conferência acadêmica final exigida por curso, b
 - Distribuição TeX atualizada, preferencialmente TeX Live ou MiKTeX.
 - LuaLaTeX.
 - Biber.
-- Pacotes LaTeX usuais: `biblatex`, `csquotes`, `caption`, `tocloft`, `pdfpages`, `graphicx`, `listings`, `tikz`, `hyperref`, `xparse`, `etoolbox`, `xstring`, entre outros.
+- Pacotes LaTeX usuais: `biblatex`, `csquotes`, `caption`, `tocloft`, `pdfpages`, `graphicx`, `listings`, `needspace`, `tikz`, `hyperref`, `xparse`, `etoolbox`, `xstring`, entre outros.
 
 A classe exige LuaLaTeX. A compilação com pdfLaTeX ou XeLaTeX não é o alvo oficial do projeto.
 
@@ -116,6 +116,10 @@ no Windows, inclusive sem Perl (a verificação dos PDFs requer `pdftotext`):
 
 Os PDFs e logs ficam em `build/perfis/`. Com Perl disponível, use
 `latexmk -outdir=build/perfis artigo.tex` para o artigo autônomo.
+
+A verificação também cobre apêndices/anexos com subdivisões e objetos, hyperlinks,
+citações `apud` e continuação de objetos entre páginas. Os casos mínimos ficam em
+`tests/`, com dados bibliográficos e conteúdos fictícios próprios para teste.
 
 ## Estrutura principal
 

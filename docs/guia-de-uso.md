@@ -170,8 +170,17 @@ Texto citado com mais de três linhas.
 Citação de citação:
 
 ```tex
-\apudbib[p. 13][p. 25]{obra-original}{obra-consultada}
+\parenciteapud{Freire}{1994}[13]{obra-consultada}[25]
+\textapud{Freire}{1994}[13]{obra-consultada}[25]
 ```
+
+Nessas formas, informe autoria e ano da original como texto e use uma chave apenas
+para a fonte consultada. Os comandos anteriores `\apudbib` e `\apudbibonline`, com
+duas chaves e localizadores como `p. 13`, continuam compatíveis. Ao gerar a lista
+com `\printundfreferences`, a original usada somente nesses comandos não entra
+nas referências; ela aparece se houver uma citação independente na mesma seção
+bibliográfica. A filtragem pertence ao comando institucional, não a uma chamada
+direta a `\printbibliography`.
 
 Nota de rodapé:
 
@@ -284,6 +293,16 @@ Fim
 ```
 
 O rótulo numerado e o título descritivo aparecem acima do bloco, no formato `Pseudocódigo n --- Título`. A assinatura aparece dentro da caixa, alinhada à esquerda, no padrão Cormen, como `MEDIA(V)` ou `PARTITION(A, p, r)`. A fonte aparece abaixo do quadro e usa `elaboração própria` por padrão; para trocar a fonte, use o argumento opcional, como `\begin{undfpseudocodigo}[Cormen, 2022]{PARTITION(A, p, r)}{partition}{Particionar o arranjo}`. Prefira finalizadores locais, como `Fim-se`, `Fim-para` e `Fim-enquanto`, para melhorar a leitura de blocos longos.
+
+O início do pseudocódigo reserva cinco linhas, e o início da citação longa reserva
+quatro; não é reservada uma fração fixa da página. Títulos extensos de pseudocódigo
+quebram dentro da largura do texto. Blocos maiores que uma página podem continuar
+na seguinte. Tabelas multipágina devem usar `longtable`, fora de `undftabela`.
+
+Nos dois perfis, apêndices e anexos têm sequências próprias A, B, C. Cada complemento
+reinicia suas seções e objetos: a primeira seção é `A.1`, e a primeira figura,
+tabela ou equação também recebe `A.1`. Os destinos dos hyperlinks distinguem
+apêndices e anexos mesmo quando ambos têm a letra A.
 
 ## 9. Avisos de validação
 

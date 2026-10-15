@@ -1,5 +1,5 @@
 # Compila os modelos e verifica os contadores dos dois perfis, sem exigir Perl.
-param([string[]]$Documentos = @('tcc.tex', 'tcc-exemplo-undf.tex', 'artigo.tex', 'tcc-artigo.tex', 'tests/artigo-opcionais.tex'))
+param([string[]]$Documentos = @('tcc.tex', 'tcc-exemplo-undf.tex', 'artigo.tex', 'tcc-artigo.tex', 'tests/artigo-opcionais.tex', 'tests/complementos-artigo.tex', 'tests/complementos-monografia.tex', 'tests/apud.tex', 'tests/objetos-extensos.tex', 'tests/pagina-externa.tex', 'tests/inclusao-pdf.tex'))
 $ErrorActionPreference = 'Stop'
 Push-Location (Split-Path $PSScriptRoot -Parent)
 try {
@@ -26,6 +26,9 @@ try {
     & lualatex -interaction=nonstopmode -halt-on-error -output-directory=build/perfis tests/artigo-validacao.tex > build/perfis/teste-validacao.txt 2>&1
     if ($LASTEXITCODE -ne 0) { throw 'Teste de validacao falhou: build/perfis/teste-validacao.txt' }
     & "$PSScriptRoot/verificar-artigo.ps1" -Diretorio build/perfis -Documentos $Documentos
+    if (@('tests/complementos-artigo.tex', 'tests/complementos-monografia.tex', 'tests/apud.tex', 'tests/objetos-extensos.tex', 'tests/inclusao-pdf.tex' | Where-Object { $_ -notin $Documentos }).Count -eq 0) {
+        & "$PSScriptRoot/verificar-estrutura.ps1" -Diretorio build/perfis
+    }
     Write-Host 'Modelos compilados e contadores dos perfis verificados em build/perfis/.'
 } finally {
     Pop-Location

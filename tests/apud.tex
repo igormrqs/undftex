@@ -1,0 +1,33 @@
+\documentclass[perfil=artigo]{undftex}
+\addbibresource{tests/apud.bib}
+\newcommand{\bibliografiateste}[1]{%
+  \defbibheading{undfreferences}{\section*{BIBLIOGRAFIA-CASO-#1}}%
+  \printundfreferences
+  \par FIM-CASO-#1\par
+}
+\begin{document}
+\textual\singlespacing
+\begin{refsection}
+\section*{CASO 1: original não consultada}
+\apudbib[p. 3][p. 9]{original}{consultada}.
+\apudbibonline{original}{consultada}.
+\parenciteapud{Origem}{1980}[3]{consultada}[9].
+\textapud{Origem}{1980}{consultada}.
+\bibliografiateste{1}
+\end{refsection}
+\begin{refsection}
+\section*{CASO 2: original citada antes}
+\citeind{original}. \apudbib{original}{consultada}.
+\bibliografiateste{2}
+\end{refsection}
+\begin{refsection}
+\section*{CASO 3: original citada depois}
+\apudbibonline[p. 3]{original}{consultada}. \citeind{original}.
+\bibliografiateste{3}
+\end{refsection}
+\begin{refsection}
+\section*{CASO 4: outra seção bibliográfica}
+\apudbib{original}{consultada}.
+\bibliografiateste{4}
+\end{refsection}
+\end{document}

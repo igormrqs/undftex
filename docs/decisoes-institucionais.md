@@ -422,6 +422,14 @@ Decisões adotadas:
 
 Implementação: `src/core/undf-crossrefs.sty`.
 
+Revisão técnica de 14/10/2026 na branch `feature/perfis-tcc`: a prevenção de
+quebras prematuras agora reserva cinco linhas para iniciar pseudocódigos e
+quatro para citações em bloco, em vez de percentuais fixos da altura textual.
+Títulos extensos de pseudocódigo quebram na largura do texto. Os complementos
+reiniciam seções e objetos com prefixos alfabéticos e destinos distintos por
+tipo. São correções técnicas de fluxo e consistência, sem criar novas exigências
+de modalidade ou de entrega institucional.
+
 ## Decisão Institucional Validada Nº 21-A — Fluxogramas
 
 Fluxogramas são tratados como ilustrações quando aparecem poucas vezes e ganham lista própria quando se tornam recorrentes no trabalho.

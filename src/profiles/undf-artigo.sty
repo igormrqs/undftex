@@ -116,12 +116,14 @@
   {\undf@complementoartigo{GLOSSÁRIO}\begingroup\setlength{\parindent}{0pt}}
   {\par\endgroup}
 \renewcommand{\apendice}[1]{%
-  \refstepcounter{undfapendice}%
+  \undf@begincomplement{undfapendice}%
   \undf@complementoartigo{APÊNDICE \Alph{undfapendice} --- \MakeTextUppercase{#1}}%
+  \protected@edef\@currentlabelname{APÊNDICE \undf@complementprefix\space --- \unexpanded{#1}}%
 }
 \renewcommand{\anexo}[1]{%
-  \refstepcounter{undfanexo}%
+  \undf@begincomplement{undfanexo}%
   \undf@complementoartigo{ANEXO \Alph{undfanexo} --- \MakeTextUppercase{#1}}%
+  \protected@edef\@currentlabelname{ANEXO \undf@complementprefix\space --- \unexpanded{#1}}%
 }
 \renewenvironment{agradecimentos}
   {\undf@complementoartigo{AGRADECIMENTOS}}

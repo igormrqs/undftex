@@ -1,0 +1,42 @@
+\newcommand{\verificarnumero}[2]{%
+  \edef\observado{#1}\def\esperado{#2}%
+  \ifx\observado\esperado\else
+    \errmessage{Numeracao incorreta: \observado; esperado: \esperado}%
+  \fi
+}
+\newcommand{\testarcomplemento}[2]{%
+  \section{Detalhamento}\label{sec:#2}%
+  \verificarnumero{\thesection}{#1.1}%
+  \subsection{Pormenores}\label{sec:#2-sub}%
+  \verificarnumero{\thesubsection}{#1.1.1}%
+  \begin{figure}[H]
+    \centering\caption{Figura de teste}\label{fig:#2}
+    \rule{3cm}{1cm}
+    \undffonte{teste}
+  \end{figure}
+  \verificarnumero{\thefigure}{#1.1}%
+  \begin{undftabela}[H]{Tabela de teste}{#2}
+    \begin{tabular}{cc}Item & Valor \\ A & 1\end{tabular}
+  \end{undftabela}
+  \verificarnumero{\thetable}{#1.1}%
+  \equacao[#2]{a=b}
+  \verificarnumero{\theequation}{#1.1}%
+  \section{Outro detalhamento}
+  \verificarnumero{\thesection}{#1.2}%
+}
+\begin{document}
+\pretextual\undfsumario\textual
+\ifundfartigo\section{Texto principal}\else\chapter{Texto principal}\section{Detalhamento}\fi
+\stepcounter{figure}\stepcounter{table}\stepcounter{equation}
+Referências: \apendiceref{ap-a}, \apendiceref{ap-b}, \anexoref{an-a},
+\anexoref{an-b}, \secaoref{ap-a}, \figuraref{an-a} e \equacaoref{ap-b}.
+Referências por título: \nameref{ap:ap-a} e \nameref{an:an-a}.
+\apendice{Primeiro material autoral}\label{ap:ap-a}
+\testarcomplemento{A}{ap-a}
+\undfapendice{Segundo material autoral}{ap-b}
+\testarcomplemento{B}{ap-b}
+\anexo{Primeiro material de apoio}\label{an:an-a}
+\testarcomplemento{A}{an-a}
+\undfanexo{Segundo material de apoio}{an-b}
+\testarcomplemento{B}{an-b}
+\end{document}

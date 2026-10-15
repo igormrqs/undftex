@@ -76,7 +76,10 @@ Saida: média dos valores
 \end{undfpseudocodigo}
 \end{lstlisting}
 
-O ambiente comum tenta iniciar o bloco apenas quando há espaço suficiente para cerca de meia página. Para um algoritmo que precise continuar na página seguinte, use \texttt{undfpseudocodigolongo}; ele permite a quebra interna do bloco. Referencie ambos com \texttt{\string\pseudocodigoref\{rotulo\}}.
+O ambiente comum reserva cinco linhas para iniciar o bloco, em vez de meia página.
+Os títulos extensos quebram dentro da largura do texto. Ambos os ambientes permitem
+continuação entre páginas; \texttt{undfpseudocodigolongo} não faz a reserva inicial.
+Referencie ambos com \texttt{\string\pseudocodigoref\{rotulo\}}.
 
 \section{Apêndices, anexos e PDFs externos}
 
@@ -88,6 +91,11 @@ O ambiente comum tenta iniciar o bloco apenas quando há espaço suficiente para
 \end{lstlisting}
 
 Para inclusão sem criar apêndice ou anexo, use \texttt{\string\undfincluirpdf\{arquivo.pdf\}}. Os comandos de referência são \texttt{\string\apendiceref} e \texttt{\string\anexoref}.
+
+Apêndices e anexos possuem sequências alfabéticas separadas. Em cada um, seções,
+figuras, tabelas e equações reiniciam com o prefixo da letra: A.1, A.2 e assim por
+diante. O segundo complemento reinicia em B.1. Os hyperlinks distinguem apêndice
+e anexo mesmo quando compartilham a letra A.
 
 \section{Imagens e paginação}
 
