@@ -151,9 +151,11 @@ O exemplo preenchido `artigo-exemplo-undf.tex` usa conteúdo próprio em
 com fontes e limites explícitos; não substitui os arquivos para preenchimento
 em `artigo/`. A [documentação do exemplo](../exemplo/artigo/README.md) explica
 a origem dos dados e a compilação isolada.
+Sua versão de entrega institucional preenchida é `tcc-artigo-exemplo-undf.tex`,
+com os mesmos arquivos científicos e três páginas institucionais demonstrativas.
 
 Execute `scripts/verificar-perfis.ps1` na raiz do repositório. O script compila os
-cinco modelos com LuaLaTeX/Biber e o caso de artigo com todos os opcionais.
+seis modelos com LuaLaTeX/Biber e o caso de artigo com todos os opcionais.
 Verifica referências, contadores, resumo único, campos de autoria, ausência de
 apresentação institucional no artigo autônomo e avisos de preenchimento. São
 testados 99, 100, 250 e 251 palavras para a faixa orientadora inclusiva. Saídas

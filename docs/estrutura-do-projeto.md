@@ -72,7 +72,7 @@ O projeto mantém os seguintes fluxos:
 - modelo em branco: `tcc.tex`, `capitulos/` (incluindo a seção opcional `04-dados.tex`), `obrigatorio/`, `opcional/`;
 - monografia preenchida: `tcc-exemplo-undf.tex`, `exemplo/capitulos/`, `exemplo/obrigatorio/`, `exemplo/opcional/`;
 - artigo para preenchimento: `artigo.tex` (autônomo) e `tcc-artigo.tex` (entrega institucional), compartilhando `artigo/`;
-- artigo preenchido: `artigo-exemplo-undf.tex`, com conteúdo próprio em `exemplo/artigo/`.
+- artigo preenchido: `artigo-exemplo-undf.tex` (autônomo) e `tcc-artigo-exemplo-undf.tex` (entrega institucional), compartilhando o conteúdo em `exemplo/artigo/`.
 
 Ao alterar a interface pública do template, verifique os fluxos afetados nos dois perfis.
 
@@ -96,7 +96,7 @@ Para compilar os documentos, execute LuaLaTeX no diretório de cada fonte princi
 ## Infraestrutura de compilação
 
 - `.latexmkrc`: configuração do `latexmk` (LuaLaTeX + Biber, extensão `lofl` da lista de fluxogramas, limpeza de artefatos). Lida automaticamente pelo Overleaf.
-- `.github/workflows/build.yml`: integração contínua que compila os cinco modelos e os casos de regressão em ambiente limpo a cada push/pull request.
+- `.github/workflows/build.yml`: integração contínua que compila os seis modelos e os casos de regressão em ambiente limpo a cada push/pull request.
 
 ## Regra de manutenção
 

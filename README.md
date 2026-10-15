@@ -107,12 +107,15 @@ Para consultar um artigo preenchido, use `artigo-exemplo-undf.tex`. Ele relata
 uma verificação didática do próprio projeto, com conteúdo independente em
 `exemplo/artigo/`, citações, figura, tabela, equação, pseudocódigo e referências.
 Veja o [escopo e a origem dos resultados](exemplo/artigo/README.md).
+O correspondente preenchido da entrega institucional é
+`tcc-artigo-exemplo-undf.tex`: acrescenta capa, folha de rosto e aprovação
+demonstrativa, compartilhando o mesmo resumo, miolo e bibliografia.
 
 Leia [a pesquisa e as decisões do perfil](docs/perfis-tcc.md) antes de usá-lo
 para entrega. A implementação não representa aprovação institucional do formato.
 A [integração TeXstudio–GitHub](docs/texstudio-github.md) também está documentada.
 
-Para compilar os cinco modelos e verificar o artigo com e sem elementos opcionais
+Para compilar os seis modelos e verificar o artigo com e sem elementos opcionais
 no Windows, inclusive sem Perl (a verificação dos PDFs requer `pdftotext`):
 
 ```powershell
@@ -123,6 +126,8 @@ Os PDFs e logs ficam em `build/perfis/`. Com Perl disponível, use
 `latexmk -outdir=build/perfis artigo.tex` para o artigo autônomo.
 Para compilar somente o novo exemplo sem Perl, execute
 `.\scripts\verificar-perfis.ps1 -Documentos artigo-exemplo-undf.tex`.
+Para a entrega institucional preenchida, substitua o argumento por
+`tcc-artigo-exemplo-undf.tex`.
 
 A verificação também cobre apêndices/anexos com subdivisões e objetos, hyperlinks,
 citações `apud` e continuação de objetos entre páginas. Os casos mínimos ficam em
@@ -137,6 +142,7 @@ citações `apud` e continuação de objetos entre páginas. Os casos mínimos f
 ├── artigo.tex               # artigo acadêmico autônomo (experimental)
 ├── tcc-artigo.tex           # exemplo de entrega institucional do mesmo artigo
 ├── artigo-exemplo-undf.tex  # artigo preenchido com conteúdo didático próprio
+├── tcc-artigo-exemplo-undf.tex # entrega institucional do artigo preenchido
 ├── undftex.cls              # entrada pública da classe
 ├── .latexmkrc               # configuração de compilação (latexmk + LuaLaTeX + Biber)
 ├── src/                     # implementação da classe e dos módulos

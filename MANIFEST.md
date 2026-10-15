@@ -10,7 +10,7 @@ O trabalho UnDF-TeX é composto por:
 - `src/undftex.cls`;
 - módulos LaTeX em `src/`;
 - estilos bibliográficos em `src/biblatex/`, incluindo `undf-abnt.bbx` e `undf-abnt.cbx`;
-- modelos `tcc.tex`, `tcc-exemplo-undf.tex`, `artigo.tex`, `tcc-artigo.tex` e `artigo-exemplo-undf.tex`;
+- modelos `tcc.tex`, `tcc-exemplo-undf.tex`, `artigo.tex`, `tcc-artigo.tex`, `artigo-exemplo-undf.tex` e `tcc-artigo-exemplo-undf.tex`;
 - conteúdos de exemplo em `capitulos/`, `obrigatorio/`, `opcional/`, `exemplo/` e `artigo/`;
 - recursos visuais próprios em `figuras/` e `identidade/`;
 - manual técnico do template em `manuais/parte-ii/`;

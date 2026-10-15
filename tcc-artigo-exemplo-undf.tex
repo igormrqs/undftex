@@ -1,0 +1,44 @@
+% !TeX program = lualatex
+% !BIB program = biber
+% Projeto UnDF-TeX. LPPL 1.3c ou posterior.
+% Exemplo preenchido de entrega institucional, com pessoas fictícias.
+\documentclass[perfil=artigo]{undftex}
+\usepackage{tikz}
+\usepackage{array}
+% Mesma composição das referências do artigo autônomo preenchido.
+\setcounter{biburllcpenalty}{100}
+\setcounter{biburlucpenalty}{200}
+\setcounter{biburlnumpenalty}{100}
+
+\input{exemplo/artigo/metadados}
+\curso{Ciência da Computação}
+\tipotrabalho{Trabalho de Conclusão de Curso em formato de artigo}
+\graupretendido{bacharel em Ciência da Computação}
+\objetivo{Exemplo didático de Trabalho de Conclusão de Curso em formato de artigo
+para o curso de Ciência da Computação da UnDF. Documento demonstrativo, sem
+submissão ou aprovação acadêmica.}
+\local{Brasília}
+\ano{2026}
+\orientador{Ana Exemplo (nome fictício)}
+\dataaprovacao{Folha demonstrativa: não houve defesa ou aprovação.}
+\limparmembrosbanca
+\membrobanca{Ana Exemplo (nome fictício)}{Profa. Dra.}{UnDF -- vínculo ilustrativo}
+\membrobanca{Bruno Exemplo (nome fictício)}{Prof. Dr.}{UnDF -- vínculo ilustrativo}
+\membrobanca{Carla Exemplo (nome fictício)}{Profa. Dra.}{UnDF -- vínculo ilustrativo}
+\addbibresource{exemplo/artigo/referencias.bib}
+
+\undfresetpretextualcontents
+\input{exemplo/artigo/resumo}
+
+\begin{document}
+  % Mantenha somente os elementos institucionais exigidos pelo curso.
+  \undfcover
+  \pretextual
+  \undffolhaderosto
+  \undffolhadeaprovacao
+
+  % O único resumo é impresso na abertura do artigo.
+  \undfinicioartigo
+  \input{exemplo/artigo/conteudo}
+  \printundfreferences
+\end{document}

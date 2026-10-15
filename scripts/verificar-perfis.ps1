@@ -1,5 +1,5 @@
 # Compila os modelos e verifica os contadores dos dois perfis, sem exigir Perl.
-param([string[]]$Documentos = @('tcc.tex', 'tcc-exemplo-undf.tex', 'artigo.tex', 'tcc-artigo.tex', 'artigo-exemplo-undf.tex', 'tests/artigo-opcionais.tex', 'tests/complementos-artigo.tex', 'tests/complementos-monografia.tex', 'tests/apud.tex', 'tests/objetos-extensos.tex', 'tests/pagina-externa.tex', 'tests/inclusao-pdf.tex'))
+param([string[]]$Documentos = @('tcc.tex', 'tcc-exemplo-undf.tex', 'artigo.tex', 'tcc-artigo.tex', 'artigo-exemplo-undf.tex', 'tcc-artigo-exemplo-undf.tex', 'tests/artigo-opcionais.tex', 'tests/complementos-artigo.tex', 'tests/complementos-monografia.tex', 'tests/apud.tex', 'tests/objetos-extensos.tex', 'tests/pagina-externa.tex', 'tests/inclusao-pdf.tex'))
 $ErrorActionPreference = 'Stop'
 Push-Location (Split-Path $PSScriptRoot -Parent)
 try {

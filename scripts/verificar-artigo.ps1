@@ -1,12 +1,12 @@
 # Verifica o conteúdo dos PDFs e os avisos de validação. Requer pdftotext (Poppler/MiKTeX).
 param(
     [string]$Diretorio = '.',
-    [string[]]$Documentos = @('artigo.tex', 'tcc-artigo.tex', 'artigo-exemplo-undf.tex', 'tests/artigo-opcionais.tex')
+    [string[]]$Documentos = @('artigo.tex', 'tcc-artigo.tex', 'artigo-exemplo-undf.tex', 'tcc-artigo-exemplo-undf.tex', 'tests/artigo-opcionais.tex')
 )
 $ErrorActionPreference = 'Stop'
 foreach ($documento in $Documentos) {
     $nome = [System.IO.Path]::GetFileNameWithoutExtension($documento)
-    if ($nome -notin @('artigo', 'tcc-artigo', 'artigo-exemplo-undf', 'artigo-opcionais')) { continue }
+    if ($nome -notin @('artigo', 'tcc-artigo', 'artigo-exemplo-undf', 'tcc-artigo-exemplo-undf', 'artigo-opcionais')) { continue }
     $texto = (& pdftotext -layout "$Diretorio/$nome.pdf" -) -join "`n"
     if ($LASTEXITCODE -ne 0) { throw "Falha na leitura de $nome.pdf" }
     if ([regex]::Matches($texto, '(?m)^\s*Resumo\s*$').Count -ne 1 -or
@@ -23,6 +23,12 @@ foreach ($documento in $Documentos) {
     }
     if ($nome -in @('artigo', 'artigo-exemplo-undf') -and $texto -match 'BANCA EXAMINADORA|SUMÁRIO|como requisito parcial') {
         throw 'O artigo autonomo herdou apresentacao institucional'
+    }
+    if ($nome -eq 'tcc-artigo-exemplo-undf') {
+        $textoInstitucional = $texto -replace '\s+', ' '
+        foreach ($rotulo in 'Ciência da Computação', 'Ana Exemplo', 'Bruno Exemplo', 'Carla Exemplo', 'Folha demonstrativa: não houve defesa ou aprovação.') {
+            if ($textoInstitucional -notmatch [regex]::Escape($rotulo)) { throw "Elemento institucional ausente: $rotulo" }
+        }
     }
     if ($nome -eq 'artigo-opcionais') {
         if ($quantidadeAbstract -ne 1) { throw 'Abstract opcional nao foi impresso' }
