@@ -8,6 +8,7 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Adicionado
 
+- Artigo preenchido em `artigo-exemplo-undf.tex`, com conteúdo independente em `exemplo/artigo/`, resultados locais rastreáveis e demonstrações de citações, figura, tabela, equação e pseudocódigo; compilação incluída na verificação local e na integração contínua.
 - Perfis `monografia` (padrão preservado) e `artigo` (experimental) na classe `undftex`.
 - Modelos `artigo.tex` (autônomo) e `tcc-artigo.tex` (entrega institucional demonstrativa), com conteúdo compartilhado, resumo único e apresentação institucional condicionada ao curso.
 - Identificação, vínculo e contato do autor em nota própria, título traduzido e abstract/keywords opcionais, e complementos pós-textuais em fluxo contínuo no perfil de artigo.

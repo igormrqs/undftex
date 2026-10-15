@@ -1,12 +1,12 @@
 # Verifica o conteúdo dos PDFs e os avisos de validação. Requer pdftotext (Poppler/MiKTeX).
 param(
     [string]$Diretorio = '.',
-    [string[]]$Documentos = @('artigo.tex', 'tcc-artigo.tex', 'tests/artigo-opcionais.tex')
+    [string[]]$Documentos = @('artigo.tex', 'tcc-artigo.tex', 'artigo-exemplo-undf.tex', 'tests/artigo-opcionais.tex')
 )
 $ErrorActionPreference = 'Stop'
 foreach ($documento in $Documentos) {
     $nome = [System.IO.Path]::GetFileNameWithoutExtension($documento)
-    if ($nome -notin @('artigo', 'tcc-artigo', 'artigo-opcionais')) { continue }
+    if ($nome -notin @('artigo', 'tcc-artigo', 'artigo-exemplo-undf', 'artigo-opcionais')) { continue }
     $texto = (& pdftotext -layout "$Diretorio/$nome.pdf" -) -join "`n"
     if ($LASTEXITCODE -ne 0) { throw "Falha na leitura de $nome.pdf" }
     if ([regex]::Matches($texto, '(?m)^\s*Resumo\s*$').Count -ne 1 -or
@@ -21,7 +21,7 @@ foreach ($documento in $Documentos) {
     if ($texto -notmatch '(?m)^\s*REFERÊNCIAS\s*$') {
         throw "Referencias ausentes em $nome"
     }
-    if ($nome -eq 'artigo' -and $texto -match 'BANCA EXAMINADORA|SUMÁRIO|como requisito parcial') {
+    if ($nome -in @('artigo', 'artigo-exemplo-undf') -and $texto -match 'BANCA EXAMINADORA|SUMÁRIO|como requisito parcial') {
         throw 'O artigo autonomo herdou apresentacao institucional'
     }
     if ($nome -eq 'artigo-opcionais') {

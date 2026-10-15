@@ -1,0 +1,21 @@
+% !TeX program = lualatex
+% !BIB program = biber
+% Projeto UnDF-TeX. LPPL 1.3c ou posterior.
+% Exemplo preenchido independente dos modelos editáveis em artigo/.
+\documentclass[perfil=artigo]{undftex}
+\usepackage{tikz}
+\usepackage{array}
+% Permite quebrar o endereço longo do registro técnico na bibliografia.
+\setcounter{biburllcpenalty}{100}
+\setcounter{biburlucpenalty}{200}
+\setcounter{biburlnumpenalty}{100}
+\input{exemplo/artigo/metadados}
+\addbibresource{exemplo/artigo/referencias.bib}
+\undfresetpretextualcontents
+\input{exemplo/artigo/resumo}
+
+\begin{document}
+  \undfinicioartigo
+  \input{exemplo/artigo/conteudo}
+  \printundfreferences
+\end{document}

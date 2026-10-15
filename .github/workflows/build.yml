@@ -29,6 +29,7 @@ jobs:
             tcc-exemplo-undf.tex
             artigo.tex
             tcc-artigo.tex
+            artigo-exemplo-undf.tex
             tests/artigo-opcionais.tex
             tests/artigo-validacao.tex
             tests/perfil-artigo.tex
@@ -61,3 +62,4 @@ jobs:
             tcc-exemplo-undf.pdf
             artigo.pdf
             tcc-artigo.pdf
+            artigo-exemplo-undf.pdf
