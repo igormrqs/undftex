@@ -13,7 +13,10 @@ Consulte a [organização da publicação](docs/publicacao-repositorios.md).
 
 ## Estado do projeto
 
-A versão registrada é `0.1.0`. Alterações posteriores à versão registrada ficam documentadas na seção `[Não lançado]` do `CHANGELOG.md`.
+A versão registrada é `1.0.0`, assim como a versão editorial do manual completo.
+Consulte a seção `[1.0.0]` do `CHANGELOG.md` para esta versão; alterações
+posteriores ficam em `[Não lançado]`. A base pública é uma cópia independente
+anterior: confira seu `VERSION.txt` antes de usar o pacote.
 
 O estado atual já contém:
 

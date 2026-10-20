@@ -2,6 +2,11 @@
 
 Revisão de 20 de outubro de 2026 em `feature/perfis-tcc`.
 
+Registro da primeira atualização editorial. Após a confirmação do usuário,
+a versão do template também foi alinhada em 1.0.0; essa retificação está
+registrada no `CHANGELOG.md` e nas fontes atuais do manual. A descrição abaixo
+preserva o estado verificado antes desse alinhamento.
+
 A versão editorial 1.0.0 foi aplicada à capa, aos metadados PDF, às referências
 entre as partes, à matriz de compatibilidade e aos controles documentais.
 As duas partes autônomas foram alinhadas com o volume completo. A versão

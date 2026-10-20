@@ -22,7 +22,7 @@
 % ----------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{undftex}[2026/01/01 UnDF-TeX class]
+\ProvidesClass{undftex}[2026/10/20 v1.0.0 UnDF-TeX class]
 
 \newif\ifundfartigo
 \DeclareOption{perfil=monografia}{\undfartigofalse}
