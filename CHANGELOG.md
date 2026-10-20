@@ -38,6 +38,7 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Alterado
 
+- Versão editorial do manual completo e de suas partes alinhada em 1.0.0, com data de 20/10/2026 e links para o repositório público nos pontos de obtenção, documentação e manutenção; a versão técnica do template permanece 0.1.0.
 - Referências do perfil de artigo passam a abrir em nova página com título centralizado, usando a mesma apresentação institucional do TCC convencional; a formatação das entradas continua compartilhada.
 - Hierarquia visual de seções terciárias e quaternárias refinada para seguir diferenciação tipográfica progressiva.
 - Fluxogramas agora possuem ambiente `undffluxograma`, fonte padronizada e exemplo com início/fim.
