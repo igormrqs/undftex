@@ -27,7 +27,8 @@ indiretas, figura vetorial em TikZ, tabela, equação, pseudocódigo, referênci
 cruzadas e bibliografia. Não inclui abstract, capa, aprovação ou sumário.
 Essa ausência se refere ao artigo autônomo; a versão institucional acrescenta
 os elementos de apresentação descritos acima, mantendo o resumo único.
-As referências seguem o texto sem quebra obrigatória de página. A escolha
+As referências começam em nova página, com o mesmo título institucional do
+TCC convencional, conforme a decisão de 20 de outubro de 2026. A escolha
 dos títulos das seções pertence ao exemplo, não é imposta pela classe.
 
 Verificação local com LuaLaTeX e Biber, inclusive sem Perl:
@@ -43,7 +44,8 @@ O PDF e os logs ficam em `build/perfis/`. Com Perl disponível, também é poss�
 usar `latexmk -outdir=build/perfis artigo-exemplo-undf.tex`. A verificação completa
 dos perfis continua disponível em `scripts/verificar-perfis.ps1` sem argumentos.
 
-Na verificação local de 14 de outubro de 2026, o exemplo compilou em cinco
+Na verificação local de 14 de outubro de 2026, anterior à padronização da
+abertura das referências, o exemplo compilou em cinco
 páginas, com as três fontes bibliográficas processadas e sem referências
 indefinidas ou avisos de conteúdo ultrapassando a margem. Todas as páginas
 foram conferidas visualmente. Os quatro destinos de figura, equação,
@@ -62,3 +64,10 @@ também foi adicionada à integração contínua, sem atestar sua execução rem
 Este é um exemplo de redação e uso técnico. Não representa TCC aprovado,
 certificação de conformidade normativa ou validação de todos os documentos
 que possam ser produzidos com a classe.
+
+Após a padronização das referências em 20 de outubro de 2026, os exemplos
+autônomo e institucional compilaram em seis e nove páginas, respectivamente.
+O título de referências foi conferido em nova página, centralizado, com o
+mesmo recurso de abertura do TCC convencional. Os quatro destinos dos objetos
+continuam corretos em cada exemplo; o resumo único e os demais casos da
+verificação completa passaram.

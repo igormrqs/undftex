@@ -21,6 +21,11 @@ foreach ($documento in $Documentos) {
     if ($texto -notmatch '(?m)^\s*REFERÊNCIAS\s*$') {
         throw "Referencias ausentes em $nome"
     }
+    $paginaReferencias = ($texto -split "`f" | Where-Object { $_ -match '(?m)^\s*REFERÊNCIAS\s*$' })
+    $antesTitulo = ($paginaReferencias -split 'REFERÊNCIAS', 2)[0]
+    if (($antesTitulo -replace '[\d\s]', '').Length -ne 0) {
+        throw "Referencias devem abrir em nova pagina, como no TCC convencional: $nome"
+    }
     if ($nome -in @('artigo', 'artigo-exemplo-undf') -and $texto -match 'BANCA EXAMINADORA|SUMÁRIO|como requisito parcial') {
         throw 'O artigo autonomo herdou apresentacao institucional'
     }

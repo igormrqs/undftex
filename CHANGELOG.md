@@ -8,6 +8,8 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Adicionado
 
+- Orientações para reaproveitar o TCC-artigo em submissão a revista, preservando a entrega acadêmica e adaptando o manuscrito às instruções editoriais.
+- Protótipo de relatório de planejamento de projeto aplicado, com contexto, proposta, metodologia, entregáveis e cronograma, sem criar novo perfil nem alterar os elementos obrigatórios/opcionais do TCC.
 - Entrega institucional preenchida em `tcc-artigo-exemplo-undf.tex`, com capa, folha de rosto e aprovação demonstrativa, compartilhando o conteúdo do artigo preenchido e integrada às verificações local e contínua.
 - Artigo preenchido em `artigo-exemplo-undf.tex`, com conteúdo independente em `exemplo/artigo/`, resultados locais rastreáveis e demonstrações de citações, figura, tabela, equação e pseudocódigo; compilação incluída na verificação local e na integração contínua.
 - Perfis `monografia` (padrão preservado) e `artigo` (experimental) na classe `undftex`.
@@ -36,6 +38,7 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Alterado
 
+- Referências do perfil de artigo passam a abrir em nova página com título centralizado, usando a mesma apresentação institucional do TCC convencional; a formatação das entradas continua compartilhada.
 - Hierarquia visual de seções terciárias e quaternárias refinada para seguir diferenciação tipográfica progressiva.
 - Fluxogramas agora possuem ambiente `undffluxograma`, fonte padronizada e exemplo com início/fim.
 - Fluxogramas agora alternam automaticamente entre figura e lista própria quando passam de três ocorrências.

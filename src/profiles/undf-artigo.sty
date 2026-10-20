@@ -38,11 +38,10 @@
 \titlecontents{subsection}[2.3em]{\normalfont}{\contentslabel{2.8em}}{}{\hfill\contentspage}
 \titlecontents{subsubsection}[5.1em]{\itshape}{\contentslabel{3.3em}}{}{\hfill\contentspage}
 
-% Referências pertencem ao artigo e seguem o texto sem quebra obrigatória.
+% Referências adotam a abertura institucional do TCC convencional.
 \defbibheading{undfreferences}[REFERÊNCIAS]{%
-  \section*{#1}%
-  \phantomsection
-  \addcontentsline{toc}{section}{#1}%
+  \posttextual
+  \undf@specialheadingwithtoc{section}{#1}%
 }
 
 \def\undf@artigotituloestrangeiro{}

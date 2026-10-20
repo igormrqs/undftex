@@ -4,6 +4,13 @@ Classe e conjunto de módulos LaTeX para produção de Trabalhos de Conclusão d
 
 O objetivo do UnDF-TeX é oferecer um template claro, compilável e fácil de adaptar, reduzindo retrabalho de formatação e mantendo uma separação simples entre metadados, elementos pré-textuais, seções textuais, referências e módulos internos.
 
+Repositório de desenvolvimento: [igormrqs/undftex](https://github.com/igormrqs/undftex).
+O acesso depende das permissões concedidas pelo responsável.
+Base estável pública de monografia:
+[igormrqs/undftex-publico](https://github.com/igormrqs/undftex-publico).
+O repositório público tem histórico próprio e não inclui os perfis experimentais.
+Consulte a [organização da publicação](docs/publicacao-repositorios.md).
+
 ## Estado do projeto
 
 A versão registrada é `0.1.0`. Alterações posteriores à versão registrada ficam documentadas na seção `[Não lançado]` do `CHANGELOG.md`.
@@ -115,7 +122,7 @@ Leia [a pesquisa e as decisões do perfil](docs/perfis-tcc.md) antes de usá-lo
 para entrega. A implementação não representa aprovação institucional do formato.
 A [integração TeXstudio–GitHub](docs/texstudio-github.md) também está documentada.
 
-Para compilar os seis modelos e verificar o artigo com e sem elementos opcionais
+Para compilar os seis modelos, o protótipo de relatório e verificar o artigo com e sem elementos opcionais
 no Windows, inclusive sem Perl (a verificação dos PDFs requer `pdftotext`):
 
 ```powershell
@@ -134,6 +141,13 @@ citações `apud` e continuação de objetos entre páginas. Os casos mínimos f
 `tests/`, com dados bibliográficos e conteúdos fictícios próprios para teste.
 
 ## Estrutura principal
+
+O protótipo `relatorio-projeto.tex` ilustra o planejamento de projeto aplicado
+das modalidades de relatório e produto técnico descritas no manual. Edite
+`projeto-aplicado/` e consulte seu [escopo e orientações](projeto-aplicado/README.md).
+Para compilar isoladamente, execute
+`.\scripts\verificar-perfis.ps1 -Documentos relatorio-projeto.tex`.
+Ele não constitui um novo perfil ou relatório final de execução.
 
 ```text
 .

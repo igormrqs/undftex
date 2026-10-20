@@ -63,7 +63,7 @@ não avalia a suficiência científica dos textos nem exige títulos específico
 | Apresentação institucional | Capa, folha de rosto, aprovação, resumos e sumário | Ausente no artigo autônomo; demonstrada separadamente em `tcc-artigo.tex` | Exigências finais dependem do curso |
 | Abertura do miolo | Primeira seção extensa | Título/subtítulo, autoria com nota de identificação/vínculo/contato, orientação opcional, resumo e palavras-chave | Organização de artigo, com orientação identificada separadamente da autoria |
 | Estrutura textual | Seções primárias via `\chapter` | Introdução, desenvolvimento e parte conclusiva via `\section` | NBR 6022, seções 5.2 e 6.2; títulos e subdivisões adaptáveis ao estudo |
-| Quebra de página | Seção primária começa em nova página | Seções e referências seguem o fluxo do artigo | Escolha de apresentação do perfil experimental |
+| Quebra de página | Seção primária começa em nova página | Seções contínuas; referências começam em nova página com título institucional | Referências alinhadas ao TCC convencional por decisão do projeto em 20/10/2026 |
 | Espaçamento do corpo | 1,5 | Simples | Recomendação da NBR 6022, seção 6.1; pré-textuais preservam a apresentação atual |
 | Fonte e margens | Fonte 12; margens institucionais | Fonte 12; mesmas margens; uma coluna | Fonte 12 recomendada na NBR 6022; margens e coluna são decisões locais, não requisitos universais de artigo |
 | Numeração | Seções secundárias e objetos vinculados à seção primária | Seções 1, 1.1; figuras, tabelas e equações 1, 2… | Hierarquia e ordem de ocorrência próprias do miolo de artigo |
@@ -155,7 +155,7 @@ Sua versão de entrega institucional preenchida é `tcc-artigo-exemplo-undf.tex`
 com os mesmos arquivos científicos e três páginas institucionais demonstrativas.
 
 Execute `scripts/verificar-perfis.ps1` na raiz do repositório. O script compila os
-seis modelos com LuaLaTeX/Biber e o caso de artigo com todos os opcionais.
+seis modelos e o protótipo de relatório com LuaLaTeX/Biber, além do caso de artigo com todos os opcionais.
 Verifica referências, contadores, resumo único, campos de autoria, ausência de
 apresentação institucional no artigo autônomo e avisos de preenchimento. São
 testados 99, 100, 250 e 251 palavras para a faixa orientadora inclusiva. Saídas

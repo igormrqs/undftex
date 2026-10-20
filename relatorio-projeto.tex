@@ -1,0 +1,18 @@
+% !TeX program = lualatex
+% !BIB program = biber
+% Projeto UnDF-TeX. LPPL 1.3c ou posterior.
+% Protótipo de planejamento; não é relatório final nem novo perfil normativo.
+\documentclass[perfil=monografia]{undftex}
+\usepackage{array}
+\input{projeto-aplicado/metadados}
+\addbibresource{projeto-aplicado/referencias.bib}
+
+\begin{document}
+  \undfcover
+  \pretextual
+  \undffolhaderosto
+  \undfsumario
+  \textual
+  \input{projeto-aplicado/conteudo}
+  \printundfreferences
+\end{document}
