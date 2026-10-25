@@ -6,6 +6,16 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ## [Não lançado]
 
+### Adicionado
+
+- Modelo final 1.4 de desenvolvimento e análise de negócio tecnológico, com exemplo didático independente e simulação financeira identificada.
+- Exemplo preenchido do relatório final 1.3, índice de escolha dos modelos, arquivos editáveis separados por modalidade e conferência automática dos quatro PDFs.
+
+### Alterado
+
+- Protótipo de planejamento 1.3 convertido em relatório final de projeto técnico/profissional, com desenvolvimento realizado, entregas, resultados, avaliação, discussão e conclusão.
+- Conteúdo anterior de `projeto-aplicado/` reorganizado em `modelos/relatorio-projeto/`; apresentação institucional compartilhada em `modelos/comum/`, preservando o perfil de monografia e os elementos obrigatórios/opcionais.
+
 ## [1.0.0] - 2026-10-20
 
 ### Adicionado

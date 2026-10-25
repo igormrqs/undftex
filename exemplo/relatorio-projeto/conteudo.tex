@@ -1,0 +1,87 @@
+% !TeX root = ../../relatorio-projeto-exemplo-undf.tex
+\chapter{Introdução e contexto}
+Este relatório didático descreve a organização dos modelos de relatório final
+do UnDF-TeX. A demanda foi substituir um roteiro de planejamento de projeto
+por uma estrutura que permitisse relatar desenvolvimento realizado, entregas,
+avaliação e limitações. O recorte abrangeu as modalidades de projeto técnico
+ou profissional e de modelo de negócio de base tecnológica descritas no
+manual em elaboração \citeind{manualundf}.
+
+O objetivo foi disponibilizar entradas compiláveis, conteúdo para preenchimento
+e exemplos separados. A contribuição demonstrada é documental e técnica:
+não houve pesquisa com estudantes, implantação institucional ou mensuração
+de desempenho acadêmico. Os nomes da autoria e da banca são fictícios.
+
+\chapter{Fundamentação e requisitos}
+A separação entre conteúdo e apresentação foi adotada para permitir que o
+estudante editasse seu texto sem alterar a classe. O LaTeX oferece recursos
+para estruturação, referências cruzadas e bibliografia, conforme a apresentação
+do projeto \citeind{latexproject}. Esses recursos fundamentam a escolha da
+ferramenta, mas não demonstram, por si, redução de tempo de escrita.
+
+Foram definidos quatro critérios de aceitação: disponibilizar um modelo e
+um exemplo para cada modalidade; manter metadados, resumos e bibliografia
+independentes entre trabalhos; preservar os elementos institucionais; e
+gerar PDFs com citações e sumário resolvidos. A organização do miolo seguiu
+o roteiro de relatório final, sem transformar o texto em plano de atividades.
+
+\chapter{Metodologia e desenvolvimento realizado}
+O trabalho consistiu em inspeção dos arquivos existentes, reorganização do
+conteúdo, escrita dos roteiros e dos exemplos e compilação local. O antigo
+conteúdo de projeto foi transferido para a pasta de modelos e reescrito em
+sete seções primárias. A modalidade de negócio tecnológico foi organizada
+em oito seções primárias.
+
+A apresentação institucional foi centralizada em um arquivo comum. O
+conteúdo editável permaneceu separado por modalidade e por finalidade:
+modelo para preenchimento ou demonstração. A classe e os mecanismos de
+citações e referências foram reutilizados. Os documentos foram compilados
+com LuaLaTeX e Biber, com passagens adicionais para resolver o sumário.
+
+\chapter{Solução e entregas}
+Foram produzidas quatro entradas: dois modelos para preenchimento e dois
+exemplos didáticos. A entrada \texttt{relatorio-projeto.tex} corresponde ao
+relatório técnico ou profissional e \texttt{negocio-tecnologico.tex}, ao
+relatório de desenvolvimento e análise do modelo de negócio. Cada entrada
+possui um exemplo identificado pelo sufixo \texttt{-exemplo-undf}.
+
+Os arquivos de cada trabalho foram separados em metadados, resumos, miolo
+e bibliografia. Um índice explica a escolha da entrada, os caminhos de
+edição e a compilação. Os roteiros preservam a possibilidade de adaptar
+subdivisões conforme o objeto de pesquisa e a orientação do curso.
+
+\chapter{Resultados e avaliação}
+A avaliação local verificou a compilação das quatro entradas e a presença
+de resumo, abstract, sumário e referências. Também conferiu a organização
+em sete seções primárias no projeto e oito no negócio tecnológico, além
+da abertura das referências em página própria. Esses critérios avaliam
+o funcionamento documental, sem substituir a revisão acadêmica do conteúdo.
+
+O resultado foi um conjunto de modelos preenchíveis acompanhado de
+demonstrações independentes. A revisão do conteúdo distinguiu entregas,
+testes e efeitos observados. No exemplo de negócio, os valores financeiros
+foram identificados como premissas de simulação, sem alegação de coleta
+com clientes. Logs e PDFs gerados constituem evidências locais reproduzíveis.
+
+\chapter{Discussão e limitações}
+A reutilização da apresentação reduziu a duplicação de comandos institucionais.
+Em contrapartida, uma alteração nesse arquivo comum afeta os quatro
+documentos e exige nova verificação. O compartilhamento foi limitado à
+apresentação: os textos e as referências permanecem independentes.
+
+Não foram conduzidos testes de usabilidade nem avaliação por banca ou
+biblioteca. A adequação às exigências específicas de cada curso permanece
+dependente de conferência institucional. Os exemplos são curtos e didáticos;
+sua extensão não define a extensão adequada de um TCC real.
+
+\chapter{Conclusão}
+O objetivo técnico foi atendido com dois modelos de relatório final e seus
+exemplos, organizados para edição e compilação independentes. O roteiro
+anterior de planejamento foi substituído por uma estrutura orientada ao
+relato do trabalho realizado e à discussão de seus resultados.
+
+A contribuição está na organização dos artefatos e na coerência entre o
+manual e os modelos. Recomenda-se, como continuidade, revisar as exigências
+por curso e observar o uso dos modelos por estudantes. Essas atividades
+constituem recomendações; não foram realizadas nem usadas para afirmar
+eficácia institucional neste relatório.

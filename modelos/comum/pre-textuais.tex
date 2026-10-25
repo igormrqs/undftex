@@ -1,0 +1,32 @@
+% Apresentacao institucional compartilhada pelos relatorios finais.
+% Usa os mesmos elementos e mecanismos do TCC convencional.
+\undfvalidateonepagecontents
+\undfcover
+\pretextual
+\undffolhaderosto
+\undfversofolhaderostoopcional
+\undferrata
+\undffolhadeaprovacao
+\undfifcontent{dedicatoria}{\dedicatoria{\undfusecontent{dedicatoria}}}{}
+\undfifcontent{agradecimentos}{%
+  \begin{agradecimentos}\undfusecontent{agradecimentos}\end{agradecimentos}
+}{}
+\undfifcontent{epigrafe}{%
+  \undfifcontent{epigrafeautor}
+    {\epigrafe[\undfusecontent{epigrafeautor}]{\undfusecontent{epigrafe}}}
+    {\epigrafe{\undfusecontent{epigrafe}}}
+}{}
+\begin{resumo}
+  \undfusecontent{resumo}
+  \palavraschave{\undfusecontent{palavraschave}}
+\end{resumo}
+\begin{resumoestrangeiro}
+  \undfusecontent{abstract}
+  \keywords{\undfusecontent{keywords}}
+\end{resumoestrangeiro}
+% Habilite listas somente quando pertinentes ao trabalho.
+% \listadeilustracoes
+% \listadetabelas
+% \listadefluxogramas
+\undfsumario
+\textual

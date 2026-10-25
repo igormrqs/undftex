@@ -1,0 +1,18 @@
+% !TeX program = lualatex
+% !BIB program = biber
+% Projeto UnDF-TeX. LPPL 1.3c ou posterior.
+% Relatorio final de TCC; consulte modelos/README.md.
+\documentclass[perfil=monografia]{undftex}
+\usepackage{array}
+\input{exemplo/relatorio-projeto/metadados}
+\addbibresource{exemplo/relatorio-projeto/referencias.bib}
+\undfresetpretextualcontents
+\input{exemplo/relatorio-projeto/resumos}
+% Carregue aqui conteudos opcionais proprios do trabalho.
+
+\begin{document}
+  \input{modelos/comum/pre-textuais}
+  \input{exemplo/relatorio-projeto/conteudo}
+  \printundfreferences
+  % Inclua glossario, apendices e anexos quando necessarios.
+\end{document}

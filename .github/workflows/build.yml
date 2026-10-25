@@ -32,6 +32,9 @@ jobs:
             artigo-exemplo-undf.tex
             tcc-artigo-exemplo-undf.tex
             relatorio-projeto.tex
+            negocio-tecnologico.tex
+            relatorio-projeto-exemplo-undf.tex
+            negocio-tecnologico-exemplo-undf.tex
             tests/artigo-opcionais.tex
             tests/artigo-validacao.tex
             tests/perfil-artigo.tex
@@ -55,6 +58,10 @@ jobs:
         shell: pwsh
         run: ./scripts/verificar-estrutura.ps1
 
+      - name: Verificar relatorios finais de projeto e negocio tecnologico
+        shell: pwsh
+        run: ./scripts/verificar-relatorios.ps1
+
       - name: Publicar PDFs como artefatos
         uses: actions/upload-artifact@v4
         with:
@@ -67,3 +74,6 @@ jobs:
             artigo-exemplo-undf.pdf
             tcc-artigo-exemplo-undf.pdf
             relatorio-projeto.pdf
+            negocio-tecnologico.pdf
+            relatorio-projeto-exemplo-undf.pdf
+            negocio-tecnologico-exemplo-undf.pdf
