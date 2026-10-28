@@ -34,16 +34,13 @@ capitulos/
 
 \section{Teste inicial}
 
-Compile o modelo em branco antes de inserir conteúdo. O teste separa problemas de instalação de erros introduzidos durante a edição.
+Compile o modelo em branco antes de inserir conteúdo. O teste separa problemas de instalação de erros introduzidos durante a edição. No PowerShell, a partir da raiz:
 
 \begin{lstlisting}
-lualatex -interaction=nonstopmode -halt-on-error tcc.tex
-biber tcc
-lualatex -interaction=nonstopmode -halt-on-error tcc.tex
-lualatex -interaction=nonstopmode -halt-on-error tcc.tex
+.\scripts\verificar-perfis.ps1 -Documentos tcc.tex
 \end{lstlisting}
 
-O resultado esperado é \texttt{tcc.pdf}. Mensagens sobre campos ainda não preenchidos são normais no primeiro teste; interrupção do processo, arquivo ausente ou comando desconhecido exigem correção.
+O resultado fica em \texttt{build/perfis/tcc.pdf}. O fluxo manual e as alternativas de ambiente estão no capítulo de compilação. Mensagens sobre campos ainda não preenchidos são normais no primeiro teste; interrupção do processo, arquivo ausente ou comando desconhecido exigem correção.
 
 \section{Editor e codificação}
 

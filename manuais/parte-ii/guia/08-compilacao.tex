@@ -5,13 +5,13 @@
 Na raiz do projeto, execute:
 
 \begin{lstlisting}
-latexmk
+latexmk -outdir=build/perfis
 \end{lstlisting}
 
 O arquivo \texttt{.latexmkrc} seleciona LuaLaTeX, aciona o Biber quando necessário e define \texttt{tcc.tex} como entrada padrão. Para o exemplo completo:
 
 \begin{lstlisting}
-latexmk tcc-exemplo-undf.tex
+latexmk -outdir=build/perfis tcc-exemplo-undf.tex
 \end{lstlisting}
 
 \section{Fluxo manual}
@@ -19,13 +19,18 @@ latexmk tcc-exemplo-undf.tex
 Quando o \texttt{latexmk} não estiver disponível, use:
 
 \begin{lstlisting}
-lualatex -interaction=nonstopmode -halt-on-error tcc.tex
-biber tcc
-lualatex -interaction=nonstopmode -halt-on-error tcc.tex
-lualatex -interaction=nonstopmode -halt-on-error tcc.tex
+New-Item -ItemType Directory -Force build/perfis | Out-Null
+lualatex -output-directory=build/perfis tcc.tex
+biber --input-directory=build/perfis --output-directory=build/perfis tcc
+lualatex -output-directory=build/perfis tcc.tex
+lualatex -output-directory=build/perfis tcc.tex
 \end{lstlisting}
 
-O Biber deve receber o nome-base, sem a extensão \texttt{.tex}. Passagens adicionais podem ser necessárias após alterações em sumário, listas, citações ou referências cruzadas.
+No PowerShell, as saídas ficam em \texttt{build/perfis/}. O script
+\texttt{scripts/verificar-perfis.ps1} automatiza esse ciclo no Windows, inclusive
+sem Perl. O Biber deve receber o nome-base, sem a extensão \texttt{.tex}.
+Passagens adicionais podem ser necessárias após alterações em sumário, listas,
+citações ou referências cruzadas.
 
 \section{Overleaf}
 
@@ -33,7 +38,7 @@ Envie a estrutura completa do projeto e selecione LuaLaTeX como compilador. O ar
 
 \section{Arquivos auxiliares}
 
-Arquivos como \texttt{.aux}, \texttt{.bcf}, \texttt{.bbl}, \texttt{.toc}, \texttt{.lof}, \texttt{.lot} e \texttt{.lofl} registram dados entre as passagens. Eles não fazem parte do texto autoral e podem ser regenerados. Para limpar artefatos pelo \texttt{latexmk}, use \texttt{latexmk -c}; faça nova compilação completa em seguida.
+Arquivos como \texttt{.aux}, \texttt{.bcf}, \texttt{.bbl}, \texttt{.toc}, \texttt{.lof}, \texttt{.lot} e \texttt{.lofl} registram dados entre as passagens. Eles não fazem parte do texto autoral e podem ser regenerados. Para limpar artefatos pelo \texttt{latexmk}, use \texttt{latexmk -outdir=build/perfis -c}; faça nova compilação completa em seguida.
 
 \section{Critério de conclusão}
 

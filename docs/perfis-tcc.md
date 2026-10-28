@@ -201,7 +201,7 @@ integrais não são redistribuídos com o perfil.
 
 A nova implementação é independente do pacote `undfarticle.sty` e não precisa do
 repositório separado para compilar. O levantamento de modalidades do projeto antigo
-também existe em `../documentacao/manual-tcc-computacao/`; as orientações gerais de
+também existe em `../referencias/levantamentos/manual-tcc-computacao/`; as orientações gerais de
 artigo já estão no manual acadêmico deste repositório.
 
 O usuário confirmou que o projeto antigo nunca foi enviado ao GitHub: a retirada

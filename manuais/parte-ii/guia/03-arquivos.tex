@@ -2,7 +2,18 @@
 
 \section{Entradas públicas}
 
-Use \texttt{tcc.tex} para um trabalho real. Use \texttt{tcc-exemplo-undf.tex} e a pasta \texttt{exemplo/} apenas para consultar recursos demonstrativos. Não desenvolva o trabalho diretamente sobre o exemplo completo, pois ele contém elementos opcionais e textos destinados a teste.
+A entrada da monografia é \texttt{tcc.tex}. Para consultar recursos demonstrativos,
+use \texttt{tcc-exemplo-undf.tex} e a pasta \texttt{exemplo/}. Não desenvolva o
+trabalho diretamente sobre o exemplo completo, pois ele contém elementos
+opcionais e textos destinados a teste.
+
+Na branch de desenvolvimento, as demais entradas são \texttt{tcc-artigo.tex}
+(TCC-artigo), \texttt{artigo.tex} (artigo autônomo), \texttt{relatorio-projeto.tex}
+(relatório final de projeto técnico/profissional, modalidade 1.3) e
+\texttt{negocio-tecnologico.tex} (relatório final de negócio tecnológico,
+modalidade 1.4). O índice \texttt{modelos/README.md} relaciona cada modelo ao
+seu exemplo e aos arquivos editáveis. A base pública possui desenvolvimento
+independente e não inclui automaticamente essas modalidades experimentais.
 
 \section{Mapa do projeto}
 
@@ -16,8 +27,11 @@ Caminho & Finalidade \\
 \midrule
 \endhead
 \texttt{tcc.tex} & Entrada do modelo em branco e ordem de montagem do documento. \\
-\texttt{capitulos/} & Conteúdo textual do trabalho. \\
-\texttt{obrigatorio/} & Resumos e base bibliográfica. \\
+\texttt{capitulos/} & Conteúdo textual da monografia. \\
+\texttt{obrigatorio/} & Resumos e base bibliográfica da monografia. \\
+\texttt{artigo/} & Metadados, resumos e miolo dos modelos de artigo. \\
+\texttt{modelos/} & Índice e arquivos preenchíveis dos relatórios finais 1.3 e 1.4; apresentação institucional comum. \\
+\texttt{exemplo/} & Conteúdo didático independente dos modelos para preenchimento. \\
 \texttt{opcional/} & Errata, dedicatória, agradecimentos, epígrafe, glossário, apêndices e anexos. \\
 \texttt{figuras/} & Imagens usadas pelo trabalho. \\
 \texttt{identidade/} & Ativos institucionais carregados pelo template. \\
@@ -31,6 +45,12 @@ Caminho & Finalidade \\
 \section{Arquivos que o usuário edita}
 
 Edite \texttt{tcc.tex}, os arquivos de \texttt{capitulos/}, \texttt{obrigatorio/}, \texttt{opcional/} e os ativos inseridos em \texttt{figuras/}. Arquivos internos de \texttt{src/} devem ser modificados apenas durante manutenção do template e acompanhados de testes nos modelos em branco e de exemplo.
+
+Para as demais modalidades, edite a entrada escolhida e a pasta indicada no
+índice dos modelos. Mantenha os arquivos de exemplos separados do trabalho real.
+Os dados catalográficos continuam obrigatórios na versão final; o caminho
+\texttt{opcional/ficha-catalografica.tex} é mantido por compatibilidade e não
+define a obrigatoriedade do elemento.
 
 \section{Inclusão de capítulos}
 

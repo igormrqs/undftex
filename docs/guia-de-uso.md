@@ -1,14 +1,25 @@
 # Guia de uso do UnDF-TeX
 
-Este guia apresenta o fluxo recomendado para usar o template a partir do arquivo `tcc.tex`.
+Este guia apresenta o fluxo da monografia e indica as entradas das demais modalidades. Consulte o [índice dos modelos](../modelos/README.md) antes de começar.
 
 ## 1. Escolha o arquivo de entrada
 
 Use:
 
-- `tcc.tex` para começar um trabalho real;
+- `tcc.tex` para começar uma monografia;
 - `tcc-exemplo-undf.tex` para consultar um exemplo completo;
 - a pasta `exemplo/` para ver usos demonstrativos de nota de rodapé, citações, figuras, fluxogramas, tabelas, pseudocódigo, apêndices, anexos e elementos opcionais.
+
+Na branch de desenvolvimento, use `tcc-artigo.tex` para TCC em formato de artigo,
+`artigo.tex` para artigo autônomo, `relatorio-projeto.tex` para relatório final
+de projeto técnico/profissional (1.3) e `negocio-tecnologico.tex` para relatório
+final de modelo de negócio tecnológico (1.4). Cada entrada tem um exemplo
+preenchido identificado no índice. Os modelos experimentais não estão incluídos
+automaticamente na base pública.
+
+As instruções seguintes sobre `capitulos/`, `obrigatorio/` e `opcional/` descrevem
+a monografia. Para artigo, edite `artigo/`; para os relatórios 1.3 e 1.4, edite
+a pasta correspondente em `modelos/`. Compile sempre a entrada da raiz.
 
 ## 2. Preencha os metadados
 
@@ -78,7 +89,7 @@ Se o idioma não for inglês, ajuste também o rótulo das palavras-chave:
 \undfsetcontent{keywordslabel}{Palabras clave}
 ```
 
-## 5. Use elementos opcionais apenas quando necessário
+## 5. Configure dados catalográficos e elementos opcionais
 
 Os arquivos opcionais ficam em `opcional/`.
 
@@ -91,7 +102,13 @@ Os arquivos opcionais ficam em `opcional/`.
 - `apendices.tex`
 - `anexos.tex`
 
-Arquivos opcionais vazios ou inexistentes não são exibidos.
+Dados catalográficos são obrigatórios na versão final, conforme as orientações
+adotadas pelo projeto e pelo curso. O caminho `opcional/ficha-catalografica.tex`
+é mantido por compatibilidade; o nome da pasta não muda essa exigência. Durante
+a elaboração, sua ausência apenas omite o verso da folha de rosto. Preencha-o
+com os dados fornecidos para seu trabalho antes da entrega.
+
+Os demais elementos opcionais vazios ou inexistentes não são exibidos.
 
 Exemplo de errata:
 
@@ -327,7 +344,7 @@ O template não impõe quantidade de palavras-chave. Escolha termos suficientes 
 Use `latexmk`, que executa LuaLaTeX e Biber quantas vezes forem necessárias (a configuração do projeto está em `.latexmkrc`):
 
 ```powershell
-latexmk
+latexmk -outdir=build/perfis
 ```
 
 No Overleaf, o `.latexmkrc` é lido automaticamente; defina o compilador do projeto como LuaLaTeX.
@@ -335,10 +352,11 @@ No Overleaf, o `.latexmkrc` é lido automaticamente; defina o compilador do proj
 Se preferir o fluxo manual equivalente:
 
 ```powershell
-lualatex -interaction=nonstopmode -halt-on-error tcc.tex
-biber tcc
-lualatex -interaction=nonstopmode -halt-on-error tcc.tex
-lualatex -interaction=nonstopmode -halt-on-error tcc.tex
+New-Item -ItemType Directory -Force build/perfis | Out-Null
+lualatex -output-directory=build/perfis tcc.tex
+biber --input-directory=build/perfis --output-directory=build/perfis tcc
+lualatex -output-directory=build/perfis tcc.tex
+lualatex -output-directory=build/perfis tcc.tex
 ```
 
 No fluxo manual, quando houver mudança em sumário, listas, citações ou referências, compile novamente até que os avisos de referências pendentes desapareçam.

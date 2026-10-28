@@ -87,28 +87,29 @@ Preencha os arquivos de conteúdo:
 Compile com `latexmk`, que executa LuaLaTeX e Biber quantas vezes forem necessárias (a configuração está em `.latexmkrc`):
 
 ```powershell
-latexmk
+latexmk -outdir=build/perfis
 ```
 
 Para compilar o exemplo completo:
 
 ```powershell
-latexmk tcc-exemplo-undf.tex
+latexmk -outdir=build/perfis tcc-exemplo-undf.tex
 ```
 
 Para remover os artefatos de compilação:
 
 ```powershell
-latexmk -C
+latexmk -outdir=build/perfis -C
 ```
 
 Se preferir o fluxo manual equivalente:
 
 ```powershell
-lualatex -interaction=nonstopmode -halt-on-error tcc.tex
-biber tcc
-lualatex -interaction=nonstopmode -halt-on-error tcc.tex
-lualatex -interaction=nonstopmode -halt-on-error tcc.tex
+New-Item -ItemType Directory -Force build/perfis | Out-Null
+lualatex -output-directory=build/perfis tcc.tex
+biber --input-directory=build/perfis --output-directory=build/perfis tcc
+lualatex -output-directory=build/perfis tcc.tex
+lualatex -output-directory=build/perfis tcc.tex
 ```
 
 No Overleaf, o arquivo `.latexmkrc` é lido automaticamente; basta definir o compilador do projeto como LuaLaTeX em Menu > Settings > Compiler.
@@ -212,6 +213,7 @@ O template não compacta imagens automaticamente. A validação automática ocor
 
 ## Documentação
 
+- [Índice da documentação](docs/README.md) e [índice dos manuais](manuais/README.md).
 - `docs/guia-de-uso.md`: guia prático para estudantes e usuários do template.
 - `docs/estrutura-do-projeto.md`: visão técnica da arquitetura interna.
 - `docs/decisoes-institucionais.md`: decisões de padronização adotadas no projeto.
