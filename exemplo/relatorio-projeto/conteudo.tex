@@ -7,10 +7,19 @@ avaliação e limitações. O recorte abrangeu as modalidades de projeto técnic
 ou profissional e de modelo de negócio de base tecnológica descritas no
 manual em elaboração \citeind{manualundf}.
 
+Para demonstrar a modalidade profissional, o caso adota um cenário fictício
+de atendimento documental a uma organização. O estudante é associado à
+organização dos arquivos e à verificação das entregas. Não houve contratante,
+estágio ou implantação reais; a evidência verificável é a produção documental
+local. O recorte preserva a etapa de dois modelos e dois exemplos descrita
+neste caso, anterior à inclusão do modelo de Projeto Aplicado.
+
 O objetivo foi disponibilizar entradas compiláveis, conteúdo para preenchimento
 e exemplos separados. A contribuição demonstrada é documental e técnica:
 não houve pesquisa com estudantes, implantação institucional ou mensuração
 de desempenho acadêmico. Os nomes da autoria e da banca são fictícios.
+A organização do relato também foi cotejada com a Parte I do relatório
+final do UnDF-TeX \citeind{relatoriofinal}, tomada apenas como referência.
 
 \chapter{Fundamentação e requisitos}
 A separação entre conteúdo e apresentação foi adotada para permitir que o
@@ -37,6 +46,23 @@ conteúdo editável permaneceu separado por modalidade e por finalidade:
 modelo para preenchimento ou demonstração. A classe e os mecanismos de
 citações e referências foram reutilizados. Os documentos foram compilados
 com LuaLaTeX e Biber, com passagens adicionais para resolver o sumário.
+
+\section{Comparação entre previsto e realizado}
+O balanço da execução distinguiu as entregas concluídas dos limites do recorte.
+A Tabela~\ref{tab:balanco-profissional} registra essa relação sem atribuir
+uma validação em ambiente profissional aos testes documentais.
+
+\begin{undftabela}[H]{Balanço da execução no caso didático}{balanco-profissional}[Elaboração própria a partir dos arquivos e verificações locais]
+\begin{tabular}{@{}p{0.28\linewidth}p{0.29\linewidth}p{0.33\linewidth}@{}}
+\hline
+\textbf{Item} & \textbf{Realizado} & \textbf{Evidência ou limite} \\
+\hline
+Modelos e exemplos & Quatro entradas produzidas & Fontes e PDFs compilados \\
+Apresentação institucional & Arquivo comum reutilizado & Composição dos quatro documentos \\
+Uso por organização & Fora do recorte & Ausência de implantação e pesquisa com pessoas \\
+\hline
+\end{tabular}
+\end{undftabela}
 
 \chapter{Solução e entregas}
 Foram produzidas quatro entradas: dois modelos para preenchimento e dois

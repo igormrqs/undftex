@@ -1,12 +1,12 @@
 # Confere os elementos institucionais e a abertura das referencias dos relatorios finais.
 param(
     [string]$Diretorio = '.',
-    [string[]]$Documentos = @('relatorio-projeto.tex', 'negocio-tecnologico.tex', 'relatorio-projeto-exemplo-undf.tex', 'negocio-tecnologico-exemplo-undf.tex')
+    [string[]]$Documentos = @('relatorio-projeto.tex', 'relatorio-projeto-aplicado.tex', 'relatorio-projeto-aplicado-exemplo-undf.tex', 'negocio-tecnologico.tex', 'relatorio-projeto-exemplo-undf.tex', 'negocio-tecnologico-exemplo-undf.tex')
 )
 $ErrorActionPreference = 'Stop'
 foreach ($documento in $Documentos) {
     $nome = [System.IO.Path]::GetFileNameWithoutExtension($documento)
-    if ($nome -notin @('relatorio-projeto', 'negocio-tecnologico', 'relatorio-projeto-exemplo-undf', 'negocio-tecnologico-exemplo-undf')) { continue }
+    if ($nome -notin @('relatorio-projeto', 'relatorio-projeto-aplicado', 'relatorio-projeto-aplicado-exemplo-undf', 'negocio-tecnologico', 'relatorio-projeto-exemplo-undf', 'negocio-tecnologico-exemplo-undf')) { continue }
     $texto = (& pdftotext -layout "$Diretorio/$nome.pdf" -) -join "`n"
     if ($LASTEXITCODE -ne 0) { throw "Falha na leitura de $nome.pdf" }
     foreach ($rotulo in 'RESUMO', 'ABSTRACT', 'SUMÁRIO', 'REFERÊNCIAS') {
@@ -26,6 +26,9 @@ foreach ($documento in $Documentos) {
     $fim = if ($nome -like 'relatorio-projeto*') { 7 } else { 8 }
     if ($texto -notmatch "(?m)^\s*$fim\s+CONCLUSÃO\s*$") {
         throw "Estrutura de relatorio final incompleta em $nome"
+    }
+    if ($nome -like 'relatorio-projeto*' -and $texto -match '(?im)^\s*(?:PARTE\s+II\b.*ARTIGO|ARTIGO\s+CIENTÍFICO)\s*$') {
+        throw "O relatorio herdou uma parte de artigo: $nome"
     }
     $log = (Get-Content "$Diretorio/$nome.log" -Raw) -replace '\s+', ' '
     if ($log -match 'Overfull|Citation .* undefined|There were undefined|recomenda de 150 a 500') {

@@ -13,6 +13,7 @@
 - [Estrutura e responsabilidades dos módulos](estrutura-do-projeto.md).
 - [Decisões institucionais do projeto](decisoes-institucionais.md).
 - [Perfis de TCC e limites do artigo](perfis-tcc.md).
+- [Relatórios de Projeto Aplicado e projeto externo](relatorios-de-projetos.md).
 - [Base pública e desenvolvimento privado](publicacao-repositorios.md).
 - [Contribuição](../CONTRIBUTING.md), [histórico](../CHANGELOG.md) e [manifesto](../MANIFEST.md).
 

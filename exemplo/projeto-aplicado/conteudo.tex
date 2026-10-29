@@ -1,0 +1,120 @@
+% !TeX root = ../../relatorio-projeto-aplicado-exemplo-undf.tex
+\chapter{Introdução e contexto}
+\section{Identificação do projeto}
+Este exemplo demonstra o relatório final de um Projeto Aplicado, com recorte
+em um semestre didático de referência, 2026.2. A unidade curricular, a equipe,
+o laboratório e os papéis descritos são fictícios. A autoria deste relatório
+é atribuída ao Estudante A; o Estudante B figura como colaborador do cenário.
+Não houve turma real, solicitação de uma organização ou coleta com estudantes.
+
+O artefato técnico foi produzido para este exemplo e acompanha o documento:
+um pequeno programa de validação e seis entradas sintéticas. Seus resultados
+podem ser reproduzidos localmente. Essa evidência técnica é distinta da
+narrativa acadêmica fictícia e não comprova implantação ou uso do programa.
+
+\section{Problema e objetivos}
+O cenário considerou solicitações de reserva com campos vazios, horários
+inconsistentes ou quantidade de participantes superior à capacidade informada.
+O objetivo foi especificar regras simples, implementar um validador de uma
+solicitação isolada e conferir seus resultados em casos previamente definidos.
+O escopo não incluiu uma agenda compartilhada ou a confirmação de reservas.
+
+A organização do relato segue o Manual ESETI em elaboração
+\citeind{manualundf}. O relatório final do UnDF-TeX \citeind{relatoriofinal}
+foi consultado como referência de organização do trabalho concluído. Os
+resultados daquele projeto não foram transferidos para este exercício.
+
+\chapter{Fundamentação e requisitos}
+Os requisitos foram premissas do exercício, não demandas coletadas em campo.
+Definiram-se quatro verificações: presença de solicitante e sala, interpretação
+dos horários, início anterior ao fim e quantidade de participantes não superior
+à capacidade. As entradas foram delimitadas a objetos com as chaves previstas,
+textos nos campos de identificação e inteiros não negativos nas quantidades.
+
+O critério de aceitação foi obter, para cada caso sintético, o resultado
+definido antes da execução. A aceitação pelo validador significa somente que
+a solicitação passou pelas regras implementadas. Não significa disponibilidade
+do laboratório, autorização de acesso ou reserva efetivada.
+
+\chapter{Metodologia e desenvolvimento realizado}
+\section{Procedimentos e participação}
+Foram especificadas as regras, elaborado um programa em Python e preparados
+seis casos sintéticos em JSON. O programa interpreta os horários, aplica as
+regras em sequência e retorna o primeiro impedimento encontrado ou a condição
+de aceitação. A execução comparou cada retorno com o resultado esperado.
+
+No cenário de equipe, o Estudante A ficou associado à implementação e à
+execução dos casos; o Estudante B, à revisão das regras e da documentação.
+Essa distribuição é ilustrativa, sem atribuir a pessoas reais a produção dos
+artefatos. O relatório permite demonstrar como distinguir autoria e colaboração.
+
+\section{Planejado e realizado}
+O planejamento didático inicial incluía interface visual, persistência e
+conferência de conflitos entre solicitações. O escopo foi reduzido à validação
+isolada para permitir uma entrega verificável. A implementação das regras e
+a execução dos casos foram concluídas; interface e armazenamento não foram
+entregues. A mudança limitou o alcance do resultado e foi considerada na avaliação.
+
+\chapter{Solução e entregas}
+Foram entregues um arquivo Python, um conjunto JSON com seis casos e este
+relato. Os artefatos estão na pasta \texttt{exemplo/projeto-aplicado/artefatos/}.
+O programa \texttt{validar\_reserva.py} lê \texttt{casos.json}, confere os retornos
+e interrompe a execução se algum resultado divergir do esperado.
+
+Para reproduzir, execute na raiz do repositório, com Python 3 disponível:
+\begin{quote}
+\small\ttfamily
+python exemplo/projeto-aplicado/artefatos/validar\_reserva.py
+\end{quote}
+Não são usados serviços externos ou dados de pessoas reais. O programa não
+grava reservas nem altera os casos de entrada. Ele não foi entregue como
+sistema de produção ou componente obrigatório de outros Projetos Aplicados.
+
+\chapter{Resultados e avaliação}
+Os seis casos produziram os retornos esperados: duas solicitações foram
+aceitas pelas regras e quatro foram recusadas por impedimentos distintos.
+A Tabela~\ref{tab:casos-pa} apresenta a avaliação técnica realizada.
+
+\begin{undftabela}[H]{Casos sintéticos executados no protótipo}{casos-pa}[Elaboração própria, com entradas e resultados reproduzíveis nos artefatos do exemplo]
+\begin{tabular}{@{}p{0.08\linewidth}p{0.46\linewidth}p{0.36\linewidth}@{}}
+\hline
+\textbf{Caso} & \textbf{Condição examinada} & \textbf{Resultado confirmado} \\
+\hline
+C1 & Horários coerentes e 12 de 20 vagas & Aceita \\
+C2 & Solicitante vazio & Campos obrigatórios ausentes \\
+C3 & Horário de início 25:00 & Horário inválido \\
+C4 & Fim anterior ao início & Intervalo inválido \\
+C5 & 21 participantes para 20 vagas & Capacidade excedida \\
+C6 & Horários coerentes e 20 de 20 vagas & Aceita no limite da capacidade \\
+\hline
+\end{tabular}
+\end{undftabela}
+
+O objetivo de implementar as regras foi evidenciado pelo arquivo do programa;
+o de conferir os retornos, pela execução dos seis casos. A correspondência de
+seis resultados em seis casos não foi interpretada como ausência de defeitos:
+trata-se de um conjunto pequeno e delimitado. Não houve avaliação de satisfação,
+economia de tempo ou redução de erros em uma rotina real.
+
+\chapter{Discussão e limitações}
+A redução do escopo tornou possível examinar cada regra, mas retirou funções
+necessárias a uma agenda de reservas. Não foram avaliados solicitações
+concorrentes, autenticação, persistência, interface, acessibilidade ou integração
+institucional. Entradas fora do contrato de dados também não foram cobertas.
+
+O aprendizado demonstrado está na relação entre objetivo, requisito, entrega
+e evidência. Em trabalho coletivo real, essa relação deve ser acompanhada da
+contribuição de cada integrante. Caso este relatório venha a compor um portfólio,
+ele precisará ser relacionado aos demais projetos por um texto integrador e
+pelos critérios do curso; essa consolidação não foi realizada neste exemplo.
+
+\chapter{Conclusão}
+O recorte técnico foi concluído com a especificação de quatro verificações,
+um validador executável e seis casos sintéticos com resultados reproduzidos.
+As evidências sustentam o funcionamento observado nesse conjunto e não a
+adequação a uma operação real de laboratório.
+
+O relatório encerra a análise do escopo realizado e explicita as funções
+não entregues. Recomendações de continuidade incluem ampliar os casos e
+examinar conflitos de agenda antes de considerar uma interface de uso.
+Essas recomendações não foram apresentadas como atividades já executadas.

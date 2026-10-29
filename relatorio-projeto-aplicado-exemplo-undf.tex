@@ -1,0 +1,16 @@
+% !TeX program = lualatex
+% !BIB program = biber
+% Projeto UnDF-TeX. LPPL 1.3c ou posterior.
+% Exemplo didatico independente do modelo para preenchimento.
+\documentclass[perfil=monografia]{undftex}
+\usepackage{array}
+\input{exemplo/projeto-aplicado/metadados}
+\addbibresource{exemplo/projeto-aplicado/referencias.bib}
+\undfresetpretextualcontents
+\input{exemplo/projeto-aplicado/resumos}
+
+\begin{document}
+  \input{modelos/comum/pre-textuais}
+  \input{exemplo/projeto-aplicado/conteudo}
+  \printundfreferences
+\end{document}

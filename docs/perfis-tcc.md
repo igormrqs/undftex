@@ -155,14 +155,15 @@ Sua versão de entrega institucional preenchida é `tcc-artigo-exemplo-undf.tex`
 com os mesmos arquivos científicos e três páginas institucionais demonstrativas.
 
 Execute `scripts/verificar-perfis.ps1` na raiz do repositório. O script compila os
-dez modelos com LuaLaTeX/Biber, além do caso de artigo com todos os opcionais.
+doze modelos com LuaLaTeX/Biber, além do caso de artigo com todos os opcionais.
 Verifica referências, contadores, resumo único, campos de autoria, ausência de
 apresentação institucional no artigo autônomo e avisos de preenchimento. São
 testados 99, 100, 250 e 251 palavras para a faixa orientadora inclusiva. Saídas
 ficam em `build/perfis/`; a leitura dos PDFs requer `pdftotext`. A integração
 contínua compila os mesmos casos e executa `scripts/verificar-artigo.ps1`.
-Os relatórios finais 1.3 e 1.4 são modelos de conteúdo no perfil de monografia,
-com apresentação compartilhada e dados independentes. Seus quatro documentos
+Os relatórios finais de Projeto Aplicado, de projeto profissional (1.3) e de
+negócio tecnológico (1.4) são modelos de conteúdo no perfil de monografia,
+com apresentação compartilhada e dados independentes. Seus seis documentos
 são conferidos por `scripts/verificar-relatorios.ps1`; veja o
 [índice dos modelos](../modelos/README.md) e o
 [registro da verificação](verificacao-relatorios-2026-10-25.md).

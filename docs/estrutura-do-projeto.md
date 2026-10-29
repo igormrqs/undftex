@@ -73,10 +73,11 @@ O projeto mantém os seguintes fluxos:
 - monografia preenchida: `tcc-exemplo-undf.tex`, `exemplo/capitulos/`, `exemplo/obrigatorio/`, `exemplo/opcional/`;
 - artigo para preenchimento: `artigo.tex` (autônomo) e `tcc-artigo.tex` (entrega institucional), compartilhando `artigo/`;
 - artigo preenchido: `artigo-exemplo-undf.tex` (autônomo) e `tcc-artigo-exemplo-undf.tex` (entrega institucional), compartilhando o conteúdo em `exemplo/artigo/`.
+- relatório final de um Projeto Aplicado: `relatorio-projeto-aplicado.tex`, conteúdo em `modelos/projeto-aplicado/` e exemplo `relatorio-projeto-aplicado-exemplo-undf.tex`, conteúdo em `exemplo/projeto-aplicado/`;
 - relatório final 1.3: `relatorio-projeto.tex`, com conteúdo em `modelos/relatorio-projeto/`, e exemplo `relatorio-projeto-exemplo-undf.tex`, com conteúdo em `exemplo/relatorio-projeto/`;
 - relatório final de negócio tecnológico 1.4: `negocio-tecnologico.tex`, com conteúdo em `modelos/negocio-tecnologico/`, e exemplo `negocio-tecnologico-exemplo-undf.tex`, com conteúdo em `exemplo/negocio-tecnologico/`.
 
-Os quatro relatórios reutilizam `perfil=monografia` e a apresentação institucional
+Os seis documentos de relatório reutilizam `perfil=monografia` e a apresentação institucional
 em `modelos/comum/pre-textuais.tex`; seus conteúdos e bibliografias são independentes.
 O [índice dos modelos](../modelos/README.md) orienta a escolha e a edição.
 O protótipo anterior de planejamento permanece no histórico Git.
@@ -103,7 +104,7 @@ Para compilar os documentos, execute LuaLaTeX no diretório de cada fonte princi
 ## Infraestrutura de compilação
 
 - `.latexmkrc`: configuração do `latexmk` (LuaLaTeX + Biber, extensão `lofl` da lista de fluxogramas, limpeza de artefatos). Lida automaticamente pelo Overleaf.
-- `.github/workflows/build.yml`: integração contínua que compila os dez modelos e os casos de regressão em ambiente limpo a cada push/pull request.
+- `.github/workflows/build.yml`: integração contínua que compila os doze modelos e os casos de regressão em ambiente limpo a cada push/pull request.
 
 ## Regra de manutenção
 

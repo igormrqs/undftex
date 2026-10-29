@@ -25,6 +25,9 @@ jobs:
         shell: pwsh
         run: ./scripts/verificar-organizacao.ps1
 
+      - name: Conferir evidencias tecnicas do exemplo de Projeto Aplicado
+        run: python3 exemplo/projeto-aplicado/artefatos/validar_reserva.py
+
       - name: Compilar os modelos e verificar os perfis (LuaLaTeX + Biber via latexmk)
         uses: xu-cheng/latex-action@v3
         with:
@@ -36,6 +39,8 @@ jobs:
             artigo-exemplo-undf.tex
             tcc-artigo-exemplo-undf.tex
             relatorio-projeto.tex
+            relatorio-projeto-aplicado.tex
+            relatorio-projeto-aplicado-exemplo-undf.tex
             negocio-tecnologico.tex
             relatorio-projeto-exemplo-undf.tex
             negocio-tecnologico-exemplo-undf.tex
@@ -78,6 +83,8 @@ jobs:
             artigo-exemplo-undf.pdf
             tcc-artigo-exemplo-undf.pdf
             relatorio-projeto.pdf
+            relatorio-projeto-aplicado.pdf
+            relatorio-projeto-aplicado-exemplo-undf.pdf
             negocio-tecnologico.pdf
             relatorio-projeto-exemplo-undf.pdf
             negocio-tecnologico-exemplo-undf.pdf

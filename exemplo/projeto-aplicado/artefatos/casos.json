@@ -1,0 +1,8 @@
+[
+  {"id":"C1","entrada":{"solicitante":"Pessoa A","sala":"L1","inicio":"09:00","fim":"10:00","participantes":12,"capacidade":20},"esperado":"aceita"},
+  {"id":"C2","entrada":{"solicitante":"","sala":"L1","inicio":"09:00","fim":"10:00","participantes":12,"capacidade":20},"esperado":"campos_obrigatorios"},
+  {"id":"C3","entrada":{"solicitante":"Pessoa A","sala":"L1","inicio":"25:00","fim":"10:00","participantes":12,"capacidade":20},"esperado":"horario_invalido"},
+  {"id":"C4","entrada":{"solicitante":"Pessoa A","sala":"L1","inicio":"10:00","fim":"09:00","participantes":12,"capacidade":20},"esperado":"intervalo_invalido"},
+  {"id":"C5","entrada":{"solicitante":"Pessoa A","sala":"L1","inicio":"09:00","fim":"10:00","participantes":21,"capacidade":20},"esperado":"capacidade_excedida"},
+  {"id":"C6","entrada":{"solicitante":"Pessoa B","sala":"L1","inicio":"14:30","fim":"15:30","participantes":20,"capacidade":20},"esperado":"aceita"}
+]

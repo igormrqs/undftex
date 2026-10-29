@@ -11,14 +11,15 @@ Use:
 - a pasta `exemplo/` para ver usos demonstrativos de nota de rodapé, citações, figuras, fluxogramas, tabelas, pseudocódigo, apêndices, anexos e elementos opcionais.
 
 Na branch de desenvolvimento, use `tcc-artigo.tex` para TCC em formato de artigo,
-`artigo.tex` para artigo autônomo, `relatorio-projeto.tex` para relatório final
+`artigo.tex` para artigo autônomo, `relatorio-projeto-aplicado.tex` para
+o relatório final de um Projeto Aplicado, `relatorio-projeto.tex` para relatório final
 de projeto técnico/profissional (1.3) e `negocio-tecnologico.tex` para relatório
 final de modelo de negócio tecnológico (1.4). Cada entrada tem um exemplo
 preenchido identificado no índice. Os modelos experimentais não estão incluídos
 automaticamente na base pública.
 
 As instruções seguintes sobre `capitulos/`, `obrigatorio/` e `opcional/` descrevem
-a monografia. Para artigo, edite `artigo/`; para os relatórios 1.3 e 1.4, edite
+a monografia. Para artigo, edite `artigo/`; para os relatórios finais, edite
 a pasta correspondente em `modelos/`. Compile sempre a entrada da raiz.
 
 ## 2. Preencha os metadados

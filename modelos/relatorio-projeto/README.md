@@ -14,6 +14,13 @@ efetivamente realizado, a contribuição individual e as evidências da avaliaç
 Cronogramas podem registrar o percurso realizado e seus desvios. Não atribua
 impactos operacionais a uma solução que não foi implantada ou avaliada.
 
+No contexto chamado de projeto externo, identifique organização, período,
+vínculo do estudante, papel na equipe e evidências de sua contribuição.
+Essa descrição não amplia as modalidades admitidas pelo curso. O modelo de
+Projeto Aplicado semestral é outra entrada, `relatorio-projeto-aplicado.tex`.
+O relatório de agosto de 2026 foi referência de organização, sem impor artigo
+científico, autoavaliação ou pareceres do PIDTI como novos elementos obrigatórios.
+
 Exemplo independente: `relatorio-projeto-exemplo-undf.tex`, com conteúdo em
 `exemplo/relatorio-projeto/`. O exemplo descreve uma entrega documental local,
 sem alegar implantação profissional ou aprovação institucional.

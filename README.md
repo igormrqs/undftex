@@ -44,16 +44,17 @@ A classe exige LuaLaTeX. A compilação com pdfLaTeX ou XeLaTeX não é o alvo o
 ## Uso rápido
 
 Escolha a modalidade no [índice dos modelos](modelos/README.md).
-Para monografia, comece por `tcc.tex`. Para as modalidades 1.3 e 1.4 do
-Manual ESETI, use as entradas de relatório final:
+Para monografia, comece por `tcc.tex`. Para os relatórios finais de projeto
+e de negócio tecnológico, use as entradas abaixo:
 
 | Modalidade | Para preencher | Exemplo |
 | --- | --- | --- |
+| Projeto Aplicado — relatório que pode compor o portfólio 1.1 | `relatorio-projeto-aplicado.tex` | `relatorio-projeto-aplicado-exemplo-undf.tex` |
 | 1.3 — Projeto técnico/profissional | `relatorio-projeto.tex` | `relatorio-projeto-exemplo-undf.tex` |
 | 1.4 — Negócio de base tecnológica (startup) | `negocio-tecnologico.tex` | `negocio-tecnologico-exemplo-undf.tex` |
 
 Os arquivos para edição ficam em `modelos/`; os exemplos têm conteúdo próprio
-em `exemplo/`. Os dois relatórios reutilizam a apresentação de monografia,
+em `exemplo/`. Os relatórios reutilizam a apresentação de monografia,
 sem novas opções da classe. O exemplo de startup contém simulações explicitamente
 didáticas e não pressupõe validação comercial.
 
@@ -140,7 +141,7 @@ Leia [a pesquisa e as decisões do perfil](docs/perfis-tcc.md) antes de usá-lo
 para entrega. A implementação não representa aprovação institucional do formato.
 A [integração TeXstudio–GitHub](docs/texstudio-github.md) também está documentada.
 
-Para compilar os dez modelos e verificar os relatórios finais e o artigo com e sem elementos opcionais
+Para compilar os doze modelos e verificar os relatórios finais e o artigo com e sem elementos opcionais
 no Windows, inclusive sem Perl (a verificação dos PDFs requer `pdftotext`):
 
 ```powershell
@@ -160,7 +161,7 @@ citações `apud` e continuação de objetos entre páginas. Os casos mínimos f
 
 ## Estrutura principal
 
-Os modelos finais 1.3 e 1.4 usam conteúdo independente em
+Os relatórios finais usam conteúdo independente em `modelos/projeto-aplicado/`,
 `modelos/relatorio-projeto/` e `modelos/negocio-tecnologico/`. A composição
 institucional compartilhada fica em `modelos/comum/`. O antigo roteiro de
 planejamento foi substituído; sua versão anterior está no histórico Git.
@@ -174,6 +175,8 @@ Consulte o [índice de escolha e edição](modelos/README.md).
 ├── tcc-artigo.tex           # exemplo de entrega institucional do mesmo artigo
 ├── artigo-exemplo-undf.tex  # artigo preenchido com conteúdo didático próprio
 ├── tcc-artigo-exemplo-undf.tex # entrega institucional do artigo preenchido
+├── relatorio-projeto-aplicado.tex # relatório final de um Projeto Aplicado
+├── relatorio-projeto-aplicado-exemplo-undf.tex # exemplo independente
 ├── relatorio-projeto.tex    # modelo final 1.3
 ├── relatorio-projeto-exemplo-undf.tex # exemplo do relatório final 1.3
 ├── negocio-tecnologico.tex  # modelo final 1.4 (startup)
@@ -213,7 +216,7 @@ O template não compacta imagens automaticamente. A validação automática ocor
 
 ## Documentação
 
-- [Índice da documentação](docs/README.md) e [índice dos manuais](manuais/README.md).
+- [Índice da documentação](docs/README.md), [índice dos manuais](manuais/README.md) e [decisões dos relatórios de projeto](docs/relatorios-de-projetos.md).
 - `docs/guia-de-uso.md`: guia prático para estudantes e usuários do template.
 - `docs/estrutura-do-projeto.md`: visão técnica da arquitetura interna.
 - `docs/decisoes-institucionais.md`: decisões de padronização adotadas no projeto.
