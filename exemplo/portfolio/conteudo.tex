@@ -1,0 +1,114 @@
+% !TeX root = ../../portfolio-exemplo-undf.tex
+\chapter{Introdução}
+Este portfólio didático reúne todos os projetos de um percurso fictício
+composto por P01, um validador de solicitações, e P02, um guia de documentação
+de evidências. O semestre, os participantes e seus papéis são ilustrativos.
+O exemplo com dois projetos não estabelece quantidade mínima ou máxima.
+Os artefatos descritos foram produzidos para demonstração, sem representar
+uma turma real, uma defesa ou uma validação institucional.
+
+O objetivo foi relacionar construção técnica e documentação, discutindo
+como evidências permitem recuperar uma experiência e delimitar suas conclusões.
+A organização acompanha o Manual ESETI em elaboração \citeind{manualundf}.
+A Parte I do relatório final do UnDF-TeX \citeind{relatoriofinal} foi consultada
+somente como referência de organização do relato conclusivo.
+
+\chapter{Organização do portfólio}
+O conjunto declarado contém P01 e P02, ambos apresentados no inventário e
+no desenvolvimento. A recuperação utilizou o relatório parcial de P01 e o
+registro de P02, além dos respectivos arquivos. Os registros documentam a
+memória; o texto final os sintetiza e relaciona, sem inserir automaticamente
+uma sequência de documentos completos.
+
+As evidências receberam códigos estáveis. P01-E01 identifica o programa,
+P01-E02 as entradas sintéticas e P01-E03 sua saída reproduzível. P02-E01
+identifica o guia e P02-E02 o registro de memória. Os caminhos e comandos
+acompanham o exemplo. A contribuição individual é ilustrada pelo papel de
+Estudante A, distinguindo a colaboração atribuída a Estudante B no cenário.
+
+\chapter{Visão geral dos projetos}
+\begin{undftabela}[H]{Todos os projetos do percurso didático}{inventario-exemplo}[Elaboração própria a partir dos registros e artefatos do exemplo]
+\begin{tabular}{@{}p{0.09\linewidth}p{0.28\linewidth}p{0.25\linewidth}p{0.28\linewidth}@{}}
+\hline
+\textbf{ID} & \textbf{Projeto e período} & \textbf{Papel ilustrado} & \textbf{Evidências} \\
+\hline
+P01 & Validador de solicitações; 2026.2 & Implementação e conferência dos casos & P01-E01 a P01-E03 \\
+P02 & Guia de evidências; 2026.2 & Organização e redação do guia & P02-E01 e P02-E02 \\
+\hline
+\end{tabular}
+\end{undftabela}
+P01 produziu um artefato de software delimitado. P02 produziu um material de
+organização documental. O tema que articula os dois é a relação entre uma
+entrega e as evidências necessárias para compreender seu alcance. O inventário
+inclui o conjunto inteiro declarado, sem omitir projetos menos extensos.
+
+\chapter{Desenvolvimento dos projetos}
+\section{P01 --- Validação de solicitações}
+O cenário considerou pedidos de reserva com campos vazios, horários incoerentes
+ou quantidade de participantes superior à capacidade informada. O objetivo
+foi implementar verificações de uma solicitação isolada. O registro parcial
+preservou as regras, a delimitação e a comparação entre entradas e retornos.
+
+Foram entregues um programa Python e seis casos sintéticos. A execução
+confirmou duas aceitações e quatro recusas por motivos distintos. Esses
+resultados são reproduzíveis com o comando registrado no documento parcial.
+Não confirmam disponibilidade da sala, autorização ou reserva realizada.
+Interface, armazenamento e conflitos entre pedidos ficaram fora do escopo.
+
+No papel fictício de equipe, Estudante A foi associado à implementação e aos
+casos, e Estudante B à revisão das regras e da documentação. O exemplo não
+atribui esses arquivos a estudantes reais. P01 evidencia a importância de
+relacionar requisito, teste e limite da conclusão, sem alegar avaliação com usuários.
+
+\section{P02 --- Guia de documentação de evidências}
+P02 teve como objetivo produzir um guia curto para que os registros de projeto
+continuassem compreensíveis ao escrever o portfólio. Foram definidos tópicos
+de identificação, contribuição, decisões, resultados, localização de materiais
+e lacunas a esclarecer. O arquivo resultante é P02-E01, disponível em
+\texttt{exemplo/portfolio/artefatos/guia-evidencias.md}.
+
+O registro P02-E02, em \texttt{exemplo/portfolio/registros/p02.md}, conserva a
+memória desse exercício. A entrega é documental: o guia foi escrito e seus
+tópicos foram conferidos no próprio arquivo. Não foram medidos uso, compreensão,
+ganho de tempo ou satisfação de estudantes. O papel atribuído a Estudante A
+foi a redação e a organização; uma leitura atribuída a Estudante B pertence
+somente ao cenário fictício, não a uma avaliação empírica.
+
+\chapter{Análise integradora da trajetória}
+P01 mostrou que um resultado técnico precisa de entrada, regra e retorno
+identificados. P02 organizou como guardar essa relação para recuperá-la depois.
+A articulação entre os projetos está na qualidade da explicação: uma evidência
+localizável permite discutir o que foi feito e também aquilo que não foi avaliado.
+
+\begin{undftabela}[H]{Relações observadas entre os projetos}{integracao-exemplo}[Elaboração própria com base no conjunto documentado]
+\begin{tabular}{@{}p{0.27\linewidth}p{0.31\linewidth}p{0.32\linewidth}@{}}
+\hline
+\textbf{Aspecto} & \textbf{Contribuição de P01} & \textbf{Contribuição de P02} \\
+\hline
+Rastreabilidade & Entradas e retornos identificados & Códigos e localização das evidências \\
+Delimitação & Validação isolada, sem agenda & Registro explícito do alcance de cada entrega \\
+Explicação dos resultados & Seis casos com retornos esperados & Orientação para separar fato e interpretação \\
+\hline
+\end{tabular}
+\end{undftabela}
+A comparação permitiu organizar uma reflexão sobre implementação, comunicação
+escrita e responsabilidade pelas conclusões. Ela não mede a evolução real de
+pessoas: o percurso é didático e não houve turma, observação longitudinal ou
+avaliação de competências. O aprendizado ilustrado deve ser sustentado, em um
+TCC real, pela participação do autor e pelos registros de todos os projetos.
+
+As limitações do conjunto incluem poucos casos técnicos e ausência de avaliação
+do guia com leitores. Os registros parciais ajudaram a manter esses limites
+visíveis. A análise final relacionou as experiências, em vez de tratar cada
+entrega como comprovação de eficácia institucional.
+
+\chapter{Conclusão}
+O portfólio reuniu e analisou os dois projetos do percurso declarado. P01
+ofereceu uma verificação técnica reproduzível; P02 ofereceu um artefato de
+documentação e seu registro de memória. A contribuição do conjunto está em
+explicitar como entregas, evidências e limites sustentam uma narrativa final.
+
+O resultado atende ao objetivo didático de demonstrar a integração dos registros,
+sem estabelecer critérios de elegibilidade ou aprovação do curso. Permanecem
+como possibilidades de continuidade ampliar os casos e avaliar a compreensão
+do guia com leitores, caso isso integre um projeto futuro autorizado.

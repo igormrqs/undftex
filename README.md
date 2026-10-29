@@ -49,7 +49,8 @@ e de negócio tecnológico, use as entradas abaixo:
 
 | Modalidade | Para preencher | Exemplo |
 | --- | --- | --- |
-| Projeto Aplicado — relatório que pode compor o portfólio 1.1 | `relatorio-projeto-aplicado.tex` | `relatorio-projeto-aplicado-exemplo-undf.tex` |
+| 1.1 — Relatório final do portfólio | `portfolio.tex` | `portfolio-exemplo-undf.tex` |
+| Registro auxiliar — relatório parcial de cada projeto | `relatorio-projeto-aplicado.tex` | `relatorio-projeto-aplicado-exemplo-undf.tex` |
 | 1.3 — Projeto técnico/profissional | `relatorio-projeto.tex` | `relatorio-projeto-exemplo-undf.tex` |
 | 1.4 — Negócio de base tecnológica (startup) | `negocio-tecnologico.tex` | `negocio-tecnologico-exemplo-undf.tex` |
 
@@ -141,7 +142,7 @@ Leia [a pesquisa e as decisões do perfil](docs/perfis-tcc.md) antes de usá-lo
 para entrega. A implementação não representa aprovação institucional do formato.
 A [integração TeXstudio–GitHub](docs/texstudio-github.md) também está documentada.
 
-Para compilar os doze modelos e verificar os relatórios finais e o artigo com e sem elementos opcionais
+Para compilar os quatorze documentos e verificar os relatórios finais e o artigo com e sem elementos opcionais
 no Windows, inclusive sem Perl (a verificação dos PDFs requer `pdftotext`):
 
 ```powershell
@@ -161,9 +162,11 @@ citações `apud` e continuação de objetos entre páginas. Os casos mínimos f
 
 ## Estrutura principal
 
-Os relatórios finais usam conteúdo independente em `modelos/projeto-aplicado/`,
+O portfólio final usa `modelos/portfolio/`; os relatórios finais usam também
 `modelos/relatorio-projeto/` e `modelos/negocio-tecnologico/`. A composição
-institucional compartilhada fica em `modelos/comum/`. O antigo roteiro de
+institucional compartilhada fica em `modelos/comum/`. Os registros parciais
+usam `modelos/projeto-aplicado/`, com abertura enxuta e conteúdo de memória
+para a consolidação do portfólio. O antigo roteiro de
 planejamento foi substituído; sua versão anterior está no histórico Git.
 Consulte o [índice de escolha e edição](modelos/README.md).
 
@@ -175,7 +178,9 @@ Consulte o [índice de escolha e edição](modelos/README.md).
 ├── tcc-artigo.tex           # exemplo de entrega institucional do mesmo artigo
 ├── artigo-exemplo-undf.tex  # artigo preenchido com conteúdo didático próprio
 ├── tcc-artigo-exemplo-undf.tex # entrega institucional do artigo preenchido
-├── relatorio-projeto-aplicado.tex # relatório final de um Projeto Aplicado
+├── portfolio.tex           # relatório final do portfólio 1.1
+├── portfolio-exemplo-undf.tex # exemplo com todos os projetos do percurso
+├── relatorio-projeto-aplicado.tex # relatório parcial de cada projeto
 ├── relatorio-projeto-aplicado-exemplo-undf.tex # exemplo independente
 ├── relatorio-projeto.tex    # modelo final 1.3
 ├── relatorio-projeto-exemplo-undf.tex # exemplo do relatório final 1.3

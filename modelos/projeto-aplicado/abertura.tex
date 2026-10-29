@@ -1,0 +1,27 @@
+% Apresentacao enxuta do registro de um projeto; compartilhada com o exemplo.
+\makeatletter
+\renewcommand\section{%
+  \@startsection{section}{1}{\z@}{0.8\baselineskip}{0.25\baselineskip}{\normalfont\bfseries}%
+}
+\makeatother
+\begin{center}
+  \includegraphics[width=4cm]{identidade/logo_horizontal.png}\par
+  \medskip
+  {\large\bfseries RELATÓRIO PARCIAL DO PROJETO}\par
+  \small Registro de memória, conteúdo e evidências para o portfólio
+\end{center}
+\smallskip
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}p{0.22\textwidth}X@{}}
+Identificação & \registroid{} --- \registronome \\
+Estudante & \registroautor \\
+Curso e unidade & \registrocurso{} / \registrounidade \\
+Período & \registroperiodo \\
+Equipe & \registroequipe \\
+Orientação & \registroorientacao \\
+Anotação & \registrodata \\
+\end{tabularx}
+\endgroup
+\medskip

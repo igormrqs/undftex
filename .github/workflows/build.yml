@@ -38,6 +38,8 @@ jobs:
             tcc-artigo.tex
             artigo-exemplo-undf.tex
             tcc-artigo-exemplo-undf.tex
+            portfolio.tex
+            portfolio-exemplo-undf.tex
             relatorio-projeto.tex
             relatorio-projeto-aplicado.tex
             relatorio-projeto-aplicado-exemplo-undf.tex
@@ -67,7 +69,7 @@ jobs:
         shell: pwsh
         run: ./scripts/verificar-estrutura.ps1
 
-      - name: Verificar relatorios finais de projeto e negocio tecnologico
+      - name: Verificar registros parciais, portfolio e relatorios finais
         shell: pwsh
         run: ./scripts/verificar-relatorios.ps1
 
@@ -82,6 +84,8 @@ jobs:
             tcc-artigo.pdf
             artigo-exemplo-undf.pdf
             tcc-artigo-exemplo-undf.pdf
+            portfolio.pdf
+            portfolio-exemplo-undf.pdf
             relatorio-projeto.pdf
             relatorio-projeto-aplicado.pdf
             relatorio-projeto-aplicado-exemplo-undf.pdf

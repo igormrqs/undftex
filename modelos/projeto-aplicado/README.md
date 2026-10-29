@@ -1,35 +1,31 @@
-# Relatório final de um Projeto Aplicado
+# Relatório parcial de cada projeto
 
-Entrada: `relatorio-projeto-aplicado.tex`, na raiz. Exemplo independente:
-`relatorio-projeto-aplicado-exemplo-undf.tex`.
+Este registro preserva a memória de um Projeto Aplicado: o que foi realizado,
+por quê, com quem, quais resultados surgiram e onde recuperar as evidências.
+Pode ser preenchido durante o projeto ou retrospectivamente, com as lacunas
+identificadas. Não exige periodicidade, parecer, nota ou cronograma.
 
-Este modelo relata um projeto concluído no recorte do semestre, com contexto,
-objetivos, fundamentação, método, desenvolvimento, entregas, avaliação e conclusão.
-Identifique unidade curricular, semestre, período, equipe e contribuição individual
-no início do miolo. Os títulos e as subdivisões são um roteiro sugerido.
+Compile [relatorio-projeto-aplicado.tex](../../relatorio-projeto-aplicado.tex).
+Edite `metadados.tex` (identificação), `conteudo.tex` (relato e evidências) e
+`referencias.bib` (fontes efetivamente consultadas). Os seis tópicos são um
+roteiro flexível: responda com o conteúdo disponível, sem inventar resultados.
+Identifique a contribuição individual em trabalhos de equipe e preserve
+caminhos, versões e códigos de evidência que permitam recuperar os materiais.
 
-Edite `metadados.tex`, `resumos.tex`, `conteudo.tex` e `referencias.bib` nesta pasta.
-O modelo usa `perfil=monografia` e a composição institucional existente, sem
-criar novas exigências para as entregas semestrais. Para entrega semestral,
-confirme com o curso a identificação do trabalho e quais páginas institucionais
-devem ser utilizadas. Para o TCC, permanecem os elementos obrigatórios e opcionais
-já adotados; veja o [índice dos modelos](../README.md).
+A abertura é enxuta, sem capa de TCC, banca, resumos ou sumário. As fontes
+consultadas aparecem ao final do registro com o estilo bibliográfico comum.
+O nome do arquivo principal foi preservado; ele agora produz o relatório
+parcial, substituindo a montagem anterior de relatório final de um projeto.
 
-Um relatório pode ser selecionado para o portfólio da modalidade 1.1 do Manual
-ESETI, mas não é, sozinho, o portfólio consolidado. Critérios de seleção,
-texto integrador e avaliação do conjunto ainda dependem de alinhamento com
-os professores. O modelo não fixa quantidade de projetos ou critérios de elegibilidade.
+Na consolidação, sintetize este registro em [portfolio.tex](../../portfolio.tex)
+e relacione-o aos demais projetos do percurso. Não concatene os registros para
+formar o TCC. A apresentação acadêmica completa pertence ao portfólio final.
+Artigo científico não é exigido.
 
-O relatório final de agosto de 2026 foi referência de organização, não um modelo
-a reproduzir integralmente. Artigo científico não é exigido e não faz parte
-da montagem deste documento. Autoavaliação, pareceres e assinaturas do PIDTI
-também não foram convertidos em elementos obrigatórios novos.
-
-Compile na raiz:
+Na raiz, com LuaLaTeX, Biber e `pdftotext`:
 
 ```powershell
 .\scripts\verificar-perfis.ps1 -Documentos relatorio-projeto-aplicado.tex
 ```
 
-PDF e auxiliares ficam em `build/perfis/`. Consulte as
-[decisões dos relatórios](../../docs/relatorios-de-projetos.md).
+PDF e auxiliares ficam em `build/perfis/`. Não compile os arquivos de conteúdo isoladamente.

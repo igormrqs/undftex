@@ -1,30 +1,23 @@
-# Exemplo didático de Projeto Aplicado
+# Exemplo de relatório parcial — P01
 
-Entrada: `relatorio-projeto-aplicado-exemplo-undf.tex`, na raiz. O exemplo relata
-um protótipo de validação de solicitações, com identificação de semestre,
-equipe e contribuição individual em cenário fictício.
+Compile [relatorio-projeto-aplicado-exemplo-undf.tex](../../relatorio-projeto-aplicado-exemplo-undf.tex).
+O documento registra a memória de um validador de solicitações de reserva.
+Semestre, participantes e contexto acadêmico são fictícios; programa e casos
+acompanham o exemplo. O registro não representa acompanhamento obrigatório,
+avaliação institucional ou relatório final de TCC.
 
-Os papéis, a turma e o laboratório são fictícios. Os artefatos técnicos foram
-produzidos para este exemplo e seus seis casos foram executados: dois retornam
-aceitação e quatro recusam entradas por motivos distintos. Não houve pesquisa
-com pessoas, uso em laboratório real ou avaliação de impacto institucional.
-
-Na raiz do repositório, com Python 3 disponível:
+Os identificadores P01-E01 (programa), P01-E02 (entradas) e P01-E03 (saída
+reproduzível) reaparecem no [exemplo de portfólio](../portfolio/README.md).
+Na raiz do repositório, execute com Python 3:
 
 ```powershell
 python exemplo/projeto-aplicado/artefatos/validar_reserva.py
 ```
 
-`artefatos/casos.json` documenta entradas e resultados esperados. O programa
-confere o conjunto e interrompe a execução em caso de divergência. O contrato
-de entrada é restrito às chaves e tipos do exemplo; não é um serviço de produção.
+Os seis casos verificam duas aceitações e quatro recusas distintas. A aceitação
+indica apenas atendimento às regras implementadas; não comprova implantação,
+reserva real, disponibilidade ou impacto. Os resultados não devem ser
+transplantados para um trabalho real.
 
-Compile o documento na raiz:
-
-```powershell
-.\scripts\verificar-perfis.ps1 -Documentos relatorio-projeto-aplicado-exemplo-undf.tex
-```
-
-Os arquivos para escrever um trabalho real ficam em `modelos/projeto-aplicado/`.
-Este documento não exige um artigo e não implementa o portfólio consolidado.
-O relatório final do UnDF-TeX foi citado somente como referência de organização.
+Use [o modelo preenchível](../../modelos/projeto-aplicado/README.md) para seu
+registro. As dúvidas e limitações preservadas aqui subsidiam a análise final.

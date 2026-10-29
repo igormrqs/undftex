@@ -1,105 +1,116 @@
-# Relatórios finais de projetos
+# Registros de projetos e portfólio final
 
-O desenvolvimento distingue três documentos:
-
-| Documento | Recorte | Entrada |
+| Documento | Finalidade | Entrada |
 | --- | --- | --- |
-| Relatório final de um Projeto Aplicado | Projeto realizado no semestre, com equipe e contribuição individual | [relatorio-projeto-aplicado.tex](../relatorio-projeto-aplicado.tex) |
-| Relatório final de projeto técnico/profissional | Projeto desenvolvido em ambiente profissional, com vínculo e atuação identificados | [relatorio-projeto.tex](../relatorio-projeto.tex) |
-| Portfólio de TCC | Seleção e articulação de projetos em uma entrega integradora | Consolidação ainda a definir com os professores |
+| Relatório parcial de cada projeto | Preservar memória, conteúdo e evidências para a escrita posterior | [relatorio-projeto-aplicado.tex](../relatorio-projeto-aplicado.tex) |
+| Relatório final do portfólio 1.1 | Reunir todos os projetos do percurso declarado e analisar o conjunto | [portfolio.tex](../portfolio.tex) |
+| Relatório final de projeto técnico/profissional 1.3 | Apresentar projeto realizado em ambiente profissional e a atuação do estudante | [relatorio-projeto.tex](../relatorio-projeto.tex) |
+| Relatório final de negócio tecnológico 1.4 | Apresentar o modelo de negócio consolidado, evidências e limites da análise | [negocio-tecnologico.tex](../negocio-tecnologico.tex) |
 
-O relatório de um Projeto Aplicado pode apoiar a modalidade 1.1 do Manual ESETI,
-mas a entrada nova não implementa o portfólio completo. O modelo profissional
-mantém a modalidade 1.3 e não transforma qualquer atividade externa em TCC admitido.
+## Do registro à análise do conjunto
 
-## Referências utilizadas e limite do reaproveitamento
+O registro parcial é um relato flexível: contexto e objetivos; o que realizei
+e como; decisões, dificuldades e aprendizados; entregas, resultados e limites;
+evidências recuperáveis; dúvidas e pontos a retomar. Pode ser escrito durante
+ou depois do projeto, identificando lacunas. Não exige periodicidade, nota,
+parecer ou cronograma, nem uma conclusão antecipada. O nome da entrada anterior
+foi preservado, mas a montagem de relatório final de um projeto foi substituída.
+
+O portfólio final declara seu percurso e inclui todos os projetos desse
+conjunto no inventário e nas sínteses. A análise integradora relaciona
+conhecimentos, decisões, resultados e aprendizado, com evidências e distinção
+entre contribuição individual e equipe. Não é uma colagem dos registros.
+O curso deve confirmar o recorte, a admissibilidade e os critérios de avaliação.
+O modelo não fixa quantidade de projetos.
+
+O parcial tem abertura enxuta e fontes consultadas ao final. O portfólio final,
+o projeto profissional e o negócio tecnológico mantêm a apresentação comum
+em `modelos/comum/pre-textuais.tex`, os elementos obrigatórios/opcionais e as
+referências em página própria, como no TCC convencional. Todos reutilizam
+`perfil=monografia`; não há nova opção da classe. Veja o [índice de edição](../modelos/README.md).
+
+Artigo científico não é obrigatório e não integra os registros, o portfólio
+ou o relatório profissional. Os modelos 1.3 e 1.4 mantêm seus escopos próprios.
+
+## Referência escolhida e limites de uso
 
 A Parte I de `Relatorio_Final_UnDF_TeX_Entrega_REVISADO.tex`, datada de
 23/08/2026, foi a referência de organização escolhida na conversa com o
-responsável pelo projeto. Identificação da fonte:
+responsável pelo projeto:
 
-- projeto exportado do Prism: `RELATORIO FINAL - APÓS AJUSTES NOVOS`;
-- SHA-256 da fonte: `e3e741b4749d5e26e80924df7c7c6c1ec46236227b59a7bae81a6773fbd6dfad`;
+- exportação Prism: `RELATORIO FINAL - APÓS AJUSTES NOVOS`;
+- SHA-256: `e3e741b4749d5e26e80924df7c7c6c1ec46236227b59a7bae81a6773fbd6dfad`;
 - título: *Construção de um Modelo de Trabalho de Conclusão de Curso com a Identidade da UnDF*;
-- autores do relatório: Lucas Rocha de Santana e Igor Marques dos Santos Magalhães; orientação de Fernando Lima Madeira.
+- autores: Lucas Rocha de Santana e Igor Marques dos Santos Magalhães; orientação de Fernando Lima Madeira.
 
-| Aspecto da referência | Uso nos modelos |
-| --- | --- |
-| Objetivos, método, entregas, evidências, avaliação e conclusão | Conteúdo organizado no roteiro de sete seções já adotado |
-| Balanço do planejamento e da execução | Registro de mudanças, atividades não realizadas e limites do escopo |
-| Consolidação anual de etapas do mesmo projeto | Adaptada ao período do projeto; não tratada como portfólio de projetos diferentes |
-| Artigo científico acrescentado à Parte II | Não integra os relatórios e não é exigido |
-| Autoavaliação, pareceres, notas e assinaturas específicos do PIDTI | Não convertidos em novos requisitos gerais de TCC |
-| Cabeçalhos, identidade visual, resultados e texto do caso original | Não copiados como padrão dos novos trabalhos |
+Objetivos, procedimentos, entregas, evidências, limitações e conclusão apoiaram
+a organização do relato conclusivo. A consolidação de etapas do mesmo projeto
+na referência não foi tratada como portfólio de projetos distintos. O artigo
+da Parte II, os cabeçalhos, o texto, os resultados, as notas, as autoavaliações
+e os pareceres PIDTI não foram transformados em requisitos gerais de TCC.
+Os trimestrais PIDTI/UnDF e o formulário parcial de IC serviram à compreensão
+do percurso; não estabelecem equivalência com formulário oficial da FAPDF.
+O registro parcial agora prioriza memória e documentação, conforme a decisão
+do responsável, sem reproduzir acompanhamento periódico.
 
-Os trimestrais PIDTI/UnDF e o formulário parcial de IC foram consultados para
-compreender o percurso e os campos proposto/executado. O conteúdo de avaliação
-periódica não substitui o fechamento do projeto. Não foi estabelecida equivalência
-com formulário oficial da FAPDF nem uma nova exigência de apresentação de artigo.
-Os arquivos recebidos permanecem no acervo local; cópias integrais dos relatórios,
-conversas e dados pessoais não foram incorporadas à distribuição.
+Os originais permanecem no acervo local. Relatórios integrais, conversas e
+dados pessoais não foram incorporados à distribuição.
 
-## Apresentação e edição
+## Evidências dos exemplos
 
-As entradas reutilizam `perfil=monografia` e a apresentação em
-`modelos/comum/pre-textuais.tex`, mantendo os elementos obrigatórios/opcionais
-e a formatação das referências já adotados. Não foram criadas opções novas
-da classe. Para entrega semestral, a identificação e as páginas institucionais
-devem ser confirmadas com o curso; essa montagem não fixa novos requisitos.
-
-Cada documento mantém seus próprios metadados, resumos, conteúdo e bibliografia.
-Os exemplos são independentes dos modelos para preenchimento. Veja o
-[índice de edição](../modelos/README.md).
-
-## Evidências do exemplo de Projeto Aplicado
-
-O exemplo descreve um validador de solicitações isoladas de reserva, com cenário
-acadêmico fictício e artefatos técnicos executáveis. O programa e os seis casos
-estão em `exemplo/projeto-aplicado/artefatos/`. Execute na raiz, com Python 3:
+O [exemplo parcial de P01](../exemplo/projeto-aplicado/README.md) descreve um
+validador de solicitações isoladas, com cenário acadêmico fictício. Na raiz,
+com Python 3:
 
 ```powershell
 python exemplo/projeto-aplicado/artefatos/validar_reserva.py
 ```
 
-Dois casos retornam aceitação e quatro retornam impedimentos distintos. A execução
-confere o resultado esperado em cada caso e falha em caso de divergência. Esses
-resultados não representam implantação, pesquisa com pessoas ou avaliação de
-impacto. O programa é um artefato específico do exemplo, não uma exigência para
-Projetos Aplicados. A integração contínua confere esses mesmos casos.
+Os seis casos conferem duas aceitações e quatro recusas. A execução falha se
+houver divergência. Esses resultados não demonstram implantação, pesquisa com
+pessoas ou impacto. P01-E01 identifica o programa, P01-E02 as entradas e
+P01-E03 a saída reproduzível. A integração contínua executa os mesmos casos.
 
-O exemplo profissional preserva uma etapa documental anterior, com dois modelos
-e dois exemplos. Seu cenário organizacional é fictício; suas evidências locais
-não são apresentadas como validação de uma empresa ou de um estágio real.
+O [exemplo de portfólio](../exemplo/portfolio/README.md) reúne P01 e P02, todos
+os projetos do percurso didático declarado. P02 produziu um guia documental
+(P02-E01), acompanhado de registro de memória (P02-E02). O guia não foi
+avaliado com leitores. Dois projetos são apenas uma escolha demonstrativa.
+Inventário, desenvolvimento e análise integradora usam esses identificadores.
+
+O exemplo profissional preserva seu cenário fictício e as evidências da etapa
+documental anterior; não representa validação de empresa ou estágio real.
 
 ## Verificação e continuidade
 
-O script `scripts/verificar-perfis.ps1` compila os doze modelos e os casos de
-regressão. `scripts/verificar-relatorios.ps1` confere os seis documentos de
-relatório, incluindo a ausência de uma parte de artigo nos relatórios de projeto.
-Saídas ficam em `build/perfis/`, sem versionamento de PDFs.
+`scripts/verificar-perfis.ps1` compila quatorze documentos de uso e dez casos
+de regressão/validação. `scripts/verificar-relatorios.ps1` distingue os dois
+parciais enxutos dos seis relatórios finais: apresentação, resumos, estrutura,
+fontes/referências e ausência de uma parte de artigo nos projetos e portfólios.
+Os PDFs e logs ficam em `build/perfis/`, sem versionamento.
 
-A implementação do portfólio consolidado depende de definir seleção, texto
-integrador, identificação da contribuição individual e critérios de avaliação.
-Esta etapa não fixa quantidade de projetos nem muda a admissibilidade por curso.
-Os instrumentos de acompanhamento e uma futura publicação seguem como frentes
-separadas. A `main` e a base pública permanecem fora desta alteração.
+O Manual ESETI acompanha essa distinção na modalidade 1.1 e permanece um
+projeto local separado. A aprovação institucional e a conferência das fontes
+dos PPCs continuam pendentes. A implementação técnica não supre essa análise.
+A integração à `main` e a sincronização com a base pública são etapas futuras.
 
 
-## Resultado da verificação local
+## Resultado da verificação local — 28/10/2026
 
-Na verificação de 28/10/2026, os doze modelos e os dez casos de teste/validação
-compilaram com LuaLaTeX/Biber. Os verificadores de artigo, relatórios e
-complementos passaram. Os seis casos do artefato Python retornaram o esperado,
-e a conferência organizacional aprovou 58 links locais, sem auxiliares versionados.
+Os quatorze documentos de uso e dez casos de regressão/validação compilaram
+com LuaLaTeX/Biber. Passaram os verificadores de artigo, contadores,
+complementos, registros parciais e relatórios finais. Após o ajuste visual
+do espaçamento dos parciais, os dois foram recompilados e o verificador dos
+oito documentos de relatório foi executado novamente com sucesso.
 
-Os modelos e exemplos de Projeto Aplicado e projeto profissional resultaram
-em 14 páginas cada, sem avisos de conteúdo ultrapassando as margens ou de
-referências indefinidas. Todas as suas páginas foram renderizadas e conferidas,
-incluindo as tabelas de resultados e de balanço da execução.
-O Manual ESETI compilou em 7 páginas, o guia técnico em 41 e o volume integrado
-em 149, com revisão visual das páginas alteradas e sem `Overfull` ou referências
-indefinidas. São resultados locais; não atestam execução remota do workflow.
+Os parciais preenchível e demonstrativo têm duas páginas cada; os portfólios,
+treze cada. Todas as suas páginas foram renderizadas e conferidas. O Manual
+ESETI tem sete páginas; o guia técnico, 41; o volume integrado, 149. As páginas
+alteradas dos manuais e seu contexto foram conferidos visualmente. Os logs
+desses sete documentos não apresentaram conteúdo excedendo margens ou
+referências indefinidas. A inspeção não representa aprovação institucional.
 
-Os originais do Prism e seus recursos permaneceram inalterados por comparação
-SHA-256. Não houve importação integral do relatório, alteração da classe,
-integração à `main` ou sincronização com o repositório público.
+A conferência organizacional aprovou 77 links locais, sem auxiliares
+versionados. Os seis casos técnicos de P01 passaram, e os materiais de P02
+estão presentes. Os 41 arquivos do acervo de referência do Prism mantiveram
+seus hashes SHA-256. A classe, os modelos 1.3/1.4, a `main` e o checkout público
+não foram alterados. São verificações locais; não atestam execução remota do workflow.

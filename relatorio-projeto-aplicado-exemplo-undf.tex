@@ -1,16 +1,19 @@
 % !TeX program = lualatex
 % !BIB program = biber
 % Projeto UnDF-TeX. LPPL 1.3c ou posterior.
-% Exemplo didatico independente do modelo para preenchimento.
+% Registro parcial de um projeto para memoria e evidencias do portfolio.
 \documentclass[perfil=monografia]{undftex}
-\usepackage{array}
+\usepackage{array,tabularx}
 \input{exemplo/projeto-aplicado/metadados}
 \addbibresource{exemplo/projeto-aplicado/referencias.bib}
-\undfresetpretextualcontents
-\input{exemplo/projeto-aplicado/resumos}
 
 \begin{document}
-  \input{modelos/comum/pre-textuais}
+  \textual
+  \singlespacing
+  \setlength{\parindent}{0pt}
+  \setlength{\parskip}{0.35\baselineskip}
+  \input{modelos/projeto-aplicado/abertura}
   \input{exemplo/projeto-aplicado/conteudo}
-  \printundfreferences
+  \section*{FONTES CONSULTADAS}
+  \printbibliography[heading=none]
 \end{document}

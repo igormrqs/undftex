@@ -1,18 +1,19 @@
 % !TeX program = lualatex
 % !BIB program = biber
 % Projeto UnDF-TeX. LPPL 1.3c ou posterior.
-% Relatorio final de um Projeto Aplicado; consulte modelos/projeto-aplicado/README.md.
+% Registro parcial de um projeto para memoria e evidencias do portfolio.
 \documentclass[perfil=monografia]{undftex}
-\usepackage{array}
+\usepackage{array,tabularx}
 \input{modelos/projeto-aplicado/metadados}
 \addbibresource{modelos/projeto-aplicado/referencias.bib}
-\undfresetpretextualcontents
-\input{modelos/projeto-aplicado/resumos}
-% Carregue aqui os elementos opcionais do seu trabalho.
 
 \begin{document}
-  \input{modelos/comum/pre-textuais}
+  \textual
+  \singlespacing
+  \setlength{\parindent}{0pt}
+  \setlength{\parskip}{0.35\baselineskip}
+  \input{modelos/projeto-aplicado/abertura}
   \input{modelos/projeto-aplicado/conteudo}
-  \printundfreferences
-  % Inclua glossario, apendices e anexos quando necessarios.
+  \section*{FONTES CONSULTADAS}
+  \printbibliography[heading=none]
 \end{document}

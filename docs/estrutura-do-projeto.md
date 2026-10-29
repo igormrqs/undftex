@@ -73,12 +73,15 @@ O projeto mantém os seguintes fluxos:
 - monografia preenchida: `tcc-exemplo-undf.tex`, `exemplo/capitulos/`, `exemplo/obrigatorio/`, `exemplo/opcional/`;
 - artigo para preenchimento: `artigo.tex` (autônomo) e `tcc-artigo.tex` (entrega institucional), compartilhando `artigo/`;
 - artigo preenchido: `artigo-exemplo-undf.tex` (autônomo) e `tcc-artigo-exemplo-undf.tex` (entrega institucional), compartilhando o conteúdo em `exemplo/artigo/`.
-- relatório final de um Projeto Aplicado: `relatorio-projeto-aplicado.tex`, conteúdo em `modelos/projeto-aplicado/` e exemplo `relatorio-projeto-aplicado-exemplo-undf.tex`, conteúdo em `exemplo/projeto-aplicado/`;
+- relatório final do portfólio 1.1: `portfolio.tex`, conteúdo em `modelos/portfolio/` e exemplo `portfolio-exemplo-undf.tex`, conteúdo em `exemplo/portfolio/`;
+- relatório parcial de cada projeto: `relatorio-projeto-aplicado.tex`, conteúdo em `modelos/projeto-aplicado/` e exemplo `relatorio-projeto-aplicado-exemplo-undf.tex`, conteúdo em `exemplo/projeto-aplicado/`;
 - relatório final 1.3: `relatorio-projeto.tex`, com conteúdo em `modelos/relatorio-projeto/`, e exemplo `relatorio-projeto-exemplo-undf.tex`, com conteúdo em `exemplo/relatorio-projeto/`;
 - relatório final de negócio tecnológico 1.4: `negocio-tecnologico.tex`, com conteúdo em `modelos/negocio-tecnologico/`, e exemplo `negocio-tecnologico-exemplo-undf.tex`, com conteúdo em `exemplo/negocio-tecnologico/`.
 
-Os seis documentos de relatório reutilizam `perfil=monografia` e a apresentação institucional
-em `modelos/comum/pre-textuais.tex`; seus conteúdos e bibliografias são independentes.
+Os seis documentos finais de portfólio, projeto profissional e negócio tecnológico
+reutilizam `perfil=monografia` e a apresentação em `modelos/comum/pre-textuais.tex`.
+Os dois registros parciais usam abertura enxuta, sem elementos pré-textuais de TCC.
+Conteúdos e bibliografias são independentes; a classe não ganhou novas opções.
 O [índice dos modelos](../modelos/README.md) orienta a escolha e a edição.
 O protótipo anterior de planejamento permanece no histórico Git.
 
@@ -104,7 +107,7 @@ Para compilar os documentos, execute LuaLaTeX no diretório de cada fonte princi
 ## Infraestrutura de compilação
 
 - `.latexmkrc`: configuração do `latexmk` (LuaLaTeX + Biber, extensão `lofl` da lista de fluxogramas, limpeza de artefatos). Lida automaticamente pelo Overleaf.
-- `.github/workflows/build.yml`: integração contínua que compila os doze modelos e os casos de regressão em ambiente limpo a cada push/pull request.
+- `.github/workflows/build.yml`: integração contínua que compila os quatorze documentos e os casos de regressão em ambiente limpo a cada push/pull request.
 
 ## Regra de manutenção
 

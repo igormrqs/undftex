@@ -12,7 +12,8 @@ Use:
 
 Na branch de desenvolvimento, use `tcc-artigo.tex` para TCC em formato de artigo,
 `artigo.tex` para artigo autônomo, `relatorio-projeto-aplicado.tex` para
-o relatório final de um Projeto Aplicado, `relatorio-projeto.tex` para relatório final
+o relatório parcial de cada projeto, `portfolio.tex` para o relatório final
+do conjunto de projetos (1.1), `relatorio-projeto.tex` para relatório final
 de projeto técnico/profissional (1.3) e `negocio-tecnologico.tex` para relatório
 final de modelo de negócio tecnológico (1.4). Cada entrada tem um exemplo
 preenchido identificado no índice. Os modelos experimentais não estão incluídos

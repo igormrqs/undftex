@@ -1,0 +1,18 @@
+% !TeX program = lualatex
+% !BIB program = biber
+% Projeto UnDF-TeX. LPPL 1.3c ou posterior.
+% Relatorio final de portfolio: conjunto dos projetos e analise integradora.
+\documentclass[perfil=monografia]{undftex}
+\usepackage{array}
+\input{modelos/portfolio/metadados}
+\addbibresource{modelos/portfolio/referencias.bib}
+\undfresetpretextualcontents
+\input{modelos/portfolio/resumos}
+% Carregue aqui os elementos opcionais do TCC.
+
+\begin{document}
+  \input{modelos/comum/pre-textuais}
+  \input{modelos/portfolio/conteudo}
+  \printundfreferences
+  % Inclua glossario, apendices e anexos quando necessarios.
+\end{document}

@@ -155,18 +155,20 @@ Sua versão de entrega institucional preenchida é `tcc-artigo-exemplo-undf.tex`
 com os mesmos arquivos científicos e três páginas institucionais demonstrativas.
 
 Execute `scripts/verificar-perfis.ps1` na raiz do repositório. O script compila os
-doze modelos com LuaLaTeX/Biber, além do caso de artigo com todos os opcionais.
+quatorze documentos com LuaLaTeX/Biber, além do caso de artigo com todos os opcionais.
 Verifica referências, contadores, resumo único, campos de autoria, ausência de
 apresentação institucional no artigo autônomo e avisos de preenchimento. São
 testados 99, 100, 250 e 251 palavras para a faixa orientadora inclusiva. Saídas
 ficam em `build/perfis/`; a leitura dos PDFs requer `pdftotext`. A integração
 contínua compila os mesmos casos e executa `scripts/verificar-artigo.ps1`.
-Os relatórios finais de Projeto Aplicado, de projeto profissional (1.3) e de
-negócio tecnológico (1.4) são modelos de conteúdo no perfil de monografia,
-com apresentação compartilhada e dados independentes. Seus seis documentos
-são conferidos por `scripts/verificar-relatorios.ps1`; veja o
-[índice dos modelos](../modelos/README.md) e o
-[registro da verificação](verificacao-relatorios-2026-10-25.md).
+O portfólio final (1.1), o projeto profissional (1.3) e o negócio tecnológico
+(1.4) são modelos de conteúdo com apresentação compartilhada e dados próprios.
+O relatório parcial de cada projeto é um registro enxuto para recuperar memória
+e evidências, sem a apresentação de TCC. Todos reutilizam o perfil de monografia.
+Os seis documentos finais e os dois registros parciais são conferidos por
+`scripts/verificar-relatorios.ps1`; veja o [índice dos modelos](../modelos/README.md)
+e o [guia dos relatórios e do portfólio](relatorios-de-projetos.md).
+
 
 Além dos testes, comparar os PDFs de monografia antes e depois da alteração e
 conferir visualmente o artigo autônomo, a entrega institucional e o caso com

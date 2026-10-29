@@ -8,13 +8,16 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Adicionado
 
-- Relatório final de um Projeto Aplicado, com modelo preenchível, exemplo independente e seis casos técnicos reproduzíveis; distinção entre relatório de um projeto e portfólio consolidado.
+- Relatório final do portfólio de Projetos Aplicados, com modelo preenchível, exemplo independente, inventário completo e análise integradora do conjunto.
+- Relatório parcial de cada projeto para preservar memória, conteúdo e evidências; exemplo com seis casos técnicos reproduzíveis e guia documental de um segundo projeto.
 
 - Verificação da organização documental, dos links locais em Markdown e da ausência de auxiliares versionados, integrada ao GitHub Actions.
 - Modelo final 1.4 de desenvolvimento e análise de negócio tecnológico, com exemplo didático independente e simulação financeira identificada.
 - Exemplo preenchido do relatório final 1.3, índice de escolha dos modelos, arquivos editáveis separados por modalidade e conferência automática dos quatro PDFs.
 
 ### Alterado
+
+- Entradas de Projeto Aplicado convertidas em registros parciais enxutos, sem apresentação de TCC; manual, índices e verificadores distinguem os registros do portfólio final.
 
 - Roteiro de projeto técnico/profissional ampliado com vínculo, contribuição individual, evidências e balanço de execução; referência de agosto adotada sem exigir artigo.
 
