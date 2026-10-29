@@ -12,6 +12,16 @@ roteiro flexível: responda com o conteúdo disponível, sem inventar resultados
 Identifique a contribuição individual em trabalhos de equipe e preserve
 caminhos, versões e códigos de evidência que permitam recuperar os materiais.
 
+Recomenda-se manter um repositório GitHub por projeto. Preencha
+`\registrorepositorio` com `\url{https://github.com/SEU-USUARIO/SEU-PROJETO}`
+e `\registroversao` com o commit ou a tag das evidências desta anotação.
+Mantenha um README com objetivo, equipe, estrutura das pastas e instruções
+para consultar ou executar as entregas. Relacione cada evidência a um caminho
+ou link de arquivo na versão registrada. O repositório pode ser privado ou
+restrito; documente como o avaliador terá acesso e respeite as condições de
+compartilhamento dos materiais. Trata-se de uma recomendação do modelo,
+sem estabelecer uma nova exigência institucional.
+
 A abertura é enxuta, sem capa de TCC, banca, resumos ou sumário. As fontes
 consultadas aparecem ao final do registro com o estilo bibliográfico comum.
 O nome do arquivo principal foi preservado; ele agora produz o relatório

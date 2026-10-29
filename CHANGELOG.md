@@ -8,6 +8,7 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Adicionado
 
+- Campos GitHub e versão no relatório parcial, com orientação para repositório do projeto, README e evidências vinculadas a commit ou tag.
 - Relatório final do portfólio de Projetos Aplicados, com modelo preenchível, exemplo independente, inventário completo e análise integradora do conjunto.
 - Relatório parcial de cada projeto para preservar memória, conteúdo e evidências; exemplo com seis casos técnicos reproduzíveis e guia documental de um segundo projeto.
 

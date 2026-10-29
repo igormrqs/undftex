@@ -16,6 +16,13 @@ ou depois do projeto, identificando lacunas. Não exige periodicidade, nota,
 parecer ou cronograma, nem uma conclusão antecipada. O nome da entrada anterior
 foi preservado, mas a montagem de relatório final de um projeto foi substituída.
 
+O registro recomenda manter um repositório GitHub por projeto, com campos
+para URL e versão (commit ou tag). O README do repositório apresenta objetivo,
+equipe, pastas e instruções de uso. Cada evidência deve apontar para materiais
+na versão registrada; o endereço inicial do repositório, sozinho, não identifica
+o que foi analisado. O acesso pode ser privado ou restrito, com orientação
+para os avaliadores. Essa recomendação não cria uma exigência institucional.
+
 O portfólio final declara seu percurso e inclui todos os projetos desse
 conjunto no inventário e nas sínteses. A análise integradora relaciona
 conhecimentos, decisões, resultados e aprendizado, com evidências e distinção
