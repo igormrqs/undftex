@@ -46,6 +46,13 @@
 \RequirePackage{xurl}
 \urlstyle{same}
 
+% O DOI do recipiente nao identifica automaticamente sua parte.
+% Campos DOI informados na propria parte (inclusive via xdata) sao preservados.
+\DeclareDataInheritance{book,mvbook,collection,mvcollection,reference,mvreference}
+  {inbook,bookinbook,suppbook,incollection,inreference,suppcollection}{%
+  \noinherit{doi}%
+}
+
 % Data de acesso e data da obra original nao substituem a publicacao da edicao citada.
 \DeclareLabeldate{\field{date}\field{year}\literal{nodate}}
 \AtDataInput{%

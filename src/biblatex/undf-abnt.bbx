@@ -173,6 +173,25 @@
     {\printfield{edition}}%
 }
 
+\newbibmacro*{undf:maintitle+title}{%
+  % Somente pares inteiros iguais representam uma repeticao do mesmo titulo.
+  \ifboolexpr{test {\iffieldsequal{maintitle}{title}} and
+    (test {\iffieldsequal{mainsubtitle}{subtitle}} or
+      (test {\iffieldundef{mainsubtitle}} and test {\iffieldundef{subtitle}}))}
+    {\clearfield{maintitle}\clearfield{mainsubtitle}}{}%
+  \iffieldundef{maintitle}{}%
+    {\printtext{\renewcommand*{\subtitlepunct}{\addcolon\space}\usebibmacro{maintitle}}%
+     \newunit\newblock
+     \iffieldundef{volume}{}%
+       {\printfield{volume}\printfield{part}\setunit{\addcolon\space}}}%
+  \usebibmacro{undf:title}%
+}
+
+\newbibmacro*{undf:volume}{%
+  \iffieldundef{maintitle}
+    {\iffieldundef{volume}{}{\printfield{volume}\printfield{part}}}{}%
+}
+
 \newbibmacro*{undf:imprenta}[1][publisher]{%
   \iflistundef{location}
     {}
@@ -282,10 +301,12 @@
   \usebibmacro{begentry}%
   \usebibmacro{undf:mainauthor}%
   \setunit{\adddot\space}%
-  \usebibmacro{undf:title}%
+  \usebibmacro{undf:maintitle+title}%
   \usebibmacro{undf:secondaryeditor}%
   \newunit\newblock
   \usebibmacro{undf:edition}%
+  \newunit\newblock
+  \usebibmacro{undf:volume}%
   \newunit\newblock
   \usebibmacro{undf:imprenta}%
   \usebibmacro{undf:electronic}%
@@ -296,10 +317,12 @@
   \usebibmacro{begentry}%
   \usebibmacro{undf:mainauthor}%
   \setunit{\adddot\space}%
-  \usebibmacro{undf:title}%
+  \usebibmacro{undf:maintitle+title}%
   \usebibmacro{undf:secondaryeditor}%
   \newunit\newblock
   \usebibmacro{undf:edition}%
+  \newunit\newblock
+  \usebibmacro{undf:volume}%
   \newunit\newblock
   \usebibmacro{undf:imprenta}%
   \usebibmacro{undf:electronic}%
@@ -310,10 +333,12 @@
   \usebibmacro{begentry}%
   \usebibmacro{undf:mainauthor}%
   \setunit{\adddot\space}%
-  \usebibmacro{undf:title}%
+  \usebibmacro{undf:maintitle+title}%
   \usebibmacro{undf:secondaryeditor}%
   \newunit\newblock
   \usebibmacro{undf:edition}%
+  \newunit\newblock
+  \usebibmacro{undf:volume}%
   \newunit\newblock
   \usebibmacro{undf:imprenta}%
   \usebibmacro{undf:electronic}%
@@ -324,10 +349,12 @@
   \usebibmacro{begentry}%
   \usebibmacro{undf:mainauthor}%
   \setunit{\adddot\space}%
-  \usebibmacro{undf:title}%
+  \usebibmacro{undf:maintitle+title}%
   \usebibmacro{undf:secondaryeditor}%
   \newunit\newblock
   \usebibmacro{undf:edition}%
+  \newunit\newblock
+  \usebibmacro{undf:volume}%
   \newunit\newblock
   \usebibmacro{undf:imprenta}%
   \usebibmacro{undf:electronic}%
@@ -354,10 +381,12 @@
   In\addcolon\space
   \usebibmacro{undf:containerauthor}%
   \setunit{\adddot\space}%
-  \printfield{booktitle}%
+  \printtext{\renewcommand*{\subtitlepunct}{\addcolon\space}\usebibmacro{maintitle+booktitle}}%
   \usebibmacro{undf:containereditor}%
   \newunit\newblock
   \usebibmacro{undf:edition}%
+  \newunit\newblock
+  \usebibmacro{undf:volume}%
   \newunit\newblock
   \usebibmacro{undf:imprenta}%
   \iffieldundef{pages}
@@ -376,10 +405,12 @@
   In\addcolon\space
   \usebibmacro{undf:containerauthor}%
   \setunit{\adddot\space}%
-  \printfield{booktitle}%
+  \printtext{\renewcommand*{\subtitlepunct}{\addcolon\space}\usebibmacro{maintitle+booktitle}}%
   \usebibmacro{undf:containereditor}%
   \newunit\newblock
   \usebibmacro{undf:edition}%
+  \newunit\newblock
+  \usebibmacro{undf:volume}%
   \newunit\newblock
   \usebibmacro{undf:imprenta}%
   \iffieldundef{pages}

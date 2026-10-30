@@ -1,0 +1,20 @@
+[
+  {"id": "T01", "caso": "Parte e recipiente simples", "ordem": ["PARTE, Ana", "Parte T01", "LIVRO, Bruno", "Recipiente T01"]},
+  {"id": "T02", "caso": "Subtitulo da parte preservado", "ordem": ["Parte T02: Subparte T02", "Recipiente T02"]},
+  {"id": "T03", "caso": "Subtitulo do recipiente", "padroes": ["Recipiente T03: Subrecipiente T03"]},
+  {"id": "T04", "caso": "Parte e recipiente com subtitulos", "ordem": ["Parte T04: Subparte T04", "Recipiente T04: Subrecipiente T04"]},
+  {"id": "T05", "caso": "Coletanea organizada e subtitulo", "ordem": ["ORGANIZA, Bruno", "(org.)", "Recipiente T05: Subrecipiente T05"]},
+  {"id": "T06", "caso": "Autor da parte tambem autor do livro", "contagens": {"PARTE, Ana": 2}, "ordem": ["Parte T06", "In:", "Recipiente T06: Subrecipiente T06"]},
+  {"id": "T07", "caso": "Conjunto e volume da obra recipiente", "ordem": ["Conjunto T07: Subconjunto T07", "2.1", "Recipiente T07: Subrecipiente T07"], "padroes": ["12[–-]30"]},
+  {"id": "T08", "caso": "Volume informado sem titulo de conjunto", "padroes": ["vol\\. ?3", "5[–-]9"]},
+  {"id": "T09", "caso": "Alias bookinbook preserva subtitulo", "padroes": ["Recipiente T09: Subrecipiente T09"]},
+  {"id": "T10", "caso": "Alias inreference preserva subtitulo e organizador", "ordem": ["SÁ, Ana", "(org.)", "Recipiente T10: Subrecipiente T10"]},
+  {"id": "T11", "caso": "Opcionais ausentes nao geram dados ficticios", "contagens": {"Recipiente T11": 1}, "ausentes": ["Subrecipiente", "Conjunto", "vol.", "(ed.)"]},
+  {"id": "T12", "caso": "Titulo e subtitulo do conjunto e volume autoral", "ordem": ["Conjunto T12: Subconjunto T12", "2", "Obra T12: Subobra T12"]},
+  {"id": "T13", "caso": "Par titulo/subtitulo igual ao conjunto nao se repete", "contagens": {"Subconjunto T13": 1}, "contagensPadroes": {"\\bConjunto T13": 1}, "padroes": ["vol\\. ?2"]},
+  {"id": "T14", "caso": "Crossref herda recipiente sem atribuir DOI do livro a parte", "ordem": ["LIVRO, Bruno", "Recipiente HERDADO14: Subrecipiente HERDADO14"], "ausentes": ["10.0000/doi-do-livro14"]},
+  {"id": "T15", "caso": "DOI e URL proprios da parte prevalecem no crossref", "contagens": {"doi-da-parte15": 1}, "ausentes": ["doi-do-livro14"], "links": ["https://doi.org/10.0000/doi-da-parte15", "https://example.invalid/parte15"], "padroes": ["Subrecipiente HERDADO14"]},
+  {"id": "T16", "caso": "Crossref de coletanea organizada preserva papel e subtitulo", "ordem": ["ORGANIZA, Bruno", "(org.)", "Recipiente HERDADO16: Subrecipiente HERDADO16"], "ausentes": ["doi-da-coletanea16"]},
+  {"id": "T17", "caso": "Xdata explicito preserva dados do recipiente", "ordem": ["Recipiente XDATA17: Subrecipiente XDATA17", "Editora XDATA17"], "links": ["https://doi.org/10.0000/parte17"]},
+  {"id": "T18", "caso": "Titulos iguais com subtitulos diferentes preservam os dois pares", "ordem": ["Mesmo T18: Subconjunto T18", "Mesmo T18: Subobra T18"]}
+]

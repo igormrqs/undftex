@@ -102,6 +102,10 @@ e controles de autoria literal, nomes acentuados e tipos herdados. Execute:
 ./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-responsabilidades.tex')
 ```
 
+Para títulos, subtítulos, volumes e herança dos dados de obras recipientes, execute
+`./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-recipientes.tex')`.
+São 18 cenários, incluindo a preservação de DOI e URL próprios do capítulo.
+
 ## Imagens e arquivos grandes
 
 Antes de adicionar imagens ao repositório:

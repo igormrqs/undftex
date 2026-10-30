@@ -1,0 +1,28 @@
+\documentclass{undftex}
+\addbibresource{tests/bibliografia-recipientes.bib}
+\newcommand{\casounico}[1]{%
+ \begin{refsection}\section*{CASO #1}
+ \noindent CHAMADA: \citeind{#1}\par
+ \noindent REFERENCIA:\par\printbibliography[heading=none]
+ \end{refsection}\clearpage
+}
+\begin{document}
+\casounico{T01}
+\casounico{T02}
+\casounico{T03}
+\casounico{T04}
+\casounico{T05}
+\casounico{T06}
+\casounico{T07}
+\casounico{T08}
+\casounico{T09}
+\casounico{T10}
+\casounico{T11}
+\casounico{T12}
+\casounico{T13}
+\casounico{T14}
+\casounico{T15}
+\casounico{T16}
+\casounico{T17}
+\casounico{T18}
+\end{document}

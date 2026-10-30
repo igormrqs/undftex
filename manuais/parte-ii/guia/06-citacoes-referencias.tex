@@ -134,6 +134,23 @@ recipiente. Sem \texttt{bookauthor}, o responsável editorial informado
 identifica o recipiente com sua função. A citação continua identificando
 a parte, sem substituir seu autor pelo autor ou editor do livro.
 
+\subsection*{Títulos de partes e obras recipientes}
+
+Em capítulos, use \texttt{title}/\texttt{subtitle} para a parte e
+\texttt{booktitle}/\texttt{booksubtitle} para o livro ou a coletânea.
+\texttt{maintitle}/\texttt{mainsubtitle} identificam o conjunto;
+\texttt{volume} e \texttt{part} conservam a identificação física informada.
+O modelo não deduz o título do recipiente a partir do título do capítulo.
+Pares completos de título e subtítulo iguais ao conjunto não se repetem
+em livros; subtítulos distintos são preservados.
+
+O \texttt{crossref} pode fornecer os dados do recipiente, conforme as
+regras nativas do BibLaTeX. O DOI de livro ou coletânea não é herdado
+automaticamente por sua parte. Informe o DOI próprio no registro da
+parte. Dados fornecidos explicitamente por \texttt{xdata} continuam sendo
+responsabilidade de quem mantém a base; confira se identificam o documento
+citado. Os campos próprios da parte prevalecem sobre a herança.
+
 \subsection*{Identificadores eletrônicos e consulta}
 
 Informe \texttt{doi} como identificador, por exemplo

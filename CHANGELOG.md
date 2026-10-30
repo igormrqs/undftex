@@ -8,6 +8,8 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Adicionado
 
+- Regressão de obras recipientes com 18 cenários de subtítulos, conjuntos, volumes, aliases, `crossref`, `xdata` e identificadores próprios da parte.
+
 - Regressão de responsabilidades bibliográficas com 20 cenários de autoria, editoria, organização, coordenação, compilação e autoria do recipiente.
 
 - Regressão de referências eletrônicas com 39 cenários, conferência dos destinos de hiperlinks, caracteres e continuidade entre páginas, integrada ao fluxo local e de CI.
@@ -27,6 +29,8 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 - Exemplo preenchido do relatório final 1.3, índice de escolha dos modelos, arquivos editáveis separados por modalidade e conferência automática dos quatro PDFs.
 
 ### Corrigido
+
+- Partes de monografias preservam títulos e subtítulos dos recipientes e conjuntos. Volumes informados são apresentados sem duplicação, e o DOI do livro não é herdado automaticamente pelo capítulo.
 
 - Responsáveis editoriais principais passam a identificar sua função; autores e editores secundários são preservados em papéis distintos. Em partes de livros, `bookauthor` tem precedência autoral e o editor permanece como responsabilidade editorial.
 

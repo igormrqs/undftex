@@ -1,7 +1,7 @@
 # Confere chamadas e referencias no PDF das fixtures bibliograficas (LuaLaTeX/Biber).
 param(
     [string]$Diretorio = 'build/perfis',
-    [ValidateSet('bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos', 'bibliografia-responsabilidades')]
+    [ValidateSet('bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos', 'bibliografia-responsabilidades', 'bibliografia-recipientes')]
     [string]$Documento = 'bibliografia-listas'
 )
 $ErrorActionPreference = 'Stop'
@@ -35,6 +35,10 @@ foreach ($caso in $casos) {
     $partes = $conteudo -split 'REFERENCIA:', 2
     if ($partes.Count -ne 2) { throw "Marcador de referencia ausente: $($caso.id)" }
     $referencia = $partes[1]
+    foreach ($item in $caso.contagensPadroes.PSObject.Properties) {
+        $quantidade = [regex]::Matches($referencia, $item.Name).Count
+        if ($quantidade -ne $item.Value) { $falhas += "$($item.Name): esperado $($item.Value), observado $quantidade" }
+    }
     foreach ($item in $caso.contagensIdentificadores.PSObject.Properties) {
         $literal = ((($pagina -join '') -split 'REFERENCIA:', 2)[1]) -replace '\s+', ''
         $quantidade = [regex]::Matches($literal, [regex]::Escape($item.Name)).Count
