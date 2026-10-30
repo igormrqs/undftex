@@ -16,8 +16,8 @@ o relatório parcial de cada projeto, `portfolio.tex` para o relatório final
 do conjunto de projetos (1.1), `relatorio-projeto.tex` para relatório final
 de projeto técnico/profissional (1.3) e `negocio-tecnologico.tex` para relatório
 final de modelo de negócio tecnológico (1.4). Cada entrada tem um exemplo
-preenchido identificado no índice. Os modelos experimentais não estão incluídos
-automaticamente na base pública.
+preenchido identificado no índice. Esses modelos estão disponíveis na branch
+pública `feature/perfis-tcc`; a `main` conserva a base anterior.
 
 As instruções seguintes sobre `capitulos/`, `obrigatorio/` e `opcional/` descrevem
 a monografia. Para artigo, edite `artigo/`; para os relatórios finais, edite

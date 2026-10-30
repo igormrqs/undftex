@@ -14,7 +14,7 @@
 - [Decisões institucionais do projeto](decisoes-institucionais.md).
 - [Perfis de TCC e limites do artigo](perfis-tcc.md).
 - [Relatórios de Projeto Aplicado e projeto externo](relatorios-de-projetos.md).
-- [Base pública e desenvolvimento privado](publicacao-repositorios.md).
+- [Repositório único e branches de trabalho](publicacao-repositorios.md).
 - [Contribuição](../CONTRIBUTING.md), [histórico](../CHANGELOG.md) e [manifesto](../MANIFEST.md).
 
 Execute `scripts/verificar-organizacao.ps1` para conferir destinos dos links

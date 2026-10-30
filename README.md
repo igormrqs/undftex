@@ -4,19 +4,18 @@ Classe e conjunto de módulos LaTeX para produção de Trabalhos de Conclusão d
 
 O objetivo do UnDF-TeX é oferecer um template claro, compilável e fácil de adaptar, reduzindo retrabalho de formatação e mantendo uma separação simples entre metadados, elementos pré-textuais, seções textuais, referências e módulos internos.
 
-Repositório de desenvolvimento: [igormrqs/undftex](https://github.com/igormrqs/undftex).
-O acesso depende das permissões concedidas pelo responsável.
-Base estável pública de monografia:
-[igormrqs/undftex-publico](https://github.com/igormrqs/undftex-publico).
-O repositório público tem histórico próprio e não inclui os perfis experimentais.
-Consulte a [organização da publicação](docs/publicacao-repositorios.md).
+Repositório único do projeto: [igormrqs/undftex](https://github.com/igormrqs/undftex).
+A `main` conserva a base anterior. O desenvolvimento dos perfis e dos modelos
+atuais está na [branch feature/perfis-tcc](https://github.com/igormrqs/undftex/tree/feature/perfis-tcc),
+com acesso público. Escolha a branch antes de baixar ou clonar o conteúdo.
+Consulte a [organização das branches e da publicação](docs/publicacao-repositorios.md).
 
 ## Estado do projeto
 
 A versão registrada é `1.0.0`, assim como a versão editorial do manual completo.
 Consulte a seção `[1.0.0]` do `CHANGELOG.md` para esta versão; alterações
-posteriores ficam em `[Não lançado]`. A base pública é uma cópia independente
-anterior: confira seu `VERSION.txt` antes de usar o pacote.
+posteriores ficam em `[Não lançado]`. A `main` mantém a base anterior; confira
+a branch e seu `VERSION.txt` antes de usar o pacote.
 
 O estado atual já contém:
 

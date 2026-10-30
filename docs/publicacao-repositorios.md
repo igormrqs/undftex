@@ -1,36 +1,27 @@
-# Publicação da base estável e desenvolvimento privado
+# Repositório único e branches de trabalho
 
-Organização definida em 20 de outubro de 2026:
+Organização definida em 30 de outubro de 2026:
 
-| Finalidade | Endereço | Visibilidade |
-| --- | --- | --- |
-| Base estável de monografia | https://github.com/igormrqs/undftex-publico | Pública |
-| Desenvolvimento e perfis experimentais | https://github.com/igormrqs/undftex | Privada |
+- Repositório público: [igormrqs/undftex](https://github.com/igormrqs/undftex).
+- `main`: base anterior, mantida sem integrar os perfis experimentais.
+- [feature/perfis-tcc](https://github.com/igormrqs/undftex/tree/feature/perfis-tcc): desenvolvimento dos perfis e modelos atuais, versão 1.0.0.
 
-O GitHub define a visibilidade por repositório, não por branch. Por isso,
-`feature/perfis-tcc` permanece no repositório privado, com as proteções contra
-exclusão e force push preservadas. Não foi feita integração à `main` privada.
+Todas as branches e o histórico publicado do repositório são públicos.
+A separação em branches organiza a continuidade do trabalho; não restringe
+sua visibilidade. Antes de baixar o projeto, escolha a branch correspondente
+à versão desejada. A integração à `main` permanece uma etapa futura.
+A proteção de `feature/perfis-tcc` deve ser preservada.
 
-A publicação pública partiu exclusivamente do conteúdo da `main` privada no
-commit `b7b596122aa2e3e76659f43d29756f07b12b17ab`. Ela foi preparada como
-cópia independente, com uma única raiz de histórico e nota de procedência
-no README. O primeiro commit público é
-`923440c5e567594f62fc8a90283ca8dc46b07fbf`. Licença e arquivos de distribuição
-foram preservados. Não foram enviados commits, arquivos ou branches da
-implementação experimental.
+A organização anterior, com uma cópia pública separada da monografia, foi
+substituída a pedido do responsável. O uso de `undftex-publico` foi encerrado;
+os links ativos passam a apontar para `undftex`. A exclusão remota do legado
+está pendente de conclusão pelo proprietário; a pasta ativa local foi retirada.
+Uma salvaguarda local do histórico e dos metadados foi preparada fora do produto, em
+`../arquivo/undftex-publico-encerramento-2026-10-30/` no workspace.
+Não há sincronização entre dois repositórios a manter.
 
-Os diretórios locais são `undftex/` (desenvolvimento privado) e
-`../undftex-publico/` (publicação da base estável). Cada um tem seu próprio
-remoto `origin`. A cópia pública não recebe sincronização automática e não
-deve receber `git push --mirror` do repositório privado. Uma futura atualização
-pública deverá selecionar somente o conteúdo cuja publicação tiver sido definida.
-
-A publicação não declara aprovação institucional dos manuais ou do template.
-A versão e as pendências de validação continuam identificadas nos documentos.
-
-Foram conferidos a origem da árvore, os padrões usuais de credenciais nos
-arquivos da base e os nomes de artefatos restritos. A API confirmou a cópia
-pública com apenas `main` e o original privado com a proteção de
-`feature/perfis-tcc` preservada.
+A publicidade do código não declara aprovação institucional dos manuais
+ou dos modelos. O Manual ESETI continua como projeto local independente.
+As pendências acadêmicas e a versão de cada branch permanecem documentadas.
 
 Referência: [visibilidade dos repositórios no GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility).

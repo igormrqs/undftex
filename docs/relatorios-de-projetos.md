@@ -131,7 +131,8 @@ Os PDFs e logs ficam em `build/perfis/`, sem versionamento.
 O Manual ESETI acompanha essa distinção na modalidade 1.1 e permanece um
 projeto local separado. A aprovação institucional e a conferência das fontes
 dos PPCs continuam pendentes. A implementação técnica não supre essa análise.
-A integração à `main` e a sincronização com a base pública são etapas futuras.
+Os modelos estão na branch pública `feature/perfis-tcc` do repositório único
+`undftex`. A integração à `main` permanece uma etapa futura.
 
 
 ## Resultado da verificação local — 28/10/2026
