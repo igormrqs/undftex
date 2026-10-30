@@ -193,6 +193,41 @@ disponibilidade admitem quebra e ficam alinhadas à esquerda, sem inserir
 espaços artificiais no endereço. Não escape manualmente os identificadores
 como texto TeX; use os campos bibliográficos próprios e confira o PDF.
 
+\subsection*{Autoria institucional e entrada pelo título}
+
+Cadastre uma entidade efetivamente autora em \texttt{author}, como nome
+literal protegido por chaves, por exemplo
+\verb|author={{Instituto de Pesquisa Aplicada}}|. Jurisdição, hierarquia e
+qualificações devem vir da fonte. \texttt{shortauthor} pode fornecer uma
+sigla de citação explicitamente conferida; não há conversão automática
+entre sigla e nome por extenso. A ordenação usa o nome completo cadastrado.
+
+Sem autor nem responsável editorial, a referência entra pelo título,
+com a primeira palavra em maiúsculas; se começar por artigo português,
+o artigo e a palavra seguinte ficam em maiúsculas. O título não recebe
+destaque nesse caso. A capitalização é apenas de apresentação, sem
+reescrever \texttt{title}. Em volumes sem autoria, o título do volume
+inicia a entrada; os dados do conjunto vêm depois.
+
+Para títulos simples em texto Unicode, o modelo deriva \texttt{shorttitle}
+com a primeira palavra ou com o artigo inicial português e a palavra
+seguinte. Esse rótulo participa da desambiguação nativa do Biber, inclusive
+quando títulos diferentes têm o mesmo início e ano. A citação acrescenta
+reticências entre colchetes quando o rótulo difere do título completo.
+A ordem das referências continua considerando o título completo.
+
+Confira as chamadas conforme a NBR 10520:2023, seção 6.1.1.4. O modelo
+não faz análise linguística de monossílabos: para \emph{Sol e tecnologia},
+por exemplo, forneça \verb|shorttitle={Sol e}|. Use também \texttt{shorttitle}
+para títulos com comandos ou agrupamentos TeX. Sem esse campo, títulos
+TeX complexos conservam o rótulo completo, sem truncar comandos.
+Entradas pelo título recebem aviso de revisão do rótulo. Isso não indica
+erro de compilação nem comprova conformidade automática da abreviação.
+
+Os quatro comandos de apud usam o mesmo nome ou título de identificação.
+O rótulo da original não consultada permanece sem hiperlink para uma
+referência excluída; o filtro de fontes consultadas continua ativo.
+
 \subsection*{Instituições e campos de lista}
 
 Em entradas acadêmicas do tipo \texttt{thesis}, informe o vínculo em
@@ -210,7 +245,10 @@ da imprenta; listas literais idênticas não se repetem nesse bloco. A mesma
 entidade pode aparecer como autora e publicadora, em funções distintas.
 Não se infere equivalência entre siglas e nomes por extenso, nem se unem
 listas parcialmente sobrepostas. Não use \texttt{organization} como substituto
-de \texttt{institution}; seu tratamento anterior de autoria permanece.
+de \texttt{institution}. \texttt{organization} não presume autoria nem
+substitui o responsável editorial; se vier isolado, recebe aviso para
+conferir a autoria na fonte. Editora e instituição de vínculo também
+não são promovidas a autoras automaticamente.
 Em legislação, o local fornecido em
 \texttt{location} é preservado; a ausência não cria um local fictício.
 

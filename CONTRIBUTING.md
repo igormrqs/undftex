@@ -106,6 +106,12 @@ Para títulos, subtítulos, volumes e herança dos dados de obras recipientes, e
 `./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-recipientes.tex')`.
 São 18 cenários, incluindo a preservação de DOI e URL próprios do capítulo.
 
+Para autoria institucional e entrada pelo título, execute
+`./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-autoria.tex')`.
+São 25 cenários, com distinção entre campos institucionais, rótulos e apud.
+A expectativa de U08 foi ajustada para a abreviação da NBR 10520:2023,
+6.1.1.4; seus dados bibliográficos e os demais contratos foram preservados.
+
 ## Imagens e arquivos grandes
 
 Antes de adicionar imagens ao repositório:

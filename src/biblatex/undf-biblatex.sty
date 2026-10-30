@@ -53,9 +53,25 @@
   \noinherit{doi}%
 }
 
+% Deriva somente o rotulo: title e a ordenacao pelo titulo completo permanecem.
+% TeX complexo e monossilabos exigem shorttitle conferido no cadastro.
+\DeclareSourcemap{\maps[datatype=bibtex]{\map{
+  \step[notfield=author,final]
+  \step[notfield=editor,final]
+  \step[notfield=translator,final]
+  \step[notfield=shorttitle,final]
+  \step[fieldsource=title,notmatch=\regexp{[\\{}]},final]
+  \step[fieldsource=title,match=\regexp{(?i)\A((?:(?:a|as|o|os|um|uma|uns|umas)\s+)?\S+)(?:\s+.*)?\z},final]
+  \step[fieldset=shorttitle,fieldvalue={$1}]
+}}}
 % Data de acesso e data da obra original nao substituem a publicacao da edicao citada.
 \DeclareLabeldate{\field{date}\field{year}\literal{nodate}}
 \AtDataInput{%
+  \ifnameundef{labelname}
+    {\PackageWarningNoLine{undf-biblatex}{Rotulo por titulo: \thefield{entrykey}. Confira shorttitle, especialmente monossilabos iniciais e comandos TeX}%
+     \iflistundef{organization}{}%
+       {\PackageWarningNoLine{undf-biblatex}{Organizacao sem autoria definida: \thefield{entrykey}. organization nao presume autoria; confira author na fonte}}}%
+    {}%
   \iffieldundef{year}
     {\PackageWarningNoLine{undf-biblatex}{Data de publicacao ausente: \thefield{entrykey}. Informe ano identificado ou inferido a partir da fonte; a data de acesso nao o substitui}}%
     {}%
@@ -180,27 +196,27 @@
   (%
   \begingroup\undf@apudoriginaltrue
   \ifstrempty{#1}
-    {\citeauthor{#3}, \undf@citelabeldate{#3}}
-    {\citeauthor{#3}, \undf@citelabeldate{#3}, #1}%
+    {\undf@citeidentity{#3}, \undf@citelabeldate{#3}}
+    {\undf@citeidentity{#3}, \undf@citelabeldate{#3}, #1}%
   \endgroup
   \space apud\space
   \ifstrempty{#2}
-    {\citeauthor{#4}, \undf@citelabeldate{#4}}
-    {\citeauthor{#4}, \undf@citelabeldate{#4}, #2}%
+    {\undf@citeidentity{#4}, \undf@citelabeldate{#4}}
+    {\undf@citeidentity{#4}, \undf@citelabeldate{#4}, #2}%
   )%
 }
 
 \NewDocumentCommand{\apudbibonline}{O{} O{} m m}{%
   \begingroup\undf@apudoriginaltrue
-  \citeauthor{#3} (%
+  \undf@citeidentity{#3} (%
   \ifstrempty{#1}
     {\undf@citelabeldate{#3}}
     {\undf@citelabeldate{#3}, #1}%
   \endgroup
   \space apud\space
   \ifstrempty{#2}
-    {\citeauthor{#4}, \undf@citelabeldate{#4}}
-    {\citeauthor{#4}, \undf@citelabeldate{#4}, #2}%
+    {\undf@citeidentity{#4}, \undf@citelabeldate{#4}}
+    {\undf@citeidentity{#4}, \undf@citelabeldate{#4}, #2}%
   )%
 }
 

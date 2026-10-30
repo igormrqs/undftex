@@ -51,6 +51,14 @@
 \renewcommand*{\nameyeardelim}{\addcomma\space}
 \DeclareDelimFormat{multinamedelim}{\addsemicolon\space}
 \DeclareDelimFormat{finalnamedelim}{\addsemicolon\space}
+\DeclareDelimFormat{nonameyeardelim}{\addcomma\space}
+\DeclareDelimFormat[textcite]{nonameyeardelim}{\addspace}
+\DeclareFieldFormat{undf:citetitle}{%
+  #1\iffieldsequal{labeltitle}{title}{}{\addspace\mkbibbrackets{\textellipsis}}}
+\renewbibmacro*{cite:label}{%
+  \iffieldundef{label}
+    {\printtext[bibhyperref]{\printfield[undf:citetitle]{labeltitle}}}
+    {\printtext[bibhyperref]{\printfield{label}}}}
 
 % ----------------------------------------------------
 % Citação de citação (apud)
@@ -58,6 +66,16 @@
 % A fonte consultada é citada via biblatex e entra nas referências.
 % ----------------------------------------------------
 % Mesmo rotulo de data das citacoes autor-data, inclusive intervalo e extradate.
+% Identidade sem hiperlink: a original do apud pode estar fora da bibliografia.
+\DeclareCiteCommand{\undf@citeidentity}
+  {\boolfalse{citetracker}\boolfalse{pagetracker}\usebibmacro{prenote}}
+  {\ifnameundef{labelname}
+     {\iffieldundef{label}
+       {\printfield[undf:citetitle]{labeltitle}}
+       {\printfield{label}}}
+     {\ifciteindex{\indexnames{labelname}}{}\printnames{labelname}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
 % Nao usa \cite*: shorthand pode substituir a chamada inteira, mas nao o ano aqui.
 \DeclareCiteCommand{\undf@citelabeldate}
   {\boolfalse{citetracker}%
@@ -70,7 +88,7 @@
 \NewDocumentCommand{\textapud}{ m m O{} m O{} }{%
   #1\space(#2%
   \ifstrempty{#3}{}{,\space p.\space #3}%
-  \space apud\space \citeauthor{#4},\space \undf@citelabeldate{#4}%
+  \space apud\space \undf@citeidentity{#4},\space \undf@citelabeldate{#4}%
   \ifstrempty{#5}{}{,\space p.\space #5}%
   )%
 }
@@ -78,7 +96,7 @@
 \NewDocumentCommand{\parenciteapud}{ m m O{} m O{} }{%
   (#1,\space #2%
   \ifstrempty{#3}{}{,\space p.\space #3}%
-  \space apud\space \citeauthor{#4},\space \undf@citelabeldate{#4}%
+  \space apud\space \undf@citeidentity{#4},\space \undf@citelabeldate{#4}%
   \ifstrempty{#5}{}{,\space p.\space #5}%
   )%
 }

@@ -24,6 +24,25 @@
 % ----------------------------------------------------
 % Formatação de campos bibliográficos
 % ----------------------------------------------------
+% A entrada pelo titulo nao muda os dados nem recebe destaque tipografico.
+\ExplSyntaxOn
+\clist_const:Nx \c_undf_articles_clist {\tl_to_str:n {a,as,o,os,um,uma,uns,umas}}
+\cs_new_protected:Npn \undf_entry_title:n #1
+  {
+    \seq_set_split:Nnn \l_tmpa_seq { ~ } {#1}
+    \seq_pop_left:NN \l_tmpa_seq \l_tmpa_tl
+    \tl_set:Nx \l_tmpb_tl {\str_lowercase:f {\tl_to_str:V \l_tmpa_tl}}
+    \exp_args:NNV \clist_if_in:NnT \c_undf_articles_clist \l_tmpb_tl
+      {\seq_if_empty:NF \l_tmpa_seq
+        {\seq_pop_left:NN \l_tmpa_seq \l_tmpb_tl
+         \tl_put_right:Nx \l_tmpa_tl { ~ \exp_not:V \l_tmpb_tl}}}
+    \exp_args:NV \MakeUppercase \l_tmpa_tl
+    \seq_if_empty:NF \l_tmpa_seq { ~ \seq_use:Nn \l_tmpa_seq { ~ }}
+  }
+\cs_new_eq:NN \undf@entrytitle \undf_entry_title:n
+\ExplSyntaxOff
+\DeclareFieldFormat{undf:entrytitle}{\undf@entrytitle{#1}}
+\DeclareFieldFormat{title}{\ifnameundef{labelname}{#1}{\mkbibemph{#1}}}
 \DeclareFieldFormat[article,incollection,inbook]{title}{#1}
 \DeclareFieldFormat[article,incollection,inbook]{pages}{#1}
 \DeclareFieldFormat[misc]{pages}{#1}
@@ -142,15 +161,7 @@
 
 \newbibmacro*{undf:mainauthor}{%
   \ifnameundef{author}
-    {%
-      \iflistundef{organization}
-        {%
-          \ifnameundef{editor}
-            {}
-            {\usebibmacro{undf:editor}}%
-        }
-        {\printlist{organization}}%
-    }
+    {\usebibmacro{undf:editor}}
     {{\undf@upperbibnames\printnames[undf:family-given]{author}}}%
 }
 
@@ -161,10 +172,18 @@
 }
 
 \newbibmacro*{undf:title}{%
-  \printfield{title}%
+  \ifnameundef{labelname}
+    {\printfield[undf:entrytitle]{title}}
+    {\printfield{title}}%
   \iffieldundef{subtitle}
     {}
     {\setunit{\addcolon\space}\printfield{subtitle}}%
+}
+\letbibmacro{undf:native-title}{title}
+\renewbibmacro*{title}{%
+  \ifnameundef{labelname}
+    {\usebibmacro{undf:title}\newunit\printfield{titleaddon}}
+    {\usebibmacro{undf:native-title}}%
 }
 
 \newbibmacro*{undf:edition}{%
@@ -179,12 +198,13 @@
     (test {\iffieldsequal{mainsubtitle}{subtitle}} or
       (test {\iffieldundef{mainsubtitle}} and test {\iffieldundef{subtitle}}))}
     {\clearfield{maintitle}\clearfield{mainsubtitle}}{}%
+  \ifnameundef{labelname}{\usebibmacro{undf:title}\newunit\newblock}{}%
   \iffieldundef{maintitle}{}%
     {\printtext{\renewcommand*{\subtitlepunct}{\addcolon\space}\usebibmacro{maintitle}}%
      \newunit\newblock
      \iffieldundef{volume}{}%
        {\printfield{volume}\printfield{part}\setunit{\addcolon\space}}}%
-  \usebibmacro{undf:title}%
+  \ifnameundef{labelname}{}{\usebibmacro{undf:title}}%
 }
 
 \newbibmacro*{undf:volume}{%

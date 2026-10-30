@@ -34,6 +34,8 @@ O trio `tests/bibliografia-responsabilidades.tex`/`.bib`/`.json` confere nomes,
 funções editoriais e a distinção entre autoria da parte e do recipiente.
 O trio `tests/bibliografia-recipientes.tex`/`.bib`/`.json` verifica subtítulos,
 conjuntos, volumes e herança sem atribuição indevida do DOI do recipiente.
+O trio `tests/bibliografia-autoria.tex`/`.bib`/`.json` verifica autoria literal,
+entrada pelo título, rótulos, letras e identificação nos quatro apud.
 
 ## Fora do trabalho distribuído
 

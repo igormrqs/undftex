@@ -6,7 +6,7 @@
   {"id": "U05", "caso": "Sobrenome composto", "chamadaPadroes": ["García Márquez, A\\., 2024", "García Márquez, B\\. \\(2024\\)"]},
   {"id": "U06", "caso": "Particulas preservam interpretacao nativa de sobrenome", "chamadaPadroes": ["Cruz, A\\., 2024", "Cruz, B\\. \\(2024\\)"]},
   {"id": "U07", "caso": "Pessoa juridica literal e duas obras", "contagens": {"2024a": 1, "2024b": 1}, "chamadaPadroes": ["Instituto Literal, 2024b", "Instituto Literal \\(2024a\\)"]},
-  {"id": "U08", "caso": "Ausencia de autoria, titulos distintos", "contagens": {"2024": 2}, "chamadaPadroes": ["Alfa U08.*2024", "Beta U08.*2024"], "chamadaAusentes": ["2024a", "2024b"]},
+  {"id": "U08", "caso": "Ausencia de autoria, titulos distintos", "contagens": {"2024": 2}, "chamadaPadroes": ["Alfa \\[…\\], 2024", "Beta \\[…\\] \\(2024\\)"], "chamadaAusentes": ["2024a", "2024b"]},
   {"id": "U09", "caso": "Ausencia de autoria, titulos e ano iguais", "contagens": {"2024a": 1, "2024b": 1}, "chamadaPadroes": ["2024a", "2024b"]},
   {"id": "U10", "caso": "Quatro autores sem mudar et al", "contagens": {"SILVA, Ana": 1, "COSTA, Bruno": 1, "LIMA, Carla": 1, "SOUZA, Davi": 1}, "chamadaPadroes": ["Silva et al\\., 2024", "Silva et al\\. \\(2024\\)"], "chamadaAusentes": ["( Silva"]},
   {"id": "U11", "caso": "Refsection isolada da primeira obra", "contagens": {"2024": 1}, "chamadaPadroes": ["Silva, 2024"], "chamadaAusentes": ["2024a", "2024b", "( Silva"]},

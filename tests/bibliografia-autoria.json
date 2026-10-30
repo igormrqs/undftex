@@ -1,0 +1,314 @@
+[
+  {
+    "id": "I01",
+    "caso": "Pessoa juridica literal",
+    "ordem": [
+      "INSTITUTO DE PESQUISA APLICADA",
+      "Obra I01"
+    ],
+    "chamadaPadroes": [
+      "Instituto de Pesquisa Aplicada, 2024"
+    ]
+  },
+  {
+    "id": "I02",
+    "caso": "Sigla literal preservada",
+    "padroes": [
+      "UNDF"
+    ],
+    "chamadaPadroes": [
+      "UnDF, 2024"
+    ]
+  },
+  {
+    "id": "I03",
+    "caso": "Jurisdicao e hierarquia informadas",
+    "padroes": [
+      "BRASIL. MINISTÉRIO DA EDUCAÇÃO"
+    ],
+    "chamadaPadroes": [
+      "Brasil. Ministério da Educação, 2024"
+    ]
+  },
+  {
+    "id": "I04",
+    "caso": "Pessoa juridica com qualificacao",
+    "padroes": [
+      "BRASÍLIA \\(DF\\)"
+    ],
+    "chamadaPadroes": [
+      "Brasília \\(DF\\), 2024"
+    ]
+  },
+  {
+    "id": "I05",
+    "caso": "Autor nao substituido pela organizacao",
+    "padroes": [
+      "SILVA, Ana",
+      "VINCULOI05"
+    ],
+    "ausentes": [
+      "ORGAI05"
+    ],
+    "chamadaPadroes": [
+      "Silva, 2024"
+    ]
+  },
+  {
+    "id": "I06",
+    "caso": "Organization isolado nao presume autoria",
+    "padroes": [
+      "(?-i:ORGANIZAÇÃO sem autoria I06)"
+    ],
+    "chamadaPadroes": [
+      "Organização \\[…\\], 2024"
+    ],
+    "ausentes": [
+      "ENTIDADEI06"
+    ],
+    "avisos": [
+      "Organizacao sem autoria definida: I06"
+    ]
+  },
+  {
+    "id": "I07",
+    "caso": "Editora nao presume autoria",
+    "padroes": [
+      "(?-i:PUBLICAÇÃO independente I07)"
+    ],
+    "chamadaPadroes": [
+      "Publicação \\[…\\], 2024"
+    ],
+    "contagens": {
+      "EDITAI07": 1
+    },
+    "chamadaAusentes": [
+      "EDITAI07"
+    ]
+  },
+  {
+    "id": "I08",
+    "caso": "Instituicao academica nao presume autoria",
+    "padroes": [
+      "(?-i:ESTUDO institucional I08)"
+    ],
+    "chamadaPadroes": [
+      "Estudo \\[…\\], 2024"
+    ],
+    "contagens": {
+      "VINCULOI08": 1
+    },
+    "chamadaAusentes": [
+      "VINCULOI08"
+    ]
+  },
+  {
+    "id": "I09",
+    "caso": "Titulo de uma palavra",
+    "padroes": [
+      "(?-i:ÁGORA)"
+    ],
+    "chamadaPadroes": [
+      "\\(Ágora, 2024\\)"
+    ],
+    "chamadaAusentes": [
+      "[…]"
+    ]
+  },
+  {
+    "id": "I10",
+    "caso": "Titulo de varias palavras",
+    "padroes": [
+      "(?-i:ENERGIA renovável I10)"
+    ],
+    "chamadaPadroes": [
+      "Energia \\[…\\], 2024"
+    ]
+  },
+  {
+    "id": "I11",
+    "caso": "Artigo definido no titulo",
+    "padroes": [
+      "(?-i:A PESQUISA aplicada I11)"
+    ],
+    "chamadaPadroes": [
+      "A pesquisa \\[…\\], 2024"
+    ]
+  },
+  {
+    "id": "I12",
+    "caso": "Artigo plural e acentos",
+    "padroes": [
+      "(?-i:OS ÓRGÃOS públicos I12)"
+    ],
+    "chamadaPadroes": [
+      "Os órgãos \\[…\\], 2024"
+    ]
+  },
+  {
+    "id": "I13",
+    "caso": "Subtitulo nao se perde",
+    "padroes": [
+      "(?-i:COMPUTAÇÃO aplicada I13: métodos e evidências)"
+    ],
+    "chamadaPadroes": [
+      "Computação \\[…\\], 2024"
+    ]
+  },
+  {
+    "id": "I14",
+    "caso": "Titulos diferentes com mesmo inicio e ano",
+    "ordem": [
+      "ENERGIA alfa I14",
+      "2024a",
+      "ENERGIA beta I14",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "Energia \\[…\\], 2024a",
+      "Energia \\[…\\], 2024b"
+    ]
+  },
+  {
+    "id": "I15",
+    "caso": "Titulos iguais e edicoes distintas",
+    "contagens": {
+      "2024a": 1,
+      "2024b": 1
+    },
+    "chamadaPadroes": [
+      "2024a",
+      "2024b"
+    ]
+  },
+  {
+    "id": "I16",
+    "caso": "Monossilabo com rotulo explicitamente conferido",
+    "padroes": [
+      "(?-i:SOL e tecnologia I16)"
+    ],
+    "chamadaPadroes": [
+      "Sol e \\[…\\], 2024"
+    ]
+  },
+  {
+    "id": "I17",
+    "caso": "Titulo com TeX usa shorttitle explicito",
+    "padroes": [
+      "(?-i:NASA e ciência I17)"
+    ],
+    "chamadaPadroes": [
+      "NASA \\[…\\], 2024"
+    ]
+  },
+  {
+    "id": "I18",
+    "caso": "Tipo herdado sem autoria",
+    "padroes": [
+      "(?-i:TECNOLOGIA aberta I18)"
+    ],
+    "chamadaPadroes": [
+      "Tecnologia \\[…\\], 2024"
+    ]
+  },
+  {
+    "id": "I19",
+    "caso": "Editor institucional prevalece sobre organization",
+    "ordem": [
+      "INSTITUTO EDITORIAL",
+      "(org.)",
+      "Obra I19"
+    ],
+    "ausentes": [
+      "ORGAI19"
+    ],
+    "chamadaPadroes": [
+      "Instituto Editorial, 2024"
+    ]
+  },
+  {
+    "id": "I20",
+    "caso": "Sigla de citacao explicitamente cadastrada",
+    "padroes": [
+      "INSTITUTO DE CIÊNCIA APLICADA"
+    ],
+    "chamadaPadroes": [
+      "ICA, 2024"
+    ]
+  },
+  {
+    "id": "I21",
+    "caso": "Artigos e rotulos iguais recebem letras",
+    "ordem": [
+      "A PESQUISA alfa I21",
+      "2024a",
+      "A PESQUISA beta I21",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "A pesquisa \\[…\\], 2024a",
+      "A pesquisa \\[…\\], 2024b"
+    ]
+  },
+  {
+    "id": "I22",
+    "caso": "Refsection isolada nao recebe letra de outra secao",
+    "padroes": [
+      "(?-i:ENERGIA alfa I22)"
+    ],
+    "chamadaPadroes": [
+      "Energia \\[…\\], 2024"
+    ],
+    "chamadaAusentes": [
+      "2024a",
+      "2024b"
+    ]
+  },
+  {
+    "id": "I23",
+    "caso": "Entrada pelo titulo do volume sem autor",
+    "ordem": [
+      "VOLUME independente I23",
+      "Coleção maior I23: conjunto",
+      "2"
+    ],
+    "chamadaPadroes": [
+      "Volume \\[…\\], 2024"
+    ]
+  },
+  {
+    "id": "I24",
+    "caso": "TeX complexo sem shorttitle preserva dados e recebe aviso",
+    "padroes": [
+      "pesquisa I24"
+    ],
+    "chamadaPadroes": [
+      "pesquisa I24.*2024"
+    ],
+    "avisos": [
+      "Rotulo por titulo: I24"
+    ]
+  },
+  {
+    "id": "I25",
+    "caso": "Identidade pelo titulo nos quatro apud",
+    "padroes": [
+      "(?-i:CONSULTA próxima I25)"
+    ],
+    "contagens": {
+      "2024": 1
+    },
+    "ausentes": [
+      "Origem remota I25"
+    ],
+    "chamadaPadroes": [
+      "Fonte literal.*1900.*apud Consulta \\[…\\], 2024",
+      "Origem \\[…\\], 1990.*apud Consulta \\[…\\], 2024",
+      "Origem \\[…\\] \\(1990.*apud Consulta \\[…\\], 2024"
+    ],
+    "chamadaAusentes": [
+      "No author",
+      "???"
+    ]
+  }
+]
