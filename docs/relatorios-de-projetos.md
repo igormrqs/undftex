@@ -39,6 +39,39 @@ referências em página própria, como no TCC convencional. Todos reutilizam
 Artigo científico não é obrigatório e não integra os registros, o portfólio
 ou o relatório profissional. Os modelos 1.3 e 1.4 mantêm seus escopos próprios.
 
+## Propostas para revisão do orientador — 30/10/2026
+
+O Manual ESETI apresenta em vermelho uma proposta de mínimo de três projetos
+distintos, justificada pela possibilidade de comparação entre experiências.
+O inventário permanece completo para o percurso declarado; etapas e versões
+do mesmo projeto não se tornam projetos distintos apenas para contagem.
+O número é uma proposta de trabalho, sem equivalência de esforço demonstrada
+nem transformação automática em regra do curso. O exemplo com dois projetos
+continua didático e não demonstra atendimento ao mínimo proposto.
+
+Para os relatórios parciais, o piloto é uma síntese de até cinco páginas por
+projeto, incluindo identificação, tabelas, figuras e fontes. Não se exige
+ocupar cinco páginas. O mínimo de conteúdo é a identificação mais os seis
+tópicos: contexto/objetivos, realização/método e contribuição, decisões e
+aprendizados, entregas/resultados/limites, evidências e dúvidas. É preciso
+explicitar como a entrega foi avaliada ou registrar a ausência de avaliação.
+Código extenso, logs e materiais brutos ficam no acervo com identificação de
+versão; não se acrescentam anexos ao parcial para contornar o piloto.
+O portfólio final tem extensão e análise próprias.
+
+O equilíbrio entre modalidades é discutido no manual por problema e objetivos,
+fundamentação e método, contribuição individual, evidências/avaliação,
+análise crítica e comunicação. Quantidade de páginas ou de projetos, sozinha,
+não garante esforço equivalente. Os critérios e o escopo dependem de validação
+acadêmica; não foram acrescentadas opções da classe, pesos ou nota automática.
+
+Foram conferidos os arquivos oficiais dos PPCs de
+[Ciência da Computação](https://universidade.df.gov.br/documents/9295213/40058982/PPC_Ciencia_da_Computacao-20-02-2025.pdf),
+[Sistemas de Informação](https://universidade.df.gov.br/documents/9295213/40058982/PPC-Sistema-de-Informacao-UnDF-2023.pdf) e
+[Engenharia de Software](https://universidade.df.gov.br/documents/9295213/40058982/PPC-Engenharia-de-Software-versao-para-e-MEC-11_04.docx.pdf).
+As propostas acima não substituem os regulamentos complementares ou a
+confirmação de vigência pelas instâncias do curso.
+
 ## Referência escolhida e limites de uso
 
 A Parte I de `Relatorio_Final_UnDF_TeX_Entrega_REVISADO.tex`, datada de

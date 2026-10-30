@@ -22,6 +22,15 @@ restrito; documente como o avaliador terá acesso e respeite as condições de
 compartilhamento dos materiais. Trata-se de uma recomendação do modelo,
 sem estabelecer uma nova exigência institucional.
 
+O piloto de documentação propõe até cinco páginas por projeto, incluindo
+identificação, texto, tabelas, figuras e fontes. É um critério experimental
+para revisão do orientador, sem exigência de preencher cinco páginas.
+Os elementos mínimos são a identificação e os seis tópicos do roteiro.
+Descreva método, contribuição individual, entrega, avaliação (ou sua ausência)
+e limites, com evidências recuperáveis. Código extenso, logs e materiais
+brutos ficam no acervo; use links de versão e não acrescente anexos ao
+parcial para contornar o piloto. Essa extensão não limita o portfólio final.
+
 A abertura é enxuta, sem capa de TCC, banca, resumos ou sumário. As fontes
 consultadas aparecem ao final do registro com o estilo bibliográfico comum.
 O nome do arquivo principal foi preservado; ele agora produz o relatório

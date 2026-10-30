@@ -3,7 +3,11 @@
 Compile [portfolio.tex](../../portfolio.tex). O relatório reúne todos os projetos
 do percurso declarado e analisa as relações entre experiências, entregas,
 contribuição individual e aprendizado. O curso deve confirmar o recorte,
-a admissibilidade e os critérios de avaliação; o modelo não fixa quantidade.
+a admissibilidade e os critérios de avaliação. O Manual ESETI apresenta,
+em vermelho, uma proposta de mínimo de três projetos distintos para revisão;
+o modelo não a transforma em regra aprovada. O inventário continua incluindo
+todos os projetos do percurso. Fases do mesmo projeto não devem ser contadas
+como experiências diferentes apenas para alcançar o número proposto.
 
 Edite `metadados.tex`, `resumos.tex`, `conteudo.tex` e `referencias.bib`.
 Os seis capítulos são um roteiro sugerido: introdução, organização, visão

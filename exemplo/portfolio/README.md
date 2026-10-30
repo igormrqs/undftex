@@ -3,7 +3,9 @@
 Compile [portfolio-exemplo-undf.tex](../../portfolio-exemplo-undf.tex).
 O exemplo reúne todos os projetos do percurso fictício declarado: P01,
 validador de solicitações, e P02, guia de documentação de evidências.
-Dois projetos não estabelecem quantidade mínima ou máxima para a modalidade.
+Dois projetos demonstram a organização e não estabelecem quantidade para a
+modalidade. O exemplo não demonstra atendimento ao mínimo de três projetos
+proposto para revisão no Manual ESETI; a proposta ainda não é uma regra aprovada.
 Participantes, semestre e papéis são ilustrativos; não houve defesa real.
 
 | Projeto | Registro de memória | Evidências |

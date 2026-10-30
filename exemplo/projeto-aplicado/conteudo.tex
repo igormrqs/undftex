@@ -1,28 +1,22 @@
 % !TeX root = ../../relatorio-projeto-aplicado-exemplo-undf.tex
 \section*{Contexto e objetivos}
-P01 trata de um validador de solicitações isoladas de reserva de laboratório.
-A ideia do cenário didático era reconhecer campos vazios, horários incoerentes
-e quantidade de participantes superior à capacidade informada. O objetivo
-foi implementar regras simples e conferir os retornos com entradas sintéticas.
-O laboratório, o semestre e os integrantes são fictícios; os artefatos técnicos
-acompanham o exemplo e podem ser executados. Este registro ajuda a recuperar
-o projeto ao escrever o portfólio \citeind{manualundf}.
+P01 valida solicitações isoladas de reserva de laboratório: campos vazios,
+horários incoerentes e participantes acima da capacidade. O objetivo foi
+implementar regras e conferir seus retornos com entradas sintéticas.
+Laboratório e participantes são fictícios; os artefatos são executáveis.
+O registro apoia a escrita do portfólio \citeind{manualundf}.
 
 \section*{O que realizei e como}
-No papel ilustrativo de Estudante A, registrei a definição das regras, a
-implementação e a execução dos casos. O Estudante B foi associado à revisão
-das regras e da documentação. Esses papéis são fictícios, sem atribuir a
-pessoas reais a produção dos arquivos. O programa interpreta horários e retorna
-o primeiro impedimento encontrado ou a aceitação pelas regras implementadas.
-As entradas usam as chaves e os tipos definidos nos casos do exercício.
+No cenário, Estudante A definiu regras, implementou o programa e executou os
+casos; Estudante B revisou regras e documentação. Esses papéis não atribuem
+a pessoas reais a produção dos arquivos. O programa interpreta horários e
+retorna o primeiro impedimento ou a aceitação pelas regras implementadas.
 
 \section*{Decisões, dificuldades e aprendizados}
-O escopo foi limitado a uma solicitação por vez. Interface, armazenamento e
-conflitos entre reservas ficaram de fora. Preciso lembrar essa decisão para
-não apresentar o protótipo como uma agenda em funcionamento. A principal
-relação a explicar no texto final é entre cada regra, seu caso de entrada e
-o resultado esperado. Um conjunto pequeno de casos não demonstra ausência
-de defeitos nem adequação ao uso institucional.
+O escopo foi uma solicitação por vez, sem interface, armazenamento ou
+conflitos entre reservas. O protótipo não é uma agenda em funcionamento.
+É preciso relacionar regra, entrada e retorno; poucos casos não demonstram
+ausência de defeitos nem adequação ao uso institucional.
 
 \section*{Entregas, resultados e limites}
 Foram produzidos o programa e seis casos sintéticos. A execução confirmou
@@ -46,11 +40,10 @@ impacto. A aceitação significa apenas passar pelas regras; não confirma
 reserva, disponibilidade da sala ou autorização de acesso.
 
 \section*{Evidências para recuperar depois}
-O campo GitHub aponta para o acervo do UnDF-TeX que contém este exemplo,
-e não para um repositório criado pela equipe fictícia. O commit
-\texttt{685e69e} identifica a versão dos artefatos. Em um projeto real,
-recomenda-se manter seu próprio repositório, com README, pastas e condições
-de acesso documentadas. Os caminhos abaixo são relativos à raiz desse acervo.
+O GitHub indicado é o acervo deste exemplo, não de uma equipe real.
+O commit \texttt{685e69e} identifica os artefatos; os caminhos abaixo partem
+da raiz do acervo. Para seu projeto, indique repositório próprio com README
+e condições de acesso documentadas.
 
 P01-E01 é o arquivo \texttt{validar\_reserva.py}; P01-E02 é \texttt{casos.json}.
 Ambos estão em \texttt{exemplo/projeto-aplicado/artefatos/}. P01-E03 é a saída

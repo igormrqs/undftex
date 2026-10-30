@@ -18,6 +18,8 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Alterado
 
+- Roteiros parciais orientam piloto de síntese de até cinco páginas, com método, avaliação e evidências externas identificadas; portfólios distinguem a proposta de mínimo de três projetos ainda em revisão das regras aprovadas pelo curso.
+
 - Entradas de Projeto Aplicado convertidas em registros parciais enxutos, sem apresentação de TCC; manual, índices e verificadores distinguem os registros do portfólio final.
 
 - Roteiro de projeto técnico/profissional ampliado com vínculo, contribuição individual, evidências e balanço de execução; referência de agosto adotada sem exigir artigo.

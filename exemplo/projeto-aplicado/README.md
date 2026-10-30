@@ -26,3 +26,8 @@ transplantados para um trabalho real.
 
 Use [o modelo preenchível](../../modelos/projeto-aplicado/README.md) para seu
 registro. As dúvidas e limitações preservadas aqui subsidiam a análise final.
+
+O exemplo também demonstra o piloto de síntese de até cinco páginas por
+projeto. O limite experimental inclui a identificação e as fontes; os
+artefatos extensos permanecem no acervo. Não é necessário ampliar o texto
+até cinco páginas quando a explicação estiver completa.
