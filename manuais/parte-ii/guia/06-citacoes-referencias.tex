@@ -228,6 +228,25 @@ Os quatro comandos de apud usam o mesmo nome ou título de identificação.
 O rótulo da original não consultada permanece sem hiperlink para uma
 referência excluída; o filtro de fontes consultadas continua ativo.
 
+\subsection*{Ordenação e ajustes explícitos}
+
+O projeto mantém \texttt{sorting=nyt}: nome do responsável ou título
+quando não há nome, depois ano e título. Dentro de autoria e ano iguais,
+a ordem dos títulos determina as letras de desambiguação. A política de
+desempate por ano é do UnDF-TeX; a NBR 6023:2025, seção 9.1, fundamenta
+a organização alfabética, sem ser uma especificação literal desse algoritmo.
+Artigos iniciais portugueses permanecem significativos na ordenação;
+acentos e partículas seguem a colação e a interpretação de nomes do Biber.
+Cada \texttt{refsection} mantém sua lista e sua desambiguação independentes.
+
+\texttt{sortkey} prevalece como chave explícita; \texttt{sortname} ajusta
+o nome de ordenação e \texttt{sorttitle}, o título de ordenação.
+Esses campos não substituem a autoria nem o título apresentados e podem
+afastar a lista da ordem esperada se preenchidos inadequadamente.
+Use-os somente com justificativa editorial, conferindo a lista final.
+\texttt{shortauthor} e \texttt{shorttitle} identificam a chamada e não
+substituem os dados completos usados normalmente para ordenar.
+
 \subsection*{Instituições e campos de lista}
 
 Em entradas acadêmicas do tipo \texttt{thesis}, informe o vínculo em

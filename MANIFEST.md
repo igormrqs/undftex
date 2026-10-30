@@ -36,6 +36,8 @@ O trio `tests/bibliografia-recipientes.tex`/`.bib`/`.json` verifica subtítulos,
 conjuntos, volumes e herança sem atribuição indevida do DOI do recipiente.
 O trio `tests/bibliografia-autoria.tex`/`.bib`/`.json` verifica autoria literal,
 entrada pelo título, rótulos, letras e identificação nos quatro apud.
+O trio `tests/bibliografia-ordenacao.tex`/`.bib`/`.json` cobre o contrato
+de ordenação e os ajustes explícitos sem modificar o esquema `nyt`.
 
 ## Fora do trabalho distribuído
 

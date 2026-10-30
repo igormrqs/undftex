@@ -8,6 +8,8 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Adicionado
 
+- Matriz de ordenação com 14 cenários de nomes pessoais e institucionais, títulos, acentos, partículas, anos, letras, tipos documentais, ajustes explícitos e refsections independentes; o esquema `nyt` foi preservado.
+
 - Regressão de autoria institucional e entrada pelo título com 25 cenários, incluindo siglas, hierarquias, abreviação, colisão de rótulos e os quatro apud sem autor.
 
 - Regressão de obras recipientes com 18 cenários de subtítulos, conjuntos, volumes, aliases, `crossref`, `xdata` e identificadores próprios da parte.

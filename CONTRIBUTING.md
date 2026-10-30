@@ -112,6 +112,11 @@ São 25 cenários, com distinção entre campos institucionais, rótulos e apud.
 A expectativa de U08 foi ajustada para a abreviação da NBR 10520:2023,
 6.1.1.4; seus dados bibliográficos e os demais contratos foram preservados.
 
+Para a matriz de ordenação (14 cenários), execute
+`./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-ordenacao.tex')`.
+A ordem dos elementos é conferida no PDF, inclusive com citação invertida
+e ajustes explícitos de ordenação.
+
 ## Imagens e arquivos grandes
 
 Antes de adicionar imagens ao repositório:

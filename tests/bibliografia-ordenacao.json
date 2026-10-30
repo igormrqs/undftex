@@ -1,0 +1,190 @@
+[
+  {
+    "id": "O01",
+    "caso": "Matriz mista pelo elemento de entrada",
+    "ordem": [
+      "A técnica O01",
+      "Água doce O01",
+      "Pessoal A O01",
+      "Governamental O01",
+      "Institucional O01",
+      "Sem autoria O01",
+      "Pessoal Z O01"
+    ],
+    "ausentes": [
+      "ZETAORGO01"
+    ],
+    "chamadaAusentes": [
+      "ZETAPUBO01"
+    ]
+  },
+  {
+    "id": "O02",
+    "caso": "Mesmo autor por ano e titulo com letras",
+    "ordem": [
+      "Zeta O02",
+      "2022",
+      "Alfa O02",
+      "2024a",
+      "Beta O02",
+      "2024b",
+      "Gama O02",
+      "2025"
+    ],
+    "chamadaPadroes": [
+      "2024a",
+      "2024b"
+    ]
+  },
+  {
+    "id": "O03",
+    "caso": "Homonimos pelo prenome cadastrado",
+    "ordem": [
+      "Ana O03",
+      "Bruno O03"
+    ],
+    "chamadaPadroes": [
+      "Lima, A\\.",
+      "Lima, B\\."
+    ],
+    "chamadaAusentes": [
+      "2024a",
+      "2024b"
+    ]
+  },
+  {
+    "id": "O04",
+    "caso": "Particulas segundo interpretacao nativa de nomes",
+    "ordem": [
+      "Cruz O04",
+      "Lima O04"
+    ],
+    "chamadaPadroes": [
+      "Cruz, 2024"
+    ]
+  },
+  {
+    "id": "O05",
+    "caso": "Sobrenome composto e acento",
+    "ordem": [
+      "Composto O05",
+      "Lima O05"
+    ]
+  },
+  {
+    "id": "O06",
+    "caso": "Tipos documentais nao alteram a chave autoral",
+    "ordem": [
+      "Livro O06",
+      "Artigo O06",
+      "Herdado O06"
+    ]
+  },
+  {
+    "id": "O07",
+    "caso": "Sortkey explicito prevalece",
+    "ordem": [
+      "Prioridade O07",
+      "Normal O07"
+    ],
+    "chamadaPadroes": [
+      "Zanon, 2024",
+      "Almeida, 2024"
+    ]
+  },
+  {
+    "id": "O08",
+    "caso": "Sortname explicito prevalece sem mudar autoria exibida",
+    "ordem": [
+      "ZANON, Ana",
+      "Prioridade O08",
+      "ALMEIDA, Ana",
+      "Normal O08"
+    ],
+    "chamadaAusentes": [
+      "Able"
+    ],
+    "chamadaPadroes": [
+      "Zanon, 2024"
+    ]
+  },
+  {
+    "id": "O09",
+    "caso": "Sorttitle explicito nao substitui rotulo ou titulo",
+    "ordem": [
+      "Zeta O09",
+      "Alfa O09"
+    ],
+    "chamadaPadroes": [
+      "Zeta \\[…\\], 2024"
+    ],
+    "chamadaAusentes": [
+      "AAA"
+    ]
+  },
+  {
+    "id": "O10",
+    "caso": "Refsection isolada nao recebe sufixo externo",
+    "ordem": [
+      "Alfa O02",
+      "2024"
+    ],
+    "chamadaAusentes": [
+      "2024a",
+      "2024b"
+    ]
+  },
+  {
+    "id": "O11",
+    "caso": "Ordem de citacao nao governa lista e sufixos",
+    "ordem": [
+      "Alfa O02",
+      "2024a",
+      "Beta O02",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "2024a",
+      "2024b"
+    ]
+  },
+  {
+    "id": "O12",
+    "caso": "Editor organiza a entrada; publicador nao vira autor",
+    "ordem": [
+      "BRAGA, Ana",
+      "(org.)",
+      "Coletânea O12",
+      "Título sem autoria O12"
+    ],
+    "ausentes": [
+      "ZETAORGO12"
+    ],
+    "chamadaAusentes": [
+      "AAAEDITO12"
+    ]
+  },
+  {
+    "id": "O13",
+    "caso": "Sigla explicita nao muda ordenacao do nome institucional",
+    "ordem": [
+      "Brasil O13",
+      "Instituto O13"
+    ],
+    "chamadaPadroes": [
+      "AAA, 2024"
+    ]
+  },
+  {
+    "id": "O14",
+    "caso": "Qualificadores institucionais distinguem nomes",
+    "ordem": [
+      "Brasil O14",
+      "Portugal O14"
+    ],
+    "chamadaPadroes": [
+      "Biblioteca Nacional \\(Brasil\\)",
+      "Biblioteca Nacional \\(Portugal\\)"
+    ]
+  }
+]
