@@ -8,6 +8,8 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Adicionado
 
+- Regressão de integridade bibliográfica com 26 cenários de dados essenciais ausentes, aliases, referências completas pontuais, pontuação e controle de avisos indevidos.
+
 - Matriz de ordenação com 14 cenários de nomes pessoais e institucionais, títulos, acentos, partículas, anos, letras, tipos documentais, ajustes explícitos e refsections independentes; o esquema `nyt` foi preservado.
 
 - Regressão de autoria institucional e entrada pelo título com 25 cenários, incluindo siglas, hierarquias, abreviação, colisão de rótulos e os quatro apud sem autor.
@@ -33,6 +35,9 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 - Exemplo preenchido do relatório final 1.3, índice de escolha dos modelos, arquivos editáveis separados por modalidade e conferência automática dos quatro PDFs.
 
 ### Corrigido
+
+- Separadores de artigos e trabalhos acadêmicos acompanham os campos impressos, eliminando `.,` nos casos verificados. Subtítulo sem título não se liga ao nome do autor por dois-pontos. Faltas essenciais recebem aviso com chave e campo, sem completar dados.
+- Avisos de entrada pelo título verificam os nomes de origem antes da derivação de `labelname`, evitando falsos avisos em obras com autor; citações sem identidade disponível deixam de imprimir vírgula inicial solta.
 
 - `organization` deixa de ser promovido automaticamente a autor. Entradas pelo título separam dados, apresentação e rótulo de citação, preservando a desambiguação nativa. Os quatro apud passam a identificar fontes sem autoria pelo título.
 

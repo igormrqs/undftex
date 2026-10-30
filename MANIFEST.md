@@ -38,6 +38,8 @@ O trio `tests/bibliografia-autoria.tex`/`.bib`/`.json` verifica autoria literal,
 entrada pelo título, rótulos, letras e identificação nos quatro apud.
 O trio `tests/bibliografia-ordenacao.tex`/`.bib`/`.json` cobre o contrato
 de ordenação e os ajustes explícitos sem modificar o esquema `nyt`.
+O trio `tests/bibliografia-integridade.tex`/`.bib`/`.json` verifica dados
+essenciais ausentes, pontuação e diagnósticos de bibliografias e referências pontuais.
 
 ## Fora do trabalho distribuído
 

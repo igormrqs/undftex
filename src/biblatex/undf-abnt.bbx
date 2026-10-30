@@ -177,7 +177,7 @@
     {\printfield{title}}%
   \iffieldundef{subtitle}
     {}
-    {\setunit{\addcolon\space}\printfield{subtitle}}%
+    {\iffieldundef{title}{}{\setunit{\addcolon\space}}\printfield{subtitle}}%
 }
 \letbibmacro{undf:native-title}{title}
 \renewbibmacro*{title}{%
@@ -229,23 +229,54 @@
   \usebibmacro{undf:pubdate}%
 }
 
+\DeclareFieldFormat{undf:journalvolume}{v\adddot\space#1}
+\DeclareFieldFormat{undf:journalnumber}{n\adddot\space#1}
+\DeclareFieldFormat{undf:journalpages}{p\adddot\space#1}
 \newbibmacro*{undf:journalinfo}{%
   \printfield{journaltitle}%
-  \iflistundef{location}
-    {}
-    {\addcomma\space\printlist{location}}%
-  \iffieldundef{volume}
-    {}
-    {\addcomma\space v\adddot\space\printfield{volume}}%
-  \iffieldundef{number}
-    {}
-    {\addcomma\space n\adddot\space\printfield{number}}%
-  \iffieldundef{pages}
-    {}
-    {\addcomma\space p\adddot\space\printfield{pages}}%
-  \setunit{\addcomma\space}%
+  \setunit*{\addcomma\space}\printlist{location}%
+  \setunit*{\addcomma\space}\printfield[undf:journalvolume]{volume}%
+  \setunit*{\addcomma\space}\printfield[undf:journalnumber]{number}%
+  \setunit*{\addcomma\space}\printfield[undf:journalpages]{pages}%
+  \setunit*{\addcomma\space}%
   \usebibmacro{undf:pubdate}[full]%
 }
+
+% Diagnosticos de revisao, sem completar dados nem impedir a compilacao.
+\newcommand*{\undf@missingessential}[1]{%
+  \PackageWarningNoLine{undf-biblatex}{Essencial ausente: \thefield{entrykey} (#1). Confira a fonte; nenhum valor sera inferido}}
+\newbibmacro*{undf:checkimprint}{%
+  \iflistundef{publisher}{\undf@missingessential{publisher}}{}%
+  \iflistundef{location}{\undf@missingessential{location}}{}%
+}
+\newbibmacro*{undf:checkessential}{%
+  \iffieldundef{title}{\undf@missingessential{title}}{}%
+  \ifentrytype{article}
+    {\iffieldundef{journaltitle}{\undf@missingessential{journaltitle}}{}%
+     \iflistundef{location}{\undf@missingessential{location}}{}}{}%
+  \ifboolexpr{test {\ifentrytype{book}} or test {\ifentrytype{mvbook}}
+    or test {\ifentrytype{collection}} or test {\ifentrytype{mvcollection}}
+    or test {\ifentrytype{reference}} or test {\ifentrytype{mvreference}}}
+    {\usebibmacro{undf:checkimprint}}{}%
+  \ifboolexpr{test {\ifentrytype{inbook}} or test {\ifentrytype{incollection}}
+    or test {\ifentrytype{bookinbook}} or test {\ifentrytype{inreference}}
+    or test {\ifentrytype{suppbook}} or test {\ifentrytype{suppcollection}}}
+    {\iffieldundef{booktitle}{\undf@missingessential{booktitle}}{}%
+     \usebibmacro{undf:checkimprint}%
+     \ifboolexpr{test {\iffieldundef{pages}} and test {\iffieldundef{volume}}}
+       {\undf@missingessential{pages/volume}}{}}{}%
+  \ifboolexpr{test {\ifentrytype{thesis}} or test {\ifentrytype{mastersthesis}}
+    or test {\ifentrytype{phdthesis}}}
+    {\iffieldundef{type}{\undf@missingessential{type}}{}%
+     \iflistundef{institution}{\undf@missingessential{institution}}{}%
+     \iflistundef{location}{\undf@missingessential{location}}{}}{}%
+  \ifboolexpr{(test {\ifentrytype{report}} or test {\ifentrytype{techreport}})
+    and test {\iflistundef{publisher}} and test {\iflistundef{institution}}}
+    {\undf@missingessential{publisher/institution}}{}%
+}
+\letbibmacro{undf:native-begentry}{begentry}
+\renewbibmacro*{begentry}{%
+  \usebibmacro{undf:native-begentry}\usebibmacro{undf:checkessential}}
 
 \newbibmacro*{undf:urlaccess}{%
   \iffieldundef{url}
@@ -386,7 +417,7 @@
   \usebibmacro{undf:mainauthor}%
   \setunit{\adddot\space}%
   \usebibmacro{undf:title}%
-  \adddot\space
+  \newunit\newblock
   \usebibmacro{undf:journalinfo}%
   \usebibmacro{undf:electronic}%
   \finentry
@@ -475,16 +506,11 @@
   \usebibmacro{undf:mainauthor}%
   \setunit{\adddot\space}%
   \usebibmacro{undf:title}%
-  \iffieldundef{type}
-    {}
-    {\adddot\space\printfield{type}}%
-  \iflistundef{institution}
-    {}
-    {\addcomma\space\printlist{institution}}%
-  \iflistundef{location}
-    {}
-    {\addcomma\space\printlist{location}}%
-  \setunit{\addcomma\space}%
+  \newunit\newblock
+  \printfield{type}%
+  \setunit*{\addcomma\space}\printlist{institution}%
+  \setunit*{\addcomma\space}\printlist{location}%
+  \setunit*{\addcomma\space}%
   \usebibmacro{undf:pubdate}[full]%
   \usebibmacro{undf:electronic}%
   \finentry

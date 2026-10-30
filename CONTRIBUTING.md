@@ -117,6 +117,11 @@ Para a matriz de ordenação (14 cenários), execute
 A ordem dos elementos é conferida no PDF, inclusive com citação invertida
 e ajustes explícitos de ordenação.
 
+Para integridade bibliográfica (26 cenários), execute
+`./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-integridade.tex')`.
+Os testes conferem conteúdo, pontuação, avisos esperados e indevidos,
+referência completa pontual e a preservação de datas e links.
+
 ## Imagens e arquivos grandes
 
 Antes de adicionar imagens ao repositório:

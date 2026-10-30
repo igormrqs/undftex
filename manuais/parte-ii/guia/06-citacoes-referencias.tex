@@ -271,6 +271,30 @@ não são promovidas a autoras automaticamente.
 Em legislação, o local fornecido em
 \texttt{location} é preservado; a ausência não cria um local fictício.
 
+\subsection*{Dados essenciais ausentes}
+
+O aviso \texttt{Essencial ausente} identifica a chave e o campo que precisa
+de revisão. A referência disponível continua sendo produzida; o modelo
+não inventa título, autoria, cidade, editora ou instituição. Um registro
+sem título e sem autoria pode produzir somente os dados remanescentes e
+uma chamada pelo ano: isso é evidência de cadastro incompleto, não uma
+referência válida para entrega. Corrija a fonte dos dados antes de usar.
+
+As verificações contemplam título; periódico e local de artigos; imprenta
+de livros e partes; título do recipiente e localização física da parte;
+natureza, instituição e local de trabalhos acadêmicos; e publicador de
+relatórios sem instituição alternativa. A ausência simultânea de páginas
+e volume em partes solicita revisão do localizador. Publicação, URL e
+acesso continuam com os diagnósticos próprios descritos anteriormente.
+As mesmas verificações se aplicam a \verb|\fullref{chave}|.
+
+São verificações orientadas aos drivers, não um validador integral da
+NBR 6023. Volume, número e páginas de artigo não são exigidos
+universalmente pelo programa; documentos com identificadores de artigo,
+tipos particulares ou dados complementares precisam de revisão específica.
+A pontuação acompanha os campos efetivamente impressos e não substitui
+a correção de uma referência incompleta.
+
 \subsection*{Ciclo de compilação}
 
 Uma citação com a chave impressa em negrito ou como marcador indefinido geralmente indica chave inexistente ou ciclo de compilação incompleto. Mensagens como \texttt{Please (re)run Biber} pedem a execução do Biber e novas passagens do LuaLaTeX.

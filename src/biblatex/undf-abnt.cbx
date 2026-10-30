@@ -57,7 +57,8 @@
   #1\iffieldsequal{labeltitle}{title}{}{\addspace\mkbibbrackets{\textellipsis}}}
 \renewbibmacro*{cite:label}{%
   \iffieldundef{label}
-    {\printtext[bibhyperref]{\printfield[undf:citetitle]{labeltitle}}}
+    {\iffieldundef{labeltitle}{}%
+      {\printtext[bibhyperref]{\printfield[undf:citetitle]{labeltitle}}}}
     {\printtext[bibhyperref]{\printfield{label}}}}
 
 % ----------------------------------------------------

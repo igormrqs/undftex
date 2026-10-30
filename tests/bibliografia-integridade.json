@@ -1,0 +1,578 @@
+[
+  {
+    "id": "P01",
+    "caso": "Controle completo preserva pontuacao e data",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "Documento P01\\. Revista P01, Brasília, v\\. 2, n\\. 1, p\\. 10–20, 29 de out\\. de 2024\\."
+    ],
+    "avisosAusentes": [
+      "Essencial ausente: P01",
+      "Rotulo por titulo: P01"
+    ]
+  },
+  {
+    "id": "P02",
+    "caso": "Periodico ausente com demais campos",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "Documento P02\\. Brasília, v\\. 2, n\\. 1, p\\. 10–20"
+    ],
+    "avisos": [
+      "Essencial ausente: P02 \\(journaltitle\\)"
+    ]
+  },
+  {
+    "id": "P03",
+    "caso": "Alias journal normalizado pelo Biber",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "contagens": {
+      "Revista alias P03": 1
+    },
+    "avisosAusentes": [
+      "Essencial ausente: P03"
+    ]
+  },
+  {
+    "id": "P04",
+    "caso": "Volume ausente nao deixa separador vazio",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "Revista P04, Brasília, n\\. 1, p\\. 10–20"
+    ],
+    "avisosAusentes": [
+      "Essencial ausente: P04"
+    ]
+  },
+  {
+    "id": "P05",
+    "caso": "Numero ausente nao deixa separador vazio",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "Revista P05, Brasília, v\\. 2, p\\. 10–20"
+    ],
+    "avisosAusentes": [
+      "Essencial ausente: P05"
+    ]
+  },
+  {
+    "id": "P06",
+    "caso": "Paginas ausentes nao deixam separador vazio",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "Revista P06, Brasília, v\\. 2, n\\. 1, 29 de out\\."
+    ],
+    "avisosAusentes": [
+      "Essencial ausente: P06"
+    ]
+  },
+  {
+    "id": "P07",
+    "caso": "Volume numero paginas ausentes sem obrigatoriedade universal",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "Revista P07, Brasília, 29 de out\\."
+    ],
+    "avisosAusentes": [
+      "Essencial ausente: P07"
+    ]
+  },
+  {
+    "id": "P08",
+    "caso": "Somente autoria titulo e data sem ponto virgula combinado",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "Documento P08\\. 2024\\."
+    ],
+    "avisos": [
+      "Essencial ausente: P08 \\(journaltitle\\)",
+      "Essencial ausente: P08 \\(location\\)"
+    ]
+  },
+  {
+    "id": "P09",
+    "caso": "Titulo do artigo ausente recebe diagnostico",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "Revista P09"
+    ],
+    "avisos": [
+      "Essencial ausente: P09 \\(title\\)"
+    ]
+  },
+  {
+    "id": "P10",
+    "caso": "Titulo do livro ausente",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "AUTOR, Ana",
+      "Brasília: Editora, 2024"
+    ],
+    "avisos": [
+      "Essencial ausente: P10 \\(title\\)"
+    ]
+  },
+  {
+    "id": "P11",
+    "caso": "Editora ausente sem inventar publicador",
+    "ausentes": [
+      "Editora",
+      "s. n.",
+      ".,",
+      ". ,"
+    ],
+    "padroes": [
+      "Brasília, 2024"
+    ],
+    "avisos": [
+      "Essencial ausente: P11 \\(publisher\\)"
+    ]
+  },
+  {
+    "id": "P12",
+    "caso": "Local ausente sem inventar cidade",
+    "ausentes": [
+      "Brasília",
+      "S. l.",
+      ".,",
+      ". ,"
+    ],
+    "padroes": [
+      "Editora, 2024"
+    ],
+    "avisos": [
+      "Essencial ausente: P12 \\(location\\)"
+    ]
+  },
+  {
+    "id": "P13",
+    "caso": "Publicacao ausente nao usa acesso nem data original",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "s\\.? ?d\\.",
+      "Acesso em: 3 de fev\\. de 2039"
+    ],
+    "chamadaAusentes": [
+      "2039",
+      "1890"
+    ],
+    "avisos": [
+      "Data de publicacao ausente: P13"
+    ],
+    "links": [
+      "https://doi.org/10.0000/p13",
+      "https://example.invalid/p13"
+    ]
+  },
+  {
+    "id": "P14",
+    "caso": "Titulo do recipiente ausente",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "ordem": [
+      "Documento P14",
+      "LIVRO, Bruno",
+      "Brasília: Editora",
+      "2024",
+      "12–30"
+    ],
+    "avisos": [
+      "Essencial ausente: P14 \\(booktitle\\)"
+    ]
+  },
+  {
+    "id": "P15",
+    "caso": "Recipiente sem dados de identificacao nao e inventado",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "Documento P15",
+      "2024"
+    ],
+    "avisos": [
+      "Essencial ausente: P15 \\(booktitle\\)",
+      "Essencial ausente: P15 \\(publisher\\)",
+      "Essencial ausente: P15 \\(location\\)",
+      "Essencial ausente: P15 \\(pages/volume\\)"
+    ]
+  },
+  {
+    "id": "P16",
+    "caso": "Subtitulo da parte com titulo ausente nao cria dois pontos soltos",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "AUTOR, Ana\\. Subparte P16"
+    ],
+    "ordem": [
+      "Subparte P16",
+      "Recipiente P16"
+    ],
+    "avisos": [
+      "Essencial ausente: P16 \\(title\\)"
+    ]
+  },
+  {
+    "id": "P17",
+    "caso": "Instituicao academica ausente",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "tese de mestrado",
+      "Brasília",
+      "2024"
+    ],
+    "avisos": [
+      "Essencial ausente: P17 \\(institution\\)"
+    ]
+  },
+  {
+    "id": "P18",
+    "caso": "Natureza instituicao local ausentes",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "Documento P18\\. 2024\\."
+    ],
+    "avisos": [
+      "Essencial ausente: P18 \\(type\\)",
+      "Essencial ausente: P18 \\(institution\\)",
+      "Essencial ausente: P18 \\(location\\)"
+    ]
+  },
+  {
+    "id": "P19",
+    "caso": "Numero sem natureza preserva separadores",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "n\\. 5",
+      "Universidade",
+      "2024"
+    ]
+  },
+  {
+    "id": "P20",
+    "caso": "Publicador responsavel ausente",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "2024"
+    ],
+    "avisos": [
+      "Essencial ausente: P20 \\(publisher/institution\\)"
+    ]
+  },
+  {
+    "id": "P21",
+    "caso": "Instituicao como publicadora continua valida",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "contagens": {
+      "Universidade": 1
+    },
+    "avisosAusentes": [
+      "Essencial ausente: P21"
+    ]
+  },
+  {
+    "id": "P22",
+    "caso": "Sem titulo e sem autoria: diagnostico sem dados ficticios",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "2024"
+    ],
+    "chamadaPadroes": [
+      "\\(2024\\)"
+    ],
+    "chamadaAusentes": [
+      "(,",
+      "( ,"
+    ],
+    "avisos": [
+      "Essencial ausente: P22 \\(title\\)"
+    ]
+  },
+  {
+    "id": "P23",
+    "caso": "URL ausente conserva diagnostico F03C",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "avisos": [
+      "URL ausente: P23"
+    ],
+    "padroes": [
+      "Documento P23",
+      "2024"
+    ]
+  },
+  {
+    "id": "P24",
+    "caso": "Referencia completa pontual tambem recebe diagnostico",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "AUTOR, Ana",
+      "Editora",
+      "2024"
+    ],
+    "avisos": [
+      "Essencial ausente: P24 \\(title\\)"
+    ]
+  },
+  {
+    "id": "P25",
+    "caso": "Alias academico sem instituicao",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "tese de mestrado",
+      "2024"
+    ],
+    "avisos": [
+      "Essencial ausente: P25 \\(institution\\)"
+    ]
+  },
+  {
+    "id": "P26",
+    "caso": "Autor e organizacao nao recebem aviso de autoria ausente",
+    "ausentes": [
+      ".,",
+      ". ,",
+      ",,",
+      ":,",
+      ": .",
+      ", .",
+      "..",
+      "Autor desconhecido",
+      "Anônimo"
+    ],
+    "padroes": [
+      "AUTOR, Ana"
+    ],
+    "avisosAusentes": [
+      "Rotulo por titulo: P26",
+      "Organizacao sem autoria definida: P26",
+      "Essencial ausente: P26"
+    ]
+  }
+]

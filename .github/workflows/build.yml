@@ -65,6 +65,7 @@ jobs:
             tests/bibliografia-recipientes.tex
             tests/bibliografia-autoria.tex
             tests/bibliografia-ordenacao.tex
+            tests/bibliografia-integridade.tex
           latexmk_use_lualatex: true
 
       - name: Instalar ferramenta de leitura dos PDFs
@@ -85,7 +86,7 @@ jobs:
       - name: Verificar listas, datas, desambiguacao e apud na bibliografia
         shell: pwsh
         run: |
-          foreach ($documento in 'bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos', 'bibliografia-responsabilidades', 'bibliografia-recipientes', 'bibliografia-autoria', 'bibliografia-ordenacao') {
+          foreach ($documento in 'bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos', 'bibliografia-responsabilidades', 'bibliografia-recipientes', 'bibliografia-autoria', 'bibliografia-ordenacao', 'bibliografia-integridade') {
             ./scripts/verificar-bibliografia.ps1 -Diretorio '.' -Documento $documento
           }
 

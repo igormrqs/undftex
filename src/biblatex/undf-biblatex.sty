@@ -67,7 +67,9 @@
 % Data de acesso e data da obra original nao substituem a publicacao da edicao citada.
 \DeclareLabeldate{\field{date}\field{year}\literal{nodate}}
 \AtDataInput{%
-  \ifnameundef{labelname}
+  % labelname ainda nao foi derivado neste hook; consulte os nomes de origem.
+  \ifboolexpr{test {\ifnameundef{author}} and test {\ifnameundef{editor}}
+    and test {\ifnameundef{translator}}}
     {\PackageWarningNoLine{undf-biblatex}{Rotulo por titulo: \thefield{entrykey}. Confira shorttitle, especialmente monossilabos iniciais e comandos TeX}%
      \iflistundef{organization}{}%
        {\PackageWarningNoLine{undf-biblatex}{Organizacao sem autoria definida: \thefield{entrykey}. organization nao presume autoria; confira author na fonte}}}%
