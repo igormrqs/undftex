@@ -1,0 +1,31 @@
+% Rotulos sao verificados na chamada e na referencia, dentro de cada refsection.
+\documentclass{undftex}
+\addbibresource{tests/bibliografia-desambiguacao.bib}
+\newcommand{\casounico}[2]{%
+  \begin{refsection}
+    \section*{CASO #1}
+    \noindent CHAMADA: #2\par
+    \noindent REFERENCIA:\par
+    \printbibliography[heading=none]
+  \end{refsection}\clearpage
+}
+\begin{document}
+\casounico{U01}{\citeind{U01B}. \citeindonline{U01A}. \citeind{U01A}.}
+\casounico{U02}{\citeind{U02C}. \citeindonline{U02B}. \citeind{U02A}.}
+\casounico{U03}{\citeind{U03A}. \citeindonline{U03B}.}
+\casounico{U04}{\citeind{U04A}. \citeindonline{U04B}.}
+\casounico{U05}{\citeind{U05A}. \citeindonline{U05B}.}
+\casounico{U06}{\citeind{U06A}. \citeindonline{U06B}.}
+\casounico{U07}{\citeind{U07B}. \citeindonline{U07A}.}
+\casounico{U08}{\citeind{U08A}. \citeindonline{U08B}.}
+\casounico{U09}{\citeind{U09A}. \citeind{U09B}.}
+\casounico{U10}{\citeind{U10}. \citeindonline{U10}.}
+\casounico{U11}{\citeind{U01A}.}
+\casounico{U12}{\citeind{U01B}.}
+\casounico{U13}{\citeind{U01A}. \citeind{U01B}.}
+\casounico{U14}{\citeind{U14A}. \citeindonline{U14B}.}
+\casounico{U15}{\citarparenteses{U01A}. \citartexto{U01B}.
+  \citardireta[9]{U01A}{SENTINELA DIRETA}. \citardiretatexto[10]{U01B}{SENTINELA NARRATIVA}.
+  \fullref{U01A}.}
+\casounico{U16}{\citeind{U16A}. \citeindonline{U16B}.}
+\end{document}

@@ -1,0 +1,54 @@
+% Identificadores sinteticos; nenhum destino e consultado durante compilacao/testes.
+\documentclass{undftex}
+\addbibresource{tests/bibliografia-eletronicos.bib}
+\newcommand{\casounico}[2]{%
+  \begin{refsection}
+    \section*{CASO #1}\noindent CHAMADA: #2\par
+    \noindent REFERENCIA:\par\printbibliography[heading=none]
+  \end{refsection}\clearpage
+}
+\begin{document}
+\casounico{C01}{\citeind{C01}}
+\casounico{C02}{\citeind{C02}}
+\casounico{C03}{\citeind{C03}}
+\casounico{C04}{\citeind{C04}}
+\casounico{C05}{\citeind{C05}}
+\casounico{C06}{\citeind{C06}}
+\casounico{C07}{\citeind{C07}}
+\casounico{C08}{\citeind{C08}}
+\casounico{C09}{\citeind{C09}}
+\casounico{C10}{\citeind{C10}}
+\casounico{C11}{\citeind{C11}}
+\casounico{C12}{\citeind{C12}}
+\casounico{C13}{\citeind{C13}}
+\casounico{C14}{\citeind{C14}}
+\casounico{C15}{\citeind{C15}}
+\casounico{C16}{\citeind{C16}}
+\casounico{C17}{\citeind{C17}}
+\casounico{C18}{\citeind{C18}}
+\casounico{C19}{\citeind{C19}}
+\casounico{C20}{\citeind{C20}}
+\casounico{C21}{\citeind{C21}}
+\casounico{C22}{\citeind{C22}}
+\casounico{C23}{\citeind{C23}}
+\casounico{C24}{\citeind{C24}}
+\casounico{C25}{\citeind{C25}}
+\casounico{C26}{\citeind{C26}}
+\casounico{C27}{\citeind{C27}}
+\casounico{C28}{\citeind{C28}}
+\casounico{C29}{\citeind{C29}}
+\casounico{C30}{\citeind{C30}}
+\casounico{C31}{\citeind{C31}}
+\casounico{C32}{\citeind{C32}}
+\casounico{C33}{\citeind{C33}}
+\casounico{C34}{\citeind{C34}}
+\casounico{C35}{\citeind{C35}}
+\casounico{C36}{\citeind{C36}}
+\casounico{C37}{\citeind{C37}}
+\casounico{C38}{\citeind{C38}}
+\begin{refsection}
+\section*{CASO C39}\noindent CHAMADA: \citeind{C39}\par
+\vspace*{0.62\textheight}
+\noindent REFERENCIA:\par\printbibliography[heading=none]
+\end{refsection}\clearpage
+\end{document}

@@ -36,7 +36,6 @@
   \begingroup
     \urlstyle{same}%
     \Urlmuskip=0mu\relax
-    \appto\UrlNoBreaks{\do\-}%
     \url{#1}%
   \endgroup}
 
@@ -87,33 +86,22 @@
 % ----------------------------------------------------
 % Macros auxiliares da bibliografia
 % ----------------------------------------------------
-\newbibmacro*{undf:printfulldate}{%
-  \iffieldundef{year}
-    {}
-    {%
-      \iffieldundef{day}
-        {}
-        {\printfield{day}\space de\space}%
-      \iffieldundef{month}
-        {}
-        {\mkbibmonth{\thefield{month}}\space de\space}%
-      \printfield{year}%
-    }%
+% Qualificadores sao fornecidos pelo autor (EDTF), nunca inferidos pelo estilo.
+\DefineBibliographyStrings{portuguese}{circa={ca\adddot}}
+\DeclareFieldFormat{date}{%
+  \ifboolexpr{test {\ifdatecirca} or test {\ifdateuncertain}
+    or test {\iffieldequalstr{labelyear}{nodate}}}
+    {\mkbibbrackets{#1}}{#1}%
 }
+\DeclareFieldAlias{labeldate}{date}
 
-\newbibmacro*{undf:printfullurldate}{%
-  \iffieldundef{urlyear}
-    {}
-    {%
-      \iffieldundef{urlday}
-        {}
-        {\printfield{urlday}\space de\space}%
-      \iffieldundef{urlmonth}
-        {}
-        {\mkbibmonth{\thefield{urlmonth}}\space de\space}%
-      \printfield{urlyear}%
-    }%
+% Monografias/relatorios usam anos; artigo, online, legislacao e defesa preservam precisao.
+\newbibmacro*{undf:pubdate}[1][year]{%
+  \iffieldundef{year}
+    {\printlabeldateextra}
+    {\ifstrequal{#1}{year}{\mkdaterangeyearextra{}}{\printdateextra}}%
 }
+\renewbibmacro*{date}{\usebibmacro{undf:pubdate}[full]}
 
 \newbibmacro*{undf:mainauthor}{%
   \ifnameundef{author}
@@ -152,43 +140,21 @@
     {\printfield{edition}}%
 }
 
-\newbibmacro*{undf:imprenta}{%
+\newbibmacro*{undf:imprenta}[1][publisher]{%
   \iflistundef{location}
     {}
     {%
       \printlist{location}%
-      \iflistundef{publisher}
+      \iflistundef{#1}
         {}
         {\addcolon\space}%
     }%
-  \iflistundef{publisher}
+  \iflistundef{#1}
     {}
-    {\printlist{publisher}}%
-  \iffieldundef{year}
-    {%
-      \iffieldundef{date}
-        {}
-        {%
-          \ifboolexpr{
-            test {\iflistundef{location}}
-            and
-            test {\iflistundef{publisher}}
-          }
-            {}
-            {\addcomma\space}%
-          \usebibmacro{undf:printfulldate}%
-        }%
-    }
-    {%
-      \ifboolexpr{
-        test {\iflistundef{location}}
-        and
-        test {\iflistundef{publisher}}
-      }
-        {}
-        {\addcomma\space}%
-      \printfield{year}%
-    }%
+    {\printlist{#1}}%
+  \ifboolexpr{test {\iflistundef{location}} and test {\iflistundef{#1}}}
+    {}{\setunit{\addcomma\space}}%
+  \usebibmacro{undf:pubdate}%
 }
 
 \newbibmacro*{undf:journalinfo}{%
@@ -205,27 +171,63 @@
   \iffieldundef{pages}
     {}
     {\addcomma\space p\adddot\space\printfield{pages}}%
-  \iffieldundef{year}
-    {%
-      \iffieldundef{date}
-        {}
-        {\addcomma\space\usebibmacro{undf:printfulldate}}%
-    }
-    {\addcomma\space\printfield{year}}%
+  \setunit{\addcomma\space}%
+  \usebibmacro{undf:pubdate}[full]%
 }
 
 \newbibmacro*{undf:urlaccess}{%
   \iffieldundef{url}
-    {}
+    {\ifentrytype{online}
+      {\PackageWarningNoLine{undf-biblatex}{URL ausente: \thefield{entrykey}. Informe o endereco consultado quando disponivel}}{}}%
     {%
       \adddot\par
-      \noindent Disponível em:\space\printfield{url}%
+      % O grupo de cada entrada limita o alinhamento a este bloco final.
+      \raggedright\noindent Disponível em:\space\printfield{url}%
+      \iffieldundef{urlyear}
+        {\PackageWarningNoLine{undf-biblatex}{Acesso ausente: \thefield{entrykey}. Informe a data real de consulta}}
+        {\adddot}%
     }%
   \iffieldundef{urlyear}
     {}
     {%
-      \par\noindent Acesso em:\space\usebibmacro{undf:printfullurldate}%
+      \iffieldundef{url}
+        {\PackageWarningNoLine{undf-biblatex}{Acesso sem URL: \thefield{entrykey}. Confira o endereco associado a data informada}}{}%
+      \ifboolexpr{test {\iffieldundef{urlmonth}} or test {\iffieldundef{urlday}}}
+        {\PackageWarningNoLine{undf-biblatex}{Acesso parcial: \thefield{entrykey}. Confira dia, mes e ano sem completar dados por suposicao}}{}%
+      \par\noindent Acesso em:\space
+      {\DeclareFieldFormat{urldate}{##1}\mkdaterangelong{url}}%
     }%
+}
+
+% Somente igualdade literal com um resolvedor conhecido permite unir DOI e URL.
+% Consultas, fragmentos e outros enderecos permanecem distintos; nao ha rede.
+\ExplSyntaxOn
+\cs_new_protected:Npn \undf@ifdoiurlTF #1#2
+  {
+    \str_if_eq:eeTF {\thefield{url}} {https://doi.org/\thefield{doi}} {#1}
+      {\str_if_eq:eeTF {\thefield{url}} {http://doi.org/\thefield{doi}} {#1}
+        {\str_if_eq:eeTF {\thefield{url}} {https://dx.doi.org/\thefield{doi}} {#1}
+          {\str_if_eq:eeTF {\thefield{url}} {http://dx.doi.org/\thefield{doi}} {#1} {#2}}}}
+  }
+\ExplSyntaxOff
+
+% Bloco compartilhado com os drivers herdados, preservando formatos e opcoes nativos.
+\renewbibmacro*{doi+eprint+url}{%
+  \iftoggle{bbx:doi}
+    {\iftoggle{bbx:url}
+      {\undf@ifdoiurlTF{}{\printfield{doi}}}
+      {\printfield{doi}}}{}%
+  \newunit\newblock
+  \iftoggle{bbx:eprint}{\usebibmacro{eprint}}{}%
+  \newunit\newblock
+  \iftoggle{bbx:url}{\usebibmacro{undf:urlaccess}}{}%
+}
+
+\newbibmacro*{undf:electronic}{%
+  \newunit\newblock
+  \printfield{howpublished}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
 }
 
 \newbibmacro*{undf:legisource}{%
@@ -233,13 +235,8 @@
   \iflistundef{location}
     {}
     {\addcomma\space\printlist{location}}%
-  \iffieldundef{date}
-    {%
-      \iffieldundef{year}
-        {}
-        {\addcomma\space\printfield{year}}%
-    }
-    {\addcomma\space\usebibmacro{undf:printfulldate}}%
+  \setunit{\addcomma\space}%
+  \usebibmacro{undf:pubdate}[full]%
   \iffieldundef{pages}
     {}
     {\addcomma\space p\adddot\space\printfield{pages}}%
@@ -257,6 +254,7 @@
   \usebibmacro{undf:edition}%
   \newunit\newblock
   \usebibmacro{undf:imprenta}%
+  \usebibmacro{undf:electronic}%
   \finentry
 }
 
@@ -269,6 +267,7 @@
   \usebibmacro{undf:edition}%
   \newunit\newblock
   \usebibmacro{undf:imprenta}%
+  \usebibmacro{undf:electronic}%
   \finentry
 }
 
@@ -281,6 +280,7 @@
   \usebibmacro{undf:edition}%
   \newunit\newblock
   \usebibmacro{undf:imprenta}%
+  \usebibmacro{undf:electronic}%
   \finentry
 }
 
@@ -293,6 +293,7 @@
   \usebibmacro{undf:edition}%
   \newunit\newblock
   \usebibmacro{undf:imprenta}%
+  \usebibmacro{undf:electronic}%
   \finentry
 }
 
@@ -303,7 +304,7 @@
   \usebibmacro{undf:title}%
   \adddot\space
   \usebibmacro{undf:journalinfo}%
-  \usebibmacro{undf:urlaccess}%
+  \usebibmacro{undf:electronic}%
   \finentry
 }
 
@@ -324,7 +325,7 @@
   \iffieldundef{pages}
     {}
     {\addcomma\space p\adddot\space\printfield{pages}}%
-  \usebibmacro{undf:urlaccess}%
+  \usebibmacro{undf:electronic}%
   \finentry
 }
 
@@ -345,7 +346,7 @@
   \iffieldundef{pages}
     {}
     {\addcomma\space p\adddot\space\printfield{pages}}%
-  \usebibmacro{undf:urlaccess}%
+  \usebibmacro{undf:electronic}%
   \finentry
 }
 
@@ -369,32 +370,10 @@
         {\addcolon\space}%
       \printlist{publisher}%
     }%
-  \iffieldundef{date}
-    {%
-      \iffieldundef{year}
-        {}
-        {%
-          \ifboolexpr{
-            test {\iflistundef{location}}
-            and
-            test {\iflistundef{publisher}}
-          }
-            {}
-            {\addcomma\space}%
-          \printfield{year}%
-        }%
-    }
-    {%
-      \ifboolexpr{
-        test {\iflistundef{location}}
-        and
-        test {\iflistundef{publisher}}
-      }
-        {}
-        {\addcomma\space}%
-      \usebibmacro{undf:printfulldate}%
-    }%
-  \usebibmacro{undf:urlaccess}%
+  \ifboolexpr{test {\iflistundef{location}} and test {\iflistundef{publisher}}}
+    {}{\setunit{\addcomma\space}}%
+  \usebibmacro{undf:pubdate}[full]%
+  \usebibmacro{undf:electronic}%
   \finentry
 }
 
@@ -409,16 +388,15 @@
   \iffieldundef{type}
     {}
     {\adddot\space\printfield{type}}%
-  \iffieldundef{institution}
+  \iflistundef{institution}
     {}
     {\addcomma\space\printlist{institution}}%
   \iflistundef{location}
     {}
     {\addcomma\space\printlist{location}}%
-  \iffieldundef{year}
-    {}
-    {\addcomma\space\printfield{year}}%
-  \usebibmacro{undf:urlaccess}%
+  \setunit{\addcomma\space}%
+  \usebibmacro{undf:pubdate}[full]%
+  \usebibmacro{undf:electronic}%
   \finentry
 }
 
@@ -437,8 +415,19 @@
     {}
     {\addcomma\space n\adddot\space\printfield{number}}%
   \newunit\newblock
-  \usebibmacro{undf:imprenta}%
-  \usebibmacro{undf:urlaccess}%
+  % Instituicao responsavel nao e promovida a autora. Listas identicas
+  % de instituicao/editora aparecem uma vez no bloco de publicacao.
+  \iflistundef{publisher}
+    {\usebibmacro{undf:imprenta}[institution]}
+    {%
+      \iflistundef{institution}
+        {}
+        {\iflistsequal{institution}{publisher}
+          {}
+          {\printlist{institution}\newunit\newblock}}%
+      \usebibmacro{undf:imprenta}%
+    }%
+  \usebibmacro{undf:electronic}%
   \finentry
 }
 
@@ -455,15 +444,14 @@
     {\setunit{\addcolon\space}\printfield[titlecase]{subtitle}}%
   \setunit{\adddot\space}%
   \printfield{journaltitle}%
-  \iffieldundef{location}
+  \iflistundef{location}
     {}
     {\setunit{\addcomma\space}\printlist{location}}%
-  \iffieldundef{year}
-    {}
-    {\setunit{\addcomma\space}\printfield{year}}%
+  \setunit{\addcomma\space}%
+  \usebibmacro{undf:pubdate}[full]%
   \iffieldundef{pages}
     {}
     {\setunit{\addcomma\space}\printfield{pages}}%
-  \usebibmacro{undf:urlaccess}%
+  \usebibmacro{undf:electronic}%
   \usebibmacro{finentry}%
 }

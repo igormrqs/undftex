@@ -42,6 +42,58 @@ latexmk tcc-exemplo-undf.tex
 
 Ambos devem terminar sem erros e sem warnings novos. O fluxo manual equivalente (lualatex, biber, lualatex, lualatex) continua válido e está documentado no `README.md`.
 
+Para alterações nos perfis, execute a regressão completa e os testes de integridade:
+
+```powershell
+./scripts/verificar-perfis.ps1
+./scripts/verificar-integridade.ps1
+```
+
+O segundo script requer LuaLaTeX e `pdftotext`; confere os nomes no PDF e testa
+inclusões obrigatórias e opcionais, inclusive falhas esperadas. As fontes de teste
+e suas saídas ficam em `build/integridade/`; a checagem do verificador também usa
+`build/perfis/`. Nenhum desses PDFs é uma publicação oficial.
+
+A regressão completa também compila `tests/bibliografia-listas.tex` e confere
+os contratos de instituição, editora e local no PDF. Para executar esse conjunto
+separadamente, com os validadores básicos dos perfis:
+
+```powershell
+./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-listas.tex')
+```
+
+`tests/bibliografia-listas.bib` contém os dados sintéticos e o arquivo JSON
+correspondente registra contagens, ordem e ausências esperadas. O resultado por
+caso fica em `build/perfis/bibliografia-listas-resultados.json`. O verificador
+também pode reler um PDF já compilado com `./scripts/verificar-bibliografia.ps1`.
+
+A mesma regressão inclui `bibliografia-datas` (20 casos),
+`bibliografia-desambiguacao` (16) e `bibliografia-apud` (15). Cada trio
+`.tex`/`.bib`/`.json` em `tests/` verifica sentinelas no PDF real; não basta
+compilar. As chamadas são verificadas separadamente das referências, por
+`refsection`. Para selecionar um conjunto:
+
+```powershell
+./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-apud.tex')
+./scripts/verificar-bibliografia.ps1 -Documento bibliografia-apud
+```
+
+O JSON de resultados usa o nome do documento em `build/perfis/`. Datas inválidas
+e ausentes nos testes são intencionais: devem produzir diagnóstico, sem usar
+o ano de acesso como publicação. Os testes de homônimos incluem controles
+de anos diferentes e de `et al.` para medir os efeitos de `uniquename`.
+
+`bibliografia-eletronicos` acrescenta 39 cenários de DOI, URL, acesso, suporte
+e identificadores de repositório. Os destinos dos links são extraídos do PDF
+com `pdftohtml` (Poppler, como `pdftotext`), sem abrir URLs nem validar DOI
+na rede. Asserções de identificadores preservam os hífens reais ao remover
+somente as quebras de composição. Um cenário atravessa páginas; avisos de
+linha excedendo a margem são rejeitados nessa fixture. Para executá-la:
+
+```powershell
+./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-eletronicos.tex')
+```
+
 ## Imagens e arquivos grandes
 
 Antes de adicionar imagens ao repositório:

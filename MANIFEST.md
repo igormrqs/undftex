@@ -22,6 +22,15 @@ O trabalho UnDF-TeX é composto por:
 - documentação e metadados de distribuição em `README.md`, `CONTRIBUTING.md`, `CHANGELOG.md`, `VERSION.txt`, `LICENSE`, `LICENSE-LPPL-1.3c.tex`, `MANIFEST.md` e `docs/`;
 - infraestrutura de compilação e verificação em `.latexmkrc`, `.github/workflows/`, `scripts/` e `tests/`.
 
+As regressões bibliográficas distribuídas incluem `tests/bibliografia-listas.tex`,
+`tests/bibliografia-listas.bib`, `tests/bibliografia-listas.json` e
+`scripts/verificar-bibliografia.ps1`.
+Também incluem os trios `.tex`/`.bib`/`.json` de
+`tests/bibliografia-datas`, `tests/bibliografia-desambiguacao` e
+`tests/bibliografia-apud`, para datas, rótulos autor-data e filtros de apud.
+O trio `tests/bibliografia-eletronicos.tex`/`.bib`/`.json` verifica DOI, URL,
+acesso, hiperlinks e referências que atravessam páginas.
+
 ## Fora do trabalho distribuído
 
 Não fazem parte do trabalho distribuído por padrão:

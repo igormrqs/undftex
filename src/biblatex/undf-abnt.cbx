@@ -21,6 +21,30 @@
 
 \RequireCitationStyle{authoryear}
 
+% Homonimos no mesmo ano: sobrenome, iniciais; prenome se iniciais nao bastam.
+% O nivel e calculado pelo Biber; nomes nao ambiguos conservam apenas sobrenome.
+\DeclareNameFormat{labelname}{%
+  \ifcase\value{uniquename}%
+    \usebibmacro{name:family}
+      {\namepartfamily}{\namepartgiven}{\namepartprefix}{\namepartsuffix}%
+  \or
+    \ifuseprefix
+      {\usebibmacro{name:family-given}
+        {\namepartfamily}{\namepartgiveni}{\namepartprefix}{\namepartsuffixi}}
+      {\let\namepartprefix\empty
+       \usebibmacro{name:family-given}
+        {\namepartfamily}{\namepartgiveni}{\namepartprefix}{\namepartsuffixi}}%
+  \or
+    \ifuseprefix
+      {\usebibmacro{name:family-given}
+        {\namepartfamily}{\namepartgiven}{\namepartprefix}{\namepartsuffix}}
+      {\let\namepartprefix\empty
+       \usebibmacro{name:family-given}
+        {\namepartfamily}{\namepartgiven}{\namepartprefix}{\namepartsuffix}}%
+  \fi
+  \usebibmacro{name:andothers}%
+}
+
 % ----------------------------------------------------
 % Delimitadores do sistema autor-data
 % ----------------------------------------------------
@@ -33,10 +57,20 @@
 % A fonte original aparece no texto.
 % A fonte consultada é citada via biblatex e entra nas referências.
 % ----------------------------------------------------
+% Mesmo rotulo de data das citacoes autor-data, inclusive intervalo e extradate.
+% Nao usa \cite*: shorthand pode substituir a chamada inteira, mas nao o ano aqui.
+\DeclareCiteCommand{\undf@citelabeldate}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\printlabeldateextra}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
 \NewDocumentCommand{\textapud}{ m m O{} m O{} }{%
   #1\space(#2%
   \ifstrempty{#3}{}{,\space p.\space #3}%
-  \space apud\space \citeauthor{#4},\space \citeyear{#4}%
+  \space apud\space \citeauthor{#4},\space \undf@citelabeldate{#4}%
   \ifstrempty{#5}{}{,\space p.\space #5}%
   )%
 }
@@ -44,7 +78,7 @@
 \NewDocumentCommand{\parenciteapud}{ m m O{} m O{} }{%
   (#1,\space #2%
   \ifstrempty{#3}{}{,\space p.\space #3}%
-  \space apud\space \citeauthor{#4},\space \citeyear{#4}%
+  \space apud\space \citeauthor{#4},\space \undf@citelabeldate{#4}%
   \ifstrempty{#5}{}{,\space p.\space #5}%
   )%
 }

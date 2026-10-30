@@ -75,6 +75,12 @@ define a obrigatoriedade do elemento.
 
 \section{Inclusão de capítulos}
 
+Cada chamada ativa de \texttt{\string\undfincludechapter} exige que o arquivo
+indicado exista. A ausência produz erro com o caminho do capítulo e impede
+o sucesso da compilação nos verificadores. Informe o caminho sem a extensão
+\texttt{.tex}. Arquivos realmente opcionais continuam sendo tratados por
+\texttt{\string\undfinputoptional}, que permite sua ausência.
+
 O arquivo principal usa \texttt{\textbackslash undfincludechapter}. Para ativar a seção opcional de dados ou corpus, retire o comentário da linha correspondente:
 
 \begin{lstlisting}

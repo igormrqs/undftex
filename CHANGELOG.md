@@ -8,6 +8,14 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Adicionado
 
+- Regressão de referências eletrônicas com 39 cenários, conferência dos destinos de hiperlinks, caracteres e continuidade entre páginas, integrada ao fluxo local e de CI.
+
+- Regressão permanente com 20 cenários de datas, 16 de desambiguação e 15 de apud, com leitura das chamadas e referências nos PDFs e integração local e de CI.
+
+- Regressão bibliográfica com 23 casos de instituições, editora, local, aliases acadêmicos e campos ausentes, integrada aos verificadores local e de CI.
+
+- Regressão de integridade para nomes de orientadores e inclusões obrigatórias/opcionais, com conferência do texto do PDF e de falhas esperadas de compilação.
+
 - Campos GitHub e versão no relatório parcial, com orientação para repositório do projeto, README e evidências vinculadas a commit ou tag.
 - Relatório final do portfólio de Projetos Aplicados, com modelo preenchível, exemplo independente, inventário completo e análise integradora do conjunto.
 - Relatório parcial de cada projeto para preservar memória, conteúdo e evidências; exemplo com seis casos técnicos reproduzíveis e guia documental de um segundo projeto.
@@ -15,6 +23,20 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 - Verificação da organização documental, dos links locais em Markdown e da ausência de auxiliares versionados, integrada ao GitHub Actions.
 - Modelo final 1.4 de desenvolvimento e análise de negócio tecnológico, com exemplo didático independente e simulação financeira identificada.
 - Exemplo preenchido do relatório final 1.3, índice de escolha dos modelos, arquivos editáveis separados por modalidade e conferência automática dos quatro PDFs.
+
+### Corrigido
+
+- Drivers próprios preservam DOI, identificadores de repositório, suporte informado e os endereços de consulta; livros e coletâneas passam a imprimir URL e acesso fornecidos.
+- DOI e URL de resolvedor literalmente iguais são apresentados uma vez; endereços distintos são preservados. Acesso incompleto recebe diagnóstico, e URLs longas podem quebrar sem perder caracteres ou invadir a margem.
+
+- Datas passam a usar formatação nativa do BibLaTeX, preservando a precisão aplicável, intervalos e qualificadores informados; acesso e data original não substituem a publicação da edição citada. Publicação ausente gera aviso, sem inventar ano.
+- Referências e os quatro comandos de apud preservam os sufixos das chamadas autor-data. Homônimos no mesmo ano são distinguidos por iniciais ou prenomes, mantendo o filtro de originais não consultadas.
+
+- Campos de lista `institution` em trabalhos acadêmicos e `location` em legislação deixam de ser testados como campos simples.
+- Relatórios preservam a instituição responsável, usam-na na imprenta quando não há editora e evitam repetir listas idênticas de instituição/editora no bloco de publicação.
+
+- Remoção de titulações na folha de rosto passa a exigir delimitadores explícitos, preservando nomes iniciados por Ma, Me, Dr e outros prefixos semelhantes.
+- Inclusão de capítulo inexistente passa a produzir erro com o caminho do arquivo, em vez de omitir conteúdo silenciosamente; arquivos opcionais preservam o contrato anterior.
 
 ### Alterado
 

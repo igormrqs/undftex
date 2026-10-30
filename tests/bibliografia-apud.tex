@@ -1,0 +1,38 @@
+% Usa o filtro publico real: consultar dados da original nao significa le-la.
+\documentclass{undftex}
+\addbibresource{tests/bibliografia-apud.bib}
+\defbibheading{undfreferences}{}
+\newcommand{\casounico}[2]{%
+  \begin{refsection}
+    \section*{CASO #1}
+    \noindent CHAMADA: #2\par
+    \noindent REFERENCIA:\par
+    \printundfreferences
+  \end{refsection}\clearpage
+}
+\begin{document}
+\casounico{A01}{\textapud{Origem Manual}{1980a}[3]{manualA}[9].
+  \citeind{manualB}.}
+\casounico{A02}{\parenciteapud{Origem Manual}{1980b}[4]{manualB}[10].
+  \citeindonline{manualA}.}
+\casounico{A03}{\apudbib[p. 3][p. 9]{original}{consultada}.}
+\casounico{A04}{\apudbibonline[p. 4][p. 10]{original}{consultada}.}
+\casounico{A05}{\citeind{original}. \apudbib{original}{consultada}.}
+\casounico{A06}{\apudbibonline{original}{consultada}. \citeind{original}.}
+\casounico{A07}{\textapud{Origem Manual}{1980}{consultada}.}
+\casounico{A08}{\apudbib{original}{consultada}.
+  \apudbibonline{original}{consultada}.}
+\casounico{A09}{\textapud{Origem Manual}{1980a}{manualA}.
+  \parenciteapud{Origem Manual}{1980b}{manualB}.}
+\casounico{A10}{\textapud{Origem Manual}{ano informado}{nodateA}.
+  \parenciteapud{Origem Manual}{ano informado}{nodateB}.}
+\casounico{A11}{\textapud{Origem Manual}{1980}{intervalo}.
+  \citeind{intervalo}.}
+\casounico{A12}{\parenciteapud{Origem Manual}{1980}{aproximada}.
+  \citeind{aproximada}.}
+\casounico{A13}{\apudbib{homonimoOriginal}{homonimoConsultado}.}
+\casounico{A14}{\textapud{Origem Manual}{1980}{abreviada}.
+  \parenciteapud{Origem Manual}{1980}{abreviada}.}
+\casounico{A15}{\apudbib{original}{completa}.
+  \apudbibonline{original}{completa}. \citeind{completa}.}
+\end{document}

@@ -1,0 +1,22 @@
+[
+  {"id": "D01", "caso": "Ano isolado", "contagens": {"2024": 1}, "chamadaPadroes": ["Autor, 2024"]},
+  {"id": "D02", "caso": "Online com ano e mes", "contagens": {"2024": 1}, "padroes": ["out\\..*2024"], "chamadaAusentes": ["2031"], "ausentes": ["acedido em"]},
+  {"id": "D03", "caso": "Online com data completa", "padroes": ["29.*out\\..*2024"], "chamadaPadroes": ["Autor, 2024"], "ausentes": ["acedido em"]},
+  {"id": "D04", "caso": "Obra em volumes, intervalo fechado", "padroes": ["2020[–-]2024"], "chamadaPadroes": ["2020[–-]2024"]},
+  {"id": "D05", "caso": "Obra em volumes, intervalo aberto", "padroes": ["2020[–-]"], "chamadaPadroes": ["2020[–-]"]},
+  {"id": "D06", "caso": "Publicacao e acesso distintos", "padroes": ["29.*out\\..*2024", "Acesso em:.*2039"], "chamadaPadroes": ["Autor, 2024"], "chamadaAusentes": ["2039"], "ausentes": ["acedido em"]},
+  {"id": "D07", "caso": "Sem publicacao, acesso nao substitui", "padroes": ["\\[s\\. ?d\\.\\]", "Acesso em:.*2039"], "chamadaPadroes": ["s\\. ?d\\."], "chamadaAusentes": ["2039"], "avisos": ["Data de publicacao ausente: D07"], "ausentes": ["acedido em"]},
+  {"id": "D08", "caso": "Ano incerto informado pelo autor", "padroes": ["\\[2024\\?\\]"], "chamadaPadroes": ["2024\\?"]},
+  {"id": "D09", "caso": "Ano aproximado informado pelo autor", "padroes": ["\\[ca\\. ?2024\\]"], "chamadaPadroes": ["ca\\. ?2024"]},
+  {"id": "D10", "caso": "Artigo com data completa", "padroes": ["29.*out\\..*2024"]},
+  {"id": "D11", "caso": "Livro usa precisao de ano", "contagens": {"2024": 1}, "ausentes": ["out.", "29"]},
+  {"id": "D12", "caso": "Legislacao com data completa", "padroes": ["29.*out\\..*2024"]},
+  {"id": "D13", "caso": "Data invalida nao vira acesso/publicacao", "padroes": ["s\\. ?d\\."], "chamadaAusentes": ["2039"], "avisos": ["Data de publicacao ausente: D13"], "ausentes": ["acedido em"]},
+  {"id": "D14", "caso": "Data de tese fornecida integralmente", "contagens": {"UNID14": 1}, "padroes": ["29.*out\\..*2024"]},
+  {"id": "D15", "caso": "Data parcial de dissertacao", "contagens": {"UNID15": 1}, "padroes": ["out\\..*2024"]},
+  {"id": "D16", "caso": "Relatorio monografico usa ano", "contagens": {"UNID16": 1, "2024": 1}, "ausentes": ["out.", "29"]},
+  {"id": "D17", "caso": "Data da edicao e data original distintas", "contagens": {"2024": 1}, "chamadaPadroes": ["Autor, 2024"], "chamadaAusentes": ["1980"]},
+  {"id": "D18", "caso": "Data original nao inventa publicacao da edicao", "padroes": ["s\\. ?d\\."], "chamadaAusentes": ["1980", "2039"], "avisos": ["Data de publicacao ausente: D18"], "ausentes": ["acedido em"]},
+  {"id": "D19", "caso": "Legado aceita ano e mes; dia requer date ISO", "padroes": ["out\\..*2024"], "ausentes": ["29"]},
+  {"id": "D20", "caso": "Controle herdado com data completa", "padroes": ["29.*out\\..*2024"], "chamadaAusentes": ["2031"]}
+]

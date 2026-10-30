@@ -88,28 +88,18 @@
 \newcommand{\dataaprovacao}[1]{\gdef\undf@dataaprovacao{#1}}
 
 % ----------------------------------------------------
-% Normalizacao de nomes de orientadores e banca
+% Normalizacao de nomes de orientadores na folha de rosto
 % ----------------------------------------------------
 \ExplSyntaxOn
 \cs_new_protected:Npn \undf_print_person_name:n #1
   {
     \tl_set:Nx \l_tmpa_tl {#1}
-    \regex_replace_once:nnN {\A\s*Professora\s*} {} \l_tmpa_tl
-    \regex_replace_once:nnN {\A\s*Professor\s*} {} \l_tmpa_tl
-    \regex_replace_once:nnN {\A\s*Profa\.?\s*} {} \l_tmpa_tl
-    \regex_replace_once:nnN {\A\s*Prof\.?\s*} {} \l_tmpa_tl
-    \regex_replace_once:nnN {\A\s*Doutora\s*} {} \l_tmpa_tl
-    \regex_replace_once:nnN {\A\s*Doutor\s*} {} \l_tmpa_tl
-    \regex_replace_once:nnN {\A\s*Dra\.?\s*} {} \l_tmpa_tl
-    \regex_replace_once:nnN {\A\s*Dr\.?\s*} {} \l_tmpa_tl
-    \regex_replace_once:nnN {\A\s*Mestra\s*} {} \l_tmpa_tl
-    \regex_replace_once:nnN {\A\s*Mestre\s*} {} \l_tmpa_tl
-    \regex_replace_once:nnN {\A\s*Ma\.?\s*} {} \l_tmpa_tl
-    \regex_replace_once:nnN {\A\s*Me\.?\s*} {} \l_tmpa_tl
-    \regex_replace_once:nnN {\A\s*M\.?Sc\.?\s*} {} \l_tmpa_tl
-    \regex_replace_once:nnN {\A\s*Ms\.?\s*} {} \l_tmpa_tl
-    \regex_replace_once:nnN {\A\s*Especialista\s*} {} \l_tmpa_tl
-    \regex_replace_once:nnN {\A\s*Esp\.?\s*} {} \l_tmpa_tl
+    % Titulos por extenso exigem espaco; abreviaturas exigem ponto.
+    % Prefixos ambiguos sem ponto, como Ma e Me, permanecem no nome.
+    \regex_replace_once:nnN
+      { \A \s* ( (Professora|Professor|Doutora|Doutor|Mestra|Mestre|Especialista) \s+
+                 | (Profa|Prof|Dra|Dr|Ma|Me|M\.?Sc|Ms|Esp) \. \s* )+ }
+      {} \l_tmpa_tl
     \tl_trim_spaces:N \l_tmpa_tl
     \tl_use:N \l_tmpa_tl
   }

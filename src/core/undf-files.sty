@@ -61,14 +61,17 @@
 }
 
 % ----------------------------------------------------
-% Inclusão opcional de arquivos
+% Inclusão de arquivos opcionais e capítulos obrigatórios
 % ----------------------------------------------------
 \newcommand{\undfinputoptional}[1]{%
   \IfFileExists{#1.tex}{\input{#1}}{}%
 }
 
 \newcommand{\undfincludechapter}[1]{%
-  \IfFileExists{#1.tex}{\include{#1}}{}%
+  \IfFileExists{#1.tex}{\include{#1}}{%
+    \PackageError{undf-files}{Capitulo obrigatorio ausente: #1.tex}%
+      {Confira o caminho do capitulo ou remova sua chamada se ele nao fizer parte do trabalho.}%
+  }%
 }
 
 % ----------------------------------------------------

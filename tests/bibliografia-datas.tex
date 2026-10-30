@@ -1,0 +1,17 @@
+% Precisao e papel de datas: exemplos sinteticos, incluindo uma data invalida deliberada.
+\documentclass{undftex}
+\addbibresource{tests/bibliografia-datas.bib}
+\newcommand{\casodata}[1]{%
+  \begin{refsection}
+    \section*{CASO #1}
+    \noindent CHAMADA: \citeind{#1}\par
+    \noindent REFERENCIA:\par
+    \printbibliography[heading=none]
+  \end{refsection}\clearpage
+}
+\begin{document}
+\casodata{D01}\casodata{D02}\casodata{D03}\casodata{D04}\casodata{D05}
+\casodata{D06}\casodata{D07}\casodata{D08}\casodata{D09}\casodata{D10}
+\casodata{D11}\casodata{D12}\casodata{D13}\casodata{D14}\casodata{D15}
+\casodata{D16}\casodata{D17}\casodata{D18}\casodata{D19}\casodata{D20}
+\end{document}

@@ -1,5 +1,5 @@
 # Compila os modelos e verifica os contadores dos dois perfis, sem exigir Perl.
-param([string[]]$Documentos = @('tcc.tex', 'tcc-exemplo-undf.tex', 'artigo.tex', 'tcc-artigo.tex', 'artigo-exemplo-undf.tex', 'tcc-artigo-exemplo-undf.tex', 'portfolio.tex', 'portfolio-exemplo-undf.tex', 'relatorio-projeto.tex', 'relatorio-projeto-aplicado.tex', 'relatorio-projeto-aplicado-exemplo-undf.tex', 'negocio-tecnologico.tex', 'relatorio-projeto-exemplo-undf.tex', 'negocio-tecnologico-exemplo-undf.tex', 'tests/artigo-opcionais.tex', 'tests/complementos-artigo.tex', 'tests/complementos-monografia.tex', 'tests/apud.tex', 'tests/objetos-extensos.tex', 'tests/pagina-externa.tex', 'tests/inclusao-pdf.tex'))
+param([string[]]$Documentos = @('tcc.tex', 'tcc-exemplo-undf.tex', 'artigo.tex', 'tcc-artigo.tex', 'artigo-exemplo-undf.tex', 'tcc-artigo-exemplo-undf.tex', 'portfolio.tex', 'portfolio-exemplo-undf.tex', 'relatorio-projeto.tex', 'relatorio-projeto-aplicado.tex', 'relatorio-projeto-aplicado-exemplo-undf.tex', 'negocio-tecnologico.tex', 'relatorio-projeto-exemplo-undf.tex', 'negocio-tecnologico-exemplo-undf.tex', 'tests/artigo-opcionais.tex', 'tests/complementos-artigo.tex', 'tests/complementos-monografia.tex', 'tests/apud.tex', 'tests/objetos-extensos.tex', 'tests/pagina-externa.tex', 'tests/inclusao-pdf.tex', 'tests/bibliografia-listas.tex', 'tests/bibliografia-datas.tex', 'tests/bibliografia-desambiguacao.tex', 'tests/bibliografia-apud.tex', 'tests/bibliografia-eletronicos.tex'))
 $ErrorActionPreference = 'Stop'
 Push-Location (Split-Path $PSScriptRoot -Parent)
 try {
@@ -29,6 +29,11 @@ try {
     & "$PSScriptRoot/verificar-relatorios.ps1" -Diretorio build/perfis -Documentos $Documentos
     if (@('tests/complementos-artigo.tex', 'tests/complementos-monografia.tex', 'tests/apud.tex', 'tests/objetos-extensos.tex', 'tests/inclusao-pdf.tex' | Where-Object { $_ -notin $Documentos }).Count -eq 0) {
         & "$PSScriptRoot/verificar-estrutura.ps1" -Diretorio build/perfis
+    }
+    foreach ($bibliografia in 'bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos') {
+        if ("tests/$bibliografia.tex" -in $Documentos) {
+            & "$PSScriptRoot/verificar-bibliografia.ps1" -Diretorio build/perfis -Documento $bibliografia
+        }
     }
     Write-Host 'Modelos compilados e contadores dos perfis verificados em build/perfis/.'
 } finally {

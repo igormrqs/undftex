@@ -26,8 +26,6 @@
 \RequirePackage{csquotes}
 \RequirePackage{setspace}
 \RequirePackage{needspace}
-\RequirePackage{xurl}
-\urlstyle{same}
 
 \RequirePackage[
   backend=biber,
@@ -39,8 +37,22 @@
   maxbibnames=99,
   giveninits=false,
   uniquelist=false,
-  uniquename=false
+  uniquename=minyearfull,
+  datecirca=true,
+  dateuncertain=true
 ]{biblatex}
+
+% xurl configura as penalidades de quebra somente se BibLaTeX ja estiver carregado.
+\RequirePackage{xurl}
+\urlstyle{same}
+
+% Data de acesso e data da obra original nao substituem a publicacao da edicao citada.
+\DeclareLabeldate{\field{date}\field{year}\literal{nodate}}
+\AtDataInput{%
+  \iffieldundef{year}
+    {\PackageWarningNoLine{undf-biblatex}{Data de publicacao ausente: \thefield{entrykey}. Informe ano identificado ou inferido a partir da fonte; a data de acesso nao o substitui}}%
+    {}%
+}
 
 
 % ----------------------------------------------------
@@ -161,13 +173,13 @@
   (%
   \begingroup\undf@apudoriginaltrue
   \ifstrempty{#1}
-    {\citeauthor{#3}, \citeyear{#3}}
-    {\citeauthor{#3}, \citeyear{#3}, #1}%
+    {\citeauthor{#3}, \undf@citelabeldate{#3}}
+    {\citeauthor{#3}, \undf@citelabeldate{#3}, #1}%
   \endgroup
   \space apud\space
   \ifstrempty{#2}
-    {\citeauthor{#4}, \citeyear{#4}}
-    {\citeauthor{#4}, \citeyear{#4}, #2}%
+    {\citeauthor{#4}, \undf@citelabeldate{#4}}
+    {\citeauthor{#4}, \undf@citelabeldate{#4}, #2}%
   )%
 }
 
@@ -175,13 +187,13 @@
   \begingroup\undf@apudoriginaltrue
   \citeauthor{#3} (%
   \ifstrempty{#1}
-    {\citeyear{#3}}
-    {\citeyear{#3}, #1}%
+    {\undf@citelabeldate{#3}}
+    {\undf@citelabeldate{#3}, #1}%
   \endgroup
   \space apud\space
   \ifstrempty{#2}
-    {\citeauthor{#4}, \citeyear{#4}}
-    {\citeauthor{#4}, \citeyear{#4}, #2}%
+    {\citeauthor{#4}, \undf@citelabeldate{#4}}
+    {\citeauthor{#4}, \undf@citelabeldate{#4}, #2}%
   )%
 }
 

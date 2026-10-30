@@ -56,6 +56,11 @@ jobs:
             tests/objetos-extensos.tex
             tests/pagina-externa.tex
             tests/inclusao-pdf.tex
+            tests/bibliografia-listas.tex
+            tests/bibliografia-datas.tex
+            tests/bibliografia-desambiguacao.tex
+            tests/bibliografia-apud.tex
+            tests/bibliografia-eletronicos.tex
           latexmk_use_lualatex: true
 
       - name: Instalar ferramenta de leitura dos PDFs
@@ -72,6 +77,13 @@ jobs:
       - name: Verificar registros parciais, portfolio e relatorios finais
         shell: pwsh
         run: ./scripts/verificar-relatorios.ps1
+
+      - name: Verificar listas, datas, desambiguacao e apud na bibliografia
+        shell: pwsh
+        run: |
+          foreach ($documento in 'bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos') {
+            ./scripts/verificar-bibliografia.ps1 -Diretorio '.' -Documento $documento
+          }
 
       - name: Publicar PDFs como artefatos
         uses: actions/upload-artifact@v4

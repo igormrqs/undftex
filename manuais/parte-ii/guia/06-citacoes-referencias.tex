@@ -48,6 +48,17 @@ a obra original usada somente nessa citação indireta é omitida da lista; uma
 citação independente da original na mesma seção bibliográfica a inclui. Essa
 filtragem não é aplicada a chamadas diretas a \texttt{\string\printbibliography}.
 
+Os quatro comandos preservam o rótulo de data da fonte consultada, inclusive
+letras de desambiguação. Nos comandos com duas chaves, isso vale também para
+a original. Nos comandos com autoria e ano escritos como texto, esses dois
+argumentos permanecem literais: informe eventual letra da original, pois ela
+não pode ser deduzida sem uma chave. As páginas seguem as assinaturas:
+
+\begin{lstlisting}
+\apudbib[p. 13][p. 25]{original}{consultada}
+\apudbibonline[p. 13][p. 25]{original}{consultada}
+\end{lstlisting}
+
 \section{Notas de rodapé}
 
 \begin{lstlisting}
@@ -59,5 +70,109 @@ filtragem não é aplicada a chamadas diretas a \texttt{\string\printbibliograph
 Insira \texttt{\string\printundfreferences} após a parte textual. A lista é produzida apenas com as entradas citadas, salvo configuração bibliográfica adicional.
 
 \section{Diagnóstico bibliográfico}
+
+\subsection*{Datas de publicação, original e acesso}
+
+Prefira \texttt{date} em formato ISO: \texttt{2024}, \texttt{2024-10} ou
+\texttt{2024-10-29}. Para intervalo, use \texttt{2020/2024};
+\texttt{2020/} indica intervalo aberto. O estilo usa o ano em livros,
+coletâneas, partes e relatórios monográficos. Em artigos, documentos online,
+legislação e trabalhos acadêmicos, preserva mês e dia fornecidos, quando
+aplicáveis ao documento. Não invente uma precisão que a fonte não contém.
+Os tipos herdados utilizam a formatação nativa de datas.
+
+\texttt{year} e \texttt{month} legados continuam aceitos; para incluir dia,
+use \texttt{date}, pois um campo avulso \texttt{day} não é processado pelo
+Biber como uma data completa. \texttt{origdate} descreve a obra original,
+\texttt{date} descreve a edição citada e \texttt{urldate} registra o acesso.
+Nem a data original nem a de acesso substituem automaticamente a publicação.
+
+Anos incertos ou aproximados podem ser informados com a sintaxe EDTF
+\texttt{date=\{2024?\}} ou \texttt{date=\{2024\string~\}}, respectivamente.
+O modelo preserva os qualificadores; não os deduz. Sem ano de publicação
+válido, o PDF mostra o marcador de diagnóstico \texttt{[s. d.]} e o log
+solicita ano identificado ou inferido a partir da fonte. Esse marcador não
+substitui a revisão exigida pela NBR 6023:2025, seção 8.6.1, para a referência
+final. Corrija dados inválidos indicados pelo Biber e confira o PDF.
+
+\subsection*{Desambiguação de autoria e ano}
+
+Para obras da mesma autoria no mesmo ano, Biber atribui letras que aparecem
+nas chamadas e nas referências; não acrescente letras ao campo \texttt{date}
+ou \texttt{year}. A ordenação bibliográfica determina as letras, não a ordem
+em que as obras são citadas. A atribuição é independente em cada
+\texttt{refsection}; conjuntos diferentes podem ter rótulos diferentes.
+
+Para autores distintos com mesmo sobrenome e ano, o modelo acrescenta
+iniciais; se forem iguais, usa os prenomes necessários à distinção. Não
+altere a grafia da autoria para forçar letras. Autores de anos diferentes
+conservam a chamada abreviada. Essas regras seguem a distinção entre as
+seções 6.1.5 e 6.1.6 da NBR 10520:2023. Pessoas jurídicas devem manter nomes
+literais protegidos por chaves; o mecanismo não reformula sua autoria.
+
+\subsection*{Identificadores eletrônicos e consulta}
+
+Informe \texttt{doi} como identificador, por exemplo
+\texttt{10.0000/exemplo}, sem o prefixo \texttt{https://doi.org/}.
+Esse valor é apenas uma ilustração sintética, não um DOI de publicação real.
+O modelo usa a formatação e o hiperlink nativos do BibLaTeX, sem consultar
+serviços externos, gerar DOI ou verificar sua existência durante a compilação.
+
+Em artigo eletrônico, o DOI existente deve ser preservado, conforme a NBR
+6023:2025, seção 7.7.6. Em livros, capítulos, trabalhos acadêmicos e outros
+tipos, informe somente o identificador pertinente ao próprio documento.
+Não copie para o capítulo o DOI da coletânea como se identificasse a parte.
+O suporte, como \texttt{E-book}, pode ser informado em \texttt{howpublished}.
+Identificadores de repositório usam os campos nativos \texttt{eprint},
+\texttt{eprinttype} e, quando aplicável, \texttt{eprintclass}.
+
+Para consulta online, registre o endereço em \texttt{url} e a data real em
+\mbox{\texttt{urldate=\{AAAA-MM-DD\}}}. A disponibilidade e o acesso seguem a seção
+6.6 da NBR 6023:2025. O DOI não comprova que a consulta foi online; não cria
+automaticamente uma URL de consulta nem uma data de acesso.
+
+Quando DOI e URL identificam endereços distintos, ambos são preservados.
+Se a URL for literalmente \texttt{http(s)://doi.org/DOI} ou
+\texttt{http(s)://dx.doi.org/DOI}, o modelo apresenta uma única linha
+\emph{Disponível em}, conservando a URL recebida e a data de acesso.
+Esse endereço já contém o DOI; não há uma segunda impressão do mesmo
+identificador. A unificação é decisão técnica do projeto, não uma exigência
+literal da norma. Consultas, fragmentos, redirecionamentos e outros sites
+não são tratados como equivalentes por suposição.
+
+URL sem acesso, acesso parcial ou data sem URL geram avisos de revisão;
+documento \texttt{online} sem URL também é sinalizado. Os dados disponíveis
+continuam visíveis, sem completar dia, mês ou ano. Corrija os dados antes
+da entrega final. As opções nativas \texttt{doi=false}, \texttt{url=false}
+e \texttt{eprint=false} continuam controlando a apresentação; ocultar um
+campo não dispensa uma exigência aplicável à referência final.
+
+Caracteres válidos de URL permanecem no destino do hiperlink. As linhas de
+disponibilidade admitem quebra e ficam alinhadas à esquerda, sem inserir
+espaços artificiais no endereço. Não escape manualmente os identificadores
+como texto TeX; use os campos bibliográficos próprios e confira o PDF.
+
+\subsection*{Instituições e campos de lista}
+
+Em entradas acadêmicas do tipo \texttt{thesis}, informe o vínculo em
+\texttt{institution}. Os aliases \texttt{mastersthesis} e \texttt{phdthesis}
+também preservam esse dado. \texttt{institution} e \texttt{location} são listas:
+separe valores distintos com \texttt{and}; proteja com chaves um \texttt{and}
+que faça parte do nome. Não acrescente instituição, curso ou grau que não
+constem da fonte.
+
+Em \texttt{report}, \texttt{author} indica autoria, \texttt{institution}
+identifica a instituição responsável e \texttt{publisher} informa a editora
+quando houver. Sem editora, a instituição ocupa a posição correspondente na
+imprenta. Com instituição e editora distintas, a instituição aparece antes
+da imprenta; listas literais idênticas não se repetem nesse bloco. A mesma
+entidade pode aparecer como autora e publicadora, em funções distintas.
+Não se infere equivalência entre siglas e nomes por extenso, nem se unem
+listas parcialmente sobrepostas. Não use \texttt{organization} como substituto
+de \texttt{institution}; seu tratamento anterior de autoria permanece.
+Em legislação, o local fornecido em
+\texttt{location} é preservado; a ausência não cria um local fictício.
+
+\subsection*{Ciclo de compilação}
 
 Uma citação com a chave impressa em negrito ou como marcador indefinido geralmente indica chave inexistente ou ciclo de compilação incompleto. Mensagens como \texttt{Please (re)run Biber} pedem a execução do Biber e novas passagens do LuaLaTeX.

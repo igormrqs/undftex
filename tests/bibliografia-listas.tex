@@ -1,0 +1,37 @@
+% Contratos de listas da bibliografia: entradas sinteticas, sem fontes reais.
+\documentclass{undftex}
+\addbibresource{tests/bibliografia-listas.bib}
+\newcommand{\casolista}[1]{%
+  \begin{refsection}
+    \section*{CASO #1}
+    \noindent CHAMADA: \citeind{#1}\par
+    \noindent REFERENCIA:\par
+    \printbibliography[heading=none]
+  \end{refsection}
+  \clearpage
+}
+\begin{document}
+\casolista{A01}
+\casolista{A02}
+\casolista{A03}
+\casolista{A04}
+\casolista{A05}
+\casolista{A06}
+\casolista{A07}
+\casolista{A08}
+\casolista{A09}
+\casolista{A10}
+\casolista{A11}
+\casolista{A12}
+\casolista{A13}
+\casolista{A14}
+\casolista{A15}
+\casolista{A16}
+\casolista{A17}
+\casolista{A18}
+\casolista{A19}
+\casolista{A20}
+\casolista{B01}
+\casolista{B02}
+\casolista{B03}
+\end{document}
