@@ -30,6 +30,8 @@ Também incluem os trios `.tex`/`.bib`/`.json` de
 `tests/bibliografia-apud`, para datas, rótulos autor-data e filtros de apud.
 O trio `tests/bibliografia-eletronicos.tex`/`.bib`/`.json` verifica DOI, URL,
 acesso, hiperlinks e referências que atravessam páginas.
+O trio `tests/bibliografia-responsabilidades.tex`/`.bib`/`.json` confere nomes,
+funções editoriais e a distinção entre autoria da parte e do recipiente.
 
 ## Fora do trabalho distribuído
 

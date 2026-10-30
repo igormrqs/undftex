@@ -94,6 +94,14 @@ linha excedendo a margem são rejeitados nessa fixture. Para executá-la:
 ./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-eletronicos.tex')
 ```
 
+Para responsabilidades bibliográficas, `bibliografia-responsabilidades` verifica
+20 cenários no PDF, incluindo a precedência de `bookauthor`, funções editoriais
+e controles de autoria literal, nomes acentuados e tipos herdados. Execute:
+
+```powershell
+./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-responsabilidades.tex')
+```
+
 ## Imagens e arquivos grandes
 
 Antes de adicionar imagens ao repositório:

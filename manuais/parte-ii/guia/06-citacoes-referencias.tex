@@ -110,6 +110,30 @@ conservam a chamada abreviada. Essas regras seguem a distinção entre as
 seções 6.1.5 e 6.1.6 da NBR 10520:2023. Pessoas jurídicas devem manter nomes
 literais protegidos por chaves; o mecanismo não reformula sua autoria.
 
+\subsection*{Responsabilidades bibliográficas}
+
+Use \texttt{author} para a autoria da obra citada e \texttt{editor} para
+a responsabilidade editorial. Em \texttt{editortype}, os valores
+\texttt{editor}, \texttt{organizer} e \texttt{compiler} selecionam funções
+nativas; o UnDF-TeX também localiza \texttt{coordinator}. Não infira esses
+papéis a partir do nome da pessoa. O campo \texttt{editor} sem tipo usa o
+significado de editor definido pelo próprio modelo de dados do BibLaTeX.
+
+Quando a entrada é pelo responsável editorial, a função aparece abreviada
+entre parênteses, no singular mesmo com vários nomes, conforme a NBR
+6023:2025, seção 8.1.1.4. Havendo autor e editor, a autoria inicia a
+referência e a responsabilidade editorial aparece depois do título.
+Tipos literais não localizados são preservados e recebem aviso para revisão;
+o modelo não os converte automaticamente em outra função.
+
+Em \texttt{inbook} e \texttt{incollection}, \texttt{author} identifica a
+parte e \texttt{bookauthor} identifica a autoria do livro. Se houver
+\texttt{bookauthor} e \texttt{editor}, a autoria do livro vem após
+\emph{In:} e o editor permanece como responsabilidade secundária do
+recipiente. Sem \texttt{bookauthor}, o responsável editorial informado
+identifica o recipiente com sua função. A citação continua identificando
+a parte, sem substituir seu autor pelo autor ou editor do livro.
+
 \subsection*{Identificadores eletrônicos e consulta}
 
 Informe \texttt{doi} como identificador, por exemplo

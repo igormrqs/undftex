@@ -8,6 +8,8 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Adicionado
 
+- Regressão de responsabilidades bibliográficas com 20 cenários de autoria, editoria, organização, coordenação, compilação e autoria do recipiente.
+
 - Regressão de referências eletrônicas com 39 cenários, conferência dos destinos de hiperlinks, caracteres e continuidade entre páginas, integrada ao fluxo local e de CI.
 
 - Regressão permanente com 20 cenários de datas, 16 de desambiguação e 15 de apud, com leitura das chamadas e referências nos PDFs e integração local e de CI.
@@ -25,6 +27,8 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 - Exemplo preenchido do relatório final 1.3, índice de escolha dos modelos, arquivos editáveis separados por modalidade e conferência automática dos quatro PDFs.
 
 ### Corrigido
+
+- Responsáveis editoriais principais passam a identificar sua função; autores e editores secundários são preservados em papéis distintos. Em partes de livros, `bookauthor` tem precedência autoral e o editor permanece como responsabilidade editorial.
 
 - Drivers próprios preservam DOI, identificadores de repositório, suporte informado e os endereços de consulta; livros e coletâneas passam a imprimir URL e acesso fornecidos.
 - DOI e URL de resolvedor literalmente iguais são apresentados uma vez; endereços distintos são preservados. Acesso incompleto recebe diagnóstico, e URLs longas podem quebrar sem perder caracteres ou invadir a margem.

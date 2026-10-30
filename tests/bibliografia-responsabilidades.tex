@@ -1,0 +1,30 @@
+\documentclass{undftex}
+\addbibresource{tests/bibliografia-responsabilidades.bib}
+\newcommand{\casounico}[1]{%
+  \begin{refsection}\section*{CASO #1}
+  \noindent CHAMADA: \citeind{#1}\par
+  \noindent REFERENCIA:\par\printbibliography[heading=none]
+  \end{refsection}\clearpage
+}
+\begin{document}
+\casounico{R01}
+\casounico{R02}
+\casounico{R03}
+\casounico{R04}
+\casounico{R05}
+\casounico{R06}
+\casounico{R07}
+\casounico{R08}
+\casounico{R09}
+\casounico{R10}
+\casounico{R11}
+\casounico{R12}
+\casounico{R13}
+\casounico{R14}
+\casounico{R15}
+\casounico{R16}
+\casounico{R17}
+\casounico{R18}
+\casounico{R19}
+\casounico{R20}
+\end{document}

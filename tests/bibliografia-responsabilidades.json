@@ -1,0 +1,22 @@
+[
+  {"id": "R01", "caso": "Autor pessoal sem funcao ficticia", "ordem": ["SÁ, José", "Documento R01"], "ausentes": ["(ed.)", "(org.)"]},
+  {"id": "R02", "caso": "Editor principal e funcao nativa padrao", "padroes": ["SILVA, Ana \\(ed\\.\\)"], "chamadaPadroes": ["Silva, 2024"]},
+  {"id": "R03", "caso": "Organizador principal", "padroes": ["LIMA, Bruno \\(org\\.\\)"]},
+  {"id": "R04", "caso": "Multiplos organizadores, funcao no singular", "padroes": ["LIMA, Bruno; SÁ, Ana \\(org\\.\\)"], "ausentes": ["orgs."]},
+  {"id": "R05", "caso": "Autor e editor secundario distintos", "ordem": ["AUTOR, Ana", "Documento R05", "Bruno Editor", "Editora"], "padroes": ["ed\\..*por.*Bruno Editor"]},
+  {"id": "R06", "caso": "Autor da parte e editor do recipiente", "ordem": ["CAPITULO, Ana", "In:", "COLETANEA, Bruno", "(ed.)", "Recipiente R06"]},
+  {"id": "R07", "caso": "Autoria propria da parte e bookauthor", "ordem": ["PARTE, Ana", "In:", "LIVRO, Bruno", "Recipiente R07"], "ausentes": ["(ed.)"]},
+  {"id": "R08", "caso": "Bookauthor principal e editor secundario", "ordem": ["PARTE, Ana", "In:", "LIVRO, Bruno", "Recipiente R08", "Carla Editor"], "padroes": ["ed\\..*por.*Carla Editor"]},
+  {"id": "R09", "caso": "Ausencia de responsabilidade nao inventa nomes", "contagens": {"Documento R09": 1}, "ausentes": ["(ed.)", "(org.)", "Autor desconhecido"]},
+  {"id": "R10", "caso": "Instituicao autora literal", "contagens": {"Instituto de Águas": 2}, "chamadaPadroes": ["Instituto de Águas, 2024"]},
+  {"id": "R11", "caso": "Nome composto e acentuado em responsabilidade", "padroes": ["GARCÍA MÁRQUEZ, Ana \\(org\\.\\)"]},
+  {"id": "R12", "caso": "Controle herdado com editor", "contagens": {"Ana Editor": 1}, "padroes": ["ed\\."], "chamadaPadroes": ["Editor, 2024"]},
+  {"id": "R13", "caso": "Compilador informado", "padroes": ["SÁ, Ana \\(comp\\.\\)"]},
+  {"id": "R14", "caso": "Coordenador explicitamente informado", "padroes": ["SÁ, Ana \\(coord\\.\\)"]},
+  {"id": "R15", "caso": "Autor e organizador secundario", "ordem": ["AUTOR, Ana", "Documento R15", "Bruno Organiza"], "padroes": ["org\\..*por.*Bruno Organiza"]},
+  {"id": "R16", "caso": "Mesma pessoa em dois papeis informados", "contagens": {"SÁ, Ana": 1, "Ana Sá": 1}, "padroes": ["ed\\..*por.*Ana Sá"]},
+  {"id": "R17", "caso": "Coletanea em volumes com organizador", "padroes": ["LIMA, Ana \\(org\\.\\)"]},
+  {"id": "R18", "caso": "Quatro autores conservam nomes e et al", "contagens": {"SILVA, Ana": 1, "COSTA, Bruno": 1, "LIMA, Carla": 1, "SOUZA, Davi": 1}, "chamadaPadroes": ["Silva et al\\., 2024"]},
+  {"id": "R19", "caso": "Funcao literal desconhecida nao e reinterpretada", "padroes": ["\\(curadoria técnica\\)"], "avisos": ["Funcao editorial literal: R19"], "ausentes": ["(ed.)"]},
+  {"id": "R20", "caso": "Pessoa juridica explicitamente organizadora", "padroes": ["INSTITUTO DE ÁGUAS \\(org\\.\\)"], "chamadaPadroes": ["Instituto de Águas, 2024"]}
+]

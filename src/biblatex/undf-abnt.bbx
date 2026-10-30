@@ -87,7 +87,15 @@
 % Macros auxiliares da bibliografia
 % ----------------------------------------------------
 % Qualificadores sao fornecidos pelo autor (EDTF), nunca inferidos pelo estilo.
-\DefineBibliographyStrings{portuguese}{circa={ca\adddot}}
+\NewBibliographyString{coordinator,coordinators,bycoordinator}
+\DefineBibliographyStrings{portuguese}{%
+  circa={ca\adddot},
+  editors={ed\adddot},
+  organizers={org\adddot},
+  coordinator={coord\adddot},
+  coordinators={coord\adddot},
+  bycoordinator={coord\adddotspace por}%
+}
 \DeclareFieldFormat{date}{%
   \ifboolexpr{test {\ifdatecirca} or test {\ifdateuncertain}
     or test {\iffieldequalstr{labelyear}{nodate}}}
@@ -103,6 +111,35 @@
 }
 \renewbibmacro*{date}{\usebibmacro{undf:pubdate}[full]}
 
+\newbibmacro*{undf:checkeditorrole}{%
+  \iffieldundef{editortype}{}%
+    {\ifbibxstring{\thefield{editortype}}{}%
+      {\PackageWarningNoLine{undf-biblatex}{Funcao editorial literal: \thefield{entrykey}. Confira editortype; o valor informado sera preservado}}}%
+}
+
+\newbibmacro*{undf:editor}{%
+  \ifnameundef{editor}{}%
+    {{\undf@upperbibnames\printnames[undf:family-given]{editor}}%
+     \setunit{\addspace}%
+     \usebibmacro{undf:checkeditorrole}%
+     \printtext[parens]{\usebibmacro{editorstrg}}}%
+}
+
+\newbibmacro*{undf:byeditor}{%
+  \ifnameundef{editor}{}%
+    {\newunit\newblock
+     \usebibmacro{undf:checkeditorrole}%
+     \usebibmacro{byeditor}}%
+}
+
+\newbibmacro*{undf:secondaryeditor}{%
+  \ifnameundef{author}{}{\usebibmacro{undf:byeditor}}%
+}
+
+\newbibmacro*{undf:containereditor}{%
+  \ifnameundef{bookauthor}{}{\usebibmacro{undf:byeditor}}%
+}
+
 \newbibmacro*{undf:mainauthor}{%
   \ifnameundef{author}
     {%
@@ -110,7 +147,7 @@
         {%
           \ifnameundef{editor}
             {}
-            {{\undf@upperbibnames\printnames[undf:family-given]{editor}}}%
+            {\usebibmacro{undf:editor}}%
         }
         {\printlist{organization}}%
     }
@@ -118,13 +155,9 @@
 }
 
 \newbibmacro*{undf:containerauthor}{%
-  \ifnameundef{editor}
-    {%
-      \ifnameundef{bookauthor}
-        {}
-        {{\undf@upperbibnames\printnames[undf:family-given]{bookauthor}}}%
-    }
-    {{\undf@upperbibnames\printnames[undf:family-given]{editor}}}%
+  \ifnameundef{bookauthor}
+    {\usebibmacro{undf:editor}}
+    {{\undf@upperbibnames\printnames[undf:family-given]{bookauthor}}}%
 }
 
 \newbibmacro*{undf:title}{%
@@ -250,6 +283,7 @@
   \usebibmacro{undf:mainauthor}%
   \setunit{\adddot\space}%
   \usebibmacro{undf:title}%
+  \usebibmacro{undf:secondaryeditor}%
   \newunit\newblock
   \usebibmacro{undf:edition}%
   \newunit\newblock
@@ -263,6 +297,7 @@
   \usebibmacro{undf:mainauthor}%
   \setunit{\adddot\space}%
   \usebibmacro{undf:title}%
+  \usebibmacro{undf:secondaryeditor}%
   \newunit\newblock
   \usebibmacro{undf:edition}%
   \newunit\newblock
@@ -276,6 +311,7 @@
   \usebibmacro{undf:mainauthor}%
   \setunit{\adddot\space}%
   \usebibmacro{undf:title}%
+  \usebibmacro{undf:secondaryeditor}%
   \newunit\newblock
   \usebibmacro{undf:edition}%
   \newunit\newblock
@@ -289,6 +325,7 @@
   \usebibmacro{undf:mainauthor}%
   \setunit{\adddot\space}%
   \usebibmacro{undf:title}%
+  \usebibmacro{undf:secondaryeditor}%
   \newunit\newblock
   \usebibmacro{undf:edition}%
   \newunit\newblock
@@ -318,6 +355,7 @@
   \usebibmacro{undf:containerauthor}%
   \setunit{\adddot\space}%
   \printfield{booktitle}%
+  \usebibmacro{undf:containereditor}%
   \newunit\newblock
   \usebibmacro{undf:edition}%
   \newunit\newblock
@@ -339,6 +377,7 @@
   \usebibmacro{undf:containerauthor}%
   \setunit{\adddot\space}%
   \printfield{booktitle}%
+  \usebibmacro{undf:containereditor}%
   \newunit\newblock
   \usebibmacro{undf:edition}%
   \newunit\newblock
