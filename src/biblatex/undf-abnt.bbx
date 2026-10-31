@@ -234,6 +234,9 @@
 \DeclareFieldFormat{undf:journalpages}{p\adddot\space#1}
 \newbibmacro*{undf:journalinfo}{%
   \printfield{journaltitle}%
+  \iffieldundef{journalsubtitle}{}%
+    {\iffieldundef{journaltitle}{}{\setunit{\addcolon\space}}%
+     \printfield{journalsubtitle}}%
   \setunit*{\addcomma\space}\printlist{location}%
   \setunit*{\addcomma\space}\printfield[undf:journalvolume]{volume}%
   \setunit*{\addcomma\space}\printfield[undf:journalnumber]{number}%

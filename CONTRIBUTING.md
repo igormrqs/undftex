@@ -129,6 +129,13 @@ São 21 cenários com chamadas, referências, ordenação, desambiguação,
 A autoria herdada nativamente de um livro conhecido é um controle positivo;
 o editor do recipiente não pode substituir a autoria desconhecida da parte.
 
+Para títulos e subtítulos de periódicos (AF03-02), execute
+`./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-periodicos.tex')`.
+São 15 cenários com identificação do artigo e da revista, acentos, pontuação,
+`shortjournal`, campos ausentes, `crossref`, `xdata`, DOI, URL e acesso.
+O controle de `periodical` protege o comportamento herdado sem afirmar sua
+conformidade integral com a ABNT.
+
 ## Imagens e arquivos grandes
 
 Antes de adicionar imagens ao repositório:

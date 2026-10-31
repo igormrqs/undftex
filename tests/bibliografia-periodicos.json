@@ -1,0 +1,252 @@
+[
+  {
+    "id": "E201",
+    "caso": "Periódico sem subtítulo mantém saída anterior",
+    "ordem": [
+      "NUNES, Ana. Análise de cenários. Revista Horizonte, Brasília, v. 4, n. 2, p. 1–9, jun. de 2024."
+    ],
+    "contagens": {
+      "Revista Horizonte": 1
+    },
+    "ausentes": [
+      "Horizonte:"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "links": []
+  },
+  {
+    "id": "E202",
+    "caso": "Mínimo independente de subtítulo omitido",
+    "ordem": [
+      "Análise de cenários. Revista Horizonte: estudos interdisciplinares, Brasília",
+      "v. 4, n. 2, p. 1–9",
+      "jun. de 2024"
+    ],
+    "contagens": {
+      "Revista Horizonte": 1,
+      "estudos interdisciplinares": 1
+    },
+    "ausentes": [],
+    "padroes": [],
+    "avisos": [],
+    "links": []
+  },
+  {
+    "id": "E203",
+    "caso": "Subtítulo do artigo sem subtítulo da revista",
+    "ordem": [
+      "Análise de cenários: um estudo aplicado. Revista Horizonte, Brasília"
+    ],
+    "contagens": {
+      "um estudo aplicado": 1
+    },
+    "ausentes": [],
+    "padroes": [],
+    "avisos": [],
+    "links": []
+  },
+  {
+    "id": "E204",
+    "caso": "Subtítulos do artigo e do periódico separados",
+    "ordem": [
+      "Análise de cenários: um estudo aplicado. Revista Horizonte: estudos interdisciplinares, Brasília"
+    ],
+    "contagens": {
+      "um estudo aplicado": 1,
+      "estudos interdisciplinares": 1
+    },
+    "ausentes": [],
+    "padroes": [],
+    "avisos": [],
+    "links": []
+  },
+  {
+    "id": "E205",
+    "caso": "Acentuação no título e subtítulo da revista",
+    "ordem": [
+      "Revista de Ciência Pública: informação e inovação, Brasília"
+    ],
+    "contagens": {
+      "informação e inovação": 1
+    },
+    "ausentes": [],
+    "padroes": [],
+    "avisos": [],
+    "links": []
+  },
+  {
+    "id": "E206",
+    "caso": "Pontuação interna do título preservada",
+    "ordem": [
+      "Revista Pesquisa & Ação: caderno especial: métodos e resultados, Brasília"
+    ],
+    "contagens": {
+      "caderno especial": 1,
+      "métodos e resultados": 1
+    },
+    "ausentes": [
+      ": :"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "links": []
+  },
+  {
+    "id": "E207",
+    "caso": "shortjournal não substitui a identificação completa",
+    "ordem": [
+      "Revista Horizonte: pesquisa aberta, Brasília"
+    ],
+    "contagens": {
+      "Revista Horizonte": 1
+    },
+    "ausentes": [
+      "RPH"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "links": []
+  },
+  {
+    "id": "E208",
+    "caso": "Periódico ausente mantém diagnóstico",
+    "ordem": [
+      "Análise de cenários",
+      "Brasília",
+      "v. 4",
+      "p. 1–9",
+      "2024"
+    ],
+    "contagens": {},
+    "ausentes": [
+      "Revista Horizonte",
+      ": ,"
+    ],
+    "padroes": [],
+    "avisos": [
+      "Essencial ausente: e208 \\(journaltitle\\)"
+    ],
+    "links": []
+  },
+  {
+    "id": "E209",
+    "caso": "Subtítulo isolado sem dois-pontos órfãos",
+    "ordem": [
+      "Análise de cenários. Estudos avulsos, Brasília"
+    ],
+    "contagens": {
+      "Estudos avulsos": 1
+    },
+    "ausentes": [
+      ". :",
+      ": ,"
+    ],
+    "padroes": [],
+    "avisos": [
+      "Essencial ausente: e209 \\(journaltitle\\)"
+    ],
+    "links": []
+  },
+  {
+    "id": "E210",
+    "caso": "DOI, URL, acesso e dados do artigo preservados",
+    "ordem": [
+      "Revista Horizonte: pesquisa eletrônica, Brasília, v. 4, n. 2, p. 1–9, jun. de 2024",
+      "10.0000/audit-e210",
+      "Disponível em: https://example.invalid/artigo/e210",
+      "Acesso em: 31 de out. de 2026"
+    ],
+    "contagens": {
+      "pesquisa eletrônica": 1,
+      "10.0000/audit-e210": 1
+    },
+    "ausentes": [],
+    "padroes": [],
+    "avisos": [],
+    "links": [
+      "https://doi.org/10.0000/audit-e210",
+      "https://example.invalid/artigo/e210"
+    ]
+  },
+  {
+    "id": "E211",
+    "caso": "Volume, número, páginas e subtítulo opcionais ausentes",
+    "ordem": [
+      "Resultados sintéticos. Revista Horizonte, Brasília, 2024."
+    ],
+    "contagens": {},
+    "ausentes": [
+      "v.",
+      "n.",
+      "p.",
+      ": ,",
+      ", ,"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "links": []
+  },
+  {
+    "id": "E212",
+    "caso": "crossref de periódico fornece título e subtítulo",
+    "ordem": [
+      "NUNES, Ana. Pesquisa herdada. Revista por herança: estudos editoriais, Brasília",
+      "v. 4, n. 2, p. 1–9, 2024"
+    ],
+    "contagens": {
+      "estudos editoriais": 1
+    },
+    "ausentes": [],
+    "padroes": [],
+    "avisos": [],
+    "links": []
+  },
+  {
+    "id": "E213",
+    "caso": "xdata de identificação do periódico",
+    "ordem": [
+      "Revista de dados compartilhados: memória e informação, Brasília"
+    ],
+    "contagens": {
+      "memória e informação": 1
+    },
+    "ausentes": [],
+    "padroes": [],
+    "avisos": [],
+    "links": []
+  },
+  {
+    "id": "E214",
+    "caso": "Controle de periodical herdado: não padroniza outro driver",
+    "ordem": [
+      "Bia Prado, ed. Periódico de controle. composição nativa",
+      "2024",
+      "Controle herdado"
+    ],
+    "contagens": {
+      "composição nativa": 1
+    },
+    "ausentes": [],
+    "padroes": [],
+    "avisos": [],
+    "links": []
+  },
+  {
+    "id": "E215",
+    "caso": "Dois-pontos já no fim do título não são duplicados",
+    "ordem": [
+      "Revista Horizonte: estudos interdisciplinares, Brasília"
+    ],
+    "contagens": {
+      "estudos interdisciplinares": 1
+    },
+    "ausentes": [
+      "::",
+      ": :"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "links": []
+  }
+]

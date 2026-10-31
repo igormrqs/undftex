@@ -162,6 +162,17 @@ parte. Dados fornecidos explicitamente por \texttt{xdata} continuam sendo
 responsabilidade de quem mantém a base; confira se identificam o documento
 citado. Os campos próprios da parte prevalecem sobre a herança.
 
+\subsection*{Títulos de artigos e periódicos}
+
+Em artigos, \texttt{title}/\texttt{subtitle} identificam o artigo e
+\texttt{journaltitle}/\texttt{journalsubtitle} identificam o periódico.
+O subtítulo do periódico, quando existente, aparece após dois-pontos,
+conforme a NBR 6023:2025, seções 7.7.5 e 7.7.6. Esses campos também podem
+ser fornecidos por \texttt{crossref} ou \texttt{xdata}.
+\texttt{shortjournal} não substitui a identificação completa na referência.
+Se faltar \texttt{journaltitle}, o modelo emite aviso de dado essencial,
+mesmo que haja um subtítulo; confira a fonte antes da entrega.
+
 \subsection*{Identificadores eletrônicos e consulta}
 
 Informe \texttt{doi} como identificador, por exemplo

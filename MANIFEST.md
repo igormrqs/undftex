@@ -44,6 +44,9 @@ essenciais ausentes, pontuação e diagnósticos de bibliografias e referências
 O trio `tests/bibliografia-partes.tex`/`.bib`/`.json` verifica a identidade
 da parte sem autor, a responsabilidade do recipiente e controles de herança.
 
+O trio `tests/bibliografia-periodicos.tex`/`.bib`/`.json` verifica títulos
+e subtítulos do artigo e do periódico, herança, pontuação e campos eletrônicos.
+
 ## Fora do trabalho distribuído
 
 Não fazem parte do trabalho distribuído por padrão:

@@ -36,6 +36,11 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Corrigido
 
+- AF03-02: subtítulos de periódicos são preservados nas referências de artigos,
+  com separador condicional e distinção dos títulos/subtítulos do artigo.
+  Regressão permanente com 15 cenários de pontuação, herança e preservação
+  de campos e links, integrada aos verificadores local e de CI.
+
 - AF03-01: capítulos sem autor deixam de usar o editor do recipiente na
   entrada, citação e ordenação; responsabilidades do livro e autoria
   cadastrada ou herdada legitimamente permanecem preservadas. Regressão
