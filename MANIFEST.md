@@ -41,6 +41,9 @@ de ordenação e os ajustes explícitos sem modificar o esquema `nyt`.
 O trio `tests/bibliografia-integridade.tex`/`.bib`/`.json` verifica dados
 essenciais ausentes, pontuação e diagnósticos de bibliografias e referências pontuais.
 
+O trio `tests/bibliografia-partes.tex`/`.bib`/`.json` verifica a identidade
+da parte sem autor, a responsabilidade do recipiente e controles de herança.
+
 ## Fora do trabalho distribuído
 
 Não fazem parte do trabalho distribuído por padrão:

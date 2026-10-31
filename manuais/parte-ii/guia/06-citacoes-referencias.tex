@@ -134,6 +134,17 @@ recipiente. Sem \texttt{bookauthor}, o responsável editorial informado
 identifica o recipiente com sua função. A citação continua identificando
 a parte, sem substituir seu autor pelo autor ou editor do livro.
 
+Quando a parte não tem autoria identificada, sua entrada e a chamada usam
+o título; o editor ou organizador continua identificado apenas no recipiente.
+Essa regra também vale para os aliases de partes. A ausência de título gera
+aviso de dado essencial, sem inventar um autor ou copiar o titulo do livro.
+A herança nativa de \texttt{author} de um livro para \texttt{inbook} continua
+válida para livros de autoria conhecida e deve ser conferida no cadastro.
+Para partes de autoria desconhecida, forneça diretamente os dados do recipiente
+em \texttt{bookauthor}/\texttt{booktitle}, sem herdar \texttt{author}
+por \texttt{crossref}. Dados de autoria explícitos, inclusive por
+\texttt{xdata}, permanecem preservados.
+
 \subsection*{Títulos de partes e obras recipientes}
 
 Em capítulos, use \texttt{title}/\texttt{subtitle} para a parte e

@@ -46,6 +46,10 @@
 \RequirePackage{xurl}
 \urlstyle{same}
 
+% O editor da obra recipiente nao identifica a parte sem autoria.
+% A opcao tambem orienta os rotulos e a ordenacao calculados pelo Biber.
+\ExecuteBibliographyOptions[inbook,bookinbook,suppbook,incollection,inreference,suppcollection]{useeditor=false}
+
 % O DOI do recipiente nao identifica automaticamente sua parte.
 % Campos DOI informados na propria parte (inclusive via xdata) sao preservados.
 \DeclareDataInheritance{book,mvbook,collection,mvcollection,reference,mvreference}
@@ -58,6 +62,16 @@
 \DeclareSourcemap{\maps[datatype=bibtex]{\map{
   \step[notfield=author,final]
   \step[notfield=editor,final]
+  \step[notfield=translator,final]
+  \step[notfield=shorttitle,final]
+  \step[fieldsource=title,notmatch=\regexp{[\\{}]},final]
+  \step[fieldsource=title,match=\regexp{(?i)\A((?:(?:a|as|o|os|um|uma|uns|umas)\s+)?\S+)(?:\s+.*)?\z},final]
+  \step[fieldset=shorttitle,fieldvalue={$1}]
+}\map{
+  % Nas partes, o editor pertence ao recipiente e nao impede o rotulo por titulo.
+  \pertype{inbook}\pertype{bookinbook}\pertype{suppbook}
+  \pertype{incollection}\pertype{inreference}\pertype{suppcollection}
+  \step[notfield=author,final]
   \step[notfield=translator,final]
   \step[notfield=shorttitle,final]
   \step[fieldsource=title,notmatch=\regexp{[\\{}]},final]

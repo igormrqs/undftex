@@ -36,6 +36,11 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Corrigido
 
+- AF03-01: capítulos sem autor deixam de usar o editor do recipiente na
+  entrada, citação e ordenação; responsabilidades do livro e autoria
+  cadastrada ou herdada legitimamente permanecem preservadas. Regressão
+  permanente com 21 cenários integrada aos verificadores local e de CI.
+
 - Separadores de artigos e trabalhos acadêmicos acompanham os campos impressos, eliminando `.,` nos casos verificados. Subtítulo sem título não se liga ao nome do autor por dois-pontos. Faltas essenciais recebem aviso com chave e campo, sem completar dados.
 - Avisos de entrada pelo título verificam os nomes de origem antes da derivação de `labelname`, evitando falsos avisos em obras com autor; citações sem identidade disponível deixam de imprimir vírgula inicial solta.
 

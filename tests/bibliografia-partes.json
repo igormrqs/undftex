@@ -1,0 +1,427 @@
+[
+  {
+    "id": "E101",
+    "caso": "Mínimo independente V02: parte sem autor, organizadora do recipiente",
+    "ordem": [
+      "PESQUISA comunitária. In: LUZ, Beatriz (org.).",
+      "Coletânea de métodos",
+      "Brasília: Editora Alfa, 2024",
+      "p. 31–48"
+    ],
+    "chamadaPadroes": [
+      "\\(Pesquisa \\[…\\], 2024\\)",
+      "Pesquisa \\[…\\] \\(2024\\)"
+    ],
+    "chamadaAusentes": [
+      "Luz"
+    ],
+    "padroes": [
+      "(?-i)^ PESQUISA comunitária\\. In:"
+    ],
+    "avisos": [],
+    "ausentes": [],
+    "contagens": {
+      "LUZ, Beatriz": 1
+    }
+  },
+  {
+    "id": "E102",
+    "caso": "Parte com autora própria",
+    "ordem": [
+      "NUNES, Ana. Pesquisa comunitária. In: LUZ, Beatriz (org.).",
+      "Coletânea de métodos"
+    ],
+    "chamadaPadroes": [
+      "\\(Nunes, 2024\\)"
+    ],
+    "chamadaAusentes": [
+      "Luz"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": [],
+    "contagens": {
+      "NUNES, Ana": 1,
+      "LUZ, Beatriz": 1
+    }
+  },
+  {
+    "id": "E103",
+    "caso": "inbook: autora da parte e bookauthor diferentes",
+    "ordem": [
+      "NUNES, Ana.",
+      "In: PRADO, Bia.",
+      "Coletânea de métodos"
+    ],
+    "chamadaPadroes": [
+      "\\(Nunes, 2024\\)"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": []
+  },
+  {
+    "id": "E104",
+    "caso": "Parte com autora, bookauthor e editor",
+    "ordem": [
+      "NUNES, Ana.",
+      "In: PRADO, Bia.",
+      "Coletânea de métodos",
+      "Ed. por Caio Costa"
+    ],
+    "chamadaPadroes": [
+      "\\(Nunes, 2024\\)"
+    ],
+    "chamadaAusentes": [
+      "Prado",
+      "Costa"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": []
+  },
+  {
+    "id": "E105",
+    "caso": "Parte sem autora; bookauthor e organizadora só do livro",
+    "ordem": [
+      "PESQUISA comunitária. In: PRADO, Bia.",
+      "Coletânea de métodos",
+      "Org. por Beatriz Luz"
+    ],
+    "chamadaPadroes": [
+      "\\(Pesquisa \\[…\\], 2024\\)"
+    ],
+    "chamadaAusentes": [
+      "Prado",
+      "Luz"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": [],
+    "contagens": {
+      "PRADO, Bia": 1,
+      "Beatriz Luz": 1
+    }
+  },
+  {
+    "id": "E106",
+    "caso": "Parte sem autora e sem título: diagnosticar sem inventar identidade",
+    "ordem": [
+      "In: LUZ, Beatriz (org.).",
+      "Coletânea de métodos"
+    ],
+    "chamadaPadroes": [
+      "\\(2024\\)"
+    ],
+    "chamadaAusentes": [
+      "Luz",
+      "Coletânea"
+    ],
+    "padroes": [
+      "(?-i)^ In:"
+    ],
+    "avisos": [
+      "Essencial ausente: e106 \\(title\\)"
+    ],
+    "ausentes": [
+      ". In:"
+    ],
+    "contagens": {
+      "LUZ, Beatriz": 1
+    }
+  },
+  {
+    "id": "E107",
+    "caso": "crossref de coletânea sem autoria da parte",
+    "ordem": [
+      "PESQUISA por herança. In: LUZ, Beatriz (org.).",
+      "Livro organizado por referência"
+    ],
+    "chamadaPadroes": [
+      "\\(Pesquisa \\[…\\], 2024\\)"
+    ],
+    "chamadaAusentes": [
+      "Luz"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": [],
+    "contagens": {
+      "LUZ, Beatriz": 1
+    }
+  },
+  {
+    "id": "E108",
+    "caso": "Contrato nativo: inbook herda autor de livro de autoria conhecida",
+    "ordem": [
+      "PRADO, Bia. Pesquisa independente. In: PRADO, Bia.",
+      "Livro de autoria conhecida",
+      "Org. por Beatriz Luz"
+    ],
+    "chamadaPadroes": [
+      "\\(Prado, 2024\\)"
+    ],
+    "chamadaAusentes": [
+      "Luz"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": [],
+    "contagens": {
+      "PRADO, Bia": 2
+    }
+  },
+  {
+    "id": "E109",
+    "caso": "xdata com responsabilidade editorial do recipiente",
+    "ordem": [
+      "PESQUISA compartilhada. In: LUZ, Beatriz (org.).",
+      "Coletânea recebida de xdata"
+    ],
+    "chamadaPadroes": [
+      "\\(Pesquisa \\[…\\], 2024\\)"
+    ],
+    "chamadaAusentes": [
+      "Luz"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": [],
+    "contagens": {
+      "LUZ, Beatriz": 1
+    }
+  },
+  {
+    "id": "E110",
+    "caso": "Vários organizadores da coletânea",
+    "ordem": [
+      "PESQUISA comunitária. In: LUZ, Beatriz; COSTA, Caio (org.).",
+      "Coletânea de métodos"
+    ],
+    "chamadaPadroes": [
+      "\\(Pesquisa \\[…\\], 2024\\)"
+    ],
+    "chamadaAusentes": [
+      "Luz",
+      "Costa"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": [],
+    "contagens": {
+      "LUZ, Beatriz": 1,
+      "COSTA, Caio": 1
+    }
+  },
+  {
+    "id": "E111",
+    "caso": "Coletânea integral institucional continua entrando pela organizadora",
+    "ordem": [
+      "INSTITUTO EDITORIAL (org.). Estudos institucionais.",
+      "Brasília: Editora Alfa, 2024"
+    ],
+    "chamadaPadroes": [
+      "\\(Instituto Editorial, 2024\\)"
+    ],
+    "chamadaAusentes": [],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": [],
+    "contagens": {
+      "INSTITUTO EDITORIAL": 1
+    }
+  },
+  {
+    "id": "E112",
+    "caso": "Quatro apud com fonte consultada identificada pelo título",
+    "ordem": [
+      "PESQUISA comunitária. In: LUZ, Beatriz (org.)."
+    ],
+    "chamadaPadroes": [
+      "apud Pesquisa \\[…\\], 2024"
+    ],
+    "chamadaAusentes": [
+      "Luz"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": [
+      "Fonte original"
+    ]
+  },
+  {
+    "id": "E113",
+    "caso": "Ordenação usa título da parte; não organizador do recipiente",
+    "ordem": [
+      "ALFA comunitária. In: ZETA, Beatriz (org.).",
+      "BETA, Bia. Livro de autora.",
+      "ZETA comunitária. In: ALFA, Ana (org.)."
+    ],
+    "chamadaPadroes": [
+      "Zeta \\[…\\], 2024",
+      "Alfa \\[…\\], 2024",
+      "Beta, 2024"
+    ],
+    "chamadaAusentes": [
+      "Alfa, 2024",
+      "Zeta, 2024"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": []
+  },
+  {
+    "id": "E114",
+    "caso": "Rótulos iguais de partes sem autora: letras pelo título completo",
+    "ordem": [
+      "PESQUISA comunitária",
+      "2024a",
+      "PESQUISA social",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "Pesquisa \\[…\\], 2024b; Pesquisa \\[…\\], 2024a"
+    ],
+    "chamadaAusentes": [
+      "Alfa",
+      "Zeta"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": []
+  },
+  {
+    "id": "E115",
+    "caso": "Livro integral com autora e organizadora distintas",
+    "ordem": [
+      "NUNES, Ana. Livro completo. Org. por Beatriz Luz.",
+      "Brasília: Editora Alfa, 2024"
+    ],
+    "chamadaPadroes": [
+      "\\(Nunes, 2024\\)"
+    ],
+    "chamadaAusentes": [
+      "Luz"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": []
+  },
+  {
+    "id": "E116",
+    "caso": "Autora da parte corretamente fornecida por xdata",
+    "ordem": [
+      "NUNES, Ana. Pesquisa explícita. In: PRADO, Bia.",
+      "Livro com autoria compartilhada",
+      "Org. por Beatriz Luz"
+    ],
+    "chamadaPadroes": [
+      "\\(Nunes, 2024\\)"
+    ],
+    "chamadaAusentes": [
+      "Luz",
+      "Prado"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": []
+  },
+  {
+    "id": "E117",
+    "caso": "Alias de parte bookinbook",
+    "ordem": [
+      "PESQUISA comunitária. In: LUZ, Beatriz (org.)."
+    ],
+    "chamadaPadroes": [
+      "\\(Pesquisa \\[…\\], 2024\\)"
+    ],
+    "chamadaAusentes": [
+      "Luz"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": [],
+    "contagens": {
+      "LUZ, Beatriz": 1
+    }
+  },
+  {
+    "id": "E118",
+    "caso": "Alias de parte inreference",
+    "ordem": [
+      "PESQUISA comunitária. In: LUZ, Beatriz (org.)."
+    ],
+    "chamadaPadroes": [
+      "\\(Pesquisa \\[…\\], 2024\\)"
+    ],
+    "chamadaAusentes": [
+      "Luz"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": [],
+    "contagens": {
+      "LUZ, Beatriz": 1
+    }
+  },
+  {
+    "id": "E119",
+    "caso": "Alias de parte suppbook",
+    "ordem": [
+      "PESQUISA comunitária. In: LUZ, Beatriz (org.)."
+    ],
+    "chamadaPadroes": [
+      "\\(Pesquisa \\[…\\], 2024\\)"
+    ],
+    "chamadaAusentes": [
+      "Luz"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": [],
+    "contagens": {
+      "LUZ, Beatriz": 1
+    }
+  },
+  {
+    "id": "E120",
+    "caso": "Alias de parte suppcollection",
+    "ordem": [
+      "PESQUISA comunitária. In: LUZ, Beatriz (org.)."
+    ],
+    "chamadaPadroes": [
+      "\\(Pesquisa \\[…\\], 2024\\)"
+    ],
+    "chamadaAusentes": [
+      "Luz"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": [],
+    "contagens": {
+      "LUZ, Beatriz": 1
+    }
+  },
+  {
+    "id": "E121",
+    "caso": "Autora própria da parte prevalece sobre crossref",
+    "ordem": [
+      "NUNES, Ana. Pesquisa assinada. In: PRADO, Bia.",
+      "Livro com autora e editora",
+      "Org. por Beatriz Luz"
+    ],
+    "chamadaPadroes": [
+      "\\(Nunes, 2024\\)"
+    ],
+    "chamadaAusentes": [
+      "Prado",
+      "Luz"
+    ],
+    "padroes": [],
+    "avisos": [],
+    "ausentes": []
+  }
+]

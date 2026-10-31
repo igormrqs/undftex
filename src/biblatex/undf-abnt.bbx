@@ -161,7 +161,7 @@
 
 \newbibmacro*{undf:mainauthor}{%
   \ifnameundef{author}
-    {\usebibmacro{undf:editor}}
+    {\ifuseeditor{\usebibmacro{undf:editor}}{}}
     {{\undf@upperbibnames\printnames[undf:family-given]{author}}}%
 }
 
@@ -428,8 +428,8 @@
   \usebibmacro{undf:mainauthor}%
   \setunit{\adddot\space}%
   \usebibmacro{undf:title}%
-  \adddot\space
-  In\addcolon\space
+  \setunit{\adddot\space}%
+  \printtext{In\addcolon\space}%
   \usebibmacro{undf:containerauthor}%
   \setunit{\adddot\space}%
   \printtext{\renewcommand*{\subtitlepunct}{\addcolon\space}\usebibmacro{maintitle+booktitle}}%
@@ -452,8 +452,8 @@
   \usebibmacro{undf:mainauthor}%
   \setunit{\adddot\space}%
   \usebibmacro{undf:title}%
-  \adddot\space
-  In\addcolon\space
+  \setunit{\adddot\space}%
+  \printtext{In\addcolon\space}%
   \usebibmacro{undf:containerauthor}%
   \setunit{\adddot\space}%
   \printtext{\renewcommand*{\subtitlepunct}{\addcolon\space}\usebibmacro{maintitle+booktitle}}%

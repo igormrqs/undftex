@@ -122,6 +122,13 @@ Para integridade bibliográfica (26 cenários), execute
 Os testes conferem conteúdo, pontuação, avisos esperados e indevidos,
 referência completa pontual e a preservação de datas e links.
 
+Para identidade de partes sem autor (AF03-01), execute
+`./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-partes.tex')`.
+São 21 cenários com chamadas, referências, ordenação, desambiguação,
+`bookauthor`, funções editoriais, `crossref`, `xdata`, aliases e quatro apud.
+A autoria herdada nativamente de um livro conhecido é um controle positivo;
+o editor do recipiente não pode substituir a autoria desconhecida da parte.
+
 ## Imagens e arquivos grandes
 
 Antes de adicionar imagens ao repositório:
