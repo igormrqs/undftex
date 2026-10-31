@@ -329,9 +329,35 @@
   \iftoggle{bbx:url}{\usebibmacro{undf:urlaccess}}{}%
 }
 
+% Igualdade literal com informacao ja impressa nao acrescenta outra nota.
+% type identifica a natureza somente nos drivers de relatorio/trabalho academico.
+\newcommand*{\undf@clearduplicatematerial}[1]{%
+  \ifboolexpr{test {\iffieldsequal{#1}{title}}
+    or test {\iffieldsequal{#1}{subtitle}}
+    or test {\iffieldsequal{#1}{howpublished}}
+    or ((test {\ifentrytype{report}} or test {\ifentrytype{techreport}}
+      or test {\ifentrytype{thesis}} or test {\ifentrytype{mastersthesis}}
+      or test {\ifentrytype{phdthesis}})
+      and test {\iffieldsequal{#1}{type}})}
+    {\clearfield{#1}}{}%
+}
+\newbibmacro*{undf:materialnotes}{%
+  \begingroup
+  \forcsvlist{\undf@clearduplicatematerial}{note,addendum,pubstate}%
+  \iffieldsequal{addendum}{note}{\clearfield{addendum}}{}%
+  \iffieldsequal{pubstate}{note}{\clearfield{pubstate}}{}%
+  \iffieldsequal{pubstate}{addendum}{\clearfield{pubstate}}{}%
+  \printfield{note}%
+  \newunit\newblock
+  \usebibmacro{addendum+pubstate}%
+  \endgroup
+}
+
 \newbibmacro*{undf:electronic}{%
   \newunit\newblock
   \printfield{howpublished}%
+  \newunit\newblock
+  \usebibmacro{undf:materialnotes}%
   \newunit\newblock
   \usebibmacro{doi+eprint+url}%
 }

@@ -47,6 +47,10 @@ da parte sem autor, a responsabilidade do recipiente e controles de herança.
 O trio `tests/bibliografia-periodicos.tex`/`.bib`/`.json` verifica títulos
 e subtítulos do artigo e do periódico, herança, pontuação e campos eletrônicos.
 
+O trio `tests/bibliografia-notas.tex`/`.bib`/`.json` verifica notas materiais,
+complementos distintos e controles de duplicação; os casos reais usam as dez
+bases já distribuídas, sem duplicar ou alterar seus registros.
+
 ## Fora do trabalho distribuído
 
 Não fazem parte do trabalho distribuído por padrão:

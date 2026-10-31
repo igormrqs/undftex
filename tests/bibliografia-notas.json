@@ -1,0 +1,715 @@
+[
+  {
+    "id": "NF01",
+    "caso": "Minuta no driver book",
+    "ordem": [
+      "2024",
+      "Minuta sem aprovação institucional"
+    ],
+    "contagens": {
+      "Minuta sem aprovação institucional": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF02",
+    "caso": "Nota delimita parte do relatório",
+    "ordem": [
+      "Relatório final",
+      "2024",
+      "Parte I: relatório técnico acumulativo"
+    ],
+    "contagens": {
+      "Parte I: relatório técnico acumulativo": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF03",
+    "caso": "Online sem nota preserva DOI, URL e acesso",
+    "ordem": [
+      "3 de jun. de 2024",
+      "10.0000/nf03",
+      "Disponível em: https://example.invalid/nf03",
+      "Acesso em: 31 de out. de 2026"
+    ],
+    "contagens": {},
+    "ausentes": [
+      "Nota:",
+      "Addendum:",
+      ", ,",
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": [],
+    "links": [
+      "https://doi.org/10.0000/nf03",
+      "https://example.invalid/nf03"
+    ]
+  },
+  {
+    "id": "NF04",
+    "caso": "Campos de complemento distintos e estado localizado",
+    "ordem": [
+      "2024",
+      "Versão de avaliação",
+      "Consulta restrita ao capítulo introdutório",
+      "no prelo"
+    ],
+    "contagens": {
+      "Versão de avaliação": 1,
+      "Consulta restrita ao capítulo introdutório": 1,
+      "no prelo": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF05",
+    "caso": "Nota e DOI sem alteração do identificador",
+    "ordem": [
+      "2024",
+      "Minuta para revisão técnica",
+      "10.0000/nf05"
+    ],
+    "contagens": {
+      "Minuta para revisão técnica": 1,
+      "10.0000/nf05": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": [],
+    "links": [
+      "https://doi.org/10.0000/nf05"
+    ]
+  },
+  {
+    "id": "NF06",
+    "caso": "Nota antes de disponibilidade e acesso",
+    "ordem": [
+      "2024",
+      "Versão de trabalho consultada",
+      "Disponível em: https://example.invalid/nf06",
+      "Acesso em: 31 de out. de 2026"
+    ],
+    "contagens": {
+      "Versão de trabalho consultada": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": [],
+    "links": [
+      "https://example.invalid/nf06"
+    ]
+  },
+  {
+    "id": "NF07",
+    "caso": "Livro sem complementos mantém pontuação",
+    "ordem": [
+      "NUNES, Ana. Pesquisa aplicada. Brasília: Editora Alfa, 2024."
+    ],
+    "contagens": {},
+    "ausentes": [
+      "Nota:",
+      ": .",
+      "..",
+      "Addendum:",
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF08",
+    "caso": "Relatório com nota e natureza distintas",
+    "ordem": [
+      "Relatório final de projeto",
+      "2024",
+      "Parte consultada: resultados técnicos"
+    ],
+    "contagens": {
+      "Parte consultada: resultados técnicos": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF09",
+    "caso": "Manual herdado já imprime nota e adendo",
+    "ordem": [
+      "Manual nativo",
+      "Nota do manual herdado",
+      "2024",
+      "Adendo do manual herdado",
+      "no prelo"
+    ],
+    "contagens": {
+      "Nota do manual herdado": 1,
+      "Adendo do manual herdado": 1,
+      "no prelo": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF10",
+    "caso": "Artigo com nota e subtítulo de periódico",
+    "ordem": [
+      "Artigo de pesquisa: estudo aplicado",
+      "Revista Horizonte: pesquisa aberta",
+      "p. 1–9",
+      "2024",
+      "Versão aceita para discussão"
+    ],
+    "contagens": {
+      "Versão aceita para discussão": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF11",
+    "caso": "Misc herdado continua imprimindo nota uma vez",
+    "ordem": [
+      "Documento nativo",
+      "Nota do tipo herdado"
+    ],
+    "contagens": {
+      "Nota do tipo herdado": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF12",
+    "caso": "Misc herdado sem nota não recebe nota artificial",
+    "ordem": [
+      "Controle nativo sem nota",
+      "2024"
+    ],
+    "contagens": {},
+    "ausentes": [
+      "Nota:",
+      "Addendum:",
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF13",
+    "caso": "Nota acentuada preservada",
+    "ordem": [
+      "2024",
+      "Análise preliminar: versão crítica, seção de avaliação e conclusão"
+    ],
+    "contagens": {
+      "Análise preliminar": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF14",
+    "caso": "Nota extensa atravessa página e conserva quebra explícita",
+    "ordem": [
+      "Início da nota extensa",
+      "Fecho da nota extensa: apenas a etapa experimental foi consultada"
+    ],
+    "contagens": {
+      "Início da nota extensa": 1,
+      "Fecho da nota extensa": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": [],
+    "paginasMinimas": 2
+  },
+  {
+    "id": "NF15",
+    "caso": "Nota não esconde diagnóstico essencial",
+    "ordem": [
+      "2024",
+      "Minuta com publicação pendente"
+    ],
+    "contagens": {
+      "Minuta com publicação pendente": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [
+      "Essencial ausente: nf15 \\(publisher\\)"
+    ],
+    "padroes": []
+  },
+  {
+    "id": "NF16",
+    "caso": "Textos semelhantes de funções distintas não são fundidos",
+    "ordem": [
+      "2024",
+      "E-book",
+      "Versão de trabalho. Versão de trabalho destinada à revisão",
+      "em prep."
+    ],
+    "contagens": {
+      "Versão de trabalho destinada à revisão": 1,
+      "em prep.": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF17",
+    "caso": "Nota igual ao suporte já impresso",
+    "ordem": [
+      "2024",
+      "E-book"
+    ],
+    "contagens": {
+      "E-book": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF18",
+    "caso": "Nota e adendo literalmente iguais não são duplicados",
+    "ordem": [
+      "2024",
+      "Minuta editorial",
+      "no prelo"
+    ],
+    "contagens": {
+      "Minuta editorial": 1,
+      "no prelo": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF19",
+    "caso": "Nota igual à natureza já impressa no relatório",
+    "ordem": [
+      "Relatório de avaliação",
+      "Relatório técnico final",
+      "2024"
+    ],
+    "contagens": {
+      "Relatório técnico final": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF20",
+    "caso": "Campo type não impresso em livro não elimina nota",
+    "ordem": [
+      "2024",
+      "Versão experimental"
+    ],
+    "contagens": {
+      "Versão experimental": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF21",
+    "caso": "Nota repetindo exatamente título não o duplica",
+    "ordem": [
+      "Minuta experimental",
+      "2024"
+    ],
+    "contagens": {
+      "Minuta experimental": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF22",
+    "caso": "Estado de publicação não substitui data ausente",
+    "ordem": [
+      "Estado informado sem inventar ano",
+      "no prelo"
+    ],
+    "contagens": {
+      "Estado informado sem inventar ano": 1,
+      "no prelo": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [
+      "Data de publicacao ausente: nf22"
+    ],
+    "padroes": [],
+    "chamadaPadroes": [
+      "Nunes, \\[s\\.d\\.\\]"
+    ]
+  },
+  {
+    "id": "NF23",
+    "caso": "Adendo e estado sem campo note",
+    "ordem": [
+      "2024",
+      "Parte consultada: síntese dos resultados",
+      "no prelo"
+    ],
+    "contagens": {
+      "Parte consultada: síntese dos resultados": 1,
+      "no prelo": 1
+    },
+    "ausentes": [
+      "Nota:",
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF24",
+    "caso": "Notas não alteram ordenação ou letras",
+    "ordem": [
+      "Alfa da pesquisa",
+      "2024a",
+      "Zeta como nota editorial",
+      "Beta da pesquisa",
+      "2024b",
+      "Alfa como nota editorial"
+    ],
+    "contagens": {
+      "Zeta como nota editorial": 1,
+      "Alfa como nota editorial": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": [],
+    "chamadaPadroes": [
+      "Nunes, 2024b; Nunes, 2024a"
+    ]
+  },
+  {
+    "id": "NF25",
+    "caso": "Fullref não consome nota da bibliografia",
+    "ordem": [
+      "2024",
+      "Nota reutilizada na referência completa"
+    ],
+    "contagens": {
+      "Nota reutilizada na referência completa": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": [],
+    "chamadaPadroes": [
+      "Nota reutilizada na referência completa",
+      "Nunes, 2024"
+    ]
+  },
+  {
+    "id": "NF26",
+    "caso": "Adendo e estado literais iguais ao suporte",
+    "ordem": [
+      "2024",
+      "E-book",
+      "Versão em revisão"
+    ],
+    "contagens": {
+      "E-book": 1,
+      "Versão em revisão": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF27",
+    "caso": "Registro real manualundf em exemplo/negocio-tecnologico/referencias.bib",
+    "ordem": [
+      "2026",
+      "Versão de trabalho, revisão de 25 de outubro de 2026. Seções 1.3 e 1.4. Minuta sem aprovação institucional"
+    ],
+    "contagens": {
+      "Versão de trabalho, revisão de 25 de outubro de 2026. Seções 1.3 e 1.4. Minuta sem aprovação institucional": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF28",
+    "caso": "Registro real manualundf em exemplo/portfolio/referencias.bib",
+    "ordem": [
+      "2026",
+      "Versão de trabalho. Seção 1.1. Minuta sem aprovação institucional"
+    ],
+    "contagens": {
+      "Versão de trabalho. Seção 1.1. Minuta sem aprovação institucional": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF29",
+    "caso": "Registro real relatoriofinal em exemplo/portfolio/referencias.bib",
+    "ordem": [
+      "2026",
+      "Parte I: relatório técnico acumulativo. Documento consultado como referência de organização"
+    ],
+    "contagens": {
+      "Parte I: relatório técnico acumulativo. Documento consultado como referência de organização": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF30",
+    "caso": "Registro real manualundf em exemplo/projeto-aplicado/referencias.bib",
+    "ordem": [
+      "2026",
+      "Versão de trabalho. Seção 1.1. Minuta sem aprovação institucional"
+    ],
+    "contagens": {
+      "Versão de trabalho. Seção 1.1. Minuta sem aprovação institucional": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF31",
+    "caso": "Registro real manualundf em exemplo/relatorio-projeto/referencias.bib",
+    "ordem": [
+      "2026",
+      "Versão de trabalho, revisão de 25 de outubro de 2026. Seções 1.3 e 1.4. Minuta sem aprovação institucional"
+    ],
+    "contagens": {
+      "Versão de trabalho, revisão de 25 de outubro de 2026. Seções 1.3 e 1.4. Minuta sem aprovação institucional": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF32",
+    "caso": "Registro real relatoriofinal em exemplo/relatorio-projeto/referencias.bib",
+    "ordem": [
+      "2026",
+      "Parte I: relatório técnico acumulativo. Documento consultado como referência de organização"
+    ],
+    "contagens": {
+      "Parte I: relatório técnico acumulativo. Documento consultado como referência de organização": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF33",
+    "caso": "Registro real manualundf em modelos/negocio-tecnologico/referencias.bib",
+    "ordem": [
+      "2026",
+      "Versão de trabalho, revisão de 25 de outubro de 2026. Seções 1.3 e 1.4. Minuta sem aprovação institucional"
+    ],
+    "contagens": {
+      "Versão de trabalho, revisão de 25 de outubro de 2026. Seções 1.3 e 1.4. Minuta sem aprovação institucional": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF34",
+    "caso": "Registro real manualundf em modelos/portfolio/referencias.bib",
+    "ordem": [
+      "2026",
+      "Versão de trabalho. Seção 1.1. Minuta sem aprovação institucional"
+    ],
+    "contagens": {
+      "Versão de trabalho. Seção 1.1. Minuta sem aprovação institucional": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF35",
+    "caso": "Registro real manualundf em modelos/projeto-aplicado/referencias.bib",
+    "ordem": [
+      "2026",
+      "Versão de trabalho. Seção 1.1. Minuta sem aprovação institucional"
+    ],
+    "contagens": {
+      "Versão de trabalho. Seção 1.1. Minuta sem aprovação institucional": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  },
+  {
+    "id": "NF36",
+    "caso": "Registro real manualundf em modelos/relatorio-projeto/referencias.bib",
+    "ordem": [
+      "2026",
+      "Versão de trabalho, revisão de 25 de outubro de 2026. Seções 1.3 e 1.4. Minuta sem aprovação institucional"
+    ],
+    "contagens": {
+      "Versão de trabalho, revisão de 25 de outubro de 2026. Seções 1.3 e 1.4. Minuta sem aprovação institucional": 1
+    },
+    "ausentes": [
+      "..",
+      ". .",
+      ": ."
+    ],
+    "avisos": [],
+    "padroes": []
+  }
+]

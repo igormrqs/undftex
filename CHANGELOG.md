@@ -36,6 +36,12 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Corrigido
 
+- AF03-08: notas materiais fornecidas em `note`, `addendum` e `pubstate`
+  passam a ser preservadas nos drivers próprios, com deduplicação literal
+  local e preservação dos impressores herdados. Regressão com 36 cenários,
+  incluindo dez ocorrências reais de minuta e parte consultada, integrada
+  aos verificadores local e de CI.
+
 - AF03-02: subtítulos de periódicos são preservados nas referências de artigos,
   com separador condicional e distinção dos títulos/subtítulos do artigo.
   Regressão permanente com 15 cenários de pontuação, herança e preservação

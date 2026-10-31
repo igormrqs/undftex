@@ -173,6 +173,35 @@ ser fornecidos por \texttt{crossref} ou \texttt{xdata}.
 Se faltar \texttt{journaltitle}, o modelo emite aviso de dado essencial,
 mesmo que haja um subtítulo; confira a fonte antes da entrega.
 
+\subsection*{Notas de estado e de escopo da consulta}
+
+Use \texttt{note} para a observação bibliográfica que deve acompanhar a
+referência: condição de minuta, versão de trabalho, parte consultada ou
+qualificação editorial pertinente. Assim, a indicação de minuta sem aprovação
+institucional e a delimitação da Parte I consultada permanecem visíveis.
+Comentários privados de manutenção devem ficar fora desse campo.
+
+\texttt{addendum} registra uma observação distinta e \texttt{pubstate} informa
+o estado de publicação, com os termos nativos localizados pelo BibLaTeX.
+\texttt{howpublished} conserva a indicação de suporte ou forma de publicação.
+Esses campos não substituem a data de publicação, nem fazem o modelo inferir
+aprovação institucional. Uma descrição de versão em nota permanece como foi
+fornecida; os demais campos complementares não são acrescentados automaticamente.
+
+Nos drivers próprios, após a descrição e o suporte vêm \texttt{note},
+\texttt{addendum} e \texttt{pubstate}, antes de DOI, URL e acesso.
+Essa posição é uma decisão do projeto para manter o bloco de consulta online
+ao final. Campos vazios não geram texto ou pontuação. Adote o mesmo critério
+de complementos nas referências do mesmo tipo, conforme a NBR 6023:2025,
+seções 6.7, 6.8 e 8.11; nem toda nota é um elemento essencial.
+
+Repetições literalmente iguais ao título, subtítulo, suporte ou natureza já
+impressa são suprimidas do bloco de notas. Entre os três campos de nota,
+prevalece a primeira ocorrência nessa ordem. Textos apenas semelhantes e
+informações distintas permanecem; confira equivalências de sentido no cadastro.
+Os tipos herdados conservam sua composição nativa, sem um segundo impressor
+global de notas.
+
 \subsection*{Identificadores eletrônicos e consulta}
 
 Informe \texttt{doi} como identificador, por exemplo

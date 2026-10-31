@@ -136,6 +136,17 @@ São 15 cenários com identificação do artigo e da revista, acentos, pontuaç�
 O controle de `periodical` protege o comportamento herdado sem afirmar sua
 conformidade integral com a ABNT.
 
+Para notas materiais (AF03-08), execute
+`./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-notas.tex')`.
+São 36 cenários: 26 sintéticos e dez ocorrências reais de `manualundf` e
+`relatoriofinal`, carregadas diretamente das bases de modelos e exemplos.
+Verificam estado/escopo, campos distintos, repetição literal, ausência de notas,
+URL/DOI/acesso, diagnósticos, ordenação, `fullref` e nota que atravessa página.
+Os drivers próprios apresentam os complementos fornecidos antes do bloco
+eletrônico; os herdados conservam as chamadas nativas. A escolha de dados
+bibliográficos públicos pertence a quem mantém a base: não são inferidos
+estado de aprovação, datas ou relevância por palavras-chave.
+
 ## Imagens e arquivos grandes
 
 Antes de adicionar imagens ao repositório:
