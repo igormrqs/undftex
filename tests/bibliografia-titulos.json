@@ -1,0 +1,297 @@
+[
+  {
+    "id": "G1",
+    "caso": "{A busca de energia limpa}",
+    "ordem": [
+      "A busca de energia limpa"
+    ],
+    "contagens": {},
+    "ausentes": [],
+    "padroes": [
+      "(?-i)A busca de energia limpa",
+      "(?-i)A\\ busca\\ de\\ energia\\ limpa"
+    ]
+  },
+  {
+    "id": "G2",
+    "caso": "The ecology of cities",
+    "ordem": [
+      "THE ECOLOGY of cities"
+    ],
+    "contagens": {},
+    "ausentes": [],
+    "chamadaPadroes": [
+      "\\(The ecology \\[…\\], 2024\\)"
+    ],
+    "padroes": [
+      "(?-i)THE\\ ECOLOGY\\ of\\ cities"
+    ]
+  },
+  {
+    "id": "G3",
+    "caso": "{eBay} e pesquisa",
+    "ordem": [
+      "eBay e pesquisa"
+    ],
+    "contagens": {},
+    "ausentes": [],
+    "padroes": [
+      "(?-i)eBay\\ e\\ pesquisa"
+    ]
+  },
+  {
+    "id": "G4",
+    "caso": "{NASA} e {iPhone}",
+    "ordem": [
+      "NASA e iPhone"
+    ],
+    "contagens": {},
+    "ausentes": [],
+    "padroes": [
+      "(?-i)NASA\\ e\\ iPhone"
+    ]
+  },
+  {
+    "id": "G5",
+    "caso": "{{iPhone}} aplicado",
+    "ordem": [
+      "iPhone aplicado"
+    ],
+    "contagens": {},
+    "ausentes": [],
+    "padroes": [
+      "(?-i)iPhone\\ aplicado"
+    ]
+  },
+  {
+    "id": "G6",
+    "caso": "\\LaTeX{} na pesquisa",
+    "ordem": [
+      "LATEX na pesquisa"
+    ],
+    "contagens": {},
+    "ausentes": [],
+    "padroes": [
+      "(?-i)LATEX\\ na\\ pesquisa"
+    ]
+  },
+  {
+    "id": "G7",
+    "caso": "Água e ciência",
+    "ordem": [
+      "ÁGUA e ciência"
+    ],
+    "contagens": {},
+    "ausentes": [],
+    "padroes": [
+      "(?-i)ÁGUA\\ e\\ ciência"
+    ]
+  },
+  {
+    "id": "G8",
+    "caso": "\\'{A}gua e pesquisa",
+    "ordem": [
+      "ÁGUA e pesquisa"
+    ],
+    "contagens": {},
+    "ausentes": [],
+    "padroes": [
+      "(?-i)ÁGUA\\ e\\ pesquisa"
+    ]
+  },
+  {
+    "id": "G9",
+    "caso": "Pesquisa: caminhos",
+    "ordem": [
+      "PESQUISA: caminhos"
+    ],
+    "contagens": {
+      "fundamentos": 1
+    },
+    "ausentes": [],
+    "padroes": [
+      "(?-i)PESQUISA:\\ caminhos"
+    ]
+  },
+  {
+    "id": "G10",
+    "caso": "The NASA project",
+    "ordem": [
+      "THE NASA project"
+    ],
+    "contagens": {},
+    "ausentes": [],
+    "padroes": [
+      "(?-i)THE\\ NASA\\ project"
+    ]
+  },
+  {
+    "id": "G11",
+    "caso": "An ecological study",
+    "ordem": [
+      "AN ECOLOGICAL study"
+    ],
+    "contagens": {},
+    "ausentes": [],
+    "padroes": [
+      "(?-i)AN\\ ECOLOGICAL\\ study"
+    ]
+  },
+  {
+    "id": "G12",
+    "caso": "A modern approach",
+    "ordem": [
+      "A MODERN approach"
+    ],
+    "contagens": {},
+    "ausentes": [],
+    "padroes": [
+      "(?-i)A\\ MODERN\\ approach"
+    ]
+  },
+  {
+    "id": "G13",
+    "caso": "Le monde numérique",
+    "ordem": [
+      "Le monde numérique"
+    ],
+    "contagens": {},
+    "ausentes": [],
+    "padroes": [
+      "(?-i)Le\\ monde\\ numérique"
+    ],
+    "avisos": [
+      "Idioma sem abreviacao automatica: g13"
+    ]
+  },
+  {
+    "id": "G14",
+    "caso": "The unknown language",
+    "ordem": [
+      "The unknown language"
+    ],
+    "contagens": {},
+    "ausentes": [],
+    "padroes": [
+      "(?-i)The\\ unknown\\ language"
+    ]
+  },
+  {
+    "id": "G15",
+    "caso": "SUS",
+    "ordem": [
+      "SUS"
+    ],
+    "contagens": {},
+    "ausentes": [],
+    "padroes": [
+      "(?-i)SUS"
+    ]
+  },
+  {
+    "id": "G16",
+    "caso": "The Darwin project",
+    "ordem": [
+      "THE DARWIN project"
+    ],
+    "contagens": {},
+    "ausentes": [],
+    "padroes": [
+      "(?-i)THE\\ DARWIN\\ project"
+    ]
+  },
+  {
+    "id": "G17",
+    "caso": "{eBay} no título",
+    "ordem": [
+      "eBay no título"
+    ],
+    "contagens": {},
+    "ausentes": [],
+    "padroes": [
+      "(?-i)eBay\\ no\\ título"
+    ]
+  },
+  {
+    "id": "G18",
+    "caso": "The methods of research",
+    "ordem": [
+      "THE METHODS of research"
+    ],
+    "contagens": {
+      "LUZ, Beatriz": 1
+    },
+    "ausentes": [
+      "Fonte original"
+    ],
+    "padroes": [
+      "(?-i)THE\\ METHODS\\ of\\ research"
+    ],
+    "chamadaAusentes": [
+      "Luz"
+    ],
+    "chamadaPadroes": [
+      "(?s)apud The methods.*apud The methods.*apud The methods.*apud The methods"
+    ]
+  },
+  {
+    "id": "G19",
+    "caso": "{iPhone} na pesquisa",
+    "ordem": [
+      "iPhone na pesquisa"
+    ],
+    "contagens": {},
+    "ausentes": [],
+    "padroes": [
+      "(?-i)iPhone\\ na\\ pesquisa"
+    ]
+  },
+  {
+    "id": "G20",
+    "caso": "{eBay} assinado",
+    "ordem": [
+      "eBay assinado"
+    ],
+    "contagens": {},
+    "ausentes": [],
+    "padroes": [
+      "(?-i)eBay\\ assinado"
+    ]
+  },
+  {
+    "id": "G21",
+    "caso": "Título protegido herdado de xdata",
+    "ordem": [
+      "eBay e inovação"
+    ],
+    "padroes": [
+      "(?-i)eBay\\ e\\ inovação"
+    ]
+  },
+  {
+    "id": "G22",
+    "caso": "Colisão inglesa, título completo determina letras",
+    "ordem": [
+      "THE ECOLOGY of cities",
+      "2024a",
+      "THE ECOLOGY of forests",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "The ecology \\[…\\], 2024b; The ecology \\[…\\], 2024a"
+    ],
+    "padroes": [
+      "(?-i)THE\\ ECOLOGY\\ of\\ cities"
+    ]
+  },
+  {
+    "id": "G23",
+    "caso": "Expressão matemática não deve ser truncada ou capitalizada",
+    "ordem": [
+      "na pesquisa"
+    ],
+    "chamadaPadroes": [
+      "na pesquisa"
+    ]
+  }
+]

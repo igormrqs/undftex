@@ -147,6 +147,12 @@ eletrônico; os herdados conservam as chamadas nativas. A escolha de dados
 bibliográficos públicos pertence a quem mantém a base: não são inferidos
 estado de aprovação, datas ou relevância por palavras-chave.
 
+F03-G / AF03-03: títulos com grupos ou comandos são preservados na impressão.
+Inglês simples declarado em langid=english usa artigo e palavra seguinte;
+outros idiomas declarados conservam título completo. shorttitle explícito
+prevalece. Teste: scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-titulos.tex').
+O trio tests/bibliografia-titulos.tex/.bib/.json contém 23 controles permanentes.
+
 ## Imagens e arquivos grandes
 
 Antes de adicionar imagens ao repositório:

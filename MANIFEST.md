@@ -51,6 +51,12 @@ O trio `tests/bibliografia-notas.tex`/`.bib`/`.json` verifica notas materiais,
 complementos distintos e controles de duplicação; os casos reais usam as dez
 bases já distribuídas, sem duplicar ou alterar seus registros.
 
+F03-G / AF03-03: títulos com grupos ou comandos são preservados na impressão.
+Inglês simples declarado em langid=english usa artigo e palavra seguinte;
+outros idiomas declarados conservam título completo. shorttitle explícito
+prevalece. Teste: scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-titulos.tex').
+O trio tests/bibliografia-titulos.tex/.bib/.json contém 23 controles permanentes.
+
 ## Fora do trabalho distribuído
 
 Não fazem parte do trabalho distribuído por padrão:

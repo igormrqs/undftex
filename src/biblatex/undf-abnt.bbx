@@ -26,18 +26,35 @@
 % ----------------------------------------------------
 % A entrada pelo titulo nao muda os dados nem recebe destaque tipografico.
 \ExplSyntaxOn
-\clist_const:Nx \c_undf_articles_clist {\tl_to_str:n {a,as,o,os,um,uma,uns,umas}}
-\cs_new_protected:Npn \undf_entry_title:n #1
+\clist_const:Nx \c_undf_articles_clist {\tl_to_str:n {a,as,o,os,um,uma,uns,umas,the,an}}
+\cs_new_protected:Npn \undf_simple_entry_title:n #1
   {
+    \clist_set_eq:NN \l_tmpa_clist \c_undf_articles_clist
+    \iffieldequalstr{langid}{english}{}
+      {\clist_remove_all:Nn \l_tmpa_clist {the}
+       \clist_remove_all:Nn \l_tmpa_clist {an}}
     \seq_set_split:Nnn \l_tmpa_seq { ~ } {#1}
     \seq_pop_left:NN \l_tmpa_seq \l_tmpa_tl
     \tl_set:Nx \l_tmpb_tl {\str_lowercase:f {\tl_to_str:V \l_tmpa_tl}}
-    \exp_args:NNV \clist_if_in:NnT \c_undf_articles_clist \l_tmpb_tl
+    \exp_args:NNV \clist_if_in:NnT \l_tmpa_clist \l_tmpb_tl
       {\seq_if_empty:NF \l_tmpa_seq
         {\seq_pop_left:NN \l_tmpa_seq \l_tmpb_tl
          \tl_put_right:Nx \l_tmpa_tl { ~ \exp_not:V \l_tmpb_tl}}}
     \exp_args:NV \MakeUppercase \l_tmpa_tl
     \seq_if_empty:NF \l_tmpa_seq { ~ \seq_use:Nn \l_tmpa_seq { ~ }}
+  }
+
+% Grupos e comandos conservam sua estrutura e caixa; nao sao interpretados.
+\cs_new_protected:Npn \undf_entry_title:n #1
+  {
+    \exp_args:Nne \regex_match:nnTF { [\{\}\\\$\^_] | \x{7E} | [a-z][A-Z] } {\tl_to_str:n {#1}}
+      {\PackageWarningNoLine{undf-biblatex}{Titulo protegido: \thefield{entrykey}. Caixa preservada; confira shorttitle e apresentacao editorial}#1}
+      {\iffieldundef{langid}
+         {\regex_match:nnTF {(?i)\A(?:The|An)\s} {#1}
+            {#1}{\undf_simple_entry_title:n {#1}}}
+         {\ifboolexpr{test {\iffieldequalstr{langid}{english}}
+             or test {\iffieldequalstr{langid}{portuguese}}}
+            {\undf_simple_entry_title:n {#1}}{#1}}}
   }
 \cs_new_eq:NN \undf@entrytitle \undf_entry_title:n
 \ExplSyntaxOff

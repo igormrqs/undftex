@@ -36,6 +36,10 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Corrigido
 
+- AF03-03: títulos protegidos e caixa mista preservados; rótulos ingleses
+  dependem de idioma declarado. Regressão permanente com 23 cenários.
+
+
 - AF03-08: notas materiais fornecidas em `note`, `addendum` e `pubstate`
   passam a ser preservadas nos drivers próprios, com deduplicação literal
   local e preservação dos impressores herdados. Regressão com 36 cenários,

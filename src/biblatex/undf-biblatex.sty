@@ -61,10 +61,26 @@
 % TeX complexo e monossilabos exigem shorttitle conferido no cadastro.
 \DeclareSourcemap{\maps[datatype=bibtex]{\map{
   \step[notfield=author,final]
+  \step[notfield=translator,final]
+  \step[notfield=shorttitle,final]
+  \step[fieldsource=langid,match=\regexp{\Aenglish\z},final]
+  \step[fieldsource=title,notmatch=\regexp{[\\{}$^_~]},final]
+  \step[fieldsource=title,match=\regexp{(?i)\A((?:(?:the|a|an)\s+)?\S+)(?:\s+.*)?\z},final]
+  \step[fieldset=shorttitle,fieldvalue={$1}]
+}\map{
+  \step[notfield=author,final]
+  \step[notfield=translator,final]
+  \step[notfield=shorttitle,final]
+  \step[fieldsource=langid,notmatch=\regexp{\A(?:english|portuguese)\z},final]
+  \step[fieldsource=title,final]
+  \step[fieldset=shorttitle,origfieldval]
+}\map{
+  \step[notfield=author,final]
   \step[notfield=editor,final]
   \step[notfield=translator,final]
   \step[notfield=shorttitle,final]
-  \step[fieldsource=title,notmatch=\regexp{[\\{}]},final]
+  \step[fieldsource=title,notmatch=\regexp{[\\{}$^_~]},final]
+  \step[fieldsource=title,notmatch=\regexp{(?i)\A(?:the|an)\s},final]
   \step[fieldsource=title,match=\regexp{(?i)\A((?:(?:a|as|o|os|um|uma|uns|umas)\s+)?\S+)(?:\s+.*)?\z},final]
   \step[fieldset=shorttitle,fieldvalue={$1}]
 }\map{
@@ -74,13 +90,21 @@
   \step[notfield=author,final]
   \step[notfield=translator,final]
   \step[notfield=shorttitle,final]
-  \step[fieldsource=title,notmatch=\regexp{[\\{}]},final]
+  \step[fieldsource=title,notmatch=\regexp{[\\{}$^_~]},final]
+  \step[fieldsource=title,notmatch=\regexp{(?i)\A(?:the|an)\s},final]
   \step[fieldsource=title,match=\regexp{(?i)\A((?:(?:a|as|o|os|um|uma|uns|umas)\s+)?\S+)(?:\s+.*)?\z},final]
   \step[fieldset=shorttitle,fieldvalue={$1}]
 }}}
 % Data de acesso e data da obra original nao substituem a publicacao da edicao citada.
 \DeclareLabeldate{\field{date}\field{year}\literal{nodate}}
 \AtDataInput{%
+  \ifboolexpr{test {\ifnameundef{author}} and test {\ifnameundef{translator}}
+    and (not test {\ifuseeditor} or test {\ifnameundef{editor}})
+    and not test {\iffieldundef{langid}}
+    and not test {\iffieldequalstr{langid}{english}}
+    and not test {\iffieldequalstr{langid}{portuguese}}}
+    {\PackageWarningNoLine{undf-biblatex}{Idioma sem abreviacao automatica: \thefield{entrykey}. Titulo completo preservado; confira shorttitle}}{}%
+
   % labelname ainda nao foi derivado neste hook; consulte os nomes de origem.
   \ifboolexpr{test {\ifnameundef{author}} and test {\ifnameundef{editor}}
     and test {\ifnameundef{translator}}}

@@ -349,3 +349,12 @@ a correção de uma referência incompleta.
 \subsection*{Ciclo de compilação}
 
 Uma citação com a chave impressa em negrito ou como marcador indefinido geralmente indica chave inexistente ou ciclo de compilação incompleto. Mensagens como \texttt{Please (re)run Biber} pedem a execução do Biber e novas passagens do LuaLaTeX.
+
+\subsection*{Proteção de títulos e idiomas}
+Grupos e comandos TeX em títulos sem autoria conservam sua caixa e estrutura;
+o modelo não interpreta nem remove suas proteções para aplicar caixa alta.
+Use \texttt{shorttitle} explícito em títulos complexos. Para inglês simples,
+\texttt{langid=english} permite abreviar por artigo (The, A, An) e palavra
+seguinte. Outros idiomas declarados conservam o título completo; a definição
+editorial de \texttt{shorttitle} prevalece. Sem idioma, The/An iniciais
+recebem tratamento conservador. Não há detecção automática de idioma.
