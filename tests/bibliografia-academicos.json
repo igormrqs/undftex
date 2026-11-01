@@ -1,0 +1,615 @@
+[
+  {
+    "id": "J01",
+    "caso": "V15 original: diagnosticar sem fabricar datas",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "Sistemas de informação pública",
+      "um estudo aplicado",
+      "123",
+      "Dissertação (Mestrado em Computação)",
+      "Universidade Exemplo",
+      "Brasília",
+      "Edição consultada",
+      "20",
+      "nov.",
+      "2024",
+      "Área de concentração: sistemas públicos"
+    ],
+    "avisos": [
+      "Essencial ausente: v15 \\(undfdepositdate\\)",
+      "Essencial ausente: v15 \\(undfdefensedate\\)"
+    ],
+    "contagens": {
+      "2024": 1,
+      "123": 1
+    }
+  },
+  {
+    "id": "J02",
+    "caso": "V16 originais: aliases brasileiros",
+    "ausentes": [
+      "Tese de mestrado",
+      "Tese de doutoramento"
+    ],
+    "padroes": [
+      "Dissertação \\(Mestrado\\)",
+      "Tese \\(Doutorado\\)"
+    ],
+    "chamadaPadroes": [
+      "2024a",
+      "2024b"
+    ]
+  },
+  {
+    "id": "J03",
+    "caso": "TCC completo",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "2023",
+      "Trabalho de Conclusão de Curso (Bacharelado em Computação)",
+      "Universidade Exemplo",
+      "Brasília",
+      "20",
+      "fev.",
+      "2024",
+      "Edição consultada",
+      "2025"
+    ]
+  },
+  {
+    "id": "J04",
+    "caso": "Dissertacao com datas iguais explicitamente cadastradas",
+    "ausentes": [
+      "Edição consultada"
+    ],
+    "contagens": {
+      "2024": 2
+    },
+    "ordem": [
+      "2024",
+      "Dissertação",
+      "Brasília",
+      "2024"
+    ]
+  },
+  {
+    "id": "J05",
+    "caso": "Tese com tres anos distintos",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "2022",
+      "Tese (Doutorado)",
+      "Brasília",
+      "2023",
+      "Edição consultada",
+      "2025"
+    ]
+  },
+  {
+    "id": "J06",
+    "caso": "Especializacao explicita",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "Especialização em Dados"
+    ],
+    "contagens": {
+      "2024": 2
+    }
+  },
+  {
+    "id": "J07",
+    "caso": "Instituicao ausente",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "avisos": [
+      "Essencial ausente: j07 \\(institution\\)"
+    ]
+  },
+  {
+    "id": "J08",
+    "caso": "Local ausente",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "avisos": [
+      "Essencial ausente: j08 \\(location\\)"
+    ]
+  },
+  {
+    "id": "J09",
+    "caso": "Instituicoes multiplas",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "contagens": {
+      "Universidade Alfa": 1,
+      "Universidade Beta": 1,
+      "Brasília, DF": 1
+    }
+  },
+  {
+    "id": "J10",
+    "caso": "Natureza literal e curso",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "Relatório de residência \\(Especialização em Saúde\\)"
+    ]
+  },
+  {
+    "id": "J11",
+    "caso": "Natureza ausente",
+    "ausentes": [
+      "Dissertação",
+      "Tese",
+      "Trabalho de Conclusão"
+    ],
+    "avisos": [
+      "Essencial ausente: j11 \\(type\\)"
+    ]
+  },
+  {
+    "id": "J12",
+    "caso": "Tipo desconhecido preservado",
+    "ausentes": [
+      "Dissertação",
+      "Tese"
+    ],
+    "padroes": [
+      "mysterydegree"
+    ],
+    "avisos": [
+      "Natureza academica literal: j12"
+    ]
+  },
+  {
+    "id": "J13",
+    "caso": "Somente ano bibliografico",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "contagens": {
+      "2024": 1
+    },
+    "padroes": [
+      "Edição consultada"
+    ],
+    "avisos": [
+      "Essencial ausente: j13 \\(undfdepositdate\\)",
+      "Essencial ausente: j13 \\(undfdefensedate\\)"
+    ]
+  },
+  {
+    "id": "J14",
+    "caso": "Defesa sem publicacao nem deposito",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "2021",
+      "Edição consultada.*s\\. ?d\\."
+    ],
+    "chamadaAusentes": [
+      "2021"
+    ],
+    "avisos": [
+      "Data de publicacao ausente: j14"
+    ]
+  },
+  {
+    "id": "J15",
+    "caso": "Deposito sem defesa",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "2023",
+      "Trabalho",
+      "Brasília",
+      "Edição consultada",
+      "2025"
+    ],
+    "avisos": [
+      "Essencial ausente: j15 \\(undfdefensedate\\)"
+    ]
+  },
+  {
+    "id": "J16",
+    "caso": "Defesa sem deposito",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "Trabalho",
+      "Brasília",
+      "2023",
+      "Edição consultada",
+      "2025"
+    ],
+    "avisos": [
+      "Essencial ausente: j16 \\(undfdepositdate\\)"
+    ]
+  },
+  {
+    "id": "J17",
+    "caso": "Datas academicas nao suprem publicacao",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaAusentes": [
+      "2020",
+      "2021"
+    ],
+    "chamadaPadroes": [
+      "s\\. ?d\\."
+    ],
+    "avisos": [
+      "Data de publicacao ausente: j17"
+    ],
+    "ordem": [
+      "2020",
+      "Trabalho",
+      "Brasília",
+      "2021",
+      "Edição consultada"
+    ]
+  },
+  {
+    "id": "J18",
+    "caso": "Tese eletronica",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "links": [
+      "https://doi.org/10.0000/j18",
+      "https://example.invalid/j18"
+    ],
+    "padroes": [
+      "10.0000/j18",
+      "Acesso em: 3(?: de)? fev\\.(?: de)? 2039"
+    ],
+    "chamadaAusentes": [
+      "2039"
+    ]
+  },
+  {
+    "id": "J19",
+    "caso": "Publicacao completa igual a defesa",
+    "ausentes": [
+      "Edição consultada"
+    ],
+    "contagens": {
+      "2024": 2
+    },
+    "padroes": [
+      "20(?: de)? nov\\.(?: de)? 2024"
+    ]
+  },
+  {
+    "id": "J20",
+    "caso": "Datas aproximadas",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "ca\\..*2023",
+      "ca\\..*2024"
+    ],
+    "chamadaPadroes": [
+      "ca\\..*2024"
+    ]
+  },
+  {
+    "id": "J21",
+    "caso": "Intervalos sem inferencia",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "2023.*2024",
+      "Edição consultada.*2020.*2024"
+    ],
+    "chamadaPadroes": [
+      "2020.*2024"
+    ]
+  },
+  {
+    "id": "J22",
+    "caso": "Letras uma vez por referencia e quatro apud, datas coincidentes",
+    "ausentes": [
+      "Original indireta"
+    ],
+    "ordem": [
+      "Alfa acadêmico",
+      "2024a",
+      "Beta acadêmico",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "2024a",
+      "2024b",
+      "apud Nunes, 2024b.*apud Nunes, 2024b.*apud Nunes, 2024b.*apud Nunes, 2024b"
+    ],
+    "contagens": {
+      "2024a": 1,
+      "2024b": 1
+    }
+  },
+  {
+    "id": "J23",
+    "caso": "Eventdate e origdate nao sao reinterpretados",
+    "ausentes": [
+      "2030",
+      "1980"
+    ],
+    "avisos": [
+      "Data adicional sem papel academico: j23"
+    ],
+    "chamadaAusentes": [
+      "2030",
+      "1980"
+    ]
+  },
+  {
+    "id": "J24",
+    "caso": "Data adicional em nota sem parser",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "contagens": {
+      "Defesa realizada em 2021 na Universidade Beta": 1
+    },
+    "avisos": [
+      "Essencial ausente: j24 \\(undfdefensedate\\)"
+    ]
+  },
+  {
+    "id": "J25",
+    "caso": "Notas materiais preservadas",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "contagens": {
+      "Área de concentração: sistemas públicos": 1,
+      "Versão de repositório": 1
+    }
+  },
+  {
+    "id": "J26",
+    "caso": "Heranca por xdata",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "2022",
+      "Dissertação (Mestrado em Dados)",
+      "Universidade Herdada",
+      "Curitiba",
+      "2023",
+      "Edição consultada",
+      "2024"
+    ]
+  },
+  {
+    "id": "J27",
+    "caso": "Alias preserva type literal",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "Mestrado Profissional em Dados"
+    ]
+  },
+  {
+    "id": "J28",
+    "caso": "Alias de doutorado",
+    "ausentes": [
+      "Tese de doutoramento",
+      "Dissertação"
+    ],
+    "padroes": [
+      "Tese \\(Doutorado\\)"
+    ]
+  },
+  {
+    "id": "J29",
+    "caso": "Driver herdado e localizacao nativa",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "US42",
+      "Patente controle"
+    ],
+    "avisosAusentes": [
+      "Natureza academica (?:literal|incompleta): j29\\b"
+    ]
+  },
+  {
+    "id": "J30",
+    "caso": "Volume e folhas",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "99.*f\\."
+    ],
+    "ordem": [
+      "2023",
+      "99",
+      "Trabalho"
+    ]
+  },
+  {
+    "id": "J31",
+    "caso": "Instituicao nao vira autora",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "avisos": [
+      "Essencial ausente: j31 \\(author\\)"
+    ],
+    "chamadaAusentes": [
+      "Universidade Exemplo"
+    ]
+  },
+  {
+    "id": "J32",
+    "caso": "Titulo protegido e subtitulo",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "(?-i)NASA e serviço público: um estudo aplicado"
+    ]
+  },
+  {
+    "id": "J33",
+    "caso": "Datas completas diferentes",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "15",
+      "dez.",
+      "2023",
+      "Trabalho",
+      "Brasília",
+      "20",
+      "fev.",
+      "2024",
+      "Edição consultada",
+      "10",
+      "mar.",
+      "2025"
+    ]
+  },
+  {
+    "id": "J34",
+    "caso": "Instituicao de defesa distinta em nota",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "contagens": {
+      "Universidade Exemplo": 1,
+      "Apresentação na Universidade Beta, Goiânia": 1
+    }
+  },
+  {
+    "id": "J35",
+    "caso": "Outro driver nao recebe datas academicas",
+    "ausentes": [
+      "2023",
+      "Edição consultada"
+    ],
+    "avisosAusentes": [
+      "Natureza academica (?:literal|incompleta): j35\\b"
+    ]
+  },
+  {
+    "id": "J36",
+    "caso": "Refsection isolada",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaAusentes": [
+      "2024a",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "Nunes, 2024\\)"
+    ]
+  }
+]

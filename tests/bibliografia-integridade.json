@@ -361,10 +361,12 @@
       ", .",
       "..",
       "Autor desconhecido",
-      "Anônimo"
+      "Anônimo",
+      "Tese de mestrado",
+      "Tese de doutoramento"
     ],
     "padroes": [
-      "tese de mestrado",
+      "(?-i)Dissertação \\(Mestrado\\)",
       "Brasília",
       "2024"
     ],
@@ -387,7 +389,7 @@
       "Anônimo"
     ],
     "padroes": [
-      "Documento P18\\. 2024\\."
+      "Documento P18\\. Edição consultada: 2024\\."
     ],
     "avisos": [
       "Essencial ausente: P18 \\(type\\)",
@@ -542,10 +544,12 @@
       ", .",
       "..",
       "Autor desconhecido",
-      "Anônimo"
+      "Anônimo",
+      "Tese de mestrado",
+      "Tese de doutoramento"
     ],
     "padroes": [
-      "tese de mestrado",
+      "(?-i)Dissertação \\(Mestrado\\)",
       "2024"
     ],
     "avisos": [

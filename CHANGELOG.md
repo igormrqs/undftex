@@ -36,6 +36,8 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Corrigido
 
+- AF03-05: natureza acadêmica brasileira, datas explícitas de depósito/defesa independentes da edição citada, extensão e diagnósticos; regressão permanente com 36 cenários.
+
 - Ordenação crescente de inteiros simples em títulos por chave `sorttitle` auxiliar, preservando `nyt`, títulos e rótulos; 32 cenários cobrem desambiguação, campos explícitos e limites que exigem revisão editorial.
 
 - AF03-03: títulos protegidos e caixa mista preservados; rótulos ingleses

@@ -64,6 +64,14 @@ valores iguais desempatam pela grafia completa, sem fundir registros. O trio
 `tests/bibliografia-numerais.tex/.bib/.json` contém 32 cenários. Reproduza com
 `./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-numerais.tex')`.
 
+F03-I / AF03-05: `src/biblatex/undf-abnt.dbx` acrescenta somente
+`undfdepositdate` e `undfdefensedate` ao modelo de dados acadêmico. `date/year`
+continua bibliográfico. Natureza literal, instituição e local vêm da fonte;
+a falta de dados gera aviso, sem inferência. Os aliases recebem terminologia
+brasileira apenas no driver acadêmico. O trio
+`tests/bibliografia-academicos.tex/.bib/.json` contém 36 cenários. Execute
+`./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-academicos.tex')`.
+
 ## Fora do trabalho distribuído
 
 Não fazem parte do trabalho distribuído por padrão:

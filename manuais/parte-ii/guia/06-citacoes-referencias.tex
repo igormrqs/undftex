@@ -321,6 +321,76 @@ prevalecem. A colação dos nomes, inclusive entidades com numerais, não muda.
 Os limites conservam a ordenação lexical nativa sem chave editorial;
 isso não comprova adequação numérica para a entrega.
 
+\subsection*{Trabalhos acadêmicos e datas independentes}
+
+Use \texttt{thesis} para TCC, dissertação, tese ou outra natureza acadêmica
+explicitamente identificada. Em \texttt{type}, cadastre a natureza, o grau e
+o curso conforme a fonte, sem deduzi-los de siglas. Por exemplo:
+\begin{samepage}
+\begin{verbatim}
+@thesis{tcc,
+  author = {Silva, Ana},
+  title = {Sistema de atendimento},
+  type = {Trabalho de Conclusao de Curso
+          (Bacharelado em Computacao)},
+  institution = {Universidade Exemplo},
+  location = {Brasilia, DF},
+  date = {2025},
+  undfdepositdate = {2023},
+  undfdefensedate = {2024-02-20}
+}
+\end{verbatim}
+\end{samepage}
+Os dados acima são ilustrativos. Para dissertação, cadastre em \texttt{type}
+a natureza \emph{Dissertação (Mestrado em Computação)}; para tese,
+\emph{Tese (Doutorado em Computação)}, com os demais dados reais.
+Os aliases \texttt{mastersthesis} e \texttt{phdthesis}, ou as chaves
+\texttt{mathesis} e \texttt{phdthesis} em \texttt{type}, usam respectivamente
+\emph{Dissertação (Mestrado)} e \emph{Tese (Doutorado)} neste driver.
+Essas formas não informam o curso: complete a natureza com texto literal.
+Tipos literais são preservados e recebem orientação de revisão;
+o modelo não certifica automaticamente grau e curso em texto livre.
+
+\texttt{date/year} continua sendo a data bibliográfica da edição consultada,
+usada nas chamadas e nas letras de desambiguação. Os dois campos adicionais
+\texttt{undfdepositdate} e \texttt{undfdefensedate} registram, separadamente,
+depósito e apresentação ou defesa. São campos de data nativos da extensão
+\texttt{undf-abnt.dbx}, carregada com o estilo, e aceitam a sintaxe de datas
+do Biber, inclusive precisão parcial, aproximações e intervalos pertinentes.
+Não use \texttt{origdate}, \texttt{eventdate}, acesso ou uma nota como
+substituto automático de qualquer desses campos.
+
+A seção 7.1.2 da NBR 6023:2025 prevê o ano de depósito antes da natureza e
+a data de apresentação ou defesa após vínculo e local. O modelo preserva
+também mês e dia quando fornecidos nos campos adicionais. O grau e o curso
+vêm de \texttt{type}; \texttt{institution} guarda o vínculo acadêmico e
+\texttt{location}, o local pertinente à apresentação. Instituições múltiplas
+seguem o contrato de listas. Uma instituição de defesa distinta pode ser
+explicitada em \texttt{note}; não é inferida da editora ou do vínculo.
+
+Se a data bibliográfica coincidir integralmente com uma data acadêmica,
+ela aparece nessa posição com as letras calculadas pelo Biber. Se ambas as datas acadêmicas coincidirem com a bibliográfica, as letras
+aparecem somente na posição da defesa. Se for
+distinta, recebe a identificação \emph{Edição consultada}. A coincidência
+é comparada com precisão e qualificadores, sem supor equivalência de anos.
+Depósito e defesa podem repetir o mesmo ano quando ambos foram cadastrados:
+são papéis diferentes, como nos exemplos normativos; não há uma terceira
+impressão da publicação idêntica. Nenhuma data é completada por suposição.
+
+A falta de depósito, defesa, natureza, autoria, instituição ou local gera
+diagnóstico de revisão. Sem data bibliográfica, permanece o diagnóstico
+de publicação ausente; as datas adicionais não viram ano de citação.
+Notas com datas são preservadas, sem extração automática para outra posição.
+Confira as pendências na fonte antes da entrega: compilar não torna um
+cadastro incompleto adequado à norma.
+
+\texttt{pagetotal} informa a extensão fornecida; use
+\verb|bookpagination={folio}| para folhas (\emph{f.}); o padrão são páginas
+(\emph{p.}). O campo não é obrigatório em todo trabalho acadêmico.
+\texttt{volume}, notas materiais, DOI, URL e acesso também são preservados.
+A terminologia brasileira e os campos adicionais deste contrato não alteram
+a localização nem os drivers dos demais tipos bibliográficos.
+
 \subsection*{Instituições e campos de lista}
 
 Em entradas acadêmicas do tipo \texttt{thesis}, informe o vínculo em

@@ -1,12 +1,20 @@
 # Confere chamadas e referencias no PDF das fixtures bibliograficas (LuaLaTeX/Biber).
 param(
     [string]$Diretorio = 'build/perfis',
-    [ValidateSet('bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos', 'bibliografia-responsabilidades', 'bibliografia-recipientes', 'bibliografia-autoria', 'bibliografia-ordenacao', 'bibliografia-integridade', 'bibliografia-partes', 'bibliografia-periodicos', 'bibliografia-notas', 'bibliografia-titulos', 'bibliografia-numerais')]
+    [ValidateSet('bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos', 'bibliografia-responsabilidades', 'bibliografia-recipientes', 'bibliografia-autoria', 'bibliografia-ordenacao', 'bibliografia-integridade', 'bibliografia-partes', 'bibliografia-periodicos', 'bibliografia-notas', 'bibliografia-titulos', 'bibliografia-numerais', 'bibliografia-academicos')]
     [string]$Documento = 'bibliografia-listas'
 )
 $ErrorActionPreference = 'Stop'
 $raiz = Split-Path $PSScriptRoot -Parent
 $casos = @(Get-Content -LiteralPath (Join-Path $raiz "tests/$Documento.json") -Raw -Encoding utf8 | ConvertFrom-Json)
+# O compilador local/CI produz a validacao no mesmo ambiente do Biber.
+if ($Documento -eq 'bibliografia-academicos') {
+    $logModelo = Join-Path $Diretorio "datamodel-academicos/$Documento.blg"
+    if (-not (Test-Path -LiteralPath $logModelo)) { throw 'Validacao do modelo academico ausente; execute verificar-perfis.ps1' }
+    if (Select-String -LiteralPath $logModelo -Pattern "Datamodel: thesis entry .*Invalid field 'undf") {
+        throw 'Componente de data academica nao autorizado para thesis'
+    }
+}
 $texto = (& pdftotext -layout "$Diretorio/$Documento.pdf" -) -join "`n"
 if ($LASTEXITCODE -ne 0) { throw "Falha na leitura de $Documento.pdf" }
 $paginas = $texto -split "`f"

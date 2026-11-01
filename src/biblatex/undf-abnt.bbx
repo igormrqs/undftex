@@ -547,17 +547,64 @@
 % ----------------------------------------------------
 % Trabalhos acadêmicos
 % ----------------------------------------------------
+% Datas adicionais sao explicitas: nao recebem fallback da publicacao ou acesso.
+\DeclareFieldFormat[thesis]{type}{%
+  \ifstrequal{#1}{mathesis}{Dissertação (Mestrado)}%
+    {\ifstrequal{#1}{phdthesis}{Tese (Doutorado)}{#1}}}
+\DeclareFieldFormat[thesis]{pagetotal}{%
+  \ifboolexpr{test {\iffieldundef{bookpagination}} or test {\iffieldequalstr{bookpagination}{page}}}
+    {#1\addspace p\adddot}%
+    {\iffieldequalstr{bookpagination}{folio}{#1\addspace f\adddot}{\mkpagetotal[bookpagination]{#1}}}}
+\DeclareFieldFormat{undfdepositdate}{%
+  \ifboolexpr{test {\ifundfdepositdatecirca} or test {\ifundfdepositdateuncertain}}
+    {\mkbibbrackets{#1}}{#1}}
+\DeclareFieldFormat{undfdefensedate}{%
+  \ifboolexpr{test {\ifundfdefensedatecirca} or test {\ifundfdefensedateuncertain}}
+    {\mkbibbrackets{#1}}{#1}}
+\newtoggle{undf:academicpubdate}
+\newbibmacro*{undf:academicdate}[1]{%
+  \iffieldundef{#1year}{}%
+    {\ifdaterangesequal{#1}{}
+       {\ifboolexpr{test {\ifstrequal{#1}{undfdeposit}}
+          and test {\ifdaterangesequal{undfdefense}{}}}
+          {\csuse{print#1date}}%
+          {\toggletrue{undf:academicpubdate}\usebibmacro{undf:pubdate}[full]}}%
+       {\csuse{print#1date}}}}
+\newbibmacro*{undf:checkacademic}{%
+  \ifnameundef{author}{\undf@missingessential{author}}{}%
+  \iffieldundef{undfdeposityear}{\undf@missingessential{undfdepositdate}}{}%
+  \iffieldundef{undfdefenseyear}{\undf@missingessential{undfdefensedate}}{}%
+  \iffieldundef{type}{}%
+    {\ifboolexpr{test {\iffieldequalstr{type}{mathesis}} or test {\iffieldequalstr{type}{phdthesis}}}
+       {\PackageWarningNoLine{undf-biblatex}{Natureza academica incompleta: \thefield{entrykey}. Informe grau e curso completos em type}}%
+       {\PackageWarningNoLine{undf-biblatex}{Natureza academica literal: \thefield{entrykey}. Confira grau e curso; texto preservado}}}%
+  \ifboolexpr{not test {\iffieldundef{eventyear}} or not test {\iffieldundef{origyear}}}
+    {\PackageWarningNoLine{undf-biblatex}{Data adicional sem papel academico: \thefield{entrykey}. eventdate/origdate nao identificam deposito ou defesa; confira os campos proprios ou uma nota explicita}}{}%
+}
 \DeclareBibliographyDriver{thesis}{%
   \usebibmacro{begentry}%
+  \togglefalse{undf:academicpubdate}%
+  \usebibmacro{undf:checkacademic}%
   \usebibmacro{undf:mainauthor}%
   \setunit{\adddot\space}%
   \usebibmacro{undf:title}%
   \newunit\newblock
+  \usebibmacro{undf:academicdate}{undfdeposit}%
+  \newunit\newblock
+  \printfield{pagetotal}%
+  \newunit\newblock
+  \usebibmacro{undf:volume}%
+  \newunit\newblock
   \printfield{type}%
-  \setunit*{\addcomma\space}\printlist{institution}%
+  \iflistundef{institution}{}%
+    {\iffieldundef{type}{\newunit\newblock}{\setunit{\addspace\textendash\space}}%
+     \printlist{institution}}%
   \setunit*{\addcomma\space}\printlist{location}%
   \setunit*{\addcomma\space}%
-  \usebibmacro{undf:pubdate}[full]%
+  \usebibmacro{undf:academicdate}{undfdefense}%
+  \iftoggle{undf:academicpubdate}{}%
+    {\newunit\newblock
+     \printtext{Edição consultada\addcolon\space}\usebibmacro{undf:pubdate}[full]}%
   \usebibmacro{undf:electronic}%
   \finentry
 }

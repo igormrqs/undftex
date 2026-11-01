@@ -1,0 +1,16 @@
+% Duas datas academicas independentes; date/year continuam bibliograficos.
+% A extensao nativa do modelo de dados evita reutilizar origdate ou eventdate.
+\ProvidesFile{undf-abnt.dbx}[2026/11/01 UnDF academic dates]
+\DeclareDatamodelFields[type=field,datatype=date,skipout]{undfdepositdate,undfdefensedate}
+% Os componentes sao gerados pelo Biber; tambem precisam pertencer ao tipo.
+\DeclareDatamodelEntryfields[thesis]{
+  undfdepositdate,undfdeposityear,undfdepositendyear,
+  undfdepositmonth,undfdepositendmonth,undfdepositday,undfdepositendday,
+  undfdeposithour,undfdepositendhour,undfdepositminute,undfdepositendminute,
+  undfdepositsecond,undfdepositendsecond,undfdeposittimezone,undfdepositendtimezone,
+  undfdeposityeardivision,undfdepositendyeardivision,
+  undfdefensedate,undfdefenseyear,undfdefenseendyear,
+  undfdefensemonth,undfdefenseendmonth,undfdefenseday,undfdefenseendday,
+  undfdefensehour,undfdefenseendhour,undfdefenseminute,undfdefenseendminute,
+  undfdefensesecond,undfdefenseendsecond,undfdefensetimezone,undfdefenseendtimezone,
+  undfdefenseyeardivision,undfdefenseendyeardivision}
