@@ -76,6 +76,8 @@ F03-J: `tests/bibliografia-legislacao.bib`, `.tex` e `.json` formam a suíte per
 
 F03-K1: `tests/bibliografia-eventos.tex`, `.bib` e `.json` integram a regressão local e o workflow existente com 41 cenários. As mudanças bibliográficas são restritas aos tipos de eventos e seus aliases documentados; não há novo modelo de dados.
 
+F03-K2: `tests/bibliografia-periodicos-integrais.tex`, `.bib` e `.json` integram a regressão com 40 cenários. O tipo nativo `periodical` recebe contrato explícito para coleção/fascículo e autorização dos campos nativos de publicação e suporte. Não é registrado um tipo novo. A integração ao workflow inclui somente a fixture e sua validação de modelo de dados.
+
 ## Fora do trabalho distribuído
 
 Não fazem parte do trabalho distribuído por padrão:

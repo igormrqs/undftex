@@ -172,6 +172,8 @@ A suíte `tests/bibliografia-legislacao.tex` acrescenta 35 contratos de legisla�
 
 F03-K1: o trio `tests/bibliografia-eventos.tex/.bib/.json` contém 41 cenários de contribuição/anais, autoria, aliases, crossref/xdata, DOI e quatro apud. Reproduza com `./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-eventos.tex')`. Evento, publicação e obra recipiente têm papéis distintos; não complete lacunas por inferência.
 
+F03-K2: `tests/bibliografia-periodicos-integrais.tex/.bib/.json` acrescenta 40 cenários de coleção, parte de coleção e fascículo, incluindo V22 original, herança de DOI, chamadas e quatro apud. Execute `./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-periodicos-integrais.tex')`; o comando também valida os campos de publicação com Biber. A expectativa E214 anterior foi substituída porque exigia explicitamente o driver nativo, que omitia a imprenta e identificava o objeto pelo editor. O registro `.bib` permanece intacto. Não confunda datas de existência, período consultado e data do fascículo. O guia técnico documenta o contrato e seus limites; o modelo nativo ainda pode exigir editor para `periodical`, sem que isso autorize inventá-lo.
+
 ## Imagens e arquivos grandes
 
 Antes de adicionar imagens ao repositório:

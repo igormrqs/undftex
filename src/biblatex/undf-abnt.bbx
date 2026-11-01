@@ -765,3 +765,60 @@
   \newunit\newblock\printfield{pagetotal}%
   \usebibmacro{undf:electronic}\finentry
 }
+
+% Colecao e fasciculo sao objetos distintos, declarados em entrysubtype.
+% O modelo nativo periodical representa fasciculos; nao se infere o objeto.
+\ExplSyntaxOn
+\cs_new_protected:Npn \undf_periodical_title:n #1
+  {
+    \exp_args:Nne \regex_match:nnTF { [\{\}\\\$\^_] | \x{7E} | [a-z][A-Z] } {\tl_to_str:n {#1}}
+      {\PackageWarningNoLine{undf-biblatex}{Titulo~protegido~do~periodico:~\thefield{entrykey}.~Caixa~preservada;~confira~a~apresentacao~editorial}#1}
+      {\MakeUppercase{#1}}
+  }
+\cs_new_eq:NN \undf@periodicaltitle \undf_periodical_title:n
+\ExplSyntaxOff
+\DeclareFieldFormat{undf:periodicaltitle}{\undf@periodicaltitle{#1}}
+\DeclareFieldFormat[periodical]{issn}{ISSN\addspace#1}
+\DeclareFieldFormat[periodical]{pagetotal}{#1\addspace p\adddot}
+\newbibmacro*{undf:checkperiodical}{%
+  \iffieldundef{title}{\undf@missingessential{title}}{}%
+  \usebibmacro{undf:checkimprint}%
+  \ifboolexpr{test {\iffieldequalstr{entrysubtype}{colecao}} or test {\iffieldequalstr{entrysubtype}{parte-colecao}}}
+    {\PackageWarningNoLine{undf-biblatex}{Datas da colecao: \thefield{entrykey}. date identifica a existencia; fim ou continuidade so quando fornecidos. Em parte-colecao, delimite o periodo consultado em note}%
+     \ifboolexpr{not test {\iffieldundef{volume}} or not test {\iffieldundef{number}} or not test {\iffieldundef{issuetitle}}}
+       {\PackageWarningNoLine{undf-biblatex}{Colecao com dados de fasciculo: \thefield{entrykey}. Confira o objeto; dados preservados sem reclassificacao}}{}}
+    {\iffieldequalstr{entrysubtype}{fasciculo}
+       {\PackageWarningNoLine{undf-biblatex}{Data do fasciculo: \thefield{entrykey}. Confira date proprio; a data herdada da colecao nao identifica automaticamente o fasciculo}}
+       {\PackageWarningNoLine{undf-biblatex}{Objeto periodico nao definido: \thefield{entrykey}. Informe entrysubtype colecao, parte-colecao ou fasciculo; dados preservados sem inferencia}}}%
+  \iflistundef{organization}{}%
+    {\PackageWarningNoLine{undf-biblatex}{Entidade do periodico: \thefield{entrykey}. organization nao presume autoria ou editora; descreva o papel em nota}}%
+  \iffieldundef{pages}{}%
+    {\PackageWarningNoLine{undf-biblatex}{Paginacao de periodico integral: \thefield{entrykey}. pages nao e extensao total; confira pagetotal ou nota. Intervalo nao impresso como artigo}}%
+  \iffieldundef{journaltitle}{}%
+    {\PackageWarningNoLine{undf-biblatex}{Campo de artigo em periodico: \thefield{entrykey}. Informe o titulo do periodico em title; journaltitle nao o substitui}}%
+}
+\newbibmacro*{undf:periodicalnumber}{%
+  \printfield{series}%
+  \setunit*{\addcomma\space}\printfield[undf:journalvolume]{volume}%
+  \setunit*{\addcomma\space}\printfield[undf:journalnumber]{number}%
+}
+\DeclareBibliographyDriver{periodical}{%
+  \usebibmacro{begentry}\usebibmacro{undf:checkperiodical}%
+  \printfield[undf:periodicaltitle]{title}%
+  \setunit{\addcolon\space}\printfield{subtitle}%
+  \newunit\newblock\printfield{titleaddon}%
+  \newunit\newblock\printlist{location}%
+  \setunit*{\addcolon\space}\printlist{publisher}%
+  \iffieldequalstr{entrysubtype}{fasciculo}
+    {\setunit*{\addcomma\space}\usebibmacro{undf:periodicalnumber}%
+     \setunit*{\addcomma\space}\usebibmacro{undf:pubdate}[full]}
+    {\setunit*{\addcomma\space}\usebibmacro{undf:pubdate}%
+     \newunit\newblock\usebibmacro{undf:periodicalnumber}}%
+  \newunit\newblock\printfield{issue}%
+  \newunit\newblock\printfield[titlecase]{issuetitle}%
+  \setunit{\addcolon\space}\printfield[titlecase]{issuesubtitle}%
+  \newunit\newblock\usebibmacro{undf:editor}%
+  \newunit\newblock\printfield{pagetotal}%
+  \newunit\newblock\printfield{issn}%
+  \usebibmacro{undf:electronic}\finentry
+}

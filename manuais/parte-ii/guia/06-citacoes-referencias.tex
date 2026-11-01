@@ -676,3 +676,108 @@ integral nesta etapa. Trabalho publicado em periódico mantém o cadastro de
 artigo e pode identificar o evento em nota; não se transforma o periódico em
 anais monográficos. Eventos em periódicos, conjuntos complexos, periódicos
 integrais e patentes permanecem fora desta cobertura específica.
+
+\section{Coleções periódicas e fascículos completos}
+
+Use \texttt{periodical} para o periódico integral.
+
+Defina \texttt{entrysubtype} como \texttt{colecao}, \texttt{parte-colecao} ou
+\texttt{fasciculo}.
+O BibLaTeX nativo usa esse tipo para fascículos; a extensão para coleções é
+uma decisão do UnDF-TeX. Não existe suporte declarado a \texttt{mvperiodical}.
+Artigos individuais continuam em \texttt{article}, com \texttt{journaltitle} e
+\texttt{pages}; não cadastre uma coleção como artigo.
+
+Em todos os casos, \texttt{title/subtitle} identificam o periódico. O título
+completo recebe caixa alta, e o subtítulo mantém sua redação. Grupos, comandos
+TeX e capitalização mista significativa são preservados conservadoramente,
+com aviso para revisão editorial. \texttt{shorttitle} explícito orienta somente
+a chamada; não substitui o título completo. Editor e publicador não identificam
+a chamada: \texttt{editor/editortype} formam crédito secundário e
+\texttt{publisher} identifica a editora. Não use \texttt{author} para a editoria.
+
+São essenciais título, local, editora e datas pertinentes ao objeto. Campos
+ausentes geram diagnóstico, sem preenchimento fictício. ISSN identifica o
+periódico, não é DOI nem é inventado. A falta de ISSN ou DOI não gera um
+identificador artificial. \texttt{organization} não substitui editora ou autoria;
+descreva a função da entidade em nota quando necessário.
+
+\begin{samepage}
+Exemplo sintético de coleção eletrônica em circulação:
+\begin{verbatim}
+@periodical{colecao-exemplo,
+  entrysubtype = {colecao},
+  title        = {Revista de Pesquisa Sintética},
+  subtitle     = {ciência e sociedade},
+  location     = {Recife},
+  publisher    = {Editora Alfa},
+  date         = {2000/},
+  issn         = {0000-0000},
+  editor       = {Prado, Bia},
+  note         = {Periodicidade anual},
+  url          = {https://example.invalid/colecao},
+  urldate      = {2026-10-30}
+}
+\end{verbatim}
+\end{samepage}
+
+Na coleção, \texttt{date} registra a existência: \texttt{2000/} expressa
+continuidade explicitamente informada; \texttt{2000/2018} informa encerramento.
+Um ano isolado não autoriza presumir continuidade nem encerramento. Confira
+o intervalo na fonte. Para parte da coleção, use \texttt{parte-colecao}, mantenha
+as datas de existência em \texttt{date} e registre separadamente em
+\texttt{note}, por exemplo, \emph{Período consultado: 2010--2014}.
+Esse período não substitui a data da coleção nas chamadas.
+Sem subtipo reconhecido, os dados aparecem em composição genérica com aviso;
+um intervalo de datas sozinho não determina a natureza do objeto.
+
+\begin{samepage}
+Exemplo sintético de fascículo temático completo:
+\begin{verbatim}
+@periodical{fasciculo-exemplo,
+  entrysubtype = {fasciculo},
+  title        = {Revista de Pesquisa Sintética},
+  subtitle     = {ciência e sociedade},
+  location     = {Recife},
+  publisher    = {Editora Alfa},
+  volume       = {3},
+  number       = {12},
+  date         = {2024-06},
+  issue        = {Edição especial},
+  issuetitle   = {Pesquisa aberta},
+  issuesubtitle = {métodos aplicados},
+  issn         = {0000-0000}
+}
+\end{verbatim}
+\end{samepage}
+
+No fascículo, volume e número antecedem a data própria, preservada com a
+precisão fornecida. \texttt{issue} conserva a designação informada (estação,
+suplemento ou edição especial); \texttt{issuetitle/issuesubtitle} identificam
+seu tema após a data. Esses campos não substituem o título do periódico.
+Volume, número e ISSN são impressos quando existem; o modelo não os deduz
+das datas. Dados de fascículo em uma coleção declarada pedem revisão.
+\texttt{pagetotal} registra extensão total; \texttt{pages} não é convertido em
+extensão nem impresso como se o fascículo fosse um artigo.
+
+DOI, URL e acesso seguem as regras eletrônicas comuns. O DOI deve identificar
+o objeto consultado: um DOI exclusivo da coleção não é herdado por artigo ou
+fascículo por \texttt{crossref}. DOI próprio ou fornecido por \texttt{xdata}
+permanece válido. Títulos, subtítulos, ISSN e demais dados seguem a herança
+nativa; confira sua pertinência. URL herdada pode dar acesso ao conjunto,
+sem ser declarada endereço exclusivo da parte. Sempre informe a data própria
+do fascículo ou artigo: a herança de uma data da coleção não prova a data da
+parte. Para reutilizar somente metadados editoriais, prefira \texttt{xdata}
+sem datas e identificadores exclusivos do conjunto.
+
+Periodicidade, suporte, mudança de título, suspensão, continuidade e versão
+podem ser descritos em \texttt{note}, \texttt{howpublished}, \texttt{addendum}
+ou \texttt{pubstate}, conforme a função documental. O modelo preserva o texto
+fornecido, sem reconstruir a história do periódico. A ordenação continua
+\texttt{nyt}, com os limites já documentados para títulos complexos.
+O validador nativo ainda pode exigir editor mesmo quando ele não consta da
+fonte; não invente editor para satisfazê-lo. O UnDF-TeX valida seus campos
+adicionais de publicação e diagnostica lacunas, sem prometer validação semântica
+universal do cadastro. O contrato segue as distinções de 7.7.1--7.7.4 e a
+apresentação do título em 8.2.4 da NBR 6023:2025; subtipos, avisos e política
+conservadora para TeX são decisões de implementação.

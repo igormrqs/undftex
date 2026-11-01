@@ -6,6 +6,12 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ## [Não lançado]
 
+### Corrigido — F03-K2
+
+- Periódicos integrais entram pelo título, com local/editora e contrato explícito de coleção, parte de coleção e fascículo; preservam subtítulos, datas, volume/número, ISSN, editoria secundária e notas. Títulos TeX protegidos conservam sua caixa com diagnóstico.
+- DOI exclusivo da coleção não é herdado por artigo ou fascículo; DOI próprio e via `xdata` permanece válido. Não há novo driver de artigo nem suporte novo a `eid`.
+- Quarenta cenários permanentes conferem PDFs, links, avisos e os campos nativos de publicação autorizados no modelo de dados. A expectativa E214 foi corrigida para o novo contrato; seu cadastro permanece inalterado.
+
 ### Adicionado
 
 - Regressão de integridade bibliográfica com 26 cenários de dados essenciais ausentes, aliases, referências completas pontuais, pontuação e controle de avisos indevidos.

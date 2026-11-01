@@ -1,7 +1,7 @@
 # Confere chamadas e referencias no PDF das fixtures bibliograficas (LuaLaTeX/Biber).
 param(
     [string]$Diretorio = 'build/perfis',
-    [ValidateSet('bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos', 'bibliografia-responsabilidades', 'bibliografia-recipientes', 'bibliografia-autoria', 'bibliografia-ordenacao', 'bibliografia-integridade', 'bibliografia-partes', 'bibliografia-periodicos', 'bibliografia-notas', 'bibliografia-titulos', 'bibliografia-numerais', 'bibliografia-academicos', 'bibliografia-legislacao', 'bibliografia-eventos')]
+    [ValidateSet('bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos', 'bibliografia-responsabilidades', 'bibliografia-recipientes', 'bibliografia-autoria', 'bibliografia-ordenacao', 'bibliografia-integridade', 'bibliografia-partes', 'bibliografia-periodicos', 'bibliografia-notas', 'bibliografia-titulos', 'bibliografia-numerais', 'bibliografia-academicos', 'bibliografia-legislacao', 'bibliografia-eventos', 'bibliografia-periodicos-integrais')]
     [string]$Documento = 'bibliografia-listas'
 )
 $ErrorActionPreference = 'Stop'
@@ -13,6 +13,13 @@ if ($Documento -eq 'bibliografia-academicos') {
     if (-not (Test-Path -LiteralPath $logModelo)) { throw 'Validacao do modelo academico ausente; execute verificar-perfis.ps1' }
     if (Select-String -LiteralPath $logModelo -Pattern "Datamodel: thesis entry .*Invalid field 'undf") {
         throw 'Componente de data academica nao autorizado para thesis'
+    }
+}
+if ($Documento -eq 'bibliografia-periodicos-integrais') {
+    $logModelo = Join-Path $Diretorio "datamodel-periodicos/$Documento.blg"
+    if (-not (Test-Path -LiteralPath $logModelo)) { throw 'Validacao do modelo de periodicos ausente; execute verificar-perfis.ps1' }
+    if (Select-String -LiteralPath $logModelo -Pattern "Datamodel: periodical entry .*Invalid field '(publisher|location|pagetotal|howpublished|organization)'") {
+        throw 'Campo de publicacao/suporte nao autorizado para periodical'
     }
 }
 $texto = (& pdftotext -layout "$Diretorio/$Documento.pdf" -) -join "`n"

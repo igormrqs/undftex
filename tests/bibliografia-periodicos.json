@@ -218,19 +218,27 @@
   },
   {
     "id": "E214",
-    "caso": "Controle de periodical herdado: não padroniza outro driver",
+    "caso": "Periodico integral: titulo, subtitulo e publicacao, com editor secundario",
     "ordem": [
-      "Bia Prado, ed. Periódico de controle. composição nativa",
+      "PERIÓDICO DE CONTROLE: composição nativa",
+      "Brasília",
+      "Editora Alfa",
       "2024",
+      "PRADO, Bia",
       "Controle herdado"
     ],
     "contagens": {
       "composição nativa": 1
     },
     "ausentes": [],
-    "padroes": [],
+    "padroes": [
+      "(?-i)PERIÓDICO DE CONTROLE"
+    ],
     "avisos": [],
-    "links": []
+    "links": [],
+    "chamadaAusentes": [
+      "Prado"
+    ]
   },
   {
     "id": "E215",

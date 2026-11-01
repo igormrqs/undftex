@@ -1,0 +1,807 @@
+[
+  {
+    "id": "PI01",
+    "caso": "V22 original sem recadastro",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "REVISTA DE CIÊNCIA ABERTA",
+      "pesquisa e sociedade",
+      "Brasília",
+      "Editora Alfa",
+      "2020",
+      "2024",
+      "PRADO, Bia",
+      "ISSN",
+      "0000-0000",
+      "Periodicidade anual"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ],
+    "chamadaPadroes": [
+      "Revista",
+      "2020"
+    ],
+    "padroes": [
+      "(?-i)REVISTA\\ DE\\ CIÊNCIA\\ ABERTA"
+    ],
+    "avisos": [
+      "Objeto periodico nao definido: v22"
+    ]
+  },
+  {
+    "id": "PI02",
+    "caso": "Colecao completa com editor secundario",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "REVISTA DE PESQUISA SINTÉTICA",
+      "ciência e sociedade",
+      "Recife",
+      "Editora Alfa",
+      "2000",
+      "2024",
+      "PRADO, Bia",
+      "ISSN"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ],
+    "chamadaPadroes": [
+      "Revista"
+    ],
+    "padroes": [
+      "(?-i)REVISTA\\ DE\\ PESQUISA\\ SINTÉTICA"
+    ]
+  },
+  {
+    "id": "PI03",
+    "caso": "Colecao eletronica com DOI e URL distintos",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "links": [
+      "https://doi.org/10.0000/pi03",
+      "https://example.invalid/pi03"
+    ],
+    "ordem": [
+      "REVISTA",
+      "ISSN",
+      "Publicação eletrônica",
+      "Disponível em:",
+      "Acesso em:"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ]
+  },
+  {
+    "id": "PI04",
+    "caso": "Colecao em circulacao: intervalo aberto explicito",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "2000\\s*[–-](?!\\s*20\\d\\d)",
+      "(?-i)REVISTA\\ DE\\ PESQUISA\\ SINTÉTICA"
+    ],
+    "contagens": {
+      "2026": 0
+    }
+  },
+  {
+    "id": "PI05",
+    "caso": "Colecao encerrada com fim fornecido",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "2000\\s*[–-]\\s*2018",
+      "(?-i)REVISTA\\ DE\\ PESQUISA\\ SINTÉTICA"
+    ]
+  },
+  {
+    "id": "PI06",
+    "caso": "Inicio isolado nao inventa fim ou circulacao",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "(?-i)REVISTA\\ DE\\ PESQUISA\\ SINTÉTICA"
+    ],
+    "contagens": {
+      "2000": 1
+    },
+    "avisos": [
+      "Datas da colecao: pi06"
+    ]
+  },
+  {
+    "id": "PI07",
+    "caso": "Fasciculo sem titulo proprio",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "REVISTA DE PESQUISA SINTÉTICA",
+      "Recife",
+      "Editora Alfa",
+      "v. 3",
+      "n. 12",
+      "jun.",
+      "2024"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ],
+    "padroes": [
+      "(?-i)REVISTA\\ DE\\ PESQUISA\\ SINTÉTICA"
+    ]
+  },
+  {
+    "id": "PI08",
+    "caso": "Fasciculo tematico com titulo e subtitulo proprios",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "REVISTA",
+      "v. 3",
+      "n. 12",
+      "2024",
+      "Edição especial",
+      "Pesquisa aberta",
+      "métodos aplicados"
+    ],
+    "contagens": {
+      "Pesquisa aberta": 1,
+      "métodos aplicados": 1
+    }
+  },
+  {
+    "id": "PI09",
+    "caso": "Titulo de fasciculo nao vira titulo de artigo ou chamada",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaAusentes": [
+      "Memória digital",
+      "Prado"
+    ],
+    "chamadaPadroes": [
+      "Revista"
+    ],
+    "ordem": [
+      "REVISTA",
+      "2024",
+      "Memória digital",
+      "fontes e acervos"
+    ]
+  },
+  {
+    "id": "PI10",
+    "caso": "Volume e numero distintos",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "v\\. 7, n\\. 28",
+      "(?-i)REVISTA\\ DE\\ PESQUISA\\ SINTÉTICA"
+    ]
+  },
+  {
+    "id": "PI11",
+    "caso": "ISSN preservado sem ser DOI",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "ISSN\\s+1234-567X"
+    ],
+    "contagens": {
+      "1234-567X": 1,
+      "doi.org": 0
+    },
+    "chamadaAusentes": [
+      "Prado"
+    ]
+  },
+  {
+    "id": "PI12",
+    "caso": "Editor organizador permanece credito secundario",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "REVISTA",
+      "Editora Alfa",
+      "PRADO, Bia",
+      "(org.)"
+    ],
+    "contagens": {
+      "Prado": 1
+    },
+    "chamadaAusentes": [
+      "Prado"
+    ]
+  },
+  {
+    "id": "PI13",
+    "caso": "Publicadora e organizacao nao sao autoras",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaAusentes": [
+      "Instituto",
+      "Sociedade"
+    ],
+    "chamadaPadroes": [
+      "Revista"
+    ],
+    "ordem": [
+      "REVISTA",
+      "Instituto de Pesquisa"
+    ],
+    "avisos": [
+      "Entidade do periodico: pi13"
+    ]
+  },
+  {
+    "id": "PI14",
+    "caso": "Titulo protegido conserva caixa significativa",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "(?-i)Revista NASA e eSocial"
+    ],
+    "avisos": [
+      "Titulo protegido do periodico: pi14"
+    ],
+    "chamadaPadroes": [
+      "Revista NASA"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ]
+  },
+  {
+    "id": "PI15",
+    "caso": "Shorttitle explicito nao substitui titulo completo",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "Pesquisa Sintética \\[…\\]"
+    ],
+    "padroes": [
+      "(?-i)REVISTA\\ DE\\ PESQUISA\\ SINTÉTICA"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ]
+  },
+  {
+    "id": "PI16",
+    "caso": "Titulos semelhantes com rotulo abreviado igual",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "REVISTA MEMÓRIA ALFA",
+      "2024a",
+      "REVISTA MEMÓRIA BETA",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "2024a",
+      "2024b"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ]
+  },
+  {
+    "id": "PI17",
+    "caso": "Ordem numerica, letras e quatro apud",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "REVISTA 2",
+      "2024a",
+      "REVISTA 10",
+      "2024b"
+    ],
+    "contagens": {
+      "2024a": 1,
+      "2024b": 1
+    },
+    "chamadaPadroes": [
+      "2024a",
+      "2024b",
+      "(?s)(?:apud Revista \\[…\\], 2024b.*?){4}"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ]
+  },
+  {
+    "id": "PI18",
+    "caso": "Refsection isolada nao herda letras",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaAusentes": [
+      "2024a",
+      "2024b",
+      "Prado"
+    ],
+    "chamadaPadroes": [
+      "2024"
+    ]
+  },
+  {
+    "id": "PI19",
+    "caso": "Xdata preserva metadados da colecao",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "REVISTA DE DADOS COMPARTILHADOS",
+      "ciência e informação",
+      "Natal",
+      "Editora Beta",
+      "2010",
+      "1111-2222"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ]
+  },
+  {
+    "id": "PI20",
+    "caso": "Artigo com DOI e URL proprios via crossref",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "links": [
+      "https://doi.org/10.0000/artigo20",
+      "https://example.invalid/artigo20"
+    ],
+    "linksAusentes": [
+      "https://doi.org/10.0000/colecao",
+      "https://example.invalid/colecao"
+    ],
+    "ordem": [
+      "Artigo com DOI próprio",
+      "Revista de Pesquisa Sintética",
+      "ciência e sociedade",
+      "2024"
+    ]
+  },
+  {
+    "id": "PI21",
+    "caso": "DOI exclusivo da colecao nao vira DOI do artigo",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "links": [
+      "https://example.invalid/colecao"
+    ],
+    "linksAusentes": [
+      "https://doi.org/10.0000/colecao"
+    ],
+    "contagens": {
+      "10.0000/colecao": 0
+    },
+    "chamadaPadroes": [
+      "Nunes, 2024"
+    ]
+  },
+  {
+    "id": "PI22",
+    "caso": "DOI explicito via xdata sobrevive ao crossref",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "links": [
+      "https://doi.org/10.0000/artigo22"
+    ],
+    "linksAusentes": [
+      "https://doi.org/10.0000/colecao"
+    ]
+  },
+  {
+    "id": "PI23",
+    "caso": "Controle artigo independente",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "links": [
+      "https://doi.org/10.0000/pi23",
+      "https://example.invalid/pi23"
+    ],
+    "padroes": [
+      "Revista controle: estudos aplicados, Cidade"
+    ]
+  },
+  {
+    "id": "PI24",
+    "caso": "Controle contribuicao em evento K1",
+    "ausentes": [
+      ",,",
+      ", .",
+      ".."
+    ],
+    "contagensPadroes": {
+      "(?<!\\d)\\.,": 0
+    }
+  },
+  {
+    "id": "PI25",
+    "caso": "Controle anais completos K1",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "Congresso de Teste, 2024"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ]
+  },
+  {
+    "id": "PI26",
+    "caso": "Controle livro",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "(?-i)NUNES,\\ Ana"
+    ]
+  },
+  {
+    "id": "PI27",
+    "caso": "Controle capitulo",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "In:",
+      "(?-i)NUNES,\\ Ana"
+    ]
+  },
+  {
+    "id": "PI28",
+    "caso": "Controle patente sem alteracao",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "PC28"
+    ]
+  },
+  {
+    "id": "PI29",
+    "caso": "Opcionais ausentes sem dados artificiais",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "(?-i)REVISTA\\ MÍNIMA"
+    ],
+    "avisos": [
+      "Essencial ausente: pi29 \\(location\\)",
+      "Essencial ausente: pi29 \\(publisher\\)"
+    ]
+  },
+  {
+    "id": "PI30",
+    "caso": "Citacoes mistas, quatro apud e retorno ao artigo",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "Nunes",
+      "Congresso de Teste",
+      "Revista",
+      "(?s)(?:apud Revista \\[…\\], 2000\\s*[–-]\\s*2024.*?){4}",
+      "Nunes.*2024.*\\)\\s*$"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ]
+  },
+  {
+    "id": "PI31",
+    "caso": "Sem publicacao: acesso nao supre data",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "s\\.\\s*d\\."
+    ],
+    "chamadaAusentes": [
+      "2026"
+    ],
+    "avisos": [
+      "Data de publicacao ausente: pi31"
+    ]
+  },
+  {
+    "id": "PI32",
+    "caso": "Subtipo desconhecido preserva dados e pede revisao",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "avisos": [
+      "Objeto periodico nao definido: pi32"
+    ],
+    "padroes": [
+      "(?-i)REVISTA\\ DE\\ PESQUISA\\ SINTÉTICA"
+    ]
+  },
+  {
+    "id": "PI33",
+    "caso": "Parte da colecao distingue existencia e periodo consultado",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "2000",
+      "Período consultado: 2010-2014"
+    ],
+    "chamadaAusentes": [
+      "2010",
+      "2014",
+      "Prado"
+    ],
+    "chamadaPadroes": [
+      "2000"
+    ]
+  },
+  {
+    "id": "PI34",
+    "caso": "Colecao declarada com metadados de fasciculo pede conferencia",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "avisos": [
+      "Colecao com dados de fasciculo: pi34"
+    ],
+    "ordem": [
+      "2000",
+      "v. 3",
+      "n. 12",
+      "Tema do fascículo"
+    ]
+  },
+  {
+    "id": "PI35",
+    "caso": "Fasciculo com intervalo de meses e designacao fornecida",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "v. 3",
+      "n. 12",
+      "2024",
+      "Primavera"
+    ],
+    "padroes": [
+      "(?-i)REVISTA\\ DE\\ PESQUISA\\ SINTÉTICA"
+    ]
+  },
+  {
+    "id": "PI36",
+    "caso": "Extensao total nao e paginacao de artigo",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "120 p."
+    ],
+    "contagens": {
+      "p. 10": 0
+    },
+    "avisos": [
+      "Paginacao de periodico integral: pi36"
+    ]
+  },
+  {
+    "id": "PI37",
+    "caso": "Editora ausente diagnosticada sem promover organizacao",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "avisos": [
+      "Essencial ausente: pi37 \\(publisher\\)"
+    ],
+    "chamadaAusentes": [
+      "Instituto"
+    ],
+    "padroes": [
+      "(?-i)REVISTA\\ DE\\ PESQUISA\\ SINTÉTICA"
+    ]
+  },
+  {
+    "id": "PI38",
+    "caso": "Titulo no campo inadequado nao e reconstruido",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "avisos": [
+      "Essencial ausente: pi38 \\(title\\)",
+      "Campo de artigo em periodico: pi38"
+    ]
+  },
+  {
+    "id": "PI39",
+    "caso": "Periodicidade, titulo anterior e notas materiais fornecidos",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "ISSN",
+      "Periodicidade anual",
+      "Título anterior: Revista Inicial",
+      "Versão eletrônica iniciada em 2012"
+    ],
+    "contagens": {
+      "Periodicidade anual": 1,
+      "Versão eletrônica": 1
+    }
+  },
+  {
+    "id": "PI40",
+    "caso": "Fasciculo com crossref possui data propria explicita",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "REVISTA",
+      "v. 5",
+      "n. 9",
+      "ago.",
+      "2024",
+      "Dossiê temático"
+    ],
+    "chamadaPadroes": [
+      "2024"
+    ],
+    "chamadaAusentes": [
+      "2000",
+      "Prado"
+    ],
+    "avisos": [
+      "Data do fasciculo: pi40"
+    ],
+    "linksAusentes": [
+      "https://doi.org/10.0000/colecao"
+    ],
+    "contagens": {
+      "10.0000/colecao": 0
+    }
+  }
+]

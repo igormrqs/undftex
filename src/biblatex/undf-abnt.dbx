@@ -1,6 +1,8 @@
 % Duas datas academicas independentes; date/year continuam bibliograficos.
 % A extensao nativa do modelo de dados evita reutilizar origdate ou eventdate.
 \ProvidesFile{undf-abnt.dbx}[2026/11/01 UnDF academic dates]
+% Campos nativos de publicacao/suporte autorizados tambem para o periodico ABNT.
+\DeclareDatamodelEntryfields[periodical]{publisher,location,pagetotal,howpublished,organization}
 \DeclareDatamodelFields[type=field,datatype=date,skipout]{undfdepositdate,undfdefensedate}
 % Os componentes sao gerados pelo Biber; tambem precisam pertencer ao tipo.
 \DeclareDatamodelEntryfields[thesis]{
