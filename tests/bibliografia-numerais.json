@@ -1,0 +1,393 @@
+[
+  {
+    "id": "H01",
+    "caso": "V17 original: mesmo autor e ano",
+    "justificativa": "Inteiros simples: ordem crescente na chave de titulo, mantendo nyt.",
+    "ordem": [
+      "Manual 2 de pesquisa",
+      "2024a",
+      "Manual 10 de pesquisa",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "Nunes, 2024b",
+      "Nunes, 2024a",
+      "Nunes \\(2024a\\)"
+    ]
+  },
+  {
+    "id": "H02",
+    "caso": "Quatro inteiros",
+    "justificativa": "Inteiros simples: ordem crescente na chave de titulo, mantendo nyt.",
+    "ordem": [
+      "Manual 1.",
+      "2024a",
+      "Manual 2.",
+      "2024b",
+      "Manual 10.",
+      "2024c",
+      "Manual 20.",
+      "2024d"
+    ]
+  },
+  {
+    "id": "H03",
+    "caso": "Zeros a esquerda: desempate editorial",
+    "justificativa": "Chaves explicitas definem o desempate entre 02 e 2, sem equiparar a identidade dos documentos.",
+    "ordem": [
+      "Manual 02",
+      "Manual 2"
+    ]
+  },
+  {
+    "id": "H04",
+    "caso": "Codigos alfanumericos com chave explicita",
+    "justificativa": "Codigos nao sao interpretados como inteiros; ordem editorial explicita.",
+    "ordem": [
+      "Manual 2A",
+      "Manual 10A"
+    ]
+  },
+  {
+    "id": "H05",
+    "caso": "Versoes pontuadas com chave explicita",
+    "justificativa": "Neste cadastro sao versoes segmentadas, nao valores decimais; sem inferencia automatica.",
+    "ordem": [
+      "Manual 2.1",
+      "Manual 2.10"
+    ]
+  },
+  {
+    "id": "H06",
+    "caso": "Inteiro versus prefixo",
+    "justificativa": "Inteiros simples: ordem crescente na chave de titulo, mantendo nyt.",
+    "ordem": [
+      "Manual 2",
+      "Manual 20"
+    ]
+  },
+  {
+    "id": "H07",
+    "caso": "Numeral inicial sem autoria",
+    "justificativa": "Inteiros simples: ordem crescente na chave de titulo, mantendo nyt.",
+    "ordem": [
+      "2 caminhos",
+      "10 caminhos"
+    ],
+    "chamadaPadroes": [
+      "2 \\[…\\], 2024",
+      "10 \\[…\\], 2024"
+    ]
+  },
+  {
+    "id": "H08",
+    "caso": "Numerais no meio e em varios segmentos",
+    "justificativa": "Inteiros simples: ordem crescente na chave de titulo, mantendo nyt.",
+    "ordem": [
+      "Guia 2 modulo 2 final",
+      "Guia 2 modulo 10 final",
+      "Guia 10 modulo 2 final"
+    ]
+  },
+  {
+    "id": "H09",
+    "caso": "Titulos sem numeral",
+    "justificativa": "Controle da colacao alfabetica anterior.",
+    "ordem": [
+      "Alfa pesquisa",
+      "Beta pesquisa"
+    ]
+  },
+  {
+    "id": "H10",
+    "caso": "Acentos e numeros",
+    "justificativa": "Inteiros simples: ordem crescente na chave de titulo, mantendo nyt.",
+    "ordem": [
+      "Água 2 aplicada",
+      "Água 10 aplicada"
+    ]
+  },
+  {
+    "id": "H11",
+    "caso": "TeX protegido com ordenacao explicita",
+    "justificativa": "F03-G preservada: estrutura TeX exige chave editorial.",
+    "ordem": [
+      "Manual iPhone 2",
+      "Manual iPhone 10"
+    ],
+    "padroes": [
+      "(?-i)iPhone"
+    ],
+    "ausentes": [
+      "0002",
+      "0010"
+    ]
+  },
+  {
+    "id": "H12",
+    "caso": "Ingles declarado e rotulo compartilhado",
+    "justificativa": "Inteiros simples: ordem crescente na chave de titulo, mantendo nyt.",
+    "ordem": [
+      "THE GUIDE 2",
+      "2024a",
+      "THE GUIDE 10",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "The guide \\[…\\], 2024a",
+      "The guide \\[…\\], 2024b"
+    ]
+  },
+  {
+    "id": "H13",
+    "caso": "Sem autoria e mesmo rotulo",
+    "justificativa": "Inteiros simples: ordem crescente na chave de titulo, mantendo nyt.",
+    "ordem": [
+      "MANUAL 2",
+      "2024a",
+      "MANUAL 10",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "Manual \\[…\\], 2024a",
+      "Manual \\[…\\], 2024b"
+    ]
+  },
+  {
+    "id": "H14",
+    "caso": "Autores distintos tem prioridade",
+    "justificativa": "Nome precede ano e titulo: nenhum reordenamento global por numero.",
+    "ordem": [
+      "Manual 10",
+      "Manual 2"
+    ]
+  },
+  {
+    "id": "H15",
+    "caso": "Autoria institucional",
+    "justificativa": "Inteiros simples: ordem crescente na chave de titulo, mantendo nyt.",
+    "ordem": [
+      "Manual 2",
+      "2024a",
+      "Manual 10",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "Instituto de Pesquisa, 2024a",
+      "Instituto de Pesquisa, 2024b"
+    ]
+  },
+  {
+    "id": "H16",
+    "caso": "Shorttitle explicito preservado",
+    "justificativa": "Inteiros simples: ordem crescente na chave de titulo, mantendo nyt.",
+    "ordem": [
+      "MANUAL 2",
+      "2024a",
+      "MANUAL 10",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "Guia \\[…\\], 2024a",
+      "Guia \\[…\\], 2024b"
+    ],
+    "ausentes": [
+      "0000000002",
+      "0000000010"
+    ]
+  },
+  {
+    "id": "H17",
+    "caso": "Sorttitle explicito prevalece",
+    "justificativa": "Controle de precedencia editorial; esta inversao deliberada nao e exemplo de conformidade numerica.",
+    "ordem": [
+      "Manual 10",
+      "Manual 2"
+    ],
+    "ausentes": [
+      "AAA",
+      "ZZZ"
+    ]
+  },
+  {
+    "id": "H18",
+    "caso": "Sortkey explicito prevalece",
+    "justificativa": "sortkey final e instrucao explicita; preserva contrato D4.",
+    "ordem": [
+      "Manual 10",
+      "Manual 2"
+    ],
+    "ausentes": [
+      "AAA",
+      "ZZZ"
+    ]
+  },
+  {
+    "id": "H19",
+    "caso": "Refsection isolada sem sufixo externo",
+    "justificativa": "Isolamento nativo de extradate.",
+    "ordem": [
+      "Manual 2 de pesquisa",
+      "2024"
+    ],
+    "chamadaPadroes": [
+      "Nunes, 2024\\)",
+      "Nunes \\(2024\\)"
+    ],
+    "chamadaAusentes": [
+      "2024a",
+      "2024b"
+    ]
+  },
+  {
+    "id": "H20",
+    "caso": "Tres letras e quatro apud",
+    "justificativa": "Inteiros simples: ordem crescente na chave de titulo, mantendo nyt.",
+    "ordem": [
+      "Manual 1.",
+      "2024a",
+      "Manual 2.",
+      "2024b",
+      "Manual 10.",
+      "2024c"
+    ],
+    "chamadaPadroes": [
+      "Nunes, 2024a",
+      "Nunes, 2024b",
+      "Nunes, 2024c",
+      "Nunes \\(2024a\\)",
+      "apud Nunes, 2024c.*apud Nunes, 2024c.*apud Nunes, 2024c.*apud Nunes, 2024c"
+    ],
+    "ausentes": [
+      "Original indireta"
+    ]
+  },
+  {
+    "id": "H21",
+    "caso": "Numerais em nomes continuam lexicais",
+    "justificativa": "Nao se muda a colacao de nomes; numerais de entidades continuam sujeitos a revisao editorial.",
+    "ordem": [
+      "Obra dez",
+      "Obra dois"
+    ]
+  },
+  {
+    "id": "H22",
+    "caso": "Sortname explicito mantido",
+    "justificativa": "sortname precede titulo, sem alterar autoria impressa.",
+    "ordem": [
+      "Manual 10",
+      "Manual 2"
+    ],
+    "chamadaPadroes": [
+      "Zanon, 2024"
+    ],
+    "chamadaAusentes": [
+      "Able"
+    ]
+  },
+  {
+    "id": "H23",
+    "caso": "Protecao sem chave: limite automatico",
+    "justificativa": "Controle de limite, nao conformidade numerica: nao se interpreta TeX; fornecer sorttitle.",
+    "ordem": [
+      "Manual iPhone 10",
+      "Manual iPhone 2"
+    ],
+    "padroes": [
+      "(?-i)iPhone"
+    ]
+  },
+  {
+    "id": "H24",
+    "caso": "Inteiros longos exigem chave editorial",
+    "justificativa": "Limite automatico de nove digitos; inteiros longos usam sorttitle explicito.",
+    "ordem": [
+      "Manual 1000000000",
+      "Manual 2000000000"
+    ]
+  },
+  {
+    "id": "H25",
+    "caso": "Zeros sem chave: controle do limite",
+    "justificativa": "Ordenacao por valor, seguida pela grafia completa; identidade e rotulos distintos preservados.",
+    "ordem": [
+      "Manual 02",
+      "Manual 2"
+    ]
+  },
+  {
+    "id": "H26",
+    "caso": "Anos precedem numerais dos titulos",
+    "justificativa": "nyt mantido: ano precede titulo.",
+    "ordem": [
+      "Manual 10",
+      "Manual 2"
+    ],
+    "chamadaAusentes": [
+      "2024a",
+      "2023a"
+    ]
+  },
+  {
+    "id": "H27",
+    "caso": "Inteiro longo sem chave: limite lexical",
+    "justificativa": "Controle de limites: apenas H30 e normalizado; demais exigem sorttitle editorial.",
+    "ordem": [
+      "Manual 10000000000",
+      "Manual 2000000000"
+    ]
+  },
+  {
+    "id": "H28",
+    "caso": "Sufixo alfanumerico sem chave: limite lexical",
+    "justificativa": "Controle de limites: apenas H30 e normalizado; demais exigem sorttitle editorial.",
+    "ordem": [
+      "Manual 10A",
+      "Manual 2A"
+    ]
+  },
+  {
+    "id": "H29",
+    "caso": "Ponto sem semantica declarada: limite lexical",
+    "justificativa": "Controle de limites: apenas H30 e normalizado; demais exigem sorttitle editorial.",
+    "ordem": [
+      "Manual 2.10",
+      "Manual 2.2"
+    ]
+  },
+  {
+    "id": "H30",
+    "caso": "Limites zero e nove digitos",
+    "justificativa": "Controle de limites: apenas H30 e normalizado; demais exigem sorttitle editorial.",
+    "ordem": [
+      "Manual 0",
+      "Manual 2",
+      "Manual 999999999"
+    ]
+  },
+  {
+    "id": "H31",
+    "caso": "Sorttitle editorial recebido por xdata",
+    "justificativa": "Nao antecipar a heranca com uma chave local derivada; decisao explicita preservada.",
+    "ordem": [
+      "Manual 10",
+      "Manual 2"
+    ],
+    "ausentes": [
+      "AAA"
+    ]
+  },
+  {
+    "id": "H32",
+    "caso": "Sorttitle explicito do filho com titulo recebido por xdata",
+    "justificativa": "Nao derivar sorttitle no recipiente xdata: ele poderia sobrescrever o campo editorial do filho na resolucao nativa.",
+    "ordem": [
+      "Manual 20",
+      "Manual 10"
+    ],
+    "ausentes": [
+      "AAA"
+    ]
+  }
+]

@@ -153,6 +153,13 @@ outros idiomas declarados conservam título completo. shorttitle explícito
 prevalece. Teste: scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-titulos.tex').
 O trio tests/bibliografia-titulos.tex/.bib/.json contém 23 controles permanentes.
 
+F03-H / AF03-04: inteiros ASCII simples de até nove dígitos nos títulos recebem
+chave auxiliar de ordenação crescente. Campos explícitos prevalecem; TeX, herança,
+decimais e códigos exigem `sorttitle` editorial. Zeros iniciais são preservados;
+valores iguais desempatam pela grafia completa, sem fundir registros. O trio
+`tests/bibliografia-numerais.tex/.bib/.json` contém 32 cenários. Reproduza com
+`./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-numerais.tex')`.
+
 ## Imagens e arquivos grandes
 
 Antes de adicionar imagens ao repositório:

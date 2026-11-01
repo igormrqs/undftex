@@ -298,6 +298,29 @@ Use-os somente com justificativa editorial, conferindo a lista final.
 \texttt{shortauthor} e \texttt{shorttitle} identificam a chamada e não
 substituem os dados completos usados normalmente para ordenar.
 
+\subsection*{Numerais nos títulos}
+
+A NBR 6023:2025, seção 9.1, prevê ordem crescente para numerais.
+O modelo deriva apenas uma chave auxiliar \texttt{sorttitle} para inteiros
+ASCII simples de até nove dígitos: \emph{Manual 2} precede \emph{Manual 10}.
+A chave recebe zeros de preenchimento; o título e o rótulo apresentados
+permanecem intactos. Nome e ano continuam precedendo o título em \texttt{nyt}.
+As letras são recalculadas pelo Biber conforme a lista, inclusive nos apud.
+
+Zeros à esquerda não alteram o valor usado para ordenar; em caso de empate,
+a grafia completa desempata, sem equiparar a identidade de obras distintas.
+Decimais, versões pontuadas, sinais, códigos alfanuméricos,
+TeX protegido, números maiores e entradas que usam \texttt{xdata},
+\texttt{crossref} ou \texttt{xref} exigem revisão e \texttt{sorttitle} explícito.
+Não se interpreta automaticamente \emph{2.10} como decimal ou versão.
+Por exemplo, para versões segmentadas, use chaves como
+\verb|sorttitle={Manual 0002.0001}| e \verb|sorttitle={Manual 0002.0010}|.
+Preserve a grafia original em \texttt{title}; não coloque o preenchimento
+em \texttt{shorttitle}. \texttt{sorttitle} e \texttt{sortkey} cadastrados
+prevalecem. A colação dos nomes, inclusive entidades com numerais, não muda.
+Os limites conservam a ordenação lexical nativa sem chave editorial;
+isso não comprova adequação numérica para a entrega.
+
 \subsection*{Instituições e campos de lista}
 
 Em entradas acadêmicas do tipo \texttt{thesis}, informe o vínculo em

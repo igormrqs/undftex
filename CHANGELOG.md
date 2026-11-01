@@ -36,6 +36,8 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Corrigido
 
+- Ordenação crescente de inteiros simples em títulos por chave `sorttitle` auxiliar, preservando `nyt`, títulos e rótulos; 32 cenários cobrem desambiguação, campos explícitos e limites que exigem revisão editorial.
+
 - AF03-03: títulos protegidos e caixa mista preservados; rótulos ingleses
   dependem de idioma declarado. Regressão permanente com 23 cenários.
 

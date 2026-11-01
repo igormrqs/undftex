@@ -57,6 +57,26 @@
   \noinherit{doi}%
 }
 
+% Inteiros ASCII simples de ate nove digitos: chave auxiliar, sem alterar title.
+% TeX, codigos, decimais e heranca exigem sorttitle editorial.
+% Padding somente na chave: largura dez, sem modificar nomes, anos ou rotulos.
+\DeclareSourcemap{\maps[datatype=bibtex]{\map[overwrite]{
+  \pernottype{xdata}
+  \step[notfield=sorttitle,final]
+  \step[notfield=sortkey,final]
+  \step[notfield=xdata,final]
+  \step[notfield=crossref,final]
+  \step[notfield=xref,final]
+  \step[fieldsource=title,match=\regexp{[0-9]},final]
+  \step[fieldsource=title,notmatch=\regexp{[\\{}$^_~]|[0-9]{10}|[0-9][.,][0-9]|[\p{L}_][0-9]|[0-9][\p{L}_]|[-+][0-9]},final]
+  \step[fieldset=sorttitle,origfieldval]
+  \step[fieldsource=sorttitle,match=\regexp{([0-9]+)},replace={000000000$1}]
+  \step[fieldsource=sorttitle,match=\regexp{0+([0-9]{10})(?![0-9])},replace={$1}]
+  % Valores iguais conservam desempate pela grafia completa, sem fundir obras.
+  \step[fieldsource=title]
+  \step[fieldset=sorttitle,origfieldval,append]
+}}}
+
 % Deriva somente o rotulo: title e a ordenacao pelo titulo completo permanecem.
 % TeX complexo e monossilabos exigem shorttitle conferido no cadastro.
 \DeclareSourcemap{\maps[datatype=bibtex]{\map{
