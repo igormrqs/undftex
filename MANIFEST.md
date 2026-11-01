@@ -94,3 +94,5 @@ Não fazem parte do trabalho distribuído por padrão:
 Ao adicionar arquivos de código, documentação, exemplo ou identidade visual que devam ser distribuídos com o projeto, atualize este manifesto.
 
 F03-K3: `tests/bibliografia-patentes.tex`, `.bib` e `.json` integram a regressão com 40 cenários. Driver restrito a patent, campos e validação nativos, documentação de inventores, titulares, identificação e notas de datas. A integração ao workflow inclui somente o documento e sua validação/leitura, sem ampliar o CI geral.
+
+F03-L: `tests/bibliografia-tradutores.tex`, `.bib` e `.json` integram a regressão com 40 cenários. Mapas de shorttitle e diagnósticos deixam de tomar a mera presença de translator por autoria. O crédito nativo de tradução é preservado nos drivers próprios pertinentes; não há schema, algoritmo linguístico, driver especializado ou dependência novo.

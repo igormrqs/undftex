@@ -279,6 +279,49 @@ Os quatro comandos de apud usam o mesmo nome ou título de identificação.
 O rótulo da original não consultada permanece sem hiperlink para uma
 referência excluída; o filtro de fontes consultadas continua ativo.
 
+\subsection*{Autoria e tradução}
+
+Use \texttt{author} para quem é efetivamente autor intelectual da obra.
+Cadastre a responsabilidade pela tradução em \texttt{translator}, como uma
+lista de nomes, sem copiar o tradutor para \texttt{author}. Por exemplo:
+\begin{verbatim}
+@book{caminhos-traduzidos,
+  title      = {Caminhos da pesquisa},
+  translator = {Paz, Helena},
+  date       = {2024},
+  location   = {Brasília},
+  publisher  = {Editora Alfa}
+}
+\end{verbatim}
+
+O exemplo sintético não identifica autoria. A chamada usa
+\emph{Caminhos [\ldots]}, o título completo permanece na referência e
+o crédito nativo de tradução aparece após o título. Autor conhecido continua
+em \texttt{author}, mesmo quando houver tradução. Editor ou organizador
+responsável pelo conjunto pode legitimamente identificar uma coletânea:
+\texttt{editor/editortype} não são sinônimos de \texttt{translator}.
+Livro, volume, coletânea, parte e artigo nos drivers próprios preservam o
+crédito de tradução com o mecanismo nativo. Nos demais gêneros, confira o
+schema e o contrato específico; o tipo herdado \texttt{manual} não autoriza
+\texttt{translator} nesta instalação e não recebeu suporte novo.
+
+A presença isolada de tradutor não impede o rótulo abreviado quando o
+Biber identifica a obra pelo título. \texttt{shorttitle} explícito prevalece;
+as regras e os limites linguísticos descritos acima permanecem. Grupos TeX,
+comandos e siglas não são truncados. Sem abreviação segura, confira o título
+completo ou informe \texttt{shorttitle} editorialmente. Títulos abreviados
+coincidentes podem receber letras a/b/c, sempre coerentes com a lista de
+referências e com cada \texttt{refsection}.
+
+O aviso \emph{Rótulo por título} pede conferência, não a invenção de autor.
+\texttt{shortauthor} sem \texttt{author} recebe aviso específico: uma sigla
+fornecida não comprova autoria. Obras legitimamente identificadas por evento
+ou título, como anais completos e periódicos integrais, mantêm seus contratos
+e não recebem esse aviso genérico. A opção nativa explícita
+\texttt{usetranslator=true} não é desativada globalmente; ela é uma escolha
+editorial de identificação pelo tradutor e não torna tradução e autoria
+intelectual equivalentes. O padrão de V01 continua a entrada pelo título.
+
 \subsection*{Ordenação e ajustes explícitos}
 
 O projeto mantém \texttt{sorting=nyt}: nome do responsável ou título

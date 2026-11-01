@@ -76,6 +76,7 @@ jobs:
             tests/bibliografia-eventos.tex
             tests/bibliografia-periodicos-integrais.tex
             tests/bibliografia-patentes.tex
+            tests/bibliografia-tradutores.tex
           latexmk_use_lualatex: true
           post_compile: |
             mkdir -p datamodel-academicos
@@ -103,7 +104,7 @@ jobs:
       - name: Verificar listas, datas, desambiguacao e apud na bibliografia
         shell: pwsh
         run: |
-          foreach ($documento in 'bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos', 'bibliografia-responsabilidades', 'bibliografia-recipientes', 'bibliografia-autoria', 'bibliografia-ordenacao', 'bibliografia-integridade', 'bibliografia-partes', 'bibliografia-periodicos', 'bibliografia-notas', 'bibliografia-titulos', 'bibliografia-numerais', 'bibliografia-academicos', 'bibliografia-legislacao', 'bibliografia-eventos', 'bibliografia-periodicos-integrais', 'bibliografia-patentes') {
+          foreach ($documento in 'bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos', 'bibliografia-responsabilidades', 'bibliografia-recipientes', 'bibliografia-autoria', 'bibliografia-ordenacao', 'bibliografia-integridade', 'bibliografia-partes', 'bibliografia-periodicos', 'bibliografia-notas', 'bibliografia-titulos', 'bibliografia-numerais', 'bibliografia-academicos', 'bibliografia-legislacao', 'bibliografia-eventos', 'bibliografia-periodicos-integrais', 'bibliografia-patentes', 'bibliografia-tradutores') {
             ./scripts/verificar-bibliografia.ps1 -Diretorio '.' -Documento $documento
           }
 

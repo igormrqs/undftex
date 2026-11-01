@@ -6,6 +6,13 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ## [Não lançado]
 
+### Corrigido — F03-L
+
+- A presença de tradutor não bloqueia a derivação segura de shorttitle nem o diagnóstico de entrada pelo título. Os avisos usam a identidade fornecida pelo Biber, sem promover tradutor ou retirar a responsabilidade legítima de editor/organizador.
+- Crédito nativo de tradução preservado nos drivers de livros, volumes, coletâneas, partes e artigos; títulos completos, opções de nomes, ordenação, letras e quatro apud permanecem nos contratos anteriores.
+- Quarenta cenários permanentes incluem V01 literal, idiomas, TeX protegido, herança, títulos coincidentes, citações mistas e contagem de avisos. Não há alteração de schema ou ampliação geral do CI.
+
+
 ### Corrigido — F03-K3
 
 - Referências de patentes preservam inventores no formato institucional, titular qualificado, título/subtítulo, identificador literal, âmbito, versão e eletrônicos. Notas de depósito, prioridade, publicação ou concessão mantêm seus papéis expressos; date/year identifica o documento consultado sem presumir situação jurídica.

@@ -1,0 +1,994 @@
+[
+  {
+    "id": "L01",
+    "caso": "V01 original sem recadastro",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "CAMINHOS da pesquisa",
+      "Helena Paz",
+      "Brasília",
+      "Editora Alfa",
+      "2024"
+    ],
+    "padroes": [
+      "(?:Trad\\.? por|Traduzido .*?por)\\s+Helena Paz"
+    ],
+    "chamadaPadroes": [
+      "Caminhos \\[…\\]"
+    ],
+    "chamadaAusentes": [
+      "Paz"
+    ],
+    "avisos": [
+      "Rotulo por titulo: v01"
+    ],
+    "contagens": {
+      "Helena Paz": 1
+    },
+    "contagensAvisos": {
+      "Rotulo por titulo: v01\\.": 1
+    }
+  },
+  {
+    "id": "L02",
+    "caso": "Livro com tradutor nao ganha autoria",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "(?:Trad\\.? por|Traduzido .*?por)\\s+Helena Paz"
+    ],
+    "chamadaPadroes": [
+      "Caminhos \\[…\\]"
+    ],
+    "chamadaAusentes": [
+      "Paz"
+    ],
+    "avisos": [
+      "Rotulo por titulo: l02"
+    ]
+  },
+  {
+    "id": "L03",
+    "caso": "Autor real permanece identidade; tradutor e secundario",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "NUNES, Ana",
+      "Caminhos da pesquisa",
+      "Helena Paz",
+      "Brasília"
+    ],
+    "chamadaPadroes": [
+      "Nunes, 2024"
+    ],
+    "chamadaAusentes": [
+      "Paz"
+    ],
+    "padroes": [
+      "(?:Trad\\.? por|Traduzido .*?por)\\s+Helena Paz"
+    ],
+    "avisosAusentes": [
+      "Rotulo por titulo: l03"
+    ]
+  },
+  {
+    "id": "L04",
+    "caso": "Editor com tradutor conserva responsabilidade principal legitima",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "PRADO, Bia (org.)",
+      "Caminhos",
+      "Helena Paz"
+    ],
+    "chamadaPadroes": [
+      "Prado"
+    ],
+    "chamadaAusentes": [
+      "Paz"
+    ],
+    "padroes": [
+      "(?:Trad\\.? por|Traduzido .*?por)\\s+Helena Paz"
+    ],
+    "avisosAusentes": [
+      "Rotulo por titulo: l04"
+    ]
+  },
+  {
+    "id": "L05",
+    "caso": "Sem autor nem tradutor: controle anterior",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "Caminhos \\[…\\]"
+    ],
+    "chamadaAusentes": [
+      "Paz"
+    ],
+    "ordem": [
+      "CAMINHOS da pesquisa",
+      "Brasília",
+      "2024"
+    ],
+    "avisos": [
+      "Rotulo por titulo: l05"
+    ],
+    "contagens": {
+      "Trad.": 0
+    }
+  },
+  {
+    "id": "L06",
+    "caso": "Varios tradutores completos sem promover nenhum a autor",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "CAMINHOS",
+      "Helena Paz",
+      "Caio Luz",
+      "Dora Silva",
+      "Bia Prado"
+    ],
+    "chamadaPadroes": [
+      "Caminhos \\[…\\]"
+    ],
+    "chamadaAusentes": [
+      "Paz",
+      "Luz",
+      "Silva",
+      "Prado"
+    ],
+    "contagens": {
+      "Helena Paz": 1,
+      "Caio Luz": 1,
+      "Dora Silva": 1,
+      "Bia Prado": 1
+    }
+  },
+  {
+    "id": "L07",
+    "caso": "Shorttitle explicito permanece prioritario",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "Percursos \\[…\\]"
+    ],
+    "ordem": [
+      "CAMINHOS da pesquisa",
+      "Helena Paz"
+    ],
+    "padroes": [
+      "(?:Trad\\.? por|Traduzido .*?por)\\s+Helena Paz"
+    ]
+  },
+  {
+    "id": "L08",
+    "caso": "Artigo inicial portugues usa algoritmo ja existente",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "A memória \\[…\\]"
+    ],
+    "ordem": [
+      "A MEMÓRIA digital brasileira",
+      "Helena Paz"
+    ],
+    "padroes": [
+      "(?:Trad\\.? por|Traduzido .*?por)\\s+Helena Paz"
+    ]
+  },
+  {
+    "id": "L09",
+    "caso": "Titulo inteiro protegido conserva estrutura",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "(?-i)A busca de energia limpa",
+      "(?:Trad\\.? por|Traduzido .*?por)\\s+Helena Paz"
+    ],
+    "chamadaPadroes": [
+      "A busca \\[…\\]"
+    ],
+    "avisos": [
+      "Titulo\\s*protegido:\\s*l09"
+    ]
+  },
+  {
+    "id": "L10",
+    "caso": "Sigla de uma palavra nao recebe reticencia artificial",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "NASA, 2024"
+    ],
+    "chamadaAusentes": [
+      "[…]",
+      "Paz"
+    ],
+    "ordem": [
+      "NASA",
+      "Helena Paz"
+    ],
+    "padroes": [
+      "(?:Trad\\.? por|Traduzido .*?por)\\s+Helena Paz"
+    ]
+  },
+  {
+    "id": "L11",
+    "caso": "Ingles declarado respeita The e palavra seguinte",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "The ecology \\[…\\]"
+    ],
+    "ordem": [
+      "THE ECOLOGY of cities",
+      "Helena Paz"
+    ],
+    "padroes": [
+      "(?:Trad\\.? por|Traduzido .*?por)\\s+Helena Paz"
+    ]
+  },
+  {
+    "id": "L12",
+    "caso": "Idioma nao suportado conserva titulo completo",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "Le réseau des villes"
+    ],
+    "chamadaAusentes": [
+      "[…]",
+      "Paz"
+    ],
+    "avisos": [
+      "Idioma sem abreviacao automatica: l12",
+      "Rotulo por titulo: l12"
+    ],
+    "padroes": [
+      "(?:Trad\\.? por|Traduzido .*?por)\\s+Helena Paz"
+    ]
+  },
+  {
+    "id": "L13",
+    "caso": "Rotulos semelhantes e tradutores distintos nao mudam a identidade",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "CAMINHOS Alfa",
+      "Ana Zanon",
+      "2024a",
+      "CAMINHOS Beta",
+      "Bia Abreu",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "Caminhos",
+      "2024a",
+      "2024b"
+    ],
+    "chamadaAusentes": [
+      "Zanon",
+      "Abreu"
+    ]
+  },
+  {
+    "id": "L14",
+    "caso": "Autor real e mesmo ano mantem letras",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "Obra Alfa",
+      "Helena Paz",
+      "2024a",
+      "Obra Beta",
+      "Helena Paz",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "Nunes",
+      "2024a",
+      "2024b"
+    ],
+    "chamadaAusentes": [
+      "Paz"
+    ],
+    "contagens": {
+      "Helena Paz": 2
+    }
+  },
+  {
+    "id": "L15",
+    "caso": "Tres titulos abreviados coincidentes exigem a b c",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "2024a",
+      "2024b",
+      "2024c"
+    ],
+    "ordem": [
+      "CAMINHOS Alfa",
+      "2024a",
+      "CAMINHOS Beta",
+      "2024b",
+      "CAMINHOS Gama",
+      "2024c"
+    ],
+    "contagens": {
+      "Helena Paz": 3
+    }
+  },
+  {
+    "id": "L16",
+    "caso": "Refsection isolada nao herda letras",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaAusentes": [
+      "2024a",
+      "2024b",
+      "2024c"
+    ],
+    "chamadaPadroes": [
+      "Caminhos \\[…\\]"
+    ],
+    "ordem": [
+      "CAMINHOS Alfa",
+      "Helena Paz",
+      "2024"
+    ]
+  },
+  {
+    "id": "L17",
+    "caso": "Consultada sem autor e com tradutor: quatro apud com letra",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "(?s)(?:apud Caminhos \\[…\\], 2024c.*?){4}"
+    ],
+    "chamadaAusentes": [
+      "Paz"
+    ],
+    "contagens": {
+      "Fonte original de controle": 0
+    },
+    "ordem": [
+      "CAMINHOS Alfa",
+      "2024a",
+      "CAMINHOS Beta",
+      "2024b",
+      "CAMINHOS Gama",
+      "2024c"
+    ]
+  },
+  {
+    "id": "L18",
+    "caso": "Original indireta com tradutor permanece fora da bibliografia",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "(?s)(?:apud Nunes, 2024.*?){4}",
+      "Origem \\[…\\]"
+    ],
+    "contagens": {
+      "Origem traduzida indireta": 0,
+      "Bia Fonte": 0,
+      "Helena Paz": 1
+    },
+    "padroes": [
+      "(?:Trad\\.? por|Traduzido .*?por)\\s+Helena Paz"
+    ]
+  },
+  {
+    "id": "L19",
+    "caso": "Original citada diretamente em refsection independente",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "ORIGEM traduzida indireta",
+      "Bia Fonte",
+      "1980"
+    ],
+    "chamadaPadroes": [
+      "Origem \\[…\\]"
+    ],
+    "chamadaAusentes": [
+      "Fonte"
+    ],
+    "contagens": {
+      "Bia Fonte": 1
+    }
+  },
+  {
+    "id": "L20",
+    "caso": "Parte com autor proprio e tradutor nao perde autoria",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "LUZ, Caio",
+      "Parte traduzida",
+      "Helena Paz",
+      "In:",
+      "SILVA, Dora",
+      "Livro recipiente"
+    ],
+    "chamadaPadroes": [
+      "Luz"
+    ],
+    "chamadaAusentes": [
+      "Paz"
+    ],
+    "padroes": [
+      "(?:Trad\\.? por|Traduzido .*?por)\\s+Helena Paz"
+    ]
+  },
+  {
+    "id": "L21",
+    "caso": "Parte sem autor com organizador no recipiente e tradutor",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "PARTE traduzida",
+      "Helena Paz",
+      "In:",
+      "PRADO, Bia (org.)",
+      "Coletânea recipiente"
+    ],
+    "chamadaPadroes": [
+      "Parte \\[…\\]"
+    ],
+    "chamadaAusentes": [
+      "Prado",
+      "Paz"
+    ],
+    "avisos": [
+      "Rotulo por titulo: l21"
+    ]
+  },
+  {
+    "id": "L22",
+    "caso": "Titulo e traducao recebidos via xdata",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "CAMINHOS compartilhados",
+      "Helena Paz",
+      "2024"
+    ],
+    "chamadaPadroes": [
+      "Caminhos \\[…\\]"
+    ],
+    "chamadaAusentes": [
+      "Paz"
+    ],
+    "padroes": [
+      "(?:Trad\\.? por|Traduzido .*?por)\\s+Helena Paz"
+    ]
+  },
+  {
+    "id": "L23",
+    "caso": "Parte via crossref mantem tradutor e editor em papeis distintos",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "PARTE herdada",
+      "Helena Paz",
+      "In:",
+      "PRADO, Bia (org.)",
+      "Livro de pesquisa"
+    ],
+    "chamadaPadroes": [
+      "Parte \\[…\\]"
+    ],
+    "chamadaAusentes": [
+      "Prado",
+      "Paz"
+    ],
+    "contagens": {
+      "Helena Paz": 1
+    }
+  },
+  {
+    "id": "L24",
+    "caso": "Shortauthor sem author exige revisao sem inventar autor",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "SIGLA"
+    ],
+    "chamadaAusentes": [
+      "Paz"
+    ],
+    "padroes": [
+      "(?:Trad\\.? por|Traduzido .*?por)\\s+Helena Paz"
+    ],
+    "avisos": [
+      "Autoria abreviada sem autor: l24"
+    ],
+    "avisosAusentes": [
+      "Rotulo por titulo: l24"
+    ]
+  },
+  {
+    "id": "L25",
+    "caso": "Sorttitle explicito conserva prioridade e letras coerentes",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "OBRA Beta",
+      "2024a",
+      "OBRA Alfa",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "2024a",
+      "2024b"
+    ],
+    "contagens": {
+      "Helena Paz": 2
+    }
+  },
+  {
+    "id": "L26",
+    "caso": "Ordenacao numerica continua independente dos tradutores",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "MANUAL 2",
+      "2024a",
+      "MANUAL 10",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "2024a",
+      "2024b"
+    ],
+    "chamadaAusentes": [
+      "Zanon",
+      "Abreu"
+    ]
+  },
+  {
+    "id": "L27",
+    "caso": "Anais integrais mantem identidade pelo evento sem aviso generico",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "Congresso de Pesquisa"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ],
+    "avisosAusentes": [
+      "Rotulo por titulo: l27"
+    ],
+    "ordem": [
+      "CONGRESSO DE PESQUISA",
+      "2023",
+      "Anais controle"
+    ]
+  },
+  {
+    "id": "L28",
+    "caso": "Periodico por titulo: idioma nao coberto mantem aviso especifico",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "Revista de Pesquisa"
+    ],
+    "chamadaAusentes": [
+      "Prado",
+      "[…]"
+    ],
+    "avisosAusentes": [
+      "Rotulo por titulo: l28"
+    ],
+    "ordem": [
+      "REVISTA DE PESQUISA",
+      "PRADO, Bia"
+    ],
+    "avisos": [
+      "Idioma sem abreviacao automatica: l28"
+    ]
+  },
+  {
+    "id": "L29",
+    "caso": "Patente mantem inventor e titular distintos",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "Nunes, 2024"
+    ],
+    "ordem": [
+      "NUNES, Ana",
+      "Titular: Instituto Sintético",
+      "PC29"
+    ],
+    "avisosAusentes": [
+      "Rotulo por titulo: l29"
+    ]
+  },
+  {
+    "id": "L30",
+    "caso": "Legislacao mantem jurisdicao cadastrada",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "Brasil, 2024"
+    ],
+    "ordem": [
+      "BRASIL",
+      "Lei controle",
+      "Ementa fornecida"
+    ],
+    "avisosAusentes": [
+      "Rotulo por titulo: l30"
+    ]
+  },
+  {
+    "id": "L31",
+    "caso": "Trabalho academico mantem autoria e datas",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "Paz, 2024"
+    ],
+    "ordem": [
+      "PAZ, Dora",
+      "2023",
+      "Tese",
+      "2024"
+    ],
+    "avisosAusentes": [
+      "Rotulo por titulo: l31"
+    ]
+  },
+  {
+    "id": "L32",
+    "caso": "Manual herdado: translator nao autorizado nao e ampliado nesta etapa",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "Manual"
+    ],
+    "ordem": [
+      "Eva Manual",
+      "Caminhos da pesquisa",
+      "Brasília"
+    ],
+    "contagens": {
+      "Helena Paz": 0
+    },
+    "avisosAusentes": [
+      "Rotulo por titulo: l32"
+    ]
+  },
+  {
+    "id": "L33",
+    "caso": "Citacoes mistas retornam ao livro com autor real",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "Caminhos",
+      "Nunes",
+      "Parte",
+      "Congresso de Pesquisa",
+      "Revista",
+      "Manual",
+      "Nunes \\(2024a\\)\\s*$",
+      "Revista de Pesquisa \\(2000\\s*[–-]\\)\\. Nunes \\(2024a\\)",
+      "Congresso de Pesquisa \\(2024\\)\\. Rocha \\(2024\\)"
+    ],
+    "chamadaAusentes": [
+      "Helena",
+      "Prado"
+    ],
+    "contagens": {
+      "Titular: Instituto Sintético": 1,
+      "Helena Paz": 3
+    },
+    "ordem": [
+      "CAMINHOS da pesquisa",
+      "CONGRESSO DE PESQUISA",
+      "NUNES, Ana"
+    ]
+  },
+  {
+    "id": "L34",
+    "caso": "Mesmo nome editor e tradutor preserva papeis da coletanea",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "PRADO, Bia (org.)",
+      "Caminhos",
+      "Bia Prado"
+    ],
+    "contagens": {
+      "Bia Prado": 1,
+      "Prado, Bia": 1
+    },
+    "chamadaPadroes": [
+      "Prado"
+    ],
+    "avisosAusentes": [
+      "Rotulo por titulo: l34"
+    ]
+  },
+  {
+    "id": "L35",
+    "caso": "Titulo com comando e grupos nao e cortado",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "A técnica \\[…\\]"
+    ],
+    "ordem": [
+      "A técnica",
+      "NASA",
+      "Helena Paz"
+    ],
+    "avisos": [
+      "Titulo\\s*protegido:\\s*l35"
+    ],
+    "contagens": {
+      "Helena Paz": 1
+    }
+  },
+  {
+    "id": "L36",
+    "caso": "Sortkey explicito e mvbook preservados",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "VOLUME Beta",
+      "2024a",
+      "VOLUME Alfa",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "2024a",
+      "2024b"
+    ],
+    "contagens": {
+      "Helena Paz": 2
+    }
+  },
+  {
+    "id": "L37",
+    "caso": "Opcao nativa explicita por tradutor nao e desativada globalmente",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "Paz, 2024"
+    ],
+    "padroes": [
+      "(?:Trad\\.? por|Traduzido .*?por)\\s+Helena Paz"
+    ],
+    "avisosAusentes": [
+      "Rotulo por titulo: l37"
+    ]
+  },
+  {
+    "id": "L38",
+    "caso": "Fullcite repetido nao repete aviso de identidade",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "(?:Trad\\.? por|Traduzido .*?por)\\s+Helena Paz"
+    ],
+    "chamadaPadroes": [
+      "Caminhos \\[…\\]"
+    ],
+    "contagensAvisos": {
+      "Rotulo por titulo: l38\\.": 1
+    },
+    "contagens": {
+      "Helena Paz": 1
+    }
+  },
+  {
+    "id": "L39",
+    "caso": "Shorteditor conserva identidade editorial em mvcollection",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "Equipe Editorial"
+    ],
+    "chamadaAusentes": [
+      "Paz"
+    ],
+    "ordem": [
+      "PRADO, Bia (org.)",
+      "Caminhos",
+      "Helena Paz"
+    ],
+    "avisosAusentes": [
+      "Rotulo por titulo: l39"
+    ]
+  },
+  {
+    "id": "L40",
+    "caso": "Artigo com autor e traducao preserva cada responsabilidade",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "Luz, 2024"
+    ],
+    "chamadaAusentes": [
+      "Paz"
+    ],
+    "ordem": [
+      "LUZ, Caio",
+      "Artigo traduzido",
+      "Helena Paz",
+      "Revista controle"
+    ],
+    "padroes": [
+      "(?:Trad\\.? por|Traduzido .*?por)\\s+Helena Paz"
+    ],
+    "avisosAusentes": [
+      "Rotulo por titulo: l40"
+    ]
+  }
+]

@@ -101,7 +101,6 @@
 \DeclareSourcemap{\maps[datatype=bibtex]{\map{
   \pernottype{proceedings}\pernottype{mvproceedings}
   \step[notfield=author,final]
-  \step[notfield=translator,final]
   \step[notfield=shorttitle,final]
   \step[fieldsource=langid,match=\regexp{\Aenglish\z},final]
   \step[fieldsource=title,notmatch=\regexp{[\\{}$^_~]},final]
@@ -110,7 +109,6 @@
 }\map{
   \pernottype{proceedings}\pernottype{mvproceedings}
   \step[notfield=author,final]
-  \step[notfield=translator,final]
   \step[notfield=shorttitle,final]
   \step[fieldsource=langid,notmatch=\regexp{\A(?:english|portuguese)\z},final]
   \step[fieldsource=title,final]
@@ -119,7 +117,6 @@
   \pernottype{proceedings}\pernottype{mvproceedings}
   \step[notfield=author,final]
   \step[notfield=editor,final]
-  \step[notfield=translator,final]
   \step[notfield=shorttitle,final]
   \step[fieldsource=title,notmatch=\regexp{[\\{}$^_~]},final]
   \step[fieldsource=title,notmatch=\regexp{(?i)\A(?:the|an)\s},final]
@@ -131,7 +128,6 @@
   \pertype{incollection}\pertype{inreference}\pertype{suppcollection}\pertype{inproceedings}\pertype{conference}\pertype{periodical}\pertype{patent}
   \pernottype{proceedings}\pernottype{mvproceedings}
   \step[notfield=author,final]
-  \step[notfield=translator,final]
   \step[notfield=shorttitle,final]
   \step[fieldsource=title,notmatch=\regexp{[\\{}$^_~]},final]
   \step[fieldsource=title,notmatch=\regexp{(?i)\A(?:the|an)\s},final]
@@ -141,20 +137,22 @@
 % Data de acesso e data da obra original nao substituem a publicacao da edicao citada.
 \DeclareLabeldate{\field{date}\field{year}\literal{nodate}}
 \AtDataInput{%
-  \ifboolexpr{test {\ifnameundef{author}} and test {\ifnameundef{translator}}
-    and (not test {\ifuseeditor} or test {\ifnameundef{editor}})
+  % O Biber ja forneceu a fonte; o alias labelname ainda nao foi instalado.
+  \ifboolexpr{test {\iffieldundef{labelnamesource}}
     and not test {\iffieldundef{langid}}
     and not test {\iffieldequalstr{langid}{english}}
     and not test {\iffieldequalstr{langid}{portuguese}}}
     {\PackageWarningNoLine{undf-biblatex}{Idioma sem abreviacao automatica: \thefield{entrykey}. Titulo completo preservado; confira shorttitle}}{}%
-
-  % labelname ainda nao foi derivado neste hook; consulte os nomes de origem.
-  \ifboolexpr{test {\ifnameundef{author}} and test {\ifnameundef{editor}}
-    and test {\ifnameundef{translator}}}
+  \ifboolexpr{test {\iffieldundef{labelnamesource}}
+    and not test {\ifentrytype{proceedings}}
+    and not test {\ifentrytype{mvproceedings}}
+    and not test {\ifentrytype{periodical}}}
     {\PackageWarningNoLine{undf-biblatex}{Rotulo por titulo: \thefield{entrykey}. Confira shorttitle, especialmente monossilabos iniciais e comandos TeX}%
      \iflistundef{organization}{}%
        {\PackageWarningNoLine{undf-biblatex}{Organizacao sem autoria definida: \thefield{entrykey}. organization nao presume autoria; confira author na fonte}}}%
     {}%
+  \ifboolexpr{test {\ifnameundef{author}} and not test {\ifnameundef{shortauthor}}}
+    {\PackageWarningNoLine{undf-biblatex}{Autoria abreviada sem autor: \thefield{entrykey}. shortauthor nao comprova autoria; confira author na fonte sem inventar responsavel}}{}%
   \iffieldundef{year}
     {\PackageWarningNoLine{undf-biblatex}{Data de publicacao ausente: \thefield{entrykey}. Informe ano identificado ou inferido a partir da fonte; a data de acesso nao o substitui}}%
     {}%
