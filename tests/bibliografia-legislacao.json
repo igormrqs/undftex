@@ -1,0 +1,711 @@
+[
+  {
+    "id": "K01",
+    "caso": "V25 original",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "BRASIL",
+      "Lei nº 2, de 3 de junho de 2024",
+      "Dispõe sobre pesquisa sintética",
+      "Diário Oficial da União",
+      "Brasília, DF",
+      "n. 100",
+      "p. 1",
+      "4",
+      "jun.",
+      "2024"
+    ],
+    "padroes": [
+      "(?-i)BRASIL",
+      "Lei nº 2, de 3 de junho de 2024\\. Dispõe",
+      "Diário Oficial da União, Brasília, DF, n\\. 100, p\\. 1"
+    ],
+    "chamadaPadroes": [
+      "Brasil, 2024"
+    ],
+    "links": [
+      "https://example.invalid/lei2"
+    ]
+  },
+  {
+    "id": "K02",
+    "caso": "LDB real nas duas bases identicas",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "BRASIL",
+      "Lei nº 9.394, de 20 de dezembro de 1996",
+      "Estabelece as diretrizes e bases da educação nacional",
+      "Diário Oficial da União",
+      "Brasília, DF",
+      "p. 27833",
+      "1996",
+      "Acesso em:"
+    ],
+    "padroes": [
+      "(?-i)BRASIL",
+      "p\\. 27833[–-]27841",
+      "Diário Oficial da União, Brasília, DF, p\\. 27833"
+    ],
+    "chamadaPadroes": [
+      "Brasil, 1996"
+    ],
+    "links": [
+      "https://www.planalto.gov.br/ccivil_03/leis/l9394.htm"
+    ],
+    "contagens": {
+      "9.394": 1
+    },
+    "avisos": [
+      "Publicacao legal incompleta: brasil1996ldb.*number",
+      "Data legal parcial: brasil1996ldb"
+    ]
+  },
+  {
+    "id": "K03",
+    "caso": "Lei federal; secao, ano editorial, fasciculo, ato e publicacao distintos",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "Lei nº 12, de 3 de junho de 2024",
+      "Diário Oficial Sintético",
+      "seção 1",
+      "Brasília, DF",
+      "ano 139",
+      "n. 8",
+      "p. 1",
+      "4",
+      "jun.",
+      "2024"
+    ],
+    "contagens": {
+      "nº 12": 1,
+      "n. 8": 1
+    },
+    "padroes": [
+      "(?-i)BRASIL",
+      "Diário Oficial Sintético: seção 1",
+      "Diário Oficial Sintético: seção 1, Brasília, DF, ano 139, n\\. 8"
+    ]
+  },
+  {
+    "id": "K04",
+    "caso": "Estado com qualificacao literal",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "(?-i)SÃO\\ PAULO\\ \\(ESTADO\\)"
+    ],
+    "chamadaPadroes": [
+      "São Paulo \\(Estado\\), 2024"
+    ]
+  },
+  {
+    "id": "K05",
+    "caso": "Municipio com qualificacao literal",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "(?-i)CAMPINAS\\ \\(SP\\)"
+    ]
+  },
+  {
+    "id": "K06",
+    "caso": "Distrito Federal",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "(?-i)DISTRITO\\ FEDERAL"
+    ]
+  },
+  {
+    "id": "K07",
+    "caso": "Constituicao independente; ano constitucional nao e edicao",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "BRASIL",
+      "[Constituição (1988)]",
+      "Constituição sintética da República",
+      "4. ed.",
+      "Brasília, DF",
+      "Editora Institucional",
+      "2020",
+      "320 p.",
+      "Edição sintética para teste"
+    ],
+    "chamadaPadroes": [
+      "Brasil, 2020"
+    ],
+    "contagens": {
+      "1988": 1,
+      "320": 1
+    },
+    "avisosAusentes": [
+      "Data legal parcial: k07"
+    ]
+  },
+  {
+    "id": "K08",
+    "caso": "Pagina institucional; ato, publicacao e acesso distintos",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "Lei nº 24",
+      "2006",
+      "Estima",
+      "Cidade Exemplo",
+      "Câmara Municipal",
+      "2007",
+      "Disponível em:",
+      "Acesso em:",
+      "2026"
+    ],
+    "links": [
+      "https://example.invalid/k08"
+    ],
+    "chamadaPadroes": [
+      "Município Exemplo, 2007"
+    ]
+  },
+  {
+    "id": "K09",
+    "caso": "Decreto sem construcao automatica",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "contagens": {
+      "Decreto nº 45": 1
+    },
+    "padroes": [
+      "(?-i)BRASIL"
+    ]
+  },
+  {
+    "id": "K10",
+    "caso": "Lei complementar",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "contagens": {
+      "Lei complementar nº 9": 1
+    },
+    "padroes": [
+      "(?-i)BRASIL"
+    ]
+  },
+  {
+    "id": "K11",
+    "caso": "Emenda constitucional",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "contagens": {
+      "Emenda constitucional nº 3": 1
+    },
+    "padroes": [
+      "(?-i)BRASIL"
+    ]
+  },
+  {
+    "id": "K12",
+    "caso": "Ementa longa integral, sem cortes",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "contagens": {
+      "preservação integral": 3
+    },
+    "padroes": [
+      "Fim da ementa sintética",
+      "(?-i)BRASIL"
+    ]
+  },
+  {
+    "id": "K13",
+    "caso": "Sem ementa: ausencia diagnosticada",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "avisos": [
+      "Essencial ausente: k13 \\(subtitle\\)"
+    ],
+    "padroes": [
+      "(?-i)BRASIL"
+    ]
+  },
+  {
+    "id": "K14",
+    "caso": "Sem jurisdicao; editora nao vira autora",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "avisos": [
+      "Essencial ausente: k14 \\(author\\)"
+    ],
+    "chamadaAusentes": [
+      "Editora sem jurisdição"
+    ],
+    "padroes": [
+      "n\\. 100"
+    ]
+  },
+  {
+    "id": "K15",
+    "caso": "Epigrafe incompleta: numero nao inferido do fasciculo",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "avisos": [
+      "Identificacao legal literal: k15"
+    ],
+    "contagens": {
+      "n. 100": 1
+    },
+    "padroes": [
+      "(?-i)BRASIL"
+    ]
+  },
+  {
+    "id": "K16",
+    "caso": "Diario incompleto sem numero, paginas nem local",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "avisos": [
+      "Publicacao legal incompleta: k16.*number",
+      "Publicacao legal incompleta: k16.*pages",
+      "Essencial ausente: k16 \\(location\\)"
+    ],
+    "padroes": [
+      "(?-i)BRASIL"
+    ]
+  },
+  {
+    "id": "K17",
+    "caso": "Notas materiais, DOI e URL distintos",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "n. 100",
+      "p. 1",
+      "2024",
+      "Versão provisória",
+      "Parte consultada",
+      "DOI:",
+      "Disponível em:",
+      "Acesso em:"
+    ],
+    "links": [
+      "https://doi.org/10.0000/undf-k17",
+      "https://example.invalid/k17"
+    ],
+    "contagens": {
+      "Versão provisória": 1,
+      "Parte consultada": 1
+    }
+  },
+  {
+    "id": "K18",
+    "caso": "Ordem numerica, letras e quatro apud",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "Lei 2 de teste",
+      "2024a",
+      "Lei 10 de teste",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "Brasil, 2024a",
+      "Brasil, 2024b",
+      "apud",
+      "(?s)apud Brasil, 2024b(?:.*?apud Brasil, 2024b){3}"
+    ],
+    "contagens": {
+      "2024a": 1,
+      "2024b": 1
+    },
+    "padroes": [
+      "(?-i)BRASIL"
+    ]
+  },
+  {
+    "id": "K19",
+    "caso": "Hierarquia e orgao expedidor explicitos na entrada literal",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "(?-i)BRASIL\\.\\ CONGRESSO\\ NACIONAL"
+    ],
+    "chamadaPadroes": [
+      "Brasil. Congresso Nacional, 2024"
+    ]
+  },
+  {
+    "id": "K20",
+    "caso": "Sigla e protecao TeX no titulo",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "(?-i)eSocial e NASA",
+      "(?-i)BRASIL"
+    ]
+  },
+  {
+    "id": "K21",
+    "caso": "Complementos editoriais de edicao independente",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "Constituição",
+      "Identificação constitucional fornecida",
+      "2. ed. rev.",
+      "Capital",
+      "Assembleia Legislativa",
+      "2023",
+      "200 p.",
+      "Atualizada até"
+    ],
+    "contagens": {
+      "Atualizada até": 1
+    }
+  },
+  {
+    "id": "K22",
+    "caso": "Controle livro nao juridico",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "Livro de controle"
+    ],
+    "avisosAusentes": [
+      "Identificacao legal literal: k22"
+    ]
+  },
+  {
+    "id": "K23",
+    "caso": "Controle institucional comum",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "(?-i)INSTITUTO\\ EXEMPLO"
+    ],
+    "avisosAusentes": [
+      "Identificacao legal literal: k23"
+    ]
+  },
+  {
+    "id": "K24",
+    "caso": "Controle herdado nao juridico",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "PC24"
+    ],
+    "avisosAusentes": [
+      "Identificacao legal literal: k24"
+    ]
+  },
+  {
+    "id": "K25",
+    "caso": "Sem publicacao; origdate e acesso nao viram ano",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "s\\.\\s*d\\."
+    ],
+    "avisos": [
+      "Data de publicacao ausente: k25"
+    ],
+    "padroes": [
+      "(?-i)BRASIL"
+    ]
+  },
+  {
+    "id": "K26",
+    "caso": "Numero isolado sem veiculo: preservar e sinalizar ambiguidade",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "avisos": [
+      "Numero legal sem veiculo: k26"
+    ],
+    "padroes": [
+      "Número informado: 900"
+    ],
+    "contagens": {
+      "900": 1
+    }
+  },
+  {
+    "id": "K27",
+    "caso": "Edicao independente com listas nativas",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "Cidade A",
+      "Cidade B",
+      "Editora A",
+      "Editora B",
+      "2024"
+    ],
+    "padroes": [
+      "(?-i)BRASIL"
+    ]
+  },
+  {
+    "id": "K28",
+    "caso": "Titulo ausente com diagnostico anterior preservado",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "avisos": [
+      "Essencial ausente: k28 \\(title\\)"
+    ],
+    "padroes": [
+      "(?-i)BRASIL"
+    ]
+  },
+  {
+    "id": "K29",
+    "caso": "Autoria pessoal nao certifica jurisdicao",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "avisos": [
+      "Identificacao legal literal: k29"
+    ],
+    "padroes": [
+      "(?-i)NUNES"
+    ],
+    "chamadaPadroes": [
+      "Nunes, 2024"
+    ]
+  },
+  {
+    "id": "K30",
+    "caso": "Compilacao fora da cobertura: diagnostico e nota editorial",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "avisos": [
+      "Compilacao legal nao suportada: k30"
+    ],
+    "padroes": [
+      "Fonte consultada: Compilação jurídica sintética"
+    ]
+  },
+  {
+    "id": "K31",
+    "caso": "Campos opcionais ausentes: sem pontuacao artificial",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "avisos": [
+      "Essencial ausente: k31 \\(author\\)",
+      "Essencial ausente: k31 \\(subtitle\\)",
+      "Essencial ausente: k31 \\(location\\)",
+      "Essencial ausente: k31 \\(publisher\\)"
+    ],
+    "padroes": [
+      "s\\.\\s*d\\."
+    ]
+  },
+  {
+    "id": "K32",
+    "caso": "Subtitulo e titulo adicional da fonte preservados",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "Epígrafe conferida",
+      "Diário Oficial Sintético",
+      "seção extraordinária",
+      "Brasília",
+      "ano 10",
+      "v. 2",
+      "n. 100",
+      "p. 1",
+      "2024"
+    ]
+  },
+  {
+    "id": "K33",
+    "caso": "Extensao total nao substitui paginas do ato",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "padroes": [
+      "p\\. 5[–-]6"
+    ],
+    "avisos": [
+      "Extensao legal nao aplicada ao diario: k33"
+    ],
+    "contagens": {
+      "800": 0
+    }
+  },
+  {
+    "id": "K34",
+    "caso": "Edicao independente com data completa e paginas da parte",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "ordem": [
+      "Lei nº 4",
+      "2024",
+      "Cidade",
+      "Publicadora",
+      "3",
+      "fev.",
+      "2025",
+      "p. 10",
+      "40 p."
+    ],
+    "chamadaPadroes": [
+      "Brasil, 2025"
+    ]
+  },
+  {
+    "id": "K35",
+    "caso": "Refsection independente preserva letras e identidade",
+    "ausentes": [
+      ".,",
+      ",,",
+      ", .",
+      ".."
+    ],
+    "chamadaPadroes": [
+      "Brasil, 2024"
+    ],
+    "chamadaAusentes": [
+      "2024a",
+      "2024b"
+    ],
+    "contagens": {
+      "2024": 1
+    }
+  }
+]

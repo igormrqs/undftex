@@ -36,6 +36,8 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Corrigido
 
+- F03-J/AF03-06: jurisdição em maiúsculas apenas na referência legal; identificação literal do ato, fascículo/páginas do diário e edição independente preservados; 35 cenários e orientação de cadastro, sem inferir dados jurídicos.
+
 - AF03-05: natureza acadêmica brasileira, datas explícitas de depósito/defesa independentes da edição citada, extensão e diagnósticos; regressão permanente com 36 cenários.
 
 - Ordenação crescente de inteiros simples em títulos por chave `sorttitle` auxiliar, preservando `nyt`, títulos e rótulos; 32 cenários cobrem desambiguação, campos explícitos e limites que exigem revisão editorial.

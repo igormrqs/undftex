@@ -168,6 +168,8 @@ brasileira apenas no driver acadêmico. O trio
 `tests/bibliografia-academicos.tex/.bib/.json` contém 36 cenários. Execute
 `./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-academicos.tex')`.
 
+A suíte `tests/bibliografia-legislacao.tex` acrescenta 35 contratos de legislação (V25 original/LDB real, jurisdição, diário, edição independente, datas, quatro apud e controles não jurídicos). Execute `./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-legislacao.tex')`; o leitor confere PDF, destinos e avisos. Epígrafe/número/data do ato são literais em title; number é fascículo com journaltitle. Não corrija lacunas dos dados por inferência.
+
 ## Imagens e arquivos grandes
 
 Antes de adicionar imagens ao repositório:

@@ -643,24 +643,64 @@
 % ----------------------------------------------------
 % Documento jurídico - legislação
 % ----------------------------------------------------
+% title e a epigrafe literal; number identifica o fasciculo, nao o ato.
+\DeclareFieldFormat[legislation]{edition}{%
+  \ifinteger{#1}{#1\adddot\addspace\bibstring{edition}}{#1\isdot}}
+\DeclareFieldFormat[legislation]{pages}{p\adddot\space#1}
+\DeclareFieldFormat[legislation]{pagetotal}{#1\addspace p\adddot}
+\newbibmacro*{undf:checklegislation}{%
+  \ifnameundef{author}{\undf@missingessential{author}}{}%
+  \iffieldundef{subtitle}{\undf@missingessential{subtitle}}{}%
+  \iflistundef{location}{\undf@missingessential{location}}{}%
+  \PackageWarningNoLine{undf-biblatex}{Identificacao legal literal: \thefield{entrykey}. Confira jurisdicao em author e tipo, numero e data do ato em title; nenhum dado sera extraido ou inferido}%
+  \iffieldundef{journaltitle}
+    {\iflistundef{publisher}{\undf@missingessential{publisher}}{}%
+     \iffieldundef{number}{}%
+       {\PackageWarningNoLine{undf-biblatex}{Numero legal sem veiculo: \thefield{entrykey}. Confira number; valor preservado sem atribuir papel juridico}}}
+    {\iffieldundef{number}
+       {\PackageWarningNoLine{undf-biblatex}{Publicacao legal incompleta: \thefield{entrykey} (number). Confira se a fonte possui fasciculo}}{}%
+     \iffieldundef{pages}
+       {\PackageWarningNoLine{undf-biblatex}{Publicacao legal incompleta: \thefield{entrykey} (pages). Confira a paginacao da fonte}}{}%
+     \iffieldundef{pagetotal}{}%
+       {\PackageWarningNoLine{undf-biblatex}{Extensao legal nao aplicada ao diario: \thefield{entrykey}. pagetotal nao substitui pages}}%
+     \iflistundef{publisher}{}%
+       {\PackageWarningNoLine{undf-biblatex}{Editora legal no diario: \thefield{entrykey}. Confira o suporte; publisher preservado apos o local}}}%
+  \iffieldundef{year}{}%
+    {\ifboolexpr{not test {\iffieldundef{journaltitle}} and (test {\iffieldundef{month}} or test {\iffieldundef{day}})}
+       {\PackageWarningNoLine{undf-biblatex}{Data legal parcial: \thefield{entrykey}. Confira a precisao da publicacao; nao sera completada pela epigrafe ou acesso}}{}}%
+  \iffieldundef{booktitle}{}%
+    {\PackageWarningNoLine{undf-biblatex}{Compilacao legal nao suportada: \thefield{entrykey}. booktitle exige referencia de parte conferida; preserve a identificacao em nota}}%
+  \ifboolexpr{not test {\iflistundef{organization}} or not test {\iflistundef{institution}}}
+    {\PackageWarningNoLine{undf-biblatex}{Entidade legal sem papel definido: \thefield{entrykey}. organization/institution nao substituem author; confira cabecalho literal ou nota}}{}%
+}
 \DeclareBibliographyDriver{legislation}{%
   \usebibmacro{begentry}%
-  \printnames{author}%
+  \usebibmacro{undf:checklegislation}%
+  {\undf@upperbibnames\printnames[undf:family-given]{author}}%
   \setunit{\adddot\space}%
   \printfield[titlecase]{title}%
-  \iffieldundef{subtitle}
-    {}
-    {\setunit{\addcolon\space}\printfield[titlecase]{subtitle}}%
-  \setunit{\adddot\space}%
-  \printfield{journaltitle}%
-  \iflistundef{location}
-    {}
-    {\setunit{\addcomma\space}\printlist{location}}%
-  \setunit{\addcomma\space}%
-  \usebibmacro{undf:pubdate}[full]%
-  \iffieldundef{pages}
-    {}
-    {\setunit{\addcomma\space}\printfield{pages}}%
+  \setunit{\adddot\space}\printfield[titlecase]{subtitle}%
+  \newunit\newblock\printfield{titleaddon}%
+  \newunit\newblock
+  \iffieldundef{journaltitle}
+    {\usebibmacro{undf:edition}\newunit\newblock
+     \usebibmacro{publisher+location+date}%
+     \newunit\newblock\printfield{pages}%
+     \newunit\newblock\printfield{pagetotal}%
+     \iffieldundef{number}{}%
+       {\newunit\newblock\printtext{Número informado\addcolon\space}\printfield{number}}}
+    {\printfield{journaltitle}%
+     \iffieldundef{journalsubtitle}{}%
+       {\setunit{\addcolon\space}\printfield{journalsubtitle}}%
+     \setunit*{\addcomma\space}\printlist{location}%
+     \iflistundef{publisher}{}%
+       {\iflistundef{location}{\setunit{\addcomma\space}}{\setunit{\addcolon\space}}%
+        \printlist{publisher}}%
+     \setunit*{\addcomma\space}\printfield{series}%
+     \setunit*{\addcomma\space}\printfield[undf:journalvolume]{volume}%
+     \setunit*{\addcomma\space}\printfield[undf:journalnumber]{number}%
+     \setunit*{\addcomma\space}\printfield{pages}%
+     \setunit*{\addcomma\space}\usebibmacro{undf:pubdate}[full]}%
   \usebibmacro{undf:electronic}%
   \usebibmacro{finentry}%
 }

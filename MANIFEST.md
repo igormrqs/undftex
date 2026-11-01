@@ -72,6 +72,8 @@ brasileira apenas no driver acadêmico. O trio
 `tests/bibliografia-academicos.tex/.bib/.json` contém 36 cenários. Execute
 `./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-academicos.tex')`.
 
+F03-J: `tests/bibliografia-legislacao.bib`, `.tex` e `.json` formam a suíte permanente de 35 cenários legais; integrados ao verificador bibliográfico, perfis e workflow existente. Nenhum novo campo do modelo de dados.
+
 ## Fora do trabalho distribuído
 
 Não fazem parte do trabalho distribuído por padrão:

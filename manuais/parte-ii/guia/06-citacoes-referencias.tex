@@ -451,3 +451,95 @@ Use \texttt{shorttitle} explícito em títulos complexos. Para inglês simples,
 seguinte. Outros idiomas declarados conservam o título completo; a definição
 editorial de \texttt{shorttitle} prevalece. Sem idioma, The/An iniciais
 recebem tratamento conservador. Não há detecção automática de idioma.
+
+
+\subsection*{Legislação: ato e publicação consultada}
+
+O tipo \texttt{legislation} distingue a norma jurídica de sua publicação.
+O contrato abaixo é uma decisão técnica do UnDF-TeX baseada na NBR 6023:2025,
+7.11.1--7.11.2; a norma não estabelece nomes de campos BibLaTeX.
+As entradas de teste são sintéticas e não comprovam vigência ou conteúdo de leis.
+
+Cadastre em \texttt{author} a jurisdição ou o cabeçalho da entidade efetivamente
+identificado na fonte, como nome literal entre chaves duplas. Qualificações e
+hierarquias devem ser explícitas: Brasil, Distrito Federal, um estado qualificado
+ou um município com sua unidade federativa. Um órgão expedidor integra esse
+cabeçalho somente quando essa for a entrada documental conferida; caso contrário,
+informe seu papel em nota. O estilo aplica maiúsculas na referência, preservando
+o cadastro, a chamada autor-data e a ordenação. Não promove editora,
+\texttt{institution} ou \texttt{organization} a jurisdição.
+
+\texttt{title} contém a epígrafe completa, transcrita e conferida: tipo do ato,
+número e data do ato, quando pertinentes. \texttt{subtitle} contém a ementa.
+São separados por ponto, sem reconstrução automática da identificação.
+O número do ato fica no título; \texttt{number} não o completa.
+Uma constituição pode trazer no próprio título a identificação fornecida,
+como \emph{[Constituição (1988)]. Constituição da República...}; a data
+constitucional não determina a data da edição. Um decreto ou emenda segue o
+mesmo cadastro literal, com sua epígrafe específica, sem conversão em lei.
+
+\texttt{date}, ou o legado \texttt{year}, descreve a publicação da edição
+consultada e continua governando as chamadas e suas letras. A data do ato,
+presente na epígrafe, pode ser diferente da publicação. \texttt{urldate} é acesso.
+Nenhuma delas supre outra; o sistema não extrai datas do título, de notas ou da
+URL. Informe a precisão comprovada; no diário, ano isolado pede conferência,
+não autorização para inventar mês ou dia.
+
+\begin{samepage}
+Exemplo sintético de diário oficial, com números e datas distintos:
+\begin{verbatim}
+@legislation{lei-exemplo,
+  author       = {{Brasil}},
+  title        = {Lei nº 12, de 3 de junho de 2024},
+  subtitle     = {Dispõe sobre pesquisa sintética},
+  journaltitle = {Diário Oficial Sintético},
+  journalsubtitle = {seção 1},
+  series       = {ano 139},
+  number       = {8},
+  location     = {Brasília, DF},
+  pages        = {1--74},
+  date         = {2024-06-04},
+  url          = {https://example.invalid/lei12},
+  urldate      = {2026-10-30}
+}
+\end{verbatim}
+\end{samepage}
+
+Quando houver \texttt{journaltitle}, ele identifica o veículo oficial.
+\texttt{journalsubtitle} permite indicar a seção como subtítulo da publicação;
+\texttt{series} recebe o identificador editorial textual, por exemplo
+\emph{ano 139}; \texttt{volume} conserva um volume efetivamente fornecido.
+\texttt{number} é o fascículo e \texttt{pages} é o intervalo ocupado pelo ato.
+A sequência é veículo, subtítulo, local, editora se informada, série, volume,
+fascículo, páginas e data da publicação. Não se inventam seção, ano editorial
+ou fascículo. \texttt{pagetotal} não representa as páginas do ato no diário:
+nesse suporte ele gera aviso e não substitui \texttt{pages}.
+
+Sem \texttt{journaltitle}, o contrato é de edição independente ou publicação
+institucional: \texttt{edition}, local, editora, data da edição, páginas da parte
+se informadas e extensão total opcional em \texttt{pagetotal}. Para uma
+constituição em edição independente, registre a identificação constitucional
+no título e a editora/data da edição consultada nesses campos, sem confundir
+o ano constitucional com o ano editorial. Uma página institucional online
+usa a mesma imprenta quando fornecida, mais URL e acesso; não recebe número
+fictício de diário. Se \texttt{number} estiver isolado sem veículo, ele é
+preservado como \emph{Número informado}, com aviso de ambiguidade, sem ser
+declarado número do ato ou fascículo.
+
+Jurisdição, epígrafe, ementa e dados da publicação são os elementos centrais
+do cadastro. Local e editora são exigidos pelo contrato da edição independente;
+no diário, lacunas de fascículo e páginas pedem conferir se a fonte os possui.
+Sem data bibliográfica permanece o diagnóstico anterior; acesso e data do ato
+não viram ano de citação. Os avisos de identificação literal exigem conferir
+tipo, número, data e jurisdição: o estilo não interpreta a redação jurídica,
+nem certifica que uma epígrafe informal esteja completa.
+
+Notas, adendos, estado de publicação, suporte, DOI, URL e acesso seguem os
+mecanismos comuns. \texttt{titleaddon} preserva um complemento textual distinto.
+Consolidação, atualização ou vigência só aparecem se explicitamente fornecidas.
+Ementas longas não são cortadas pelo programa. A supressão permitida pela norma
+requer decisão editorial sem alterar o sentido e indicação entre colchetes.
+Uma compilação legislativa exige referência de parte conferida; o driver não
+compõe automaticamente \texttt{booktitle} e emite aviso. Identifique a fonte
+em nota até o cadastro apropriado. Jurisprudência, atos administrativos
+especializados e validação jurídica automática não integram esta cobertura.
