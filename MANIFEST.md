@@ -92,3 +92,5 @@ Não fazem parte do trabalho distribuído por padrão:
 ## Manutenção
 
 Ao adicionar arquivos de código, documentação, exemplo ou identidade visual que devam ser distribuídos com o projeto, atualize este manifesto.
+
+F03-K3: `tests/bibliografia-patentes.tex`, `.bib` e `.json` integram a regressão com 40 cenários. Driver restrito a patent, campos e validação nativos, documentação de inventores, titulares, identificação e notas de datas. A integração ao workflow inclui somente o documento e sua validação/leitura, sem ampliar o CI geral.

@@ -1,7 +1,7 @@
 # Confere chamadas e referencias no PDF das fixtures bibliograficas (LuaLaTeX/Biber).
 param(
     [string]$Diretorio = 'build/perfis',
-    [ValidateSet('bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos', 'bibliografia-responsabilidades', 'bibliografia-recipientes', 'bibliografia-autoria', 'bibliografia-ordenacao', 'bibliografia-integridade', 'bibliografia-partes', 'bibliografia-periodicos', 'bibliografia-notas', 'bibliografia-titulos', 'bibliografia-numerais', 'bibliografia-academicos', 'bibliografia-legislacao', 'bibliografia-eventos', 'bibliografia-periodicos-integrais')]
+    [ValidateSet('bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos', 'bibliografia-responsabilidades', 'bibliografia-recipientes', 'bibliografia-autoria', 'bibliografia-ordenacao', 'bibliografia-integridade', 'bibliografia-partes', 'bibliografia-periodicos', 'bibliografia-notas', 'bibliografia-titulos', 'bibliografia-numerais', 'bibliografia-academicos', 'bibliografia-legislacao', 'bibliografia-eventos', 'bibliografia-periodicos-integrais', 'bibliografia-patentes')]
     [string]$Documento = 'bibliografia-listas'
 )
 $ErrorActionPreference = 'Stop'
@@ -20,6 +20,13 @@ if ($Documento -eq 'bibliografia-periodicos-integrais') {
     if (-not (Test-Path -LiteralPath $logModelo)) { throw 'Validacao do modelo de periodicos ausente; execute verificar-perfis.ps1' }
     if (Select-String -LiteralPath $logModelo -Pattern "Datamodel: periodical entry .*Invalid field '(publisher|location|pagetotal|howpublished|organization)'") {
         throw 'Campo de publicacao/suporte nao autorizado para periodical'
+    }
+}
+if ($Documento -eq 'bibliografia-patentes') {
+    $logModelo = Join-Path $Diretorio "datamodel-patentes/$Documento.blg"
+    if (-not (Test-Path -LiteralPath $logModelo)) { throw 'Validacao do modelo de patentes ausente; execute verificar-perfis.ps1' }
+    if (Select-String -LiteralPath $logModelo -Pattern "Datamodel: patent entry .*Invalid field '(author|holder|title|subtitle|type|number|location|year|month|day|version|note|addendum|pubstate|doi|url|urlyear|urlmonth|urlday|eprint)'") {
+        throw 'Campo do contrato de patentes nao autorizado no modelo nativo'
     }
 }
 $texto = (& pdftotext -layout "$Diretorio/$Documento.pdf" -) -join "`n"

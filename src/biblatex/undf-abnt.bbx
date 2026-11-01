@@ -822,3 +822,41 @@
   \newunit\newblock\printfield{issn}%
   \usebibmacro{undf:electronic}\finentry
 }
+
+
+% Patente: inventor, titular e datas com papeis explicitamente cadastrados.
+\DeclareFieldFormat[patent]{title}{\ifnameundef{labelname}{#1}{\mkbibemph{#1}}}
+\DeclareFieldFormat[patent]{number}{#1}
+\DeclareFieldFormat[patent]{type}{\ifbibstring{#1}{\biblstring{#1}}{#1}}
+\newbibmacro*{undf:checkpatent}{%
+  \ifnameundef{author}{\undf@missingessential{author}}{}%
+  \iffieldundef{number}{\undf@missingessential{number}}{}%
+  \ifnameundef{holder}
+    {\PackageWarningNoLine{undf-biblatex}{Responsabilidade de patente incompleta: \thefield{entrykey}. Confira titular em holder e depositante/procurador em nota, quando pertinentes; nenhum nome sera inferido}}{}%
+  \iffieldundef{type}
+    {\PackageWarningNoLine{undf-biblatex}{Identificacao de patente: \thefield{entrykey}. Confira em type o papel do numero; numero literal preservado sem presumir concessao}}{}%
+  \iflistundef{location}
+    {\PackageWarningNoLine{undf-biblatex}{Ambito de patente ausente: \thefield{entrykey}. Confira pais/autoridade; nenhum orgao sera deduzido do numero}}{}%
+  \PackageWarningNoLine{undf-biblatex}{Dados de patente a conferir: \thefield{entrykey}. Informe em nota deposito, prioridade, publicacao e concessao somente quando fornecidos, com seus papeis. date/year identifica o documento consultado; nao comprova concessao ou vigencia}%
+  \ifboolexpr{not test {\iffieldundef{origyear}} or not test {\iffieldundef{eventyear}}}
+    {\PackageWarningNoLine{undf-biblatex}{Data sem papel de patente: \thefield{entrykey}. origdate/eventdate nao identificam prioridade, deposito ou concessao; descreva o papel em nota. Campos nao usados como datas da patente}}{}%
+  \ifboolexpr{not test {\iflistundef{institution}} or not test {\iflistundef{organization}}
+    or not test {\iflistundef{publisher}} or not test {\ifnameundef{editor}}}
+    {\PackageWarningNoLine{undf-biblatex}{Entidade de patente sem papel definido: \thefield{entrykey}. institution/organization/publisher/editor nao presumem inventor, titular ou orgao; confira a fonte e descreva o papel em nota}}{}%
+}
+\DeclareBibliographyDriver{patent}{%
+  \usebibmacro{begentry}\usebibmacro{undf:checkpatent}%
+  \usebibmacro{undf:mainauthor}\setunit{\adddot\space}\usebibmacro{undf:title}%
+  \newunit\newblock\printfield{titleaddon}%
+  \ifnameundef{holder}{}%
+    {\newunit\newblock\printtext{Titular\addcolon\space}%
+     \printnames[undf:family-given]{holder}}%
+  \newunit\newblock\printfield{type}%
+  \setunit*{\addspace}\printfield{number}%
+  \iflistundef{location}{}%
+    {\setunit*{\addspace}\printtext[parens]{\printlist{location}}}%
+  \newunit\newblock\printfield{version}%
+  \newunit\newblock\printtext{Data do documento consultado\addcolon\space}%
+  \usebibmacro{undf:pubdate}[full]%
+  \usebibmacro{undf:electronic}\finentry
+}

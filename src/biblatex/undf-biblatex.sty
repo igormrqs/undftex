@@ -61,6 +61,8 @@
 \ExecuteBibliographyOptions[proceedings,mvproceedings]{useauthor=false,useeditor=false}
 % O periodico entra pelo titulo; a editoria permanece credito secundario.
 \ExecuteBibliographyOptions[periodical]{useauthor=false,useeditor=false}
+% Titular ou editor nao substitui o inventor de uma patente.
+\ExecuteBibliographyOptions[patent]{useeditor=false}
 \DeclareDataInheritance{periodical}{article,suppperiodical,periodical}{\noinherit{doi}}
 \DeclareLabeltitle[proceedings,mvproceedings]{\field{shorttitle}\field{eventtitle}\field{title}}
 % A autoria e o DOI do recipiente nao identificam a contribuicao; xdata e local prevalecem.
@@ -126,7 +128,7 @@
 }\map{
   % Nas partes, o editor pertence ao recipiente e nao impede o rotulo por titulo.
   \pertype{inbook}\pertype{bookinbook}\pertype{suppbook}
-  \pertype{incollection}\pertype{inreference}\pertype{suppcollection}\pertype{inproceedings}\pertype{conference}\pertype{periodical}
+  \pertype{incollection}\pertype{inreference}\pertype{suppcollection}\pertype{inproceedings}\pertype{conference}\pertype{periodical}\pertype{patent}
   \pernottype{proceedings}\pernottype{mvproceedings}
   \step[notfield=author,final]
   \step[notfield=translator,final]

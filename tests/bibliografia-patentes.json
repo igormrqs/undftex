@@ -1,0 +1,1023 @@
+[
+  {
+    "id": "PT01",
+    "caso": "V23 original sem recadastro",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "NUNES, Ana",
+      "Dispositivo de pesquisa",
+      "Titular: Instituto Sintético",
+      "Patente",
+      "BR 0000000",
+      "Brasil",
+      "Data do documento consultado:",
+      "2024",
+      "Depósito: 10 jan. 2022",
+      "Concessão: 12 ago. 2024",
+      "Disponível em:",
+      "Acesso em:"
+    ],
+    "padroes": [
+      "(?-i)NUNES,\\ Ana"
+    ],
+    "links": [
+      "https://example.invalid/patente"
+    ],
+    "chamadaPadroes": [
+      "Nunes, 2024"
+    ],
+    "avisos": [
+      "Dados de patente a conferir: v23"
+    ],
+    "contagens": {
+      "Instituto Sintético": 1,
+      "Concessão:": 1
+    }
+  },
+  {
+    "id": "PT02",
+    "caso": "Inventor individual e titular em papeis distintos",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "NUNES, Ana",
+      "Dispositivo de pesquisa",
+      "Titular: Instituto Sintético",
+      "BR 00 000001 A1",
+      "Data do documento consultado:",
+      "2024",
+      "Depósito:"
+    ],
+    "padroes": [
+      "(?-i)NUNES,\\ Ana"
+    ],
+    "chamadaAusentes": [
+      "Instituto"
+    ]
+  },
+  {
+    "id": "PT03",
+    "caso": "Quatro inventores preservados sem truncamento da referencia",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "NUNES, Ana",
+      "PRADO, Bia",
+      "LUZ, Caio",
+      "SILVA, Dora",
+      "Dispositivo",
+      "Titular:"
+    ],
+    "chamadaPadroes": [
+      "Nunes et al\\."
+    ],
+    "padroes": [
+      "(?-i)SILVA,\\ Dora"
+    ]
+  },
+  {
+    "id": "PT04",
+    "caso": "Inventor e titular pessoal diferentes",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "NUNES, Ana",
+      "Dispositivo",
+      "Titular: Prado, Bia",
+      "BR 00"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ],
+    "contagens": {
+      "Prado": 1
+    }
+  },
+  {
+    "id": "PT05",
+    "caso": "Titular institucional literal com sigla e pontuacao",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "Titular: Instituto de Pesquisa e Tecnologia (IPT)",
+      "BR 00"
+    ],
+    "chamadaAusentes": [
+      "IPT",
+      "Instituto"
+    ]
+  },
+  {
+    "id": "PT06",
+    "caso": "Sem titular: nao inventa responsavel",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "contagens": {
+      "Titular:": 0
+    },
+    "avisos": [
+      "Responsabilidade de patente incompleta: pt06"
+    ],
+    "chamadaPadroes": [
+      "Nunes"
+    ]
+  },
+  {
+    "id": "PT07",
+    "caso": "Sem inventor: titular e editor nao se tornam autores",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "chamadaPadroes": [
+      "Dispositivo \\[…\\]"
+    ],
+    "chamadaAusentes": [
+      "Instituto",
+      "Prado"
+    ],
+    "avisos": [
+      "Essencial ausente: pt07 \\(author\\)"
+    ],
+    "ordem": [
+      "DISPOSITIVO de pesquisa",
+      "Titular: Instituto Sintético"
+    ]
+  },
+  {
+    "id": "PT08",
+    "caso": "Pedido explicitamente cadastrado nao recebe concessao",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "pedido de patente",
+      "BR 00"
+    ],
+    "contagens": {
+      "Concessão:": 0,
+      "vigente": 0
+    },
+    "padroes": [
+      "(?-i)NUNES,\\ Ana"
+    ]
+  },
+  {
+    "id": "PT09",
+    "caso": "Concessao somente quando fornecida literalmente",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "Patente concedida",
+      "BR 00",
+      "Data do documento consultado:",
+      "Depósito:",
+      "Concessão:"
+    ],
+    "contagens": {
+      "Patente concedida": 1,
+      "Concessão:": 1
+    }
+  },
+  {
+    "id": "PT10",
+    "caso": "Identificador nacional conserva prefixo zeros espacos e especie",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "identificadoresNoTexto": [
+      "BR00000123-4B1"
+    ],
+    "contagens": {
+      "BR 00 000123-4 B1": 1
+    },
+    "ordem": [
+      "BR 00 000123-4 B1",
+      "Brasil"
+    ]
+  },
+  {
+    "id": "PT11",
+    "caso": "Identificador internacional literal sem inferir escritorio",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "identificadoresNoTexto": [
+      "WO00/001234A2"
+    ],
+    "contagens": {
+      "OMPI": 0,
+      "WIPO": 0
+    },
+    "ordem": [
+      "WO 00/001234 A2",
+      "Internacional"
+    ]
+  },
+  {
+    "id": "PT12",
+    "caso": "Pais ausente: nao e deduzido do prefixo BR",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "avisos": [
+      "Ambito de patente ausente: pt12"
+    ],
+    "contagens": {
+      "Brasil": 0,
+      "INPI": 0
+    },
+    "padroes": [
+      "(?-i)NUNES,\\ Ana"
+    ]
+  },
+  {
+    "id": "PT13",
+    "caso": "Deposito informado em nota com data propria distinta",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "Data do documento consultado:",
+      "2024",
+      "Depósito: 10 jan. 2022"
+    ],
+    "chamadaAusentes": [
+      "2022"
+    ],
+    "contagens": {
+      "Depósito:": 1
+    }
+  },
+  {
+    "id": "PT14",
+    "caso": "Prioridade fornecida nao vira deposito",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "Prioridade: 3 mar. 2021",
+      "Depósito: 10 jan. 2022"
+    ],
+    "chamadaAusentes": [
+      "2021",
+      "2022"
+    ],
+    "contagens": {
+      "Prioridade:": 1
+    }
+  },
+  {
+    "id": "PT15",
+    "caso": "Publicacao identificada literalmente em nota",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "Data do documento consultado:",
+      "2023",
+      "Depósito:",
+      "Publicação:"
+    ],
+    "chamadaPadroes": [
+      "2023"
+    ],
+    "chamadaAusentes": [
+      "2022"
+    ],
+    "contagens": {
+      "Concessão:": 0
+    }
+  },
+  {
+    "id": "PT16",
+    "caso": "Concessao nao substitui data de documento anterior",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "chamadaPadroes": [
+      "2023"
+    ],
+    "chamadaAusentes": [
+      "2024",
+      "2022"
+    ],
+    "ordem": [
+      "Data do documento consultado:",
+      "2023",
+      "Depósito:",
+      "Concessão:"
+    ]
+  },
+  {
+    "id": "PT17",
+    "caso": "Prioridade deposito publicacao concessao e acesso separados",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "Data do documento consultado:",
+      "2024",
+      "Prioridade:",
+      "2021",
+      "Depósito:",
+      "2022",
+      "Publicação:",
+      "2023",
+      "Concessão:",
+      "2024",
+      "Acesso em:",
+      "2026"
+    ],
+    "chamadaAusentes": [
+      "2021",
+      "2022",
+      "2023",
+      "2026"
+    ],
+    "links": [
+      "https://example.invalid/pt17"
+    ]
+  },
+  {
+    "id": "PT18",
+    "caso": "Apenas data bibliografica nao cria papeis juridicos",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "Data do documento consultado:",
+      "2024"
+    ],
+    "contagens": {
+      "Depósito:": 0,
+      "Concessão:": 0,
+      "Prioridade:": 0,
+      "vigente": 0
+    },
+    "avisos": [
+      "Dados de patente a conferir: pt18"
+    ]
+  },
+  {
+    "id": "PT19",
+    "caso": "Data ausente nao usa original evento ou acesso",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "chamadaPadroes": [
+      "s\\.\\s*d\\."
+    ],
+    "chamadaAusentes": [
+      "2020",
+      "2021",
+      "2022",
+      "2026"
+    ],
+    "avisos": [
+      "Data de publicacao ausente: pt19",
+      "Data sem papel de patente: pt19"
+    ],
+    "contagens": {
+      "Concessão:": 0
+    }
+  },
+  {
+    "id": "PT20",
+    "caso": "Titulo protegido conserva NASA e eSocial",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "padroes": [
+      "(?-i)Sistema\\ NASA\\ e\\ eSocial",
+      "(?-i)NUNES,\\ Ana"
+    ],
+    "contagensPadroes": {
+      "(?-i)ESOCIAL": 0
+    }
+  },
+  {
+    "id": "PT21",
+    "caso": "Subtitulo fornecido preservado sem aspas",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "Dispositivo de pesquisa: métodos de análise",
+      "Titular:"
+    ],
+    "contagens": {
+      "métodos de análise": 1
+    },
+    "padroes": [
+      "(?-i)NUNES,\\ Ana"
+    ]
+  },
+  {
+    "id": "PT22",
+    "caso": "Inventor e titular com sobrenomes semelhantes",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "SILVA, Ana",
+      "Titular: Silva, Bia"
+    ],
+    "chamadaAusentes": [
+      "Bia"
+    ],
+    "padroes": [
+      "(?-i)SILVA,\\ Ana"
+    ]
+  },
+  {
+    "id": "PT23",
+    "caso": "DOI e URL diferentes preservam destinos integrais",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "links": [
+      "https://doi.org/10.0000/pt23",
+      "https://example.invalid/pt23?id=00&v=A1#texto"
+    ],
+    "ordem": [
+      "Titular:",
+      "BR 00",
+      "Depósito:",
+      "doi:",
+      "Disponível em:",
+      "Acesso em:"
+    ]
+  },
+  {
+    "id": "PT24",
+    "caso": "Eletronica sem DOI e sem URL derivada do numero",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "links": [
+      "https://example.invalid/pt24"
+    ],
+    "contagens": {
+      "doi.org": 0
+    },
+    "ordem": [
+      "Consulta online",
+      "Disponível em:",
+      "Acesso em:"
+    ],
+    "padroes": [
+      "(?-i)NUNES,\\ Ana"
+    ]
+  },
+  {
+    "id": "PT25",
+    "caso": "Notas adendo estado e versao mantem funcoes distintas",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "Titular:",
+      "BR 00",
+      "A1",
+      "Data do documento consultado:",
+      "Depósito:",
+      "Procurador: Bia Prado",
+      "Depositante: Empresa Sintética",
+      "Em exame conforme a fonte consultada"
+    ],
+    "contagens": {
+      "Procurador:": 1,
+      "Depositante:": 1
+    }
+  },
+  {
+    "id": "PT26",
+    "caso": "Numeros de pedido e publicacao nao sao fundidos",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "BR 00 000010 A1",
+      "Pedido: BR 00 000010-0",
+      "Documento publicado: BR 00 000010 A1"
+    ],
+    "contagens": {
+      "Concessão:": 0
+    }
+  },
+  {
+    "id": "PT27",
+    "caso": "Mesmo inventor e ano ordem numerica e letras",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "Dispositivo 2",
+      "2024a",
+      "Dispositivo 10",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "2024a",
+      "2024b"
+    ],
+    "padroes": [
+      "(?-i)NUNES,\\ Ana"
+    ]
+  },
+  {
+    "id": "PT28",
+    "caso": "Refsection isolada nao herda letras",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "chamadaAusentes": [
+      "2024a",
+      "2024b"
+    ],
+    "padroes": [
+      "(?-i)NUNES,\\ Ana"
+    ]
+  },
+  {
+    "id": "PT29",
+    "caso": "Quatro apud preservam inventor data e letra",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "chamadaPadroes": [
+      "(?s)(?:apud Nunes, 2024b.*?){4}"
+    ],
+    "chamadaAusentes": [
+      "Instituto"
+    ],
+    "contagens": {
+      "Origem indireta": 0
+    },
+    "padroes": [
+      "(?-i)NUNES,\\ Ana"
+    ]
+  },
+  {
+    "id": "PT30",
+    "caso": "Citacao mista: legislacao academia eventos periodico livro capitulo herdado",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "chamadaPadroes": [
+      "Brasil",
+      "Paz",
+      "Congresso de Pesquisa",
+      "Revista",
+      "Luz",
+      "Manual",
+      "Nunes",
+      "Luz \\(2020\\)\\s*$"
+    ],
+    "ordem": [
+      "Lei de controle",
+      "Livro controle",
+      "Parte controle",
+      "Manual controle",
+      "NUNES, Ana",
+      "Titular:",
+      "Tese controle",
+      "REVISTA CONTROLE"
+    ]
+  },
+  {
+    "id": "PT31",
+    "caso": "Controle anterior literal EV30",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "NUNES, Ana",
+      "Patente controle",
+      "PC30",
+      "Brasil",
+      "Data do documento consultado:",
+      "2024"
+    ],
+    "avisos": [
+      "Identificacao de patente: ev30"
+    ],
+    "padroes": [
+      "(?-i)NUNES,\\ Ana"
+    ]
+  },
+  {
+    "id": "PT32",
+    "caso": "Controle anterior literal PI28",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "NUNES, Ana",
+      "Patente controle",
+      "PC28",
+      "Brasil",
+      "Data do documento consultado:",
+      "2024"
+    ],
+    "avisos": [
+      "Identificacao de patente: pi28"
+    ],
+    "padroes": [
+      "(?-i)NUNES,\\ Ana"
+    ]
+  },
+  {
+    "id": "PT33",
+    "caso": "Chave nativa de tipo e ambito sem inferir orgao",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "pedido de patente americana",
+      "US 00 001234 A1"
+    ],
+    "contagens": {
+      "USPTO": 0,
+      "Concessão:": 0
+    },
+    "padroes": [
+      "(?-i)NUNES,\\ Ana"
+    ]
+  },
+  {
+    "id": "PT34",
+    "caso": "Titulo ausente gera diagnostico sem reconstruir numero",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "avisos": [
+      "Essencial ausente: pt34 \\(title\\)"
+    ],
+    "contagens": {
+      "Dispositivo": 0
+    },
+    "ordem": [
+      "NUNES, Ana",
+      "Titular:"
+    ]
+  },
+  {
+    "id": "PT35",
+    "caso": "Numero ausente gera diagnostico sem URL sintetizada",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "avisos": [
+      "Essencial ausente: pt35 \\(number\\)"
+    ],
+    "contagens": {
+      "BR 00": 0,
+      "https://": 0
+    },
+    "ordem": [
+      "NUNES, Ana",
+      "Titular:"
+    ]
+  },
+  {
+    "id": "PT36",
+    "caso": "Mesmo nome em inventor e titular nao perde o segundo papel",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "contagens": {
+      "Nunes, Ana": 2
+    },
+    "ordem": [
+      "NUNES, Ana",
+      "Dispositivo",
+      "Titular: Nunes, Ana"
+    ]
+  },
+  {
+    "id": "PT37",
+    "caso": "Numero sem tipo permanece literal e pede conferencia",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "avisos": [
+      "Identificacao de patente: pt37"
+    ],
+    "contagens": {
+      "000001": 1,
+      "concedida": 0
+    },
+    "ordem": [
+      "NUNES, Ana",
+      "Titular:",
+      "000001"
+    ]
+  },
+  {
+    "id": "PT38",
+    "caso": "Data parcial aproximada preserva qualificacao",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "chamadaPadroes": [
+      "ca\\.\\s*2024"
+    ],
+    "padroes": [
+      "Data do documento consultado:.*ca\\.\\s*2024"
+    ],
+    "contagens": {
+      "Concessão:": 0
+    }
+  },
+  {
+    "id": "PT39",
+    "caso": "Eprint literal conserva identificador sem equiparar numero",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "BR 00 000001 A1",
+      "ARQ-00-A1"
+    ],
+    "identificadoresNoTexto": [
+      "ARQ-00-A1"
+    ],
+    "padroes": [
+      "(?-i)NUNES,\\ Ana"
+    ]
+  },
+  {
+    "id": "PT40",
+    "caso": "Datas nativas sem papel nao substituem nota literal",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "avisos": [
+      "Data sem papel de patente: pt40"
+    ],
+    "chamadaPadroes": [
+      "2024"
+    ],
+    "chamadaAusentes": [
+      "2019",
+      "2020",
+      "2021",
+      "2022"
+    ],
+    "ordem": [
+      "Data do documento consultado:",
+      "2024",
+      "Prioridade: 3 mar. 2019",
+      "Depósito: 10 jan. 2022"
+    ]
+  }
+]

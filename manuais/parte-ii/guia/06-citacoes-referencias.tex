@@ -781,3 +781,90 @@ adicionais de publicação e diagnostica lacunas, sem prometer validação semâ
 universal do cadastro. O contrato segue as distinções de 7.7.1--7.7.4 e a
 apresentação do título em 8.2.4 da NBR 6023:2025; subtipos, avisos e política
 conservadora para TeX são decisões de implementação.
+
+
+\section{Patentes e pedidos de patente}
+
+Use o tipo nativo \texttt{patent}. Em \texttt{author}, cadastre somente os
+inventores identificados; em \texttt{holder}, os titulares, apresentados com
+o rótulo \emph{Titular:}. Titular, depositante e procurador são papéis distintos.
+Quando a fonte identificar depositante ou procurador, informe esse papel
+literalmente em \texttt{note} ou \texttt{addendum}; não os transforme em
+inventores. Para instituições, use nomes literais entre chaves.
+
+O título e o subtítulo descrevem a invenção ou documento. Grupos TeX, siglas,
+marcas e caixa significativa são preservados conforme a política de títulos
+protegidos. \texttt{type} identifica o documento: texto conferido, como
+\emph{Pedido de patente}, ou chave nativa, como \texttt{patreq}.
+\texttt{patent} não comprova concessão. \texttt{number} conserva o identificador
+completo, incluindo prefixo, zeros iniciais, espaços e espécie. Não o converta
+em inteiro. País ou âmbito fornecido pertence a \texttt{location}; esse campo
+não é a cidade da editora. Prefixos e códigos não geram nomes de escritórios
+nem URLs automaticamente.
+
+\begin{samepage}
+Exemplo sintético nacional, sem valor de registro oficial:
+\begin{verbatim}
+@patent{patente-exemplo,
+  author   = {Nunes, Ana and Prado, Bia},
+  holder   = {{Instituto Sintético}},
+  title    = {Dispositivo de pesquisa},
+  subtitle = {métodos de análise},
+  type     = {Pedido de patente},
+  number   = {BR 00 000001 A1},
+  location = {Brasil},
+  date     = {2024-08-12},
+  note     = {Depósito: 10 jan. 2022.
+              Publicação: 12 ago. 2024.},
+  url      = {https://example.invalid/patente},
+  urldate  = {2026-10-30}
+}
+\end{verbatim}
+\end{samepage}
+
+\texttt{date/year} identifica a data do documento consultado e governa as
+chamadas e as letras de desambiguação. Informe em nota as demais datas com
+papéis explícitos, por exemplo, \emph{Prioridade: 3 mar. 2021},
+\emph{Depósito: 10 jan. 2022} ou \emph{Concessão: 12 ago. 2024}, somente
+se constarem da fonte. Uma data coincidente pode aparecer no documento e na
+nota com funções diferentes; o modelo não deduz essa equivalência nem corta
+uma nota por conter a mesma data. Datas parciais e qualificadores de
+\texttt{date} seguem o suporte nativo; datas textuais das notas permanecem
+como fornecidas. Não substitua data bibliográfica por acesso, depósito ou
+concessão sem conferir qual documento foi consultado.
+
+Os campos nativos \texttt{origdate} e \texttt{eventdate} não representam
+prioridade, depósito ou concessão neste contrato: seu uso gera aviso, sem
+convertê-los em datas de patente. Os campos de depósito e defesa acadêmicos
+continuam exclusivos dos trabalhos acadêmicos. Não foi criado campo novo de
+patente, nem um analisador de datas em notas. A alternativa nativa de notas
+explícitas evita atribuir significado jurídico a campos genéricos.
+
+Inventor, título e número ausentes geram diagnóstico. Titular ausente pede
+conferência, inclusive de eventual depositante identificado na nota. Falta de
+tipo ou âmbito também pede revisão. Um aviso geral orienta conferir os papéis
+do número e das datas; ele não verifica a completude da nota por palavras-chave.
+Sem data bibliográfica, não se usam notas, datas originais, eventos ou acesso
+para fabricar o ano da chamada. Editor, instituição, organização e publicadora
+não se tornam inventor, titular ou escritório: descreva o papel pertinente
+na nota e confira o cadastro.
+
+DOI, quando existir, URL e acesso seguem as regras eletrônicas comuns.
+Nunca complete DOI ou URL a partir do número da patente. Suporte, publicação
+consultada, procurador, depositante e estado documental podem ser descritos
+em notas; \texttt{addendum/pubstate} mantêm seus papéis documentais.
+\texttt{version} preserva a versão explicitamente fornecida, sem interpretar
+a espécie do identificador. Um \texttt{eprint} só deve ser usado com sentido
+claro de identificador de repositório; não substitui o número da patente.
+Não há suporte adicional a \texttt{eid}. Os campos usados acima são nativos;
+não houve extensão do modelo de dados. \texttt{howpublished} não pertence ao
+schema nativo de patente: descreva o suporte em nota.
+
+O contrato de apresentação considera 7.9 e 7.10 da NBR 6023:2025. A norma
+indica inventores, título, depositante/titular, procurador quando houver,
+número e datas pertinentes; o mapeamento dos campos e o rótulo da data
+bibliográfica são decisões técnicas do UnDF-TeX. Documento sem esses dados
+conferidos pode compilar com avisos, mas não deve ser considerado referência
+completa só por produzir PDF. O sistema formata dados fornecidos e não
+verifica titularidade, concessão, vigência ou situação jurídica. Não realiza
+consultas a bancos de patentes. Os exemplos são fictícios.

@@ -204,3 +204,5 @@ Quando a mudança envolver ABNT ou padrão institucional, registre:
 ## Licença das contribuições
 
 Ao contribuir, você concorda que sua contribuição seja distribuída sob a mesma licença do projeto: LPPL 1.3c ou posterior.
+
+F03-K3: o trio `tests/bibliografia-patentes.tex/.bib/.json` acrescenta 40 cenários, incluindo V23, EV30 e PI28 literais; inventores/titulares, número completo, notas de datas, qualificadores, eletrônicos e quatro apud. Execute `./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-patentes.tex')`; também valida o modelo nativo com Biber. Não infira concessão, titularidade ou papéis de datas a partir do número. As datas jurídicas explicitamente fornecidas pertencem a notas qualificadas; date/year identifica o documento consultado. Não há campo de patente novo, parser ou consulta externa.

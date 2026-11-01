@@ -6,6 +6,12 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ## [Não lançado]
 
+### Corrigido — F03-K3
+
+- Referências de patentes preservam inventores no formato institucional, titular qualificado, título/subtítulo, identificador literal, âmbito, versão e eletrônicos. Notas de depósito, prioridade, publicação ou concessão mantêm seus papéis expressos; date/year identifica o documento consultado sem presumir situação jurídica.
+- Quarenta cenários permanentes protegem V23, EV30/PI28, campos nativos, letras, refsections, títulos protegidos e quatro apud. Ausências e campos sem papel de patente recebem diagnóstico, sem completar dados nem criar campos novos.
+
+
 ### Corrigido — F03-K2
 
 - Periódicos integrais entram pelo título, com local/editora e contrato explícito de coleção, parte de coleção e fascículo; preservam subtítulos, datas, volume/número, ISSN, editoria secundária e notas. Títulos TeX protegidos conservam sua caixa com diagnóstico.
