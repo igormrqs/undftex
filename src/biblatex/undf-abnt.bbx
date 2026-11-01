@@ -704,3 +704,64 @@
   \usebibmacro{undf:electronic}%
   \usebibmacro{finentry}%
 }
+
+% ----------------------------------------------------
+% Evento monografico e contribuicao publicada em anais
+% ----------------------------------------------------
+\DeclareFieldFormat[inproceedings]{title}{#1}
+\DeclareFieldFormat{undf:eventname}{\MakeUppercase{#1}}
+\DeclareFieldFormat{undf:eventnumber}{#1\isdot}
+\DeclareFieldFormat{undf:proceedingstitle}{\mkbibemph{#1}}
+\newbibmacro*{undf:checkevent}{%
+  \iffieldundef{eventtitle}{\undf@missingessential{eventtitle}}{}%
+  \iffieldundef{eventyear}{\undf@missingessential{eventdate}}{}%
+  \usebibmacro{undf:checkimprint}%
+  \ifentrytype{inproceedings}
+    {\iffieldundef{booktitle}{\undf@missingessential{booktitle}}{}%
+     \iffieldundef{pages}
+       {\PackageWarningNoLine{undf-biblatex}{Paginas de evento ausentes: \thefield{entrykey}. Confira a contribuicao; nenhum intervalo sera inventado}}{}}{}%
+  \ifboolexpr{not test {\iffieldundef{number}} and test {\iffieldundef{series}}}
+    {\PackageWarningNoLine{undf-biblatex}{Numero de evento ambiguo: \thefield{entrykey}. number e da serie; informe a edicao do evento em eventtitleaddon. Valor preservado sem inferencia}}{}%
+  \ifboolexpr{not test {\iflistundef{organization}} or not test {\iflistundef{institution}}}
+    {\PackageWarningNoLine{undf-biblatex}{Entidade do evento sem papel definido: \thefield{entrykey}. Confira organization/institution; nao presumem autoria ou editora, descreva o papel em nota}}{}%
+}
+\newbibmacro*{undf:event}{%
+  \printfield[undf:eventname]{eventtitle}%
+  \setunit*{\addcomma\space}\printfield[undf:eventnumber]{eventtitleaddon}%
+  \iffieldundef{eventyear}{}%
+    {\setunit{\addcomma\space}\printtext{\mkdaterangeyear{event}}}%
+  \setunit*{\addcomma\space}\printfield{venue}%
+}
+\newbibmacro*{undf:proceedingstitle}[1]{%
+  \printfield[undf:proceedingstitle]{#1title}%
+  \iffieldundef{#1subtitle}{}%
+    {\setunit{\addcolon\space}\printfield{#1subtitle}}%
+  \newunit\newblock\printfield{#1titleaddon}%
+}
+\newbibmacro*{undf:eventpublication}{%
+  \newunit\newblock\usebibmacro{undf:editor}%
+  \newunit\newblock\usebibmacro{undf:edition}%
+  \newunit\newblock\usebibmacro{undf:imprenta}%
+  \newunit\newblock\printfield[undf:journalvolume]{volume}\printfield{part}%
+  \newunit\newblock\printfield{series}%
+  \setunit*{\addcomma\space}\printfield[undf:journalnumber]{number}%
+}
+\DeclareBibliographyDriver{inproceedings}{%
+  \usebibmacro{begentry}\usebibmacro{undf:checkevent}%
+  \usebibmacro{undf:mainauthor}\setunit{\adddot\space}\usebibmacro{undf:title}%
+  \ifboolexpr{not test {\iffieldundef{eventtitle}} or not test {\iffieldundef{booktitle}}}
+    {\newunit\newblock\printtext{In\addcolon\space}\usebibmacro{undf:event}%
+     \newunit\newblock\usebibmacro{undf:proceedingstitle}{book}}{}%
+  \usebibmacro{undf:eventpublication}%
+  \newunit\newblock\printfield[undf:journalpages]{pages}%
+  \usebibmacro{undf:electronic}\finentry
+}
+\DeclareBibliographyDriver{proceedings}{%
+  \usebibmacro{begentry}\usebibmacro{undf:checkevent}%
+  \usebibmacro{undf:event}\newunit\newblock
+  \usebibmacro{undf:proceedingstitle}{}%
+  \newunit\newblock\usebibmacro{byauthor}%
+  \usebibmacro{undf:eventpublication}%
+  \newunit\newblock\printfield{pagetotal}%
+  \usebibmacro{undf:electronic}\finentry
+}

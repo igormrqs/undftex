@@ -73,6 +73,7 @@ jobs:
             tests/bibliografia-numerais.tex
             tests/bibliografia-academicos.tex
             tests/bibliografia-legislacao.tex
+            tests/bibliografia-eventos.tex
           latexmk_use_lualatex: true
           post_compile: |
             mkdir -p datamodel-academicos
@@ -96,7 +97,7 @@ jobs:
       - name: Verificar listas, datas, desambiguacao e apud na bibliografia
         shell: pwsh
         run: |
-          foreach ($documento in 'bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos', 'bibliografia-responsabilidades', 'bibliografia-recipientes', 'bibliografia-autoria', 'bibliografia-ordenacao', 'bibliografia-integridade', 'bibliografia-partes', 'bibliografia-periodicos', 'bibliografia-notas', 'bibliografia-titulos', 'bibliografia-numerais', 'bibliografia-academicos', 'bibliografia-legislacao') {
+          foreach ($documento in 'bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos', 'bibliografia-responsabilidades', 'bibliografia-recipientes', 'bibliografia-autoria', 'bibliografia-ordenacao', 'bibliografia-integridade', 'bibliografia-partes', 'bibliografia-periodicos', 'bibliografia-notas', 'bibliografia-titulos', 'bibliografia-numerais', 'bibliografia-academicos', 'bibliografia-legislacao', 'bibliografia-eventos') {
             ./scripts/verificar-bibliografia.ps1 -Diretorio '.' -Documento $documento
           }
 

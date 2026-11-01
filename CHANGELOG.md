@@ -36,6 +36,8 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ### Corrigido
 
+- AF03-07/eventos: contribuições e anais monográficos recebem composição própria, identidade pelo evento no todo e proteção de autoria/DOI da parte; 41 cenários permanentes, sem alterar periódicos integrais ou patentes.
+
 - F03-J/AF03-06: jurisdição em maiúsculas apenas na referência legal; identificação literal do ato, fascículo/páginas do diário e edição independente preservados; 35 cenários e orientação de cadastro, sem inferir dados jurídicos.
 
 - AF03-05: natureza acadêmica brasileira, datas explícitas de depósito/defesa independentes da edição citada, extensão e diagnósticos; regressão permanente com 36 cenários.

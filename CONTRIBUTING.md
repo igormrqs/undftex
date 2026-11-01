@@ -170,6 +170,8 @@ brasileira apenas no driver acadêmico. O trio
 
 A suíte `tests/bibliografia-legislacao.tex` acrescenta 35 contratos de legislação (V25 original/LDB real, jurisdição, diário, edição independente, datas, quatro apud e controles não jurídicos). Execute `./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-legislacao.tex')`; o leitor confere PDF, destinos e avisos. Epígrafe/número/data do ato são literais em title; number é fascículo com journaltitle. Não corrija lacunas dos dados por inferência.
 
+F03-K1: o trio `tests/bibliografia-eventos.tex/.bib/.json` contém 41 cenários de contribuição/anais, autoria, aliases, crossref/xdata, DOI e quatro apud. Reproduza com `./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-eventos.tex')`. Evento, publicação e obra recipiente têm papéis distintos; não complete lacunas por inferência.
+
 ## Imagens e arquivos grandes
 
 Antes de adicionar imagens ao repositório:

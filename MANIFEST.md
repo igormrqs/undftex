@@ -74,6 +74,8 @@ brasileira apenas no driver acadêmico. O trio
 
 F03-J: `tests/bibliografia-legislacao.bib`, `.tex` e `.json` formam a suíte permanente de 35 cenários legais; integrados ao verificador bibliográfico, perfis e workflow existente. Nenhum novo campo do modelo de dados.
 
+F03-K1: `tests/bibliografia-eventos.tex`, `.bib` e `.json` integram a regressão local e o workflow existente com 41 cenários. As mudanças bibliográficas são restritas aos tipos de eventos e seus aliases documentados; não há novo modelo de dados.
+
 ## Fora do trabalho distribuído
 
 Não fazem parte do trabalho distribuído por padrão:

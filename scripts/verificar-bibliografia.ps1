@@ -1,7 +1,7 @@
 # Confere chamadas e referencias no PDF das fixtures bibliograficas (LuaLaTeX/Biber).
 param(
     [string]$Diretorio = 'build/perfis',
-    [ValidateSet('bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos', 'bibliografia-responsabilidades', 'bibliografia-recipientes', 'bibliografia-autoria', 'bibliografia-ordenacao', 'bibliografia-integridade', 'bibliografia-partes', 'bibliografia-periodicos', 'bibliografia-notas', 'bibliografia-titulos', 'bibliografia-numerais', 'bibliografia-academicos', 'bibliografia-legislacao')]
+    [ValidateSet('bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos', 'bibliografia-responsabilidades', 'bibliografia-recipientes', 'bibliografia-autoria', 'bibliografia-ordenacao', 'bibliografia-integridade', 'bibliografia-partes', 'bibliografia-periodicos', 'bibliografia-notas', 'bibliografia-titulos', 'bibliografia-numerais', 'bibliografia-academicos', 'bibliografia-legislacao', 'bibliografia-eventos')]
     [string]$Documento = 'bibliografia-listas'
 )
 $ErrorActionPreference = 'Stop'

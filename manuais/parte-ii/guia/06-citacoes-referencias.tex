@@ -543,3 +543,136 @@ Uma compilação legislativa exige referência de parte conferida; o driver não
 compõe automaticamente \texttt{booktitle} e emite aviso. Identifique a fonte
 em nota até o cadastro apropriado. Jurisprudência, atos administrativos
 especializados e validação jurídica automática não integram esta cobertura.
+
+
+\subsection*{Eventos acadêmicos: contribuição e anais}
+
+O contrato de eventos cobre duas formas de publicação:
+\begin{itemize}
+  \item Contribuição em anais monográficos: \texttt{inproceedings}
+        (alias \texttt{conference}).
+  \item Anais no todo: \texttt{proceedings}, com alias
+        \texttt{mvproceedings} para volumes simples.
+\end{itemize}
+Não equivale a suporte integral a toda espécie de evento. O conjunto tem
+identidade própria: organizador dos anais não é automaticamente autor da
+contribuição. Os exemplos abaixo são sintéticos.
+
+Na contribuição, \texttt{author}, \texttt{title} e \texttt{subtitle} identificam
+o trabalho. Após \emph{In:}, o modelo apresenta o nome do evento em maiúsculas,
+sua numeração explícita, ano e cidade de realização; em seguida, o título dos
+anais e seus dados editoriais. \texttt{booktitle} e \texttt{booksubtitle} são
+os anais, não o nome do evento nem o título do trabalho. Sem autor, a identidade
+continua pelo título; editor não é promovido a autor.
+
+\texttt{eventtitle} contém o nome do evento. O campo nativo
+\texttt{eventtitleaddon} recebe a numeração literal conferida, como \emph{3.};
+o programa não extrai números de títulos nem acrescenta uma edição fictícia.
+\texttt{eventdate} é a realização e \texttt{venue} é sua cidade, quando houver.
+Na sequência normativa, a realização usa o ano ou intervalo de anos informado;
+dia e mês permanecem no cadastro. Não se usa a data do evento como data de
+publicação. \texttt{date/year}, \texttt{location} e \texttt{publisher} descrevem
+a publicação consultada e continuam governando as chamadas e suas letras.
+Uma publicação posterior pode ter ano e cidade diferentes dos do evento.
+
+\begin{samepage}
+Exemplo de contribuição publicada depois do evento:
+\begin{verbatim}
+@inproceedings{trabalho-exemplo,
+  author       = {Nunes, Ana},
+  title        = {Pesquisa em eventos},
+  subtitle     = {um estudo sintético},
+  eventtitle   = {Congresso de Pesquisa Sintética},
+  eventtitleaddon = {3.},
+  eventdate    = {2023-09-10/2023-09-12},
+  venue        = {Recife},
+  booktitle    = {Anais de pesquisa},
+  booksubtitle = {estudos aplicados},
+  editor       = {Prado, Bia},
+  editortype   = {organizer},
+  location     = {São Paulo},
+  publisher    = {Editora Alfa},
+  date         = {2024},
+  pages        = {9--20},
+  url          = {https://example.invalid/trabalho},
+  urldate      = {2026-10-30}
+}
+\end{verbatim}
+\end{samepage}
+
+\texttt{pages} é a paginação da contribuição, nunca a extensão dos anais.
+Volume e série podem complementar a publicação. \texttt{number} conserva a
+função de número da série; não é automaticamente a edição do evento.
+Se não houver série, seu valor é preservado com \emph{n.} e aviso de ambiguidade.
+Confirme o papel do número na fonte antes de completar
+\texttt{eventtitleaddon}. \texttt{editor/editortype} descrevem a responsabilidade
+editorial pelos anais, preservada separadamente da autoria do trabalho.
+
+Nos anais completos, \texttt{eventtitle} identifica a entrada e
+\texttt{title/subtitle} identificam o documento publicado. Organizador e pessoa
+em \texttt{author} não substituem o nome do evento nas chamadas; responsabilidades
+fornecidas permanecem como créditos secundários. Um \texttt{shorttitle}
+explicitamente conferido pode abreviar o nome do evento; o título genérico
+\emph{Anais} não gera essa abreviação automaticamente. Nome integral do evento
+não recebe reticências apenas por diferir do título dos anais.
+
+\begin{samepage}
+Exemplo de anais completos e trabalho que herda seus dados:
+\begin{verbatim}
+@proceedings{anais-exemplo,
+  eventtitle   = {Congresso de Pesquisa Sintética},
+  eventtitleaddon = {3.},
+  eventdate    = {2023},
+  venue        = {Recife},
+  title        = {Anais de pesquisa},
+  editor       = {Prado, Bia},
+  editortype   = {organizer},
+  location     = {São Paulo},
+  publisher    = {Editora Alfa},
+  date         = {2024},
+  doi          = {10.0000/anais-exemplo}
+}
+@inproceedings{parte-exemplo,
+  author       = {Nunes, Ana},
+  title        = {Contribuição individual},
+  crossref     = {anais-exemplo},
+  pages        = {9--20},
+  doi          = {10.0000/parte-exemplo}
+}
+\end{verbatim}
+\end{samepage}
+
+Os DOI dos exemplos são fictícios. No \texttt{crossref}, o título dos anais,
+editor, dados do evento e imprenta seguem os mecanismos nativos. Somente
+\texttt{author} e DOI exclusivos do recipiente são bloqueados como identidade
+da contribuição: autor dos anais não prova autoria da parte. Dados próprios
+ou fornecidos explicitamente via \texttt{xdata} continuam válidos; confira se
+os identificadores realmente pertencem ao objeto cadastrado. URL própria
+prevalece; uma URL herdada pode oferecer acesso ao conjunto que contém a parte,
+mas não é declarada endereço exclusivo do trabalho. Cadastre uma URL específica
+quando disponível e confira também o acesso e os demais identificadores herdados.
+
+Em anais eletrônicos, DOI, URL e acesso seguem o mecanismo comum, assim como
+suporte, notas materiais, adendos e estado de publicação. Não se declara uma
+versão final ou consolidada sem informação explícita. Campos ausentes não são
+inventados: falta de evento, data de realização, título dos anais ou imprenta
+gera diagnóstico. Paginação ausente pede revisão da contribuição; não se cria
+intervalo ou localizador fictício. Por exemplo, omitir \texttt{booktitle} de um
+trabalho sem \texttt{crossref} exige conferir a publicação, e omitir a data
+bibliográfica não autoriza aproveitar \texttt{eventdate} ou \texttt{urldate}.
+Cidade de realização pode não existir e não é inferida de \texttt{location}.
+
+A ordenação mantém \texttt{nyt}. Para anais com nome de evento direto, uma
+chave ausente pode usar esse nome; \texttt{sorttitle/sortkey} explícitos prevalecem.
+Nome de evento herdado, composição complexa e ordem editorial especial exigem
+conferir a chave de ordenação, conforme os limites já documentados.
+\texttt{organization/institution} não são automaticamente autoria ou editora:
+confira o papel da entidade e descreva em nota quando necessário.
+
+Trabalho somente apresentado, sem publicação, não deve receber título de anais
+fictício; a nota de 7.8.4 da NBR 6023 recomenda uma descrição própria. Use cadastro
+conferido, sem alegar que o fallback \texttt{unpublished} recebeu padronização
+integral nesta etapa. Trabalho publicado em periódico mantém o cadastro de
+artigo e pode identificar o evento em nota; não se transforma o periódico em
+anais monográficos. Eventos em periódicos, conjuntos complexos, periódicos
+integrais e patentes permanecem fora desta cobertura específica.

@@ -1,0 +1,971 @@
+[
+  {
+    "id": "EV01",
+    "caso": "V21 original, sem reinterpretar number ambiguo",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "NUNES, Ana",
+      "Método participativo",
+      "In:",
+      "CONGRESSO BRASILEIRO DE PESQUISA",
+      "2024",
+      "Brasília",
+      "Anais do Congresso Brasileiro de Pesquisa",
+      "PRADO, Bia",
+      "Editora Alfa",
+      "2024",
+      "n. 3",
+      "p. 9"
+    ],
+    "padroes": [
+      "(?-i)NUNES,\\ Ana",
+      "Método participativo\\. In:",
+      "^(?!.*(?<!\\d)\\.,)"
+    ],
+    "avisos": [
+      "Numero de evento ambiguo: v21"
+    ],
+    "chamadaPadroes": [
+      "Nunes, 2024"
+    ],
+    "links": [
+      "https://example.invalid/evento"
+    ]
+  },
+  {
+    "id": "EV02",
+    "caso": "Contribuicao completa; evento, publicacao, cidades e datas separados",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "NUNES, Ana",
+      "Pesquisa em eventos",
+      "um estudo sintético",
+      "In:",
+      "CONGRESSO DE PESQUISA SINTÉTICA",
+      "3.",
+      "2023",
+      "Recife",
+      "Anais de pesquisa",
+      "estudos aplicados",
+      "PRADO, Bia",
+      "São Paulo",
+      "Editora Alfa",
+      "2024",
+      "p. 9"
+    ],
+    "padroes": [
+      "In: CONGRESSO DE PESQUISA SINTÉTICA, 3\\., 2023, Recife\\.",
+      "^(?!.*(?<!\\d)\\.,)"
+    ],
+    "chamadaPadroes": [
+      "Nunes, 2024"
+    ],
+    "chamadaAusentes": [
+      "2023"
+    ]
+  },
+  {
+    "id": "EV03",
+    "caso": "Multiplos autores do trabalho",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "ordem": [
+      "NUNES, Ana",
+      "LUZ, Beatriz",
+      "Pesquisa"
+    ],
+    "padroes": [
+      "(?-i)LUZ,\\ Beatriz",
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV04",
+    "caso": "Sem autor; organizadora nao e autora",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "chamadaPadroes": [
+      "Pesquisa.*2024"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ],
+    "ordem": [
+      "PESQUISA em eventos",
+      "In:",
+      "PRADO, Bia"
+    ],
+    "contagens": {
+      "Prado": 1
+    },
+    "padroes": [
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV05",
+    "caso": "Anais completos com organizadora",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”",
+      "«",
+      "»"
+    ],
+    "ordem": [
+      "CONGRESSO DE PESQUISA SINTÉTICA",
+      "3.",
+      "2023",
+      "Recife",
+      "Anais de pesquisa",
+      "estudos aplicados",
+      "PRADO, Bia",
+      "São Paulo",
+      "Editora Alfa",
+      "2024"
+    ],
+    "chamadaPadroes": [
+      "Congresso de Pesquisa Sintética, 2024"
+    ],
+    "chamadaAusentes": [
+      "Prado",
+      "Anais",
+      "[…]"
+    ],
+    "padroes": [
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV06",
+    "caso": "Anais sem organizador",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "padroes": [
+      "(?-i)CONGRESSO\\ DE\\ PESQUISA\\ SINTÉTICA",
+      "^(?!.*(?<!\\d)\\.,)"
+    ],
+    "chamadaPadroes": [
+      "Congresso de Pesquisa Sintética, 2024"
+    ],
+    "chamadaAusentes": [
+      "Anais",
+      "[…]"
+    ]
+  },
+  {
+    "id": "EV07",
+    "caso": "Pessoa em author nao substitui evento no todo",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "chamadaPadroes": [
+      "Congresso de Pesquisa Sintética, 2024"
+    ],
+    "chamadaAusentes": [
+      "Silva",
+      "Prado"
+    ],
+    "padroes": [
+      "(?-i)CONGRESSO\\ DE\\ PESQUISA\\ SINTÉTICA",
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV08",
+    "caso": "Evento internacional com nome literal",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "padroes": [
+      "(?-i)INTERNATIONAL\\ RESEARCH\\ SYMPOSIUM",
+      "^(?!.*(?<!\\d)\\.,)"
+    ],
+    "ordem": [
+      "2.",
+      "2023",
+      "Valencia",
+      "São Paulo"
+    ]
+  },
+  {
+    "id": "EV09",
+    "caso": "Alias conference sem autoria",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ],
+    "chamadaPadroes": [
+      "Pesquisa"
+    ],
+    "padroes": [
+      "(?-i)PESQUISA\\ em\\ eventos",
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV10",
+    "caso": "Crossref com autor/DOI/URL proprios",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "links": [
+      "https://doi.org/10.0000/parte10",
+      "https://example.invalid/parte10"
+    ],
+    "linksAusentes": [
+      "https://doi.org/10.0000/anais-parent",
+      "https://example.invalid/anais"
+    ],
+    "ordem": [
+      "Contribuição",
+      "CONGRESSO",
+      "Anais de pesquisa",
+      "Editora Alfa",
+      "2024",
+      "p. 21"
+    ],
+    "padroes": [
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV11",
+    "caso": "DOI exclusivo dos anais nao passa a parte; URL herdada e disponibilidade",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "links": [
+      "https://example.invalid/anais"
+    ],
+    "linksAusentes": [
+      "https://doi.org/10.0000/anais-parent"
+    ],
+    "contagens": {
+      "anais-parent": 0
+    },
+    "ordem": [
+      "CONGRESSO",
+      "2023",
+      "Anais de pesquisa",
+      "2024",
+      "p. 30"
+    ],
+    "padroes": [
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV12",
+    "caso": "Xdata explicito conserva autoria e DOI da parte",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "links": [
+      "https://doi.org/10.0000/xdata-parte"
+    ],
+    "padroes": [
+      "(?-i)NUNES,\\ Ana",
+      "^(?!.*(?<!\\d)\\.,)"
+    ],
+    "ordem": [
+      "ENCONTRO DE DADOS",
+      "2022",
+      "Natal",
+      "Anais de dados",
+      "2024"
+    ]
+  },
+  {
+    "id": "EV13",
+    "caso": "Mesmo ano de evento e publicacao em papeis distintos",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "contagens": {
+      "2024": 2
+    },
+    "padroes": [
+      "(?-i)NUNES,\\ Ana",
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV14",
+    "caso": "Evento nao fornece data de publicacao ausente",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "chamadaPadroes": [
+      "s\\.\\s*d\\."
+    ],
+    "chamadaAusentes": [
+      "2023"
+    ],
+    "avisos": [
+      "Data de publicacao ausente: ev14"
+    ],
+    "ordem": [
+      "2023",
+      "Recife",
+      "Anais",
+      "Editora Alfa"
+    ],
+    "padroes": [
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV15",
+    "caso": "Evento ausente; diagnostico sem evento inventado",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "avisos": [
+      "Essencial ausente: ev15 \\(eventtitle\\)"
+    ],
+    "padroes": [
+      "(?-i)NUNES,\\ Ana",
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV16",
+    "caso": "Anais ausentes no trabalho",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "avisos": [
+      "Essencial ausente: ev16 \\(booktitle\\)"
+    ],
+    "padroes": [
+      "(?-i)NUNES,\\ Ana",
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV17",
+    "caso": "Local do evento nao cadastrado; local editorial preservado",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "ordem": [
+      "CONGRESSO",
+      "2023",
+      "Anais",
+      "São Paulo"
+    ],
+    "padroes": [
+      "2023\\. Anais",
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV18",
+    "caso": "Trabalho eletronico sem paginas pede revisao, nao inventa paginacao",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "avisos": [
+      "Paginas de evento ausentes: ev18"
+    ],
+    "links": [
+      "https://example.invalid/ev18"
+    ],
+    "padroes": [
+      "Publicação eletrônica",
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV19",
+    "caso": "Titulo protegido e sigla sem autoria com shorttitle explicito",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "padroes": [
+      "(?-i)NASA e eSocial",
+      "^(?!.*(?<!\\d)\\.,)"
+    ],
+    "chamadaPadroes": [
+      "NASA e eSocial"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ]
+  },
+  {
+    "id": "EV20",
+    "caso": "Homonimos com mesma inicial",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "chamadaPadroes": [
+      "Ana",
+      "Alberto"
+    ],
+    "padroes": [
+      "(?-i)NUNES,\\ Ana",
+      "(?-i)NUNES,\\ Alberto",
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV21",
+    "caso": "Ordem numerica, letras e quatro apud",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "ordem": [
+      "Método 2",
+      "2024a",
+      "Método 10",
+      "2024b"
+    ],
+    "chamadaPadroes": [
+      "Nunes, 2024a",
+      "Nunes, 2024b",
+      "(?s)apud Nunes, 2024b(?:.*?apud Nunes, 2024b){3}"
+    ],
+    "contagens": {
+      "2024a": 1,
+      "2024b": 1
+    },
+    "padroes": [
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV22",
+    "caso": "Shorttitle explicito dos anais identifica o evento",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "chamadaPadroes": [
+      "Congresso de Pesquisa \\[…\\], 2024"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ],
+    "padroes": [
+      "(?-i)CONGRESSO\\ DE\\ PESQUISA\\ SINTÉTICA",
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV23",
+    "caso": "Anais com publicacao posterior e DOI proprio",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "chamadaPadroes": [
+      "2021"
+    ],
+    "chamadaAusentes": [
+      "2020"
+    ],
+    "links": [
+      "https://doi.org/10.0000/anais23",
+      "https://example.invalid/anais23"
+    ],
+    "ordem": [
+      "2020",
+      "Recife",
+      "Anais",
+      "2021"
+    ],
+    "padroes": [
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV24",
+    "caso": "Anais sem evento: titulo como fallback diagnosticado",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "chamadaPadroes": [
+      "Anais"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ],
+    "avisos": [
+      "Essencial ausente: ev24 \\(eventtitle\\)"
+    ],
+    "padroes": [
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV25",
+    "caso": "Numero da serie diferente da edicao do evento",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "ordem": [
+      "CONGRESSO",
+      "3.",
+      "2023",
+      "Anais",
+      "2024",
+      "v. 2",
+      "Série Pesquisa",
+      "n. 12",
+      "p. 9"
+    ],
+    "padroes": [
+      "CONGRESSO DE PESQUISA SINTÉTICA, 3\\.",
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV26",
+    "caso": "Notas, suporte e estado preservados sem duplicacao",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "ordem": [
+      "2024",
+      "p. 9",
+      "Anais eletrônicos",
+      "Versão preliminar",
+      "Inclui material suplementar"
+    ],
+    "contagens": {
+      "Versão preliminar": 1,
+      "Inclui material suplementar": 1
+    },
+    "padroes": [
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV27",
+    "caso": "DOI e URL equivalentes sem duplicacao",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "links": [
+      "https://doi.org/10.0000/ev27"
+    ],
+    "contagens": {
+      "10.0000/ev27": 1
+    },
+    "padroes": [
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV28",
+    "caso": "Controle capitulo de livro",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "padroes": [
+      "(?-i)NUNES,\\ Ana",
+      "^(?!.*(?<!\\d)\\.,)"
+    ],
+    "avisosAusentes": [
+      "Essencial ausente: ev28 \\(eventtitle\\)"
+    ]
+  },
+  {
+    "id": "EV29",
+    "caso": "Controle livro",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "padroes": [
+      "(?-i)NUNES,\\ Ana",
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV30",
+    "caso": "Controle patente herdada",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "padroes": [
+      "PC30",
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV31",
+    "caso": "Controle periodico integral herdado",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "padroes": [
+      "Revista controle",
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV32",
+    "caso": "Controle artigo eletronico",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "links": [
+      "https://doi.org/10.0000/ev32",
+      "https://example.invalid/ev32"
+    ],
+    "padroes": [
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV33",
+    "caso": "Author do recipiente nao se torna autor da parte",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "chamadaAusentes": [
+      "Entidade",
+      "Prado"
+    ],
+    "chamadaPadroes": [
+      "Contribuição"
+    ],
+    "ordem": [
+      "CONTRIBUIÇÃO sem autoria",
+      "In:",
+      "CONGRESSO",
+      "Anais",
+      "PRADO, Bia"
+    ],
+    "padroes": [
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV34",
+    "caso": "Anais recebem dados de evento via xdata",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "chamadaPadroes": [
+      "Simpósio de Dados Compartilhados, 2024"
+    ],
+    "ordem": [
+      "SIMPÓSIO DE DADOS COMPARTILHADOS",
+      "8.",
+      "2022",
+      "Natal",
+      "Anais compartilhados",
+      "2024"
+    ],
+    "padroes": [
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV35",
+    "caso": "Autoria e DOI de xdata nao sao bloqueados por crossref",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "chamadaPadroes": [
+      "Luz, 2024"
+    ],
+    "chamadaAusentes": [
+      "Entidade",
+      "Prado"
+    ],
+    "links": [
+      "https://doi.org/10.0000/parte35"
+    ],
+    "linksAusentes": [
+      "https://doi.org/10.0000/anais-parent"
+    ],
+    "padroes": [
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV36",
+    "caso": "Trabalho e anais citados como objetos distintos",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "chamadaPadroes": [
+      "Nunes, 2024",
+      "Congresso de Pesquisa Sintética, 2024",
+      "(?s)apud Congresso de Pesquisa Sintética, 2024(?:.*?apud Congresso de Pesquisa Sintética, 2024){3}",
+      "Nunes \\(2024\\)\\s*$"
+    ],
+    "links": [
+      "https://doi.org/10.0000/parte10",
+      "https://doi.org/10.0000/anais-parent"
+    ],
+    "contagens": {
+      "CONGRESSO DE PESQUISA SINTÉTICA": 2
+    },
+    "padroes": [
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV37",
+    "caso": "Minimo incompleto sem pontuacao orfa nem In artificial",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "avisos": [
+      "Essencial ausente: ev37 \\(eventtitle\\)",
+      "Essencial ausente: ev37 \\(booktitle\\)",
+      "Essencial ausente: ev37 \\(eventdate\\)"
+    ],
+    "contagens": {
+      "In:": 0
+    },
+    "padroes": [
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV38",
+    "caso": "Sigla no evento sem parser",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "padroes": [
+      "(?-i)SIMPÓSIO\\ NASA\\ E\\ SUS",
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV39",
+    "caso": "Ordenacao editorial explicita dos anais preservada",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "ordem": [
+      "SIMPÓSIO ZETA",
+      "SIMPÓSIO ALFA"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ],
+    "padroes": [
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV40",
+    "caso": "Refsection isolada sem letras externas",
+    "ausentes": [
+      ",,",
+      ", .",
+      "..",
+      "“",
+      "”"
+    ],
+    "chamadaPadroes": [
+      "Nunes, 2024"
+    ],
+    "chamadaAusentes": [
+      "2024a",
+      "2024b"
+    ],
+    "contagens": {
+      "2024": 1
+    },
+    "padroes": [
+      "^(?!.*(?<!\\d)\\.,)"
+    ]
+  },
+  {
+    "id": "EV41",
+    "caso": "Alias mvproceedings com volume explicito",
+    "padroes": [
+      "(?-i)CONGRESSO DE VOLUMES",
+      "v\\. 2",
+      "^(?!.*(?<!\\d)\\.,)"
+    ],
+    "ordem": [
+      "CONGRESSO DE VOLUMES",
+      "2023",
+      "Natal",
+      "Anais em volumes",
+      "2024",
+      "v. 2"
+    ],
+    "chamadaPadroes": [
+      "Congresso de Volumes, 2024"
+    ],
+    "chamadaAusentes": [
+      "Prado"
+    ]
+  }
+]

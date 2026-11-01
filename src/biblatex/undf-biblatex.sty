@@ -48,7 +48,7 @@
 
 % O editor da obra recipiente nao identifica a parte sem autoria.
 % A opcao tambem orienta os rotulos e a ordenacao calculados pelo Biber.
-\ExecuteBibliographyOptions[inbook,bookinbook,suppbook,incollection,inreference,suppcollection]{useeditor=false}
+\ExecuteBibliographyOptions[inbook,bookinbook,suppbook,incollection,inreference,suppcollection,inproceedings,conference]{useeditor=false}
 
 % O DOI do recipiente nao identifica automaticamente sua parte.
 % Campos DOI informados na propria parte (inclusive via xdata) sao preservados.
@@ -56,6 +56,20 @@
   {inbook,bookinbook,suppbook,incollection,inreference,suppcollection}{%
   \noinherit{doi}%
 }
+
+% Anais entram pelo evento, nao pelo organizador ou autor pessoal cadastrado.
+\ExecuteBibliographyOptions[proceedings,mvproceedings]{useauthor=false,useeditor=false}
+\DeclareLabeltitle[proceedings,mvproceedings]{\field{shorttitle}\field{eventtitle}\field{title}}
+% A autoria e o DOI do recipiente nao identificam a contribuicao; xdata e local prevalecem.
+\DeclareDataInheritance{proceedings,mvproceedings}{inproceedings,conference}{%
+  \noinherit{author}\noinherit{doi}%
+}
+% Chave de entrada pelo evento; sorttitle/sortkey explicitos continuam prioritarios.
+\DeclareSourcemap{\maps[datatype=bibtex]{\map{
+  \pertype{proceedings}\pertype{mvproceedings}
+  \step[notfield=sorttitle,final]\step[notfield=sortkey,final]
+  \step[fieldsource=eventtitle,final]\step[fieldset=sorttitle,origfieldval]
+}}}
 
 % Inteiros ASCII simples de ate nove digitos: chave auxiliar, sem alterar title.
 % TeX, codigos, decimais e heranca exigem sorttitle editorial.
@@ -80,6 +94,7 @@
 % Deriva somente o rotulo: title e a ordenacao pelo titulo completo permanecem.
 % TeX complexo e monossilabos exigem shorttitle conferido no cadastro.
 \DeclareSourcemap{\maps[datatype=bibtex]{\map{
+  \pernottype{proceedings}\pernottype{mvproceedings}
   \step[notfield=author,final]
   \step[notfield=translator,final]
   \step[notfield=shorttitle,final]
@@ -88,6 +103,7 @@
   \step[fieldsource=title,match=\regexp{(?i)\A((?:(?:the|a|an)\s+)?\S+)(?:\s+.*)?\z},final]
   \step[fieldset=shorttitle,fieldvalue={$1}]
 }\map{
+  \pernottype{proceedings}\pernottype{mvproceedings}
   \step[notfield=author,final]
   \step[notfield=translator,final]
   \step[notfield=shorttitle,final]
@@ -95,6 +111,7 @@
   \step[fieldsource=title,final]
   \step[fieldset=shorttitle,origfieldval]
 }\map{
+  \pernottype{proceedings}\pernottype{mvproceedings}
   \step[notfield=author,final]
   \step[notfield=editor,final]
   \step[notfield=translator,final]
@@ -106,7 +123,8 @@
 }\map{
   % Nas partes, o editor pertence ao recipiente e nao impede o rotulo por titulo.
   \pertype{inbook}\pertype{bookinbook}\pertype{suppbook}
-  \pertype{incollection}\pertype{inreference}\pertype{suppcollection}
+  \pertype{incollection}\pertype{inreference}\pertype{suppcollection}\pertype{inproceedings}\pertype{conference}
+  \pernottype{proceedings}\pernottype{mvproceedings}
   \step[notfield=author,final]
   \step[notfield=translator,final]
   \step[notfield=shorttitle,final]
@@ -154,6 +172,9 @@
 % O estado é separado por refsection e por chave; citações independentes a preservam.
 \newif\ifundf@apudoriginal
 \AtEveryCitekey{%
+  % Limpa somente o alias local: em chamadas mistas, o todo usa o evento.
+  \ifboolexpr{test {\ifentrytype{proceedings}} or test {\ifentrytype{mvproceedings}}}
+    {\clearname{labelname}}{}%
   \ifundf@apudoriginal
     \csgdef{undf@apudoriginal@\therefsection:\thefield{entrykey}}{}%
   \else

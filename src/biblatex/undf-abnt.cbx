@@ -55,6 +55,11 @@
 \DeclareDelimFormat[textcite]{nonameyeardelim}{\addspace}
 \DeclareFieldFormat{undf:citetitle}{%
   #1\iffieldsequal{labeltitle}{title}{}{\addspace\mkbibbrackets{\textellipsis}}}
+% O nome integral do evento nao e uma abreviacao do titulo dos anais.
+\DeclareFieldFormat[proceedings,mvproceedings]{undf:citetitle}{%
+  #1\iffieldequalstr{labeltitlesource}{shorttitle}
+    {\iffieldsequal{labeltitle}{eventtitle}{}{\addspace\mkbibbrackets{\textellipsis}}}{}%
+}
 \renewbibmacro*{cite:label}{%
   \iffieldundef{label}
     {\iffieldundef{labeltitle}{}%
