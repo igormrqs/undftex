@@ -25,6 +25,21 @@ jobs:
             dpkg -i /tmp/undf-msrepo.deb
             apt-get update
             apt-get install -y powershell
+            workspace="$(pwd -P)"
+            test -n "${GITHUB_WORKSPACE:-}"
+            test "$workspace" = "$(realpath -- "$GITHUB_WORKSPACE")"
+            test -d "$workspace/.git"
+            test "${GITHUB_REPOSITORY:-}" = "igormrqs/undftex"
+            origin="$(git config --file "$workspace/.git/config" --get remote.origin.url)"
+            case "$origin" in
+              https://github.com/igormrqs/undftex|https://github.com/igormrqs/undftex.git) ;;
+              *) echo "Origem Git inesperada no workspace" >&2; exit 1 ;;
+            esac
+            printf 'Git no conteiner: usuario=%s uid=%s HOME=%s workspace=%s owner=%s\n' "$(id -un)" "$(id -u)" "${HOME:?}" "$workspace" "$(stat -c '%u:%g' "$workspace")"
+            git config --global --add safe.directory "$workspace"
+            test "$workspace" = "$(realpath -- "$(git -C "$workspace" rev-parse --show-toplevel)")"
+            test "$(git -C "$workspace" rev-parse HEAD)" = "$GITHUB_SHA"
+            git -C "$workspace" ls-files > /dev/null
             pwsh -NoProfile -File ./scripts/verificar-ci.ps1
       - name: Preservar resumo e diagnosticos da validacao
         if: always()
