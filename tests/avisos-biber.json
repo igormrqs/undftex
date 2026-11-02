@@ -1,0 +1,395 @@
+{
+  "bibliografia-academicos": [
+    {
+      "mensagem": "Datamodel: thesis entry 'j07': Missing mandatory field 'institution'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: thesis entry 'j11': Missing mandatory field 'type'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: thesis entry 'j14': Missing mandatory field - one of 'date, year' must be defined",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: thesis entry 'j17': Missing mandatory field - one of 'date, year' must be defined",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: thesis entry 'j23': Invalid field 'eventyear' for entrytype 'thesis'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: thesis entry 'j30': Invalid field 'volume' for entrytype 'thesis'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: thesis entry 'j31': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: report entry 'j35': Invalid field 'publisher' for entrytype 'report'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: report entry 'j35': Invalid field 'undfdefenseyear' for entrytype 'report'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: report entry 'j35': Invalid field 'undfdeposityear' for entrytype 'report'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    }
+  ],
+  "bibliografia-periodicos-integrais": [
+    {
+      "mensagem": "Datamodel: periodical entry 'pi11': Invalid ISSN in value of field 'issn'",
+      "categoria": "identificador sintetico deliberado",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: periodical entry 'pi13': Missing mandatory field 'editor'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: periodical entry 'pi19': Invalid ISSN in value of field 'issn'",
+      "categoria": "identificador sintetico deliberado",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'pi20': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'pi20': Invalid field 'publisher' for entrytype 'article'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'pi21': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'pi21': Invalid field 'publisher' for entrytype 'article'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'pi22': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'pi22': Invalid field 'publisher' for entrytype 'article'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'pi23': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 2
+    },
+    {
+      "mensagem": "Datamodel: incollection entry 'pi27': Missing mandatory field 'editor'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: periodical entry 'pi29': Missing mandatory field - one of 'date, year' must be defined",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: periodical entry 'pi29': Missing mandatory field 'editor'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: periodical entry 'pi31': Missing mandatory field - one of 'date, year' must be defined",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: periodical entry 'pi36': Invalid field 'pages' for entrytype 'periodical'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: periodical entry 'pi38': Invalid field 'journaltitle' for entrytype 'periodical'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: periodical entry 'pi38': Missing mandatory field 'title'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    }
+  ],
+  "bibliografia-patentes": [
+    {
+      "mensagem": "Datamodel: patent entry 'pt07': Invalid field 'editor' for entrytype 'patent'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: patent entry 'pt07': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: patent entry 'pt19': Invalid field 'eventyear' for entrytype 'patent'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: patent entry 'pt19': Missing mandatory field - one of 'date, year' must be defined",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: incollection entry 'ptchapter': Missing mandatory field 'editor'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: legislation entry 'ptlaw': Invalid field 'author' for entrytype 'legislation'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: legislation entry 'ptlaw': Invalid field 'location' for entrytype 'legislation'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: legislation entry 'ptlaw': Invalid field 'publisher' for entrytype 'legislation'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: legislation entry 'ptlaw': Invalid field 'subtitle' for entrytype 'legislation'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: legislation entry 'ptlaw': Invalid field 'title' for entrytype 'legislation'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: periodical entry 'ptperiodical': Missing mandatory field 'editor'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: patent entry 'pt34': Missing mandatory field 'title'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: patent entry 'pt35': Missing mandatory field 'number'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: patent entry 'pt40': Invalid field 'eventyear' for entrytype 'patent'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    }
+  ],
+  "bibliografia-tradutores": [
+    {
+      "mensagem": "Datamodel: book entry 'v01': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l02': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 2
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l04': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l05': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l06': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l07': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l08': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l09': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l10': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l11': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l12': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l13b': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l13a': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l15c': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 2
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l15a': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 3
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l15b': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 2
+    },
+    {
+      "mensagem": "Datamodel: book entry 'lorigtrad': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 2
+    },
+    {
+      "mensagem": "Datamodel: incollection entry 'l21': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 2
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l22': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: incollection entry 'l23': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l24': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l25a': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l25b': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l26b': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l26a': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: legislation entry 'l30': Invalid field 'author' for entrytype 'legislation'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: legislation entry 'l30': Invalid field 'location' for entrytype 'legislation'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: legislation entry 'l30': Invalid field 'publisher' for entrytype 'legislation'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: legislation entry 'l30': Invalid field 'subtitle' for entrytype 'legislation'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: legislation entry 'l30': Invalid field 'title' for entrytype 'legislation'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: manual entry 'l32': Invalid field 'translator' for entrytype 'manual'",
+      "categoria": "limite de schema/controle fora do contrato do genero",
+      "quantidade": 2
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l35': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: mvbook entry 'l36a': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: mvbook entry 'l36b': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l37': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: book entry 'l38': Missing mandatory field 'author'",
+      "categoria": "ausencia intencional/editorial: nao inventar dados",
+      "quantidade": 1
+    }
+  ]
+}

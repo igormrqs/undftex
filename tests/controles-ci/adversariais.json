@@ -1,0 +1,311 @@
+[
+  {
+    "id": "V01",
+    "caso": "Auditoria original V01; contrato tecnico atual delimitado",
+    "ordem": [
+      "CAMINHOS da pesquisa",
+      "Trad. por Helena Paz"
+    ],
+    "chamadaPadroes": [
+      "Caminhos \\[.*?\\].*2024"
+    ]
+  },
+  {
+    "id": "V02",
+    "caso": "Auditoria original V02; contrato tecnico atual delimitado",
+    "ordem": [
+      "PESQUISA comunitária",
+      "In: LUZ, Beatriz (org.)",
+      "Coletânea de métodos"
+    ],
+    "chamadaAusentes": [
+      "Luz"
+    ]
+  },
+  {
+    "id": "V03",
+    "caso": "Auditoria original V03; contrato tecnico atual delimitado",
+    "ordem": [
+      "A busca de energia limpa"
+    ],
+    "padroes": [
+      "(?-i)A busca de energia limpa",
+      "(?-i)^(?!.*A BUSCA DE ENERGIA LIMPA)"
+    ]
+  },
+  {
+    "id": "V04",
+    "caso": "Auditoria original V04; contrato tecnico atual delimitado",
+    "ordem": [
+      "THE ECOLOGY of cities"
+    ],
+    "chamadaPadroes": [
+      "The ecology \\["
+    ]
+  },
+  {
+    "id": "V05",
+    "caso": "Auditoria original V05; contrato tecnico atual delimitado",
+    "ordem": [
+      "SUS."
+    ]
+  },
+  {
+    "id": "V06",
+    "caso": "Auditoria original V06; contrato tecnico atual delimitado",
+    "ordem": [
+      "EDUCAÇÃO ambiental",
+      "2024a",
+      "EDUCAÇÃO urbana",
+      "2024b"
+    ]
+  },
+  {
+    "id": "V07",
+    "caso": "Auditoria original V07; contrato tecnico atual delimitado",
+    "ordem": [
+      "A MEMÓRIA digital brasileira"
+    ]
+  },
+  {
+    "id": "V08",
+    "caso": "Auditoria original V08; contrato tecnico atual delimitado",
+    "ordem": [
+      "na pesquisa"
+    ]
+  },
+  {
+    "id": "V09",
+    "caso": "Auditoria original V09; contrato tecnico atual delimitado",
+    "ordem": [
+      "INSTITUTO NACIONAL DE ESTUDOS SINTÉTICOS",
+      "Instituto Nacional de Estudos Sintéticos"
+    ]
+  },
+  {
+    "id": "V10",
+    "caso": "Auditoria original V10; contrato tecnico atual delimitado",
+    "ordem": [
+      "PESQUISA de campo"
+    ]
+  },
+  {
+    "id": "V11",
+    "caso": "Auditoria original V11; contrato tecnico atual delimitado",
+    "ordem": [
+      "NUNES, Ana",
+      "Ed. por Bia Prado",
+      "Org. por Caio Costa"
+    ]
+  },
+  {
+    "id": "V12",
+    "caso": "Auditoria original V12; contrato tecnico atual delimitado",
+    "ordem": [
+      "PRADO, Bia; COSTA, Caio (curadoria científica)"
+    ]
+  },
+  {
+    "id": "V13",
+    "caso": "Auditoria original V13; contrato tecnico atual delimitado",
+    "ordem": [
+      "NUNES, Ana",
+      "Uma abordagem local",
+      "In: PRADO, Bia",
+      "Métodos gerais: fundamentos",
+      "Ed. por Caio Costa"
+    ]
+  },
+  {
+    "id": "V14",
+    "caso": "V14: subtitulo protegido; eid ainda fora do suporte, nao certificado",
+    "ordem": [
+      "Revista Horizonte: estudos interdisciplinares",
+      "10.0000/audit-v14"
+    ]
+  },
+  {
+    "id": "V15",
+    "caso": "Auditoria original V15; contrato tecnico atual delimitado",
+    "ordem": [
+      "Dissertação (Mestrado em Computação)",
+      "Universidade Exemplo",
+      "Edição consultada:",
+      "2024"
+    ]
+  },
+  {
+    "id": "V16",
+    "caso": "Auditoria original V16; contrato tecnico atual delimitado",
+    "ordem": [
+      "Pesquisa de doutorado",
+      "Tese (Doutorado)",
+      "2024a",
+      "Pesquisa de mestrado",
+      "Dissertação (Mestrado)",
+      "2024b"
+    ]
+  },
+  {
+    "id": "V17",
+    "caso": "Auditoria original V17; contrato tecnico atual delimitado",
+    "ordem": [
+      "Manual 2 de pesquisa",
+      "2024a",
+      "Manual 10 de pesquisa",
+      "2024b"
+    ]
+  },
+  {
+    "id": "V18",
+    "caso": "Auditoria original V18; contrato tecnico atual delimitado",
+    "ordem": [
+      "Zeta da pesquisa",
+      "2020",
+      "Alfa da pesquisa",
+      "2025"
+    ]
+  },
+  {
+    "id": "V19",
+    "caso": "Auditoria original V19; contrato tecnico atual delimitado",
+    "ordem": [
+      "Pesquisa em uma parte",
+      "In: PRADO, Bia",
+      "arXiv: 9999.12345"
+    ],
+    "linksAusentes": [
+      "https://doi.org/10.0000/livro-inteiro"
+    ],
+    "ausentes": [
+      "10.0000/livro-inteiro"
+    ]
+  },
+  {
+    "id": "V20",
+    "caso": "V20: controle de compatibilidade com limite editorial; nao certifica completude",
+    "ordem": [
+      "A história da pesquisa",
+      "Vol. 2"
+    ]
+  },
+  {
+    "id": "V21",
+    "caso": "Auditoria original V21; contrato tecnico atual delimitado",
+    "ordem": [
+      "NUNES, Ana",
+      "In: CONGRESSO BRASILEIRO DE PESQUISA",
+      "Anais do Congresso Brasileiro de Pesquisa"
+    ]
+  },
+  {
+    "id": "V22",
+    "caso": "Auditoria original V22; contrato tecnico atual delimitado",
+    "ordem": [
+      "REVISTA DE CIÊNCIA ABERTA: pesquisa e sociedade",
+      "Brasília: Editora Alfa",
+      "PRADO, Bia (ed.)"
+    ]
+  },
+  {
+    "id": "V23",
+    "caso": "Auditoria original V23; contrato tecnico atual delimitado",
+    "ordem": [
+      "NUNES, Ana",
+      "Titular: Instituto Sintético",
+      "Patente BR 0000000",
+      "Depósito:",
+      "Concessão:"
+    ]
+  },
+  {
+    "id": "V24",
+    "caso": "Auditoria original V24; contrato tecnico atual delimitado",
+    "ordem": [
+      "Dados sintéticos de pesquisa",
+      "Versão 2.1",
+      "Programa de pesquisa",
+      "Versão 2.1"
+    ]
+  },
+  {
+    "id": "V25",
+    "caso": "Auditoria original V25; contrato tecnico atual delimitado",
+    "ordem": [
+      "BRASIL.",
+      "Lei",
+      "Diário Oficial da União",
+      "n. 100",
+      "p. 1–2"
+    ]
+  },
+  {
+    "id": "V26",
+    "caso": "Auditoria original V26; contrato tecnico atual delimitado",
+    "ordem": [
+      "Consulta experimental",
+      "10.0000/consulta"
+    ],
+    "links": [
+      "https://example.invalid/dados/segmento-longo-segmento-longo-segmento-longo-segmento-longo-segmento-longo-segmento-longo-segmento-longo-segmento-longo-segmento-longo-segmento-longo-segmento-longo-segmento-longo-segmento-longo-segmento-longo-segmento-longo-segmento-longo-segmento-longo-arquivo?nome=pesquisa%20aberta&versao=2#resultado"
+    ]
+  },
+  {
+    "id": "V27",
+    "caso": "Auditoria original V27; contrato tecnico atual delimitado",
+    "ordem": [
+      "NUNES, Alberto",
+      "Pesquisa B",
+      "NUNES, Ana",
+      "Pesquisa A"
+    ]
+  },
+  {
+    "id": "V28",
+    "caso": "Auditoria original V28; contrato tecnico atual delimitado",
+    "ordem": [
+      "Consulta sem ano identificado",
+      "[S.d.]"
+    ]
+  },
+  {
+    "id": "V29",
+    "caso": "Auditoria original V29; contrato tecnico atual delimitado",
+    "ordem": [
+      "PRADO, Bia",
+      "Fonte consultada"
+    ],
+    "ausentes": [
+      "Fonte original"
+    ],
+    "chamadaPadroes": [
+      "(?s)apud.*apud.*apud.*apud"
+    ]
+  },
+  {
+    "id": "V30",
+    "caso": "Auditoria original V30; contrato tecnico atual delimitado",
+    "ordem": [
+      "Registro com publicador pendente"
+    ]
+  },
+  {
+    "id": "V31",
+    "caso": "Auditoria original V31; contrato tecnico atual delimitado",
+    "ordem": [
+      "Fonte original",
+      "1980",
+      "Outra fonte consultada",
+      "2024"
+    ]
+  },
+  {
+    "id": "V32",
+    "caso": "V32: controle de compatibilidade com limite editorial; nao certifica completude",
+    "ordem": [
+      "PRADO, Bia (org.)",
+      "Biblioteca de pesquisa: obras completas",
+      "Vol. 2: Estudos coletivos"
+    ]
+  }
+]

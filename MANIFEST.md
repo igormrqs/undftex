@@ -78,6 +78,14 @@ F03-K1: `tests/bibliografia-eventos.tex`, `.bib` e `.json` integram a regressão
 
 F03-K2: `tests/bibliografia-periodicos-integrais.tex`, `.bib` e `.json` integram a regressão com 40 cenários. O tipo nativo `periodical` recebe contrato explícito para coleção/fascículo e autorização dos campos nativos de publicação e suporte. Não é registrado um tipo novo. A integração ao workflow inclui somente a fixture e sua validação de modelo de dados.
 
+F03-M / AF03-10: `tests/regressao.json` é a seleção única da regressão;
+`tests/avisos-biber.json` classifica os avisos nativos protegidos. Os scripts
+`contratos-ci.ps1`, `verificar-ci.ps1`, `verificar-modelo-biber.ps1` e
+`verificar-infraestrutura-ci.ps1`, os controles mínimos em `tests/controles-ci/`
+e `docs/integracao-continua.md` tornam a cobertura reproduzível em checkout limpo.
+As bases novas de controles preservam os dados históricos da auditoria, sem
+substituir ou editar as bases de modelos e exemplos. Não incluem PDFs ou normas.
+
 ## Fora do trabalho distribuído
 
 Não fazem parte do trabalho distribuído por padrão:

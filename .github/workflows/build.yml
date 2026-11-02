@@ -1,13 +1,5 @@
-# ----------------------------------------------------
-# Projeto: UnDF-TeX
-# Arquivo: .github/workflows/build.yml
-#
-# Integração contínua: compila o modelo em branco e o
-# exemplo completo em ambiente limpo (TeX Live atual),
-# garantindo que o template permaneça reprodutível.
-# ----------------------------------------------------
+# Regressao integral: mesmo ponto de entrada local e remoto, sem publicacao oficial.
 name: build
-
 on:
   push:
     branches: [main, feature/perfis-tcc]
@@ -18,112 +10,40 @@ jobs:
   latex:
     runs-on: ubuntu-latest
     steps:
-      - name: Obter o repositório
+      - name: Obter o repositorio
         uses: actions/checkout@v4
-
-      - name: Verificar organizacao e links locais da documentacao
-        shell: pwsh
-        run: ./scripts/verificar-organizacao.ps1
-
-      - name: Conferir evidencias tecnicas do exemplo de Projeto Aplicado
-        run: python3 exemplo/projeto-aplicado/artefatos/validar_reserva.py
-
-      - name: Compilar os modelos e verificar os perfis (LuaLaTeX + Biber via latexmk)
-        uses: xu-cheng/latex-action@v3
+      - name: Executar contratos no ambiente TeX Live
+        uses: xu-cheng/texlive-action@v3
         with:
-          root_file: |
-            tcc.tex
-            tcc-exemplo-undf.tex
-            artigo.tex
-            tcc-artigo.tex
-            artigo-exemplo-undf.tex
-            tcc-artigo-exemplo-undf.tex
-            portfolio.tex
-            portfolio-exemplo-undf.tex
-            relatorio-projeto.tex
-            relatorio-projeto-aplicado.tex
-            relatorio-projeto-aplicado-exemplo-undf.tex
-            negocio-tecnologico.tex
-            relatorio-projeto-exemplo-undf.tex
-            negocio-tecnologico-exemplo-undf.tex
-            tests/artigo-opcionais.tex
-            tests/artigo-validacao.tex
-            tests/perfil-artigo.tex
-            tests/perfil-monografia.tex
-            tests/complementos-artigo.tex
-            tests/complementos-monografia.tex
-            tests/apud.tex
-            tests/objetos-extensos.tex
-            tests/pagina-externa.tex
-            tests/inclusao-pdf.tex
-            tests/bibliografia-listas.tex
-            tests/bibliografia-datas.tex
-            tests/bibliografia-desambiguacao.tex
-            tests/bibliografia-apud.tex
-            tests/bibliografia-eletronicos.tex
-            tests/bibliografia-responsabilidades.tex
-            tests/bibliografia-recipientes.tex
-            tests/bibliografia-autoria.tex
-            tests/bibliografia-ordenacao.tex
-            tests/bibliografia-integridade.tex
-            tests/bibliografia-partes.tex
-            tests/bibliografia-periodicos.tex
-            tests/bibliografia-notas.tex
-            tests/bibliografia-titulos.tex
-            tests/bibliografia-numerais.tex
-            tests/bibliografia-academicos.tex
-            tests/bibliografia-legislacao.tex
-            tests/bibliografia-eventos.tex
-            tests/bibliografia-periodicos-integrais.tex
-            tests/bibliografia-patentes.tex
-            tests/bibliografia-tradutores.tex
-          latexmk_use_lualatex: true
-          post_compile: |
-            mkdir -p datamodel-academicos
-            biber --validate-datamodel --output-directory=datamodel-academicos bibliografia-academicos
-            mkdir -p datamodel-periodicos
-            biber --validate-datamodel --output-directory=datamodel-periodicos bibliografia-periodicos-integrais
-            mkdir -p datamodel-patentes
-            biber --validate-datamodel --output-directory=datamodel-patentes bibliografia-patentes
-
-      - name: Instalar ferramenta de leitura dos PDFs
-        run: sudo apt-get update && sudo apt-get install -y poppler-utils
-
-      - name: Verificar resumo único e elementos opcionais
-        shell: pwsh
-        run: ./scripts/verificar-artigo.ps1
-
-      - name: Verificar complementos, apud e objetos multipágina
-        shell: pwsh
-        run: ./scripts/verificar-estrutura.ps1
-
-      - name: Verificar registros parciais, portfolio e relatorios finais
-        shell: pwsh
-        run: ./scripts/verificar-relatorios.ps1
-
-      - name: Verificar listas, datas, desambiguacao e apud na bibliografia
-        shell: pwsh
-        run: |
-          foreach ($documento in 'bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos', 'bibliografia-responsabilidades', 'bibliografia-recipientes', 'bibliografia-autoria', 'bibliografia-ordenacao', 'bibliografia-integridade', 'bibliografia-partes', 'bibliografia-periodicos', 'bibliografia-notas', 'bibliografia-titulos', 'bibliografia-numerais', 'bibliografia-academicos', 'bibliografia-legislacao', 'bibliografia-eventos', 'bibliografia-periodicos-integrais', 'bibliografia-patentes', 'bibliografia-tradutores') {
-            ./scripts/verificar-bibliografia.ps1 -Diretorio '.' -Documento $documento
-          }
-
-      - name: Publicar PDFs como artefatos
+          os: debian
+          scheme: full
+          run: |
+            apt-get update
+            apt-get install -y ca-certificates curl git python3 poppler-utils
+            . /etc/os-release
+            curl -fsSL "https://packages.microsoft.com/config/debian/$VERSION_ID/packages-microsoft-prod.deb" -o /tmp/undf-msrepo.deb
+            dpkg -i /tmp/undf-msrepo.deb
+            apt-get update
+            apt-get install -y powershell
+            pwsh -NoProfile -File ./scripts/verificar-ci.ps1
+      - name: Preservar resumo e diagnosticos da validacao
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: pdfs
+          name: verificacao-ci
+          if-no-files-found: error
           path: |
-            tcc.pdf
-            tcc-exemplo-undf.pdf
-            artigo.pdf
-            tcc-artigo.pdf
-            artigo-exemplo-undf.pdf
-            tcc-artigo-exemplo-undf.pdf
-            portfolio.pdf
-            portfolio-exemplo-undf.pdf
-            relatorio-projeto.pdf
-            relatorio-projeto-aplicado.pdf
-            relatorio-projeto-aplicado-exemplo-undf.pdf
-            negocio-tecnologico.pdf
-            relatorio-projeto-exemplo-undf.pdf
-            negocio-tecnologico-exemplo-undf.pdf
+            build/ci/
+            build/perfis/resumo.json
+            build/perfis/resumo-parcial.json
+            build/perfis/*-resultados.json
+            build/perfis/datamodel-*/resultado.json
+            build/perfis/datamodel-*/*.blg
+            build/perfis/datamodel-*/validacao.txt
+            build/perfis/*.log
+            build/perfis/*-biber.txt
+            build/controles-ci/*-resultados.json
+            build/controles-ci/*.log
+            build/controles-ci/*-biber.txt
+            manuais/**/build/*-info.txt
+            manuais/**/build/*.log

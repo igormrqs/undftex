@@ -1,20 +1,23 @@
 # Regressao F01/F02: verifica texto do PDF e falhas de inclusao. Requer LuaLaTeX e pdftotext.
 param([ValidateSet('Todos', 'F01', 'F02')][string]$Caso = 'Todos')
 $ErrorActionPreference = 'Stop'
+. "$PSScriptRoot/contratos-ci.ps1"
 Push-Location (Split-Path $PSScriptRoot -Parent)
 try {
     $diretorio = 'build/integridade'
     New-Item -ItemType Directory -Force -Path $diretorio | Out-Null
-    function Compilar([string]$Nome, [string]$Conteudo, [switch]$FalhaEsperada) {
+    function Compilar([string]$Nome, [string]$Conteudo, [switch]$FalhaEsperada, [string]$ErroEsperado = 'Capitulo obrigatorio ausente') {
         $fonte = "$diretorio/$Nome.tex"
         Set-Content -LiteralPath $fonte -Value $Conteudo -Encoding utf8
         & lualatex -no-shell-escape -interaction=nonstopmode -halt-on-error "-output-directory=$diretorio" $fonte > "$diretorio/$Nome-saida.txt" 2>&1
         $codigo = $LASTEXITCODE
         if ($FalhaEsperada) {
-            if ($codigo -eq 0) { throw "$Nome deveria falhar por arquivo obrigatorio ausente" }
+            $logEsperado = Get-Content -LiteralPath "$diretorio/$Nome.log" -Raw
+            Confirmar-FalhaEsperada $codigo $logEsperado $ErroEsperado
             return
         }
         if ($codigo -ne 0) { throw "LuaLaTeX falhou: $diretorio/$Nome-saida.txt" }
+        Confirmar-Saidas $diretorio $Nome @('pdf', 'log')
     }
     function Ler-Pdf([string]$Nome) {
         $texto = (& pdftotext -layout "$diretorio/$Nome.pdf" -) -join "`n"
@@ -23,6 +26,7 @@ try {
     }
     if ($Caso -in @('Todos', 'F01')) {
         $casos = @(Get-Content -LiteralPath tests/nomes-pessoas.json -Raw -Encoding utf8 | ConvertFrom-Json)
+        if ($casos.Count -ne 35) { throw 'F01 exige os 35 casos de nomes cadastrados' }
         $linhas = @(
             '\documentclass{undftex}',
             '\autor{Estudante de Sá}\titulo{Integridade dos nomes}\curso{Curso de teste}',
@@ -76,7 +80,7 @@ try {
             }
         }
         & lualatex -no-shell-escape -interaction=nonstopmode -jobname=inclusao-sem-halt "-output-directory=$diretorio" "$diretorio/obrigatorio-ausente.tex" > "$diretorio/sem-halt-saida.txt" 2>&1
-        if ($LASTEXITCODE -eq 0) { throw 'A inclusao obrigatoria ausente deveria falhar mesmo sem halt-on-error' }
+        Confirmar-FalhaEsperada $LASTEXITCODE (Get-Content "$diretorio/inclusao-sem-halt.log" -Raw) 'Capitulo obrigatorio ausente'
         $detectada = $false
         try {
             & "$PSScriptRoot/verificar-perfis.ps1" -Documentos @("$diretorio/obrigatorio-ausente.tex") > "$diretorio/falha-verificador.txt" 2>&1
@@ -85,9 +89,11 @@ try {
         }
         if (-not $detectada) { throw 'O verificador de perfis nao detectou a falha de inclusao no LuaLaTeX' }
         # O artigo usa input e section; nao se deve introduzir include/chapter nele.
-        Compilar 'input-artigo-ausente' '\documentclass[perfil=artigo]{undftex}\begin{document}\input{build/integridade/miolo-artigo-inexistente}\end{document}' -FalhaEsperada
+        Compilar 'input-artigo-ausente' '\documentclass[perfil=artigo]{undftex}\begin{document}\input{build/integridade/miolo-artigo-inexistente}\end{document}' -FalhaEsperada -ErroEsperado 'LaTeX Error: File .*miolo-artigo-inexistente\.tex.*not found'
         Write-Host 'F02: obrigatorios, opcionais, espacos, ordem, artigo e falha do verificador conferidos.'
     }
+    # Os erros deliberados ja foram conferidos; nao propagar seu exit code como falha da suite.
+    $global:LASTEXITCODE = 0
 } finally {
     Pop-Location
 }

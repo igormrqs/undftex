@@ -1,33 +1,18 @@
 # Confere chamadas e referencias no PDF das fixtures bibliograficas (LuaLaTeX/Biber).
 param(
     [string]$Diretorio = 'build/perfis',
-    [ValidateSet('bibliografia-listas', 'bibliografia-datas', 'bibliografia-desambiguacao', 'bibliografia-apud', 'bibliografia-eletronicos', 'bibliografia-responsabilidades', 'bibliografia-recipientes', 'bibliografia-autoria', 'bibliografia-ordenacao', 'bibliografia-integridade', 'bibliografia-partes', 'bibliografia-periodicos', 'bibliografia-notas', 'bibliografia-titulos', 'bibliografia-numerais', 'bibliografia-academicos', 'bibliografia-legislacao', 'bibliografia-eventos', 'bibliografia-periodicos-integrais', 'bibliografia-patentes', 'bibliografia-tradutores')]
-    [string]$Documento = 'bibliografia-listas'
+    [string]$Documento = 'bibliografia-listas',
+    [string]$PastaFixtures = 'tests'
 )
 $ErrorActionPreference = 'Stop'
 $raiz = Split-Path $PSScriptRoot -Parent
-$casos = @(Get-Content -LiteralPath (Join-Path $raiz "tests/$Documento.json") -Raw -Encoding utf8 | ConvertFrom-Json)
-# O compilador local/CI produz a validacao no mesmo ambiente do Biber.
-if ($Documento -eq 'bibliografia-academicos') {
-    $logModelo = Join-Path $Diretorio "datamodel-academicos/$Documento.blg"
-    if (-not (Test-Path -LiteralPath $logModelo)) { throw 'Validacao do modelo academico ausente; execute verificar-perfis.ps1' }
-    if (Select-String -LiteralPath $logModelo -Pattern "Datamodel: thesis entry .*Invalid field 'undf") {
-        throw 'Componente de data academica nao autorizado para thesis'
-    }
-}
-if ($Documento -eq 'bibliografia-periodicos-integrais') {
-    $logModelo = Join-Path $Diretorio "datamodel-periodicos/$Documento.blg"
-    if (-not (Test-Path -LiteralPath $logModelo)) { throw 'Validacao do modelo de periodicos ausente; execute verificar-perfis.ps1' }
-    if (Select-String -LiteralPath $logModelo -Pattern "Datamodel: periodical entry .*Invalid field '(publisher|location|pagetotal|howpublished|organization)'") {
-        throw 'Campo de publicacao/suporte nao autorizado para periodical'
-    }
-}
-if ($Documento -eq 'bibliografia-patentes') {
-    $logModelo = Join-Path $Diretorio "datamodel-patentes/$Documento.blg"
-    if (-not (Test-Path -LiteralPath $logModelo)) { throw 'Validacao do modelo de patentes ausente; execute verificar-perfis.ps1' }
-    if (Select-String -LiteralPath $logModelo -Pattern "Datamodel: patent entry .*Invalid field '(author|holder|title|subtitle|type|number|location|year|month|day|version|note|addendum|pubstate|doi|url|urlyear|urlmonth|urlday|eprint)'") {
-        throw 'Campo do contrato de patentes nao autorizado no modelo nativo'
-    }
+$casos = @(Get-Content -LiteralPath (Join-Path $raiz "$PastaFixtures/$Documento.json") -Raw -Encoding utf8 | ConvertFrom-Json)
+if ($casos.Count -eq 0 -or @($casos.id | Sort-Object -Unique).Count -ne $casos.Count) { throw "Expectativas vazias ou IDs duplicados: $Documento" }
+# Invalida apenas o resultado gerado deste leitor antes de avaliar a saida atual.
+Set-Content -LiteralPath "$Diretorio/$Documento-resultados.json" -Value '[]' -Encoding utf8
+$modelos = Get-Content -LiteralPath "$raiz/tests/avisos-biber.json" -Raw -Encoding utf8 | ConvertFrom-Json
+if ($modelos.PSObject.Properties[$Documento]) {
+    & "$PSScriptRoot/verificar-modelo-biber.ps1" -Documento $Documento -Diretorio $Diretorio -SomenteLer
 }
 $texto = (& pdftotext -layout "$Diretorio/$Documento.pdf" -) -join "`n"
 if ($LASTEXITCODE -ne 0) { throw "Falha na leitura de $Documento.pdf" }
@@ -40,6 +25,12 @@ if (@($casos | Where-Object { $_.links -or $_.linksAusentes }).Count -gt 0) {
 $resultados = @()
 foreach ($caso in $casos) {
     $falhas = @()
+    if ($caso.entradas) {
+        $bbl = Get-Content -LiteralPath "$Diretorio/$Documento.bbl" -Raw -Encoding utf8
+        $bloco = [regex]::Match($bbl, ('(?s)\\refsection\{' + $caso.secaoBib + '\}(.*?)\\endrefsection')).Groups[1].Value
+        $chaves = @([regex]::Matches($bloco, '\\entry\{([^}]+)\}') | ForEach-Object { $_.Groups[1].Value })
+        if ($chaves.Count -ne $caso.entradas.Count -or (Compare-Object ($chaves | Sort-Object) ($caso.entradas | Sort-Object))) { $falhas += 'Entradas do corpus ausentes, extras ou na refsection errada' }
+    }
     $pagina = @($paginas | Where-Object { $_ -match "CASO $($caso.id)\b" })
     if ($pagina.Count -ne 1) { throw "Caso $($caso.id) ausente ou duplicado no PDF" }
     $indicePagina = [array]::IndexOf($paginas, $pagina[0])

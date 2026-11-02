@@ -1,0 +1,110 @@
+[
+  {
+    "id": "D12",
+    "caso": "Compatibilidade herdada D12; nao e certificacao normativa",
+    "ordem": [
+      "TITULOD12",
+      "SUBTITULOD12"
+    ],
+    "links": [
+      "https://doi.org/10.0000/d12",
+      "https://example.invalid/d12"
+    ]
+  },
+  {
+    "id": "D13",
+    "caso": "Compatibilidade herdada D13; nao e certificacao normativa",
+    "ordem": [
+      "TITULOD13",
+      "SUBTITULOD13"
+    ],
+    "links": [
+      "https://doi.org/10.0000/d13",
+      "https://example.invalid/d13"
+    ]
+  },
+  {
+    "id": "D14",
+    "caso": "Compatibilidade herdada D14; nao e certificacao normativa",
+    "ordem": [
+      "TITULOD14",
+      "SUBTITULOD14"
+    ],
+    "links": [
+      "https://doi.org/10.0000/d14",
+      "https://example.invalid/d14"
+    ]
+  },
+  {
+    "id": "D15",
+    "caso": "Compatibilidade herdada D15; nao e certificacao normativa",
+    "ordem": [
+      "TITULOD15",
+      "SUBTITULOD15"
+    ],
+    "links": [
+      "https://doi.org/10.0000/d15",
+      "https://example.invalid/d15"
+    ]
+  },
+  {
+    "id": "D16",
+    "caso": "Compatibilidade herdada D16; nao e certificacao normativa",
+    "ordem": [
+      "TITULOD16",
+      "SUBTITULOD16"
+    ],
+    "links": [
+      "https://doi.org/10.0000/d16",
+      "https://example.invalid/d16"
+    ]
+  },
+  {
+    "id": "D17",
+    "caso": "Compatibilidade herdada D17; nao e certificacao normativa",
+    "ordem": [
+      "TITULOD17",
+      "SUBTITULOD17"
+    ],
+    "links": [
+      "https://doi.org/10.0000/d17",
+      "https://example.invalid/d17"
+    ]
+  },
+  {
+    "id": "D18",
+    "caso": "Compatibilidade herdada D18; nao e certificacao normativa",
+    "ordem": [
+      "TITULOD18",
+      "SUBTITULOD18"
+    ],
+    "links": [
+      "https://doi.org/10.0000/d18",
+      "https://example.invalid/d18"
+    ]
+  },
+  {
+    "id": "D19",
+    "caso": "Compatibilidade herdada D19; nao e certificacao normativa",
+    "ordem": [
+      "TITULOD19",
+      "SUBTITULOD19"
+    ],
+    "links": [
+      "https://doi.org/10.0000/d19",
+      "https://example.invalid/d19"
+    ]
+  },
+  {
+    "id": "D20",
+    "caso": "Compatibilidade herdada D20; nao e certificacao normativa",
+    "ordem": [
+      "TITULOD20",
+      "SUBTITULOD20"
+    ],
+    "links": [
+      "https://doi.org/10.0000/d20",
+      "https://example.invalid/d20"
+    ]
+  }
+]

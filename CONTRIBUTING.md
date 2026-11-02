@@ -33,6 +33,18 @@ Leia:
 
 ## Verificação mínima
 
+Para aceitar mudanças bibliográficas, execute o contrato integral descrito em
+[Integração contínua](docs/integracao-continua.md):
+
+```powershell
+pwsh -NoProfile -File ./scripts/verificar-ci.ps1
+```
+
+Use um checkout sem saídas anteriores. Esse comando inclui os 575 cenários,
+45 documentos, F01/F02, controles, manuais e testes da infraestrutura. Os comandos
+individuais abaixo servem à investigação e não representam aprovação integral.
+O resumo distingue execução parcial, aprovação local e homologação remota.
+
 Compile os dois modelos com `latexmk` (a configuração está em `.latexmkrc`):
 
 ```powershell

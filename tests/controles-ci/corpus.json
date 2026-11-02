@@ -1,0 +1,192 @@
+[
+  {
+    "id": "C01",
+    "caso": "exemplo/artigo/referencias.bib",
+    "ordem": [],
+    "entradas": [
+      "latex-introducao",
+      "ctan-biblatex",
+      "undf-verificacao"
+    ],
+    "secaoBib": 1,
+    "padroes": [
+      "An\\ introduction\\ to\\ LaTeX",
+      "BibLaTeX:\\ sophisticated\\ bibliographies\\ in\\ LaTeX",
+      "Verificação\\ estrutural\\ dos\\ perfis"
+    ]
+  },
+  {
+    "id": "C02",
+    "caso": "exemplo/negocio-tecnologico/referencias.bib",
+    "ordem": [],
+    "entradas": [
+      "manualundf",
+      "latexproject",
+      "strategyzer"
+    ],
+    "secaoBib": 2,
+    "padroes": [
+      "Manual\\ de\\ Trabalhos\\ de\\ Conclusão\\ de\\ Curso:\\ ESETI\\ da\\ UnDF,\\ Computação\\ e\\ Tecnologia",
+      "An\\ introduction\\ to\\ LaTeX",
+      "The\\ Business\\ Model\\ Canvas",
+      "Minuta sem aprovação institucional"
+    ]
+  },
+  {
+    "id": "C03",
+    "caso": "exemplo/obrigatorio/referencias.bib",
+    "ordem": [],
+    "entradas": [
+      "abnt14724",
+      "abnt6027",
+      "abnt6028",
+      "abnt10520",
+      "abnt6023",
+      "severino2017",
+      "undfsite2026",
+      "brasil1996ldb",
+      "derrida1967",
+      "freire1994",
+      "streck2017",
+      "undftex2026"
+    ],
+    "secaoBib": 3,
+    "padroes": [
+      "ABNT\\ NBR\\ 14724:2024\\ Informação\\ e\\ documentação\\ (?:—|–|---)\\ Trabalhos\\ acadêmicos\\ (?:—|–|---)\\ Apresentação",
+      "ABNT\\ NBR\\ 6027:2012\\ Informação\\ e\\ documentação\\ (?:—|–|---)\\ Sumário\\ (?:—|–|---)\\ Apresentação",
+      "ABNT\\ NBR\\ 6028:2021\\ Informação\\ e\\ documentação\\ (?:—|–|---)\\ Resumo,\\ resenha\\ e\\ recensão\\ (?:—|–|---)\\ Apresentação",
+      "ABNT\\ NBR\\ 10520:2023\\ Informação\\ e\\ documentação\\ (?:—|–|---)\\ Citações\\ em\\ documentos\\ (?:—|–|---)\\ Apresentação",
+      "ABNT\\ NBR\\ 6023:2025\\ Informação\\ e\\ documentação\\ (?:—|–|---)\\ Referências\\ (?:—|–|---)\\ Elaboração",
+      "Metodologia\\ do\\ trabalho\\ científico",
+      "Página\\ institucional\\ da\\ Universidade\\ do\\ Distrito\\ Federal",
+      "Lei\\ nº\\ 9\\.394,\\ de\\ 20\\ de\\ dezembro\\ de\\ 1996",
+      "De\\ la\\ grammatologie",
+      "Pedagogia\\ da\\ esperança",
+      "Dicionário\\ Paulo\\ Freire",
+      "Exemplo\\ didático\\ de\\ citação\\ longa"
+    ]
+  },
+  {
+    "id": "C04",
+    "caso": "exemplo/portfolio/referencias.bib",
+    "ordem": [],
+    "entradas": [
+      "manualundf",
+      "relatoriofinal"
+    ],
+    "secaoBib": 4,
+    "padroes": [
+      "Manual\\ de\\ Trabalhos\\ de\\ Conclusão\\ de\\ Curso:\\ ESETI\\ da\\ UnDF,\\ Computação\\ e\\ Tecnologia",
+      "Construção\\ de\\ um\\ Modelo\\ de\\ Trabalho\\ de\\ Conclusão\\ de\\ Curso\\ com\\ a\\ Identidade\\ da\\ UnDF",
+      "Minuta sem aprovação institucional",
+      "Parte I: relatório técnico acumulativo"
+    ]
+  },
+  {
+    "id": "C05",
+    "caso": "exemplo/projeto-aplicado/referencias.bib",
+    "ordem": [],
+    "entradas": [
+      "manualundf"
+    ],
+    "secaoBib": 5,
+    "padroes": [
+      "Manual\\ de\\ Trabalhos\\ de\\ Conclusão\\ de\\ Curso:\\ ESETI\\ da\\ UnDF,\\ Computação\\ e\\ Tecnologia",
+      "Minuta sem aprovação institucional"
+    ]
+  },
+  {
+    "id": "C06",
+    "caso": "exemplo/relatorio-projeto/referencias.bib",
+    "ordem": [],
+    "entradas": [
+      "manualundf",
+      "latexproject",
+      "relatoriofinal"
+    ],
+    "secaoBib": 6,
+    "padroes": [
+      "Manual\\ de\\ Trabalhos\\ de\\ Conclusão\\ de\\ Curso:\\ ESETI\\ da\\ UnDF,\\ Computação\\ e\\ Tecnologia",
+      "An\\ introduction\\ to\\ LaTeX",
+      "Construção\\ de\\ um\\ Modelo\\ de\\ Trabalho\\ de\\ Conclusão\\ de\\ Curso\\ com\\ a\\ Identidade\\ da\\ UnDF",
+      "Minuta sem aprovação institucional",
+      "Parte I: relatório técnico acumulativo"
+    ]
+  },
+  {
+    "id": "C07",
+    "caso": "modelos/negocio-tecnologico/referencias.bib",
+    "ordem": [],
+    "entradas": [
+      "manualundf"
+    ],
+    "secaoBib": 7,
+    "padroes": [
+      "Manual\\ de\\ Trabalhos\\ de\\ Conclusão\\ de\\ Curso:\\ ESETI\\ da\\ UnDF,\\ Computação\\ e\\ Tecnologia",
+      "Minuta sem aprovação institucional"
+    ]
+  },
+  {
+    "id": "C08",
+    "caso": "modelos/portfolio/referencias.bib",
+    "ordem": [],
+    "entradas": [
+      "manualundf"
+    ],
+    "secaoBib": 8,
+    "padroes": [
+      "Manual\\ de\\ Trabalhos\\ de\\ Conclusão\\ de\\ Curso:\\ ESETI\\ da\\ UnDF,\\ Computação\\ e\\ Tecnologia",
+      "Minuta sem aprovação institucional"
+    ]
+  },
+  {
+    "id": "C09",
+    "caso": "modelos/projeto-aplicado/referencias.bib",
+    "ordem": [],
+    "entradas": [
+      "manualundf"
+    ],
+    "secaoBib": 9,
+    "padroes": [
+      "Manual\\ de\\ Trabalhos\\ de\\ Conclusão\\ de\\ Curso:\\ ESETI\\ da\\ UnDF,\\ Computação\\ e\\ Tecnologia",
+      "Minuta sem aprovação institucional"
+    ]
+  },
+  {
+    "id": "C10",
+    "caso": "modelos/relatorio-projeto/referencias.bib",
+    "ordem": [],
+    "entradas": [
+      "manualundf"
+    ],
+    "secaoBib": 10,
+    "padroes": [
+      "Manual\\ de\\ Trabalhos\\ de\\ Conclusão\\ de\\ Curso:\\ ESETI\\ da\\ UnDF,\\ Computação\\ e\\ Tecnologia",
+      "Minuta sem aprovação institucional"
+    ]
+  },
+  {
+    "id": "C11",
+    "caso": "obrigatorio/referencias.bib",
+    "ordem": [],
+    "entradas": [
+      "abnt14724",
+      "abnt6027",
+      "abnt6028",
+      "abnt10520",
+      "abnt6023",
+      "severino2017",
+      "brasil1996ldb"
+    ],
+    "secaoBib": 11,
+    "padroes": [
+      "ABNT\\ NBR\\ 14724:2024\\ Informação\\ e\\ documentação\\ (?:—|–|---)\\ Trabalhos\\ acadêmicos\\ (?:—|–|---)\\ Apresentação",
+      "ABNT\\ NBR\\ 6027:2012\\ Informação\\ e\\ documentação\\ (?:—|–|---)\\ Sumário\\ (?:—|–|---)\\ Apresentação",
+      "ABNT\\ NBR\\ 6028:2021\\ Informação\\ e\\ documentação\\ (?:—|–|---)\\ Resumo,\\ resenha\\ e\\ recensão\\ (?:—|–|---)\\ Apresentação",
+      "ABNT\\ NBR\\ 10520:2023\\ Informação\\ e\\ documentação\\ (?:—|–|---)\\ Citações\\ em\\ documentos\\ (?:—|–|---)\\ Apresentação",
+      "ABNT\\ NBR\\ 6023:2025\\ Informação\\ e\\ documentação\\ (?:—|–|---)\\ Referências\\ (?:—|–|---)\\ Elaboração",
+      "Metodologia\\ do\\ trabalho\\ científico",
+      "Lei\\ nº\\ 9\\.394,\\ de\\ 20\\ de\\ dezembro\\ de\\ 1996"
+    ]
+  }
+]

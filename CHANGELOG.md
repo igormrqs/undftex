@@ -6,6 +6,13 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ## [Não lançado]
 
+### Integração contínua — F03-M
+
+- Seleção única de 21 suítes/575 cenários e 45 documentos, com contagens de execução, saídas obrigatórias e indicação de validação parcial.
+- F01/F02, nove controles herdados, corpus de onze bases, 32 casos da auditoria, dois mínimos, três manuais e testes negativos da infraestrutura integrados ao ponto de entrada local/CI.
+- Avisos nativos de quatro suítes classificados por chave, conteúdo e multiplicidade; falha de Biber, aviso novo ou saída incompleta interrompem a execução.
+- Ferramentas no mesmo contêiner TeX Live/Debian, diagnósticos preservados sem publicar PDFs oficiais. Homologação remota depende de execução posterior autorizada no GitHub.
+
 ### Corrigido — F03-L
 
 - A presença de tradutor não bloqueia a derivação segura de shorttitle nem o diagnóstico de entrada pelo título. Os avisos usam a identidade fornecida pelo Biber, sem promover tradutor ou retirar a responsabilidade legítima de editor/organizador.
