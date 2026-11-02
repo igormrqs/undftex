@@ -118,11 +118,18 @@
   },
   {
     "id": "V14",
-    "caso": "V14: subtitulo protegido; eid ainda fora do suporte, nao certificado",
+    "caso": "V14: titulo do periodico e localizador eletronico preservados",
     "ordem": [
       "Revista Horizonte: estudos interdisciplinares",
+      "e2024123",
       "10.0000/audit-v14"
-    ]
+    ],
+    "identificadoresNoTexto": [
+      "e2024123"
+    ],
+    "contagens": {
+      "e2024123": 1
+    }
   },
   {
     "id": "V15",

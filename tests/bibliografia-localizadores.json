@@ -1,0 +1,765 @@
+[
+  {
+    "id": "EL01",
+    "caso": "V14 original, sem recadastro",
+    "ordem": [
+      "NUNES, Ana",
+      "Análise de cenários",
+      "Revista Horizonte: estudos interdisciplinares",
+      "v. 4",
+      "n. 2",
+      "jun. de 2024",
+      "10.0000/audit-v14"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "links": [
+      "https://doi.org/10.0000/audit-v14",
+      "https://example.invalid/artigo/v14"
+    ],
+    "chamadaPadroes": [
+      "Nunes.*2024"
+    ],
+    "chamadaAusentes": [
+      "e2024123"
+    ],
+    "identificadoresNoTexto": [
+      "e2024123"
+    ],
+    "contagensIdentificadores": {
+      "e2024123": 1
+    },
+    "padroes": [
+      "(?<!p\\. )e\\s*2\\s*0\\s*2\\s*4\\s*1\\s*2\\s*3",
+      "n\\. 2,\\s*e\\s*2\\s*0\\s*2\\s*4\\s*1\\s*2\\s*3,\\s*jun\\. de 2024"
+    ]
+  },
+  {
+    "id": "EL02",
+    "caso": "Paginacao tradicional sem eid",
+    "ordem": [
+      "Revista Sintética",
+      "v. 8",
+      "n. 3",
+      "p. 17–24",
+      "2024"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "avisosAusentes": [
+      "Localizador e paginas simultaneos: loc02"
+    ]
+  },
+  {
+    "id": "EL03",
+    "caso": "Identificador numerico literal",
+    "ordem": [
+      "Revista Sintética",
+      "2024"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "identificadoresNoTexto": [
+      "314159"
+    ],
+    "chamadaAusentes": [
+      "314159"
+    ],
+    "padroes": [
+      "(?<!p\\. )3\\s*1\\s*4\\s*1\\s*5\\s*9"
+    ],
+    "contagensIdentificadores": {
+      "314159": 1
+    }
+  },
+  {
+    "id": "EL04",
+    "caso": "Alfanumerico com underscore hifens ponto e barra",
+    "ordem": [
+      "Revista Sintética",
+      "2024"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "identificadoresNoTexto": [
+      "AX_001--02.3/7"
+    ],
+    "chamadaAusentes": [
+      "AX_001--02.3/7"
+    ],
+    "padroes": [
+      "(?<!p\\. )A\\s*X\\s*_\\s*0\\s*0\\s*1\\s*\\-\\s*\\-\\s*0\\s*2\\s*\\.\\s*3\\s*/\\s*7"
+    ],
+    "contagensIdentificadores": {
+      "AX_001--02.3/7": 1
+    }
+  },
+  {
+    "id": "EL05",
+    "caso": "Zeros iniciais",
+    "ordem": [
+      "Revista Sintética",
+      "2024"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "identificadoresNoTexto": [
+      "000012"
+    ],
+    "chamadaAusentes": [
+      "000012"
+    ],
+    "padroes": [
+      "(?<!p\\. )0\\s*0\\s*0\\s*0\\s*1\\s*2"
+    ],
+    "contagensIdentificadores": {
+      "000012": 1
+    }
+  },
+  {
+    "id": "EL06",
+    "caso": "Prefixo e literal",
+    "ordem": [
+      "Revista Sintética",
+      "2024"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "identificadoresNoTexto": [
+      "e000104"
+    ],
+    "chamadaAusentes": [
+      "e000104"
+    ],
+    "padroes": [
+      "(?<!p\\. )e\\s*0\\s*0\\s*0\\s*1\\s*0\\s*4"
+    ],
+    "contagensIdentificadores": {
+      "e000104": 1
+    }
+  },
+  {
+    "id": "EL07",
+    "caso": "Identificador longo sem truncamento",
+    "ordem": [
+      "Revista Sintética",
+      "2024"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "identificadoresNoTexto": [
+      "e123456789012345678901234567890123456789012345678901234567890"
+    ],
+    "chamadaAusentes": [
+      "e123456789012345678901234567890123456789012345678901234567890"
+    ],
+    "padroes": [
+      "(?<!p\\. )e\\s*1\\s*2\\s*3\\s*4\\s*5\\s*6\\s*7\\s*8\\s*9\\s*0\\s*1\\s*2\\s*3\\s*4\\s*5\\s*6\\s*7\\s*8\\s*9\\s*0\\s*1\\s*2\\s*3\\s*4\\s*5\\s*6\\s*7\\s*8\\s*9\\s*0\\s*1\\s*2\\s*3\\s*4\\s*5\\s*6\\s*7\\s*8\\s*9\\s*0\\s*1\\s*2\\s*3\\s*4\\s*5\\s*6\\s*7\\s*8\\s*9\\s*0\\s*1\\s*2\\s*3\\s*4\\s*5\\s*6\\s*7\\s*8\\s*9\\s*0"
+    ],
+    "contagensIdentificadores": {
+      "e123456789012345678901234567890123456789012345678901234567890": 1
+    }
+  },
+  {
+    "id": "EL08",
+    "caso": "Paginas e localizador distintos",
+    "ordem": [
+      "n. 3",
+      "p. 17–24",
+      "2024"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "identificadoresNoTexto": [
+      "eP008"
+    ],
+    "chamadaAusentes": [
+      "eP008"
+    ],
+    "padroes": [
+      "(?<!p\\. )e\\s*P\\s*0\\s*0\\s*8",
+      "e\\s*P\\s*0\\s*0\\s*8, p\\. 17–24, 2024"
+    ],
+    "avisos": [
+      "Localizador e paginas simultaneos: loc08"
+    ],
+    "contagensAvisos": {
+      "Localizador e paginas simultaneos: loc08\\.": 1
+    },
+    "contagensIdentificadores": {
+      "eP008": 1
+    }
+  },
+  {
+    "id": "EL09",
+    "caso": "Sem pages nem eid: nenhum texto artificial",
+    "ordem": [
+      "n. 3",
+      "2024"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art.",
+      "p.",
+      "art.",
+      "eid",
+      "localizador"
+    ]
+  },
+  {
+    "id": "EL10",
+    "caso": "Volume fasciculo e eid distintos",
+    "ordem": [
+      "v. 19",
+      "n. 27",
+      "2024"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "identificadoresNoTexto": [
+      "LOC-0099"
+    ],
+    "chamadaAusentes": [
+      "LOC-0099"
+    ],
+    "padroes": [
+      "(?<!p\\. )L\\s*O\\s*C\\s*\\-\\s*0\\s*0\\s*9\\s*9"
+    ],
+    "contagensIdentificadores": {
+      "LOC-0099": 1
+    }
+  },
+  {
+    "id": "EL11",
+    "caso": "DOI nao substitui eid",
+    "ordem": [
+      "Revista Sintética",
+      "2024",
+      "10.0000/doi-artigo-onze"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "identificadoresNoTexto": [
+      "ARTICLE-0011"
+    ],
+    "chamadaAusentes": [
+      "ARTICLE-0011"
+    ],
+    "padroes": [
+      "(?<!p\\. )A\\s*R\\s*T\\s*I\\s*C\\s*L\\s*E\\s*\\-\\s*0\\s*0\\s*1\\s*1"
+    ],
+    "links": [
+      "https://doi.org/10.0000/doi-artigo-onze"
+    ],
+    "contagensIdentificadores": {
+      "ARTICLE-0011": 1
+    }
+  },
+  {
+    "id": "EL12",
+    "caso": "Eid DOI URL e eprint distintos",
+    "ordem": [
+      "Revista Sintética",
+      "2024",
+      "10.0000/doi-artigo-doze",
+      "arXiv: 1234.56789",
+      "Disponível em:",
+      "Acesso em:"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "identificadoresNoTexto": [
+      "E012-AB"
+    ],
+    "chamadaAusentes": [
+      "E012-AB"
+    ],
+    "padroes": [
+      "(?<!p\\. )E\\s*0\\s*1\\s*2\\s*\\-\\s*A\\s*B"
+    ],
+    "links": [
+      "https://doi.org/10.0000/doi-artigo-doze",
+      "https://arxiv.org/abs/1234.56789",
+      "https://example.invalid/artigo-doze?versao=2#texto"
+    ],
+    "contagensIdentificadores": {
+      "E012-AB": 1
+    }
+  },
+  {
+    "id": "EL13",
+    "caso": "Sem DOI volume ou numero",
+    "ordem": [
+      "Revista Sintética",
+      "2024",
+      "Disponível em:"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art.",
+      "doi:",
+      "v. 8",
+      "n. 3"
+    ],
+    "identificadoresNoTexto": [
+      "eSemDOI"
+    ],
+    "chamadaAusentes": [
+      "eSemDOI"
+    ],
+    "padroes": [
+      "(?<!p\\. )e\\s*S\\s*e\\s*m\\s*D\\s*O\\s*I"
+    ],
+    "contagensIdentificadores": {
+      "eSemDOI": 1
+    }
+  },
+  {
+    "id": "EL14",
+    "caso": "Localizador com acesso",
+    "ordem": [
+      "Revista Sintética",
+      "2024",
+      "Disponível em:",
+      "Acesso em: 30 de out. de 2026"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "identificadoresNoTexto": [
+      "eAcesso14"
+    ],
+    "chamadaAusentes": [
+      "eAcesso14"
+    ],
+    "padroes": [
+      "(?<!p\\. )e\\s*A\\s*c\\s*e\\s*s\\s*s\\s*o\\s*1\\s*4"
+    ],
+    "contagensIdentificadores": {
+      "eAcesso14": 1
+    }
+  },
+  {
+    "id": "EL15",
+    "caso": "Titulos e subtitulos completos",
+    "ordem": [
+      "Artigo loc15: resultados locais",
+      "Revista Sintética: ciência e sociedade",
+      "2024"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "identificadoresNoTexto": [
+      "eJornal15"
+    ],
+    "chamadaAusentes": [
+      "eJornal15"
+    ],
+    "padroes": [
+      "(?<!p\\. )e\\s*J\\s*o\\s*r\\s*n\\s*a\\s*l\\s*1\\s*5"
+    ],
+    "contagensIdentificadores": {
+      "eJornal15": 1
+    }
+  },
+  {
+    "id": "EL16",
+    "caso": "Capitalizacao protegida",
+    "ordem": [
+      "Revista Sintética",
+      "2024"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "identificadoresNoTexto": [
+      "eTeX16"
+    ],
+    "chamadaAusentes": [
+      "eTeX16"
+    ],
+    "padroes": [
+      "(?-i)NASA na pesquisa",
+      "(?<!p\\. )e\\s*T\\s*e\\s*X\\s*1\\s*6"
+    ],
+    "contagensIdentificadores": {
+      "eTeX16": 1
+    }
+  },
+  {
+    "id": "EL17",
+    "caso": "Autoria institucional",
+    "ordem": [
+      "INSTITUTO DE PESQUISA SINTÉTICA",
+      "Revista Sintética",
+      "2024"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "identificadoresNoTexto": [
+      "eInstit17"
+    ],
+    "chamadaAusentes": [
+      "eInstit17"
+    ],
+    "padroes": [
+      "(?<!p\\. )e\\s*I\\s*n\\s*s\\s*t\\s*i\\s*t\\s*1\\s*7"
+    ],
+    "chamadaPadroes": [
+      "IPS.*2024"
+    ],
+    "contagensIdentificadores": {
+      "eInstit17": 1
+    }
+  },
+  {
+    "id": "EL18",
+    "caso": "Entrada pelo titulo sem autoria",
+    "ordem": [
+      "PESQUISA de campo sem autoria",
+      "Revista Sintética",
+      "2024"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "identificadoresNoTexto": [
+      "eTitulo18"
+    ],
+    "chamadaAusentes": [
+      "eTitulo18"
+    ],
+    "padroes": [
+      "(?<!p\\. )e\\s*T\\s*i\\s*t\\s*u\\s*l\\s*o\\s*1\\s*8"
+    ],
+    "chamadaPadroes": [
+      "Pesquisa \\[.*?\\].*2024"
+    ],
+    "contagensIdentificadores": {
+      "eTitulo18": 1
+    }
+  },
+  {
+    "id": "EL19",
+    "caso": "Letras e ordem para mesma autoria e ano",
+    "ordem": [
+      "Artigo Alfa",
+      "2024a",
+      "Artigo Beta",
+      "2024b"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "chamadaPadroes": [
+      "Lima.*2024b.*Lima.*2024a"
+    ],
+    "contagensIdentificadores": {
+      "ALFA-19": 1,
+      "BETA-19": 1
+    },
+    "padroes": [
+      "(?<!p\\. )A\\s*L\\s*F\\s*A\\s*\\-\\s*1\\s*9",
+      "(?<!p\\. )B\\s*E\\s*T\\s*A\\s*\\-\\s*1\\s*9"
+    ],
+    "identificadoresNoTexto": [
+      "ALFA-19",
+      "BETA-19"
+    ]
+  },
+  {
+    "id": "EL20",
+    "caso": "Refsection independente sem herdar letra",
+    "ordem": [
+      "Artigo Beta",
+      "BETA-19",
+      "2024"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "chamadaPadroes": [
+      "Lima.*2024"
+    ],
+    "chamadaAusentes": [
+      "2024a",
+      "2024b"
+    ]
+  },
+  {
+    "id": "EL21",
+    "caso": "Quatro apud: somente artigo consultado na lista",
+    "ordem": [
+      "Artigo loc12",
+      "10.0000/doi-artigo-doze"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art.",
+      "Original indireta de teste",
+      "ORIG-030"
+    ],
+    "chamadaPadroes": [
+      "(?s)apud.*apud.*apud.*apud"
+    ],
+    "links": [
+      "https://doi.org/10.0000/doi-artigo-doze",
+      "https://example.invalid/artigo-doze?versao=2#texto"
+    ],
+    "contagensIdentificadores": {
+      "E012-AB": 1
+    },
+    "padroes": [
+      "(?<!p\\. )E\\s*0\\s*1\\s*2\\s*\\-\\s*A\\s*B"
+    ],
+    "identificadoresNoTexto": [
+      "E012-AB"
+    ]
+  },
+  {
+    "id": "EL22",
+    "caso": "Original direta em outra refsection reaparece com eid",
+    "ordem": [
+      "SANTOS, Otto",
+      "Original indireta de teste",
+      "1980"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "contagensIdentificadores": {
+      "ORIG-030": 1
+    },
+    "padroes": [
+      "(?<!p\\. )O\\s*R\\s*I\\s*G\\s*\\-\\s*0\\s*3\\s*0"
+    ],
+    "identificadoresNoTexto": [
+      "ORIG-030"
+    ]
+  },
+  {
+    "id": "EL23",
+    "caso": "Eid recebido por xdata",
+    "ordem": [
+      "Artigo com dados compartilhados",
+      "Revista Herdada",
+      "v. 5",
+      "n. 2",
+      "2024"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "contagensIdentificadores": {
+      "XD-0023": 1
+    },
+    "padroes": [
+      "(?<!p\\. )X\\s*D\\s*\\-\\s*0\\s*0\\s*2\\s*3"
+    ],
+    "identificadoresNoTexto": [
+      "XD-0023"
+    ]
+  },
+  {
+    "id": "EL24",
+    "caso": "C01 literal da F03-C",
+    "ordem": [
+      "AUTOR, Ana",
+      "Documento C01",
+      "Revista sintetica",
+      "2024",
+      "10.0000/undf-C01"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "links": [
+      "https://doi.org/10.0000/undf-C01"
+    ]
+  },
+  {
+    "id": "EL25",
+    "caso": "V22 literal de periodico integral",
+    "ordem": [
+      "REVISTA DE CIÊNCIA ABERTA",
+      "pesquisa e sociedade",
+      "Brasília: Editora Alfa",
+      "2020",
+      "2024",
+      "PRADO, Bia (ed.)"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ]
+  },
+  {
+    "id": "EL26",
+    "caso": "Livro e capitulo preservados",
+    "ordem": [
+      "Caminhos da pesquisa",
+      "Uma abordagem local",
+      "In: PRADO, Bia",
+      "Métodos gerais: fundamentos"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art.",
+      "e2024123",
+      "Localizador"
+    ]
+  },
+  {
+    "id": "EL27",
+    "caso": "Contribuicao em anais e trabalho academico preservados",
+    "ordem": [
+      "Método participativo",
+      "In: CONGRESSO BRASILEIRO DE PESQUISA",
+      "Sistemas de informação pública",
+      "Dissertação"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art.",
+      "e2024123"
+    ]
+  },
+  {
+    "id": "EL28",
+    "caso": "Legislacao e patente preservadas",
+    "ordem": [
+      "BRASIL.",
+      "Lei",
+      "NUNES, Ana",
+      "Dispositivo de pesquisa",
+      "Titular: Instituto Sintético",
+      "Patente BR 0000000"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art.",
+      "e2024123"
+    ]
+  },
+  {
+    "id": "EL29",
+    "caso": "Mesmo literal em papeis distintos exige revisao",
+    "ordem": [
+      "n. 3",
+      "p. 007",
+      "2024"
+    ],
+    "ausentes": [
+      ".,",
+      ",,",
+      "p. e000104",
+      "art. art."
+    ],
+    "identificadoresNoTexto": [
+      "007"
+    ],
+    "chamadaAusentes": [
+      "007"
+    ],
+    "padroes": [
+      "(?<!p\\. )0\\s*0\\s*7",
+      "0\\s*0\\s*7, p\\. 007, 2024"
+    ],
+    "avisos": [
+      "Localizador e paginas simultaneos: loc29"
+    ],
+    "contagensIdentificadores": {
+      "007": 2
+    }
+  }
+]

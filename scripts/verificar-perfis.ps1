@@ -15,7 +15,8 @@ try {
         Compilar-Regressao $documento 'build/perfis'
         $compilados += $documento
     }
-    foreach ($modelo in 'bibliografia-academicos', 'bibliografia-periodicos-integrais', 'bibliografia-patentes', 'bibliografia-tradutores') {
+    $modelos = Get-Content -LiteralPath tests/avisos-biber.json -Raw -Encoding utf8 | ConvertFrom-Json
+    foreach ($modelo in $modelos.PSObject.Properties.Name) {
         if ("tests/$modelo.tex" -in $Documentos) {
             & "$PSScriptRoot/verificar-modelo-biber.ps1" -Documento $modelo
         }

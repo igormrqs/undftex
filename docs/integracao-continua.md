@@ -12,8 +12,8 @@ que alterem contratos devem ser investigadas, não contornadas com tetos de avis
 
 | Grupo | Contrato |
 | --- | --- |
-| Perfis/modelos | 42 ciclos LuaLaTeX → Biber → LuaLaTeX → LuaLaTeX e três controles de uma passagem: 45 documentos |
-| Bibliografia | 21 suítes, 575 cenários com leitura de chamadas, referências, ordem, letras, avisos e destinos aplicáveis |
+| Perfis/modelos | 43 ciclos LuaLaTeX → Biber → LuaLaTeX → LuaLaTeX e três controles de uma passagem: 46 documentos |
+| Bibliografia | 22 suítes, 604 cenários com leitura de chamadas, referências, ordem, letras, avisos e destinos aplicáveis |
 | F01 | 35 casos de nomes e metadados da folha de rosto |
 | F02 | Inclusões positivas e negativas, caminho/espaços/ordem, erro obrigatório com e sem halt, propagação pelo verificador e input de artigo |
 | Compatibilidade | Nove tipos originalmente herdados; compilar não certifica padronização universal |
@@ -27,9 +27,9 @@ confere sua correspondência com os trios bibliográficos permanentes e as conta
 dos JSONs. Arquivos auxiliares e cenários deliberadamente inválidos não são
 descobertos indiscriminadamente como documentos compiláveis. Os 54 controles
 complementares (9 + 32 + 11 bases + 2 mínimos) são relatados separadamente dos
-575 cenários, assim como F01/F02 e as injeções de infraestrutura.
+604 cenários, assim como F01/F02 e as injeções de infraestrutura.
 
-Os testes de auditoria preservam os dados originais. V14 ainda não certifica eid;
+Os testes de auditoria preservam os dados originais. V14 verifica também o eid original após F03-N;
 V20 tem title ausente; V32 não certifica todos os elementos complementares.
 Asserções desses controles protegem o comportamento delimitado, não eliminam
 suas pendências editoriais. As bases do corpus não são corrigidas por inferência.
@@ -80,9 +80,9 @@ Também substituem um aviso mantendo a mesma quantidade, para demonstrar que o
 guarda confere o conteúdo e não somente um total ou teto.
 
 A validação `biber --validate-datamodel` é obrigatória nas suítes acadêmica,
-periódicos integrais, patentes e tradutores. O contrato
+periódicos integrais, patentes, tradutores e localizadores. O contrato
 [avisos-biber.json](../tests/avisos-biber.json) registra mensagens por tipo/chave,
-categoria e multiplicidade. Atualmente são 10/18/14/44 avisos, respectivamente;
+categoria e multiplicidade. Atualmente são 10/18/14/44/34 avisos, respectivamente;
 não são uma soma de defeitos independentes. Há ausências intencionais/editoriais,
 identificadores sintéticos e limites de schema nos controles de outros gêneros.
 Erro de execução, saída incompleta, aviso novo, remoção ou substituição de aviso
@@ -108,7 +108,7 @@ homologação remota pendente”.
 
 Comparação de PDFs entre commits, coordenadas, quebras visuais e revisão normativa
 continuam procedimentos de auditoria local: o CI não tem baseline visual
-versionada e não afirma executá-los. F06/F07, eid e F04/F05 permanecem separados.
-Os nomes atuais dos 45 documentos são distintos; a execução é sequencial e
+versionada e não afirma executá-los. F06/F07 e F04/F05 permanecem separados.
+Os nomes atuais dos 46 documentos são distintos; a execução é sequencial e
 mantém os diretórios já suportados. Não houve correção global de nomes ou do
 mecanismo de distribuição. O CI não certifica conformidade integral ABNT.

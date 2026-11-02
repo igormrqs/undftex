@@ -40,8 +40,8 @@ Para aceitar mudanças bibliográficas, execute o contrato integral descrito em
 pwsh -NoProfile -File ./scripts/verificar-ci.ps1
 ```
 
-Use um checkout sem saídas anteriores. Esse comando inclui os 575 cenários,
-45 documentos, F01/F02, controles, manuais e testes da infraestrutura. Os comandos
+Use um checkout sem saídas anteriores. Esse comando inclui os 604 cenários,
+46 documentos, F01/F02, controles, manuais e testes da infraestrutura. Os comandos
 individuais abaixo servem à investigação e não representam aprovação integral.
 O resumo distingue execução parcial, aprovação local e homologação remota.
 
@@ -220,3 +220,11 @@ Ao contribuir, você concorda que sua contribuição seja distribuída sob a mes
 F03-K3: o trio `tests/bibliografia-patentes.tex/.bib/.json` acrescenta 40 cenários, incluindo V23, EV30 e PI28 literais; inventores/titulares, número completo, notas de datas, qualificadores, eletrônicos e quatro apud. Execute `./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-patentes.tex')`; também valida o modelo nativo com Biber. Não infira concessão, titularidade ou papéis de datas a partir do número. As datas jurídicas explicitamente fornecidas pertencem a notas qualificadas; date/year identifica o documento consultado. Não há campo de patente novo, parser ou consulta externa.
 
 F03-L: `tests/bibliografia-tradutores.tex/.bib/.json` acrescenta 40 cenários de V01, autoria/tradução, shorttitle, idiomas, letras, herança e quatro apud. Reproduza com `./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-tradutores.tex')`. Os avisos de título consultam a identidade fornecida pelo Biber; a contagem de avisos protege fullcite repetido. Não se altera o contrato de nomes nem se amplia o tipo herdado manual, cujo schema não autoriza translator.
+
+F03-N: `tests/bibliografia-localizadores.tex/.bib/.json` contém 29 casos,
+incluindo V14 original sem recadastro, códigos literais, páginas, identificadores,
+herança, chamadas e controles. Execute
+`./scripts/verificar-perfis.ps1 -Documentos @('tests/bibliografia-localizadores.tex')`.
+O comando inclui a validação nativa de 34 avisos conhecidos da fixture;
+nenhum é de eid inválido. Em pages/eid simultâneos, confira os papéis na fonte;
+o aviso editorial não autoriza fabricar páginas ou substituir DOI/URL.

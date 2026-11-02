@@ -249,7 +249,15 @@
 \DeclareFieldFormat{undf:journalvolume}{v\adddot\space#1}
 \DeclareFieldFormat{undf:journalnumber}{n\adddot\space#1}
 \DeclareFieldFormat{undf:journalpages}{p\adddot\space#1}
+\DeclareFieldFormat{undf:articleeid}{%
+  \begingroup
+    \urlstyle{same}%
+    \Urlmuskip=0mu\relax
+    \nolinkurl{#1}%
+  \endgroup}
 \newbibmacro*{undf:journalinfo}{%
+  \iffieldundef{eid}{}{\iffieldundef{pages}{}{%
+    \PackageWarningNoLine{undf-biblatex}{Localizador e paginas simultaneos: \thefield{entrykey}. Confira as funcoes na fonte; ambos os campos foram preservados}}}%
   \printfield{journaltitle}%
   \iffieldundef{journalsubtitle}{}%
     {\iffieldundef{journaltitle}{}{\setunit{\addcolon\space}}%
@@ -257,6 +265,7 @@
   \setunit*{\addcomma\space}\printlist{location}%
   \setunit*{\addcomma\space}\printfield[undf:journalvolume]{volume}%
   \setunit*{\addcomma\space}\printfield[undf:journalnumber]{number}%
+  \setunit*{\addcomma\space}\printfield[undf:articleeid]{eid}%
   \setunit*{\addcomma\space}\printfield[undf:journalpages]{pages}%
   \setunit*{\addcomma\space}%
   \usebibmacro{undf:pubdate}[full]%

@@ -1,6 +1,6 @@
 {
-  "totalDocumentos": 45,
-  "totalCenarios": 575,
+  "totalDocumentos": 46,
+  "totalCenarios": 604,
   "documentos": [
     "tcc.tex",
     "tcc-exemplo-undf.tex",
@@ -43,7 +43,8 @@
     "tests/bibliografia-eventos.tex",
     "tests/bibliografia-periodicos-integrais.tex",
     "tests/bibliografia-patentes.tex",
-    "tests/bibliografia-tradutores.tex"
+    "tests/bibliografia-tradutores.tex",
+    "tests/bibliografia-localizadores.tex"
   ],
   "controles": [
     "tests/perfil-artigo.tex",
@@ -71,7 +72,8 @@
     "bibliografia-recipientes": 18,
     "bibliografia-responsabilidades": 20,
     "bibliografia-titulos": 23,
-    "bibliografia-tradutores": 40
+    "bibliografia-tradutores": 40,
+    "bibliografia-localizadores": 29
   },
   "complementares": [
     "tests/controles-ci/herdados.tex",

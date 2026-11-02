@@ -391,5 +391,162 @@
       "categoria": "ausencia intencional/editorial: nao inventar dados",
       "quantidade": 1
     }
+  ],
+  "bibliografia-localizadores": [
+    {
+      "mensagem": "Datamodel: article entry 'v14': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc02': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc03': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc04': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc05': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc06': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc07': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc08': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc09': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc10': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc11': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc12': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 2
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc13': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc14': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc15': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc16': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc17': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc18': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc18': Missing mandatory field 'author'",
+      "categoria": "ausencia editorial intencional de autor: entrada por titulo",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc19b': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 2
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc19a': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'orig21': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 2
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc23': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: legislation entry 'v25': Invalid field 'author' for entrytype 'legislation'",
+      "categoria": "controle legal original: limite de schema sem alteracao nesta etapa",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: legislation entry 'v25': Invalid field 'journaltitle' for entrytype 'legislation'",
+      "categoria": "controle legal original: limite de schema sem alteracao nesta etapa",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: legislation entry 'v25': Invalid field 'location' for entrytype 'legislation'",
+      "categoria": "controle legal original: limite de schema sem alteracao nesta etapa",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: legislation entry 'v25': Invalid field 'number' for entrytype 'legislation'",
+      "categoria": "controle legal original: limite de schema sem alteracao nesta etapa",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: legislation entry 'v25': Invalid field 'pages' for entrytype 'legislation'",
+      "categoria": "controle legal original: limite de schema sem alteracao nesta etapa",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: legislation entry 'v25': Invalid field 'subtitle' for entrytype 'legislation'",
+      "categoria": "controle legal original: limite de schema sem alteracao nesta etapa",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: legislation entry 'v25': Invalid field 'title' for entrytype 'legislation'",
+      "categoria": "controle legal original: limite de schema sem alteracao nesta etapa",
+      "quantidade": 1
+    },
+    {
+      "mensagem": "Datamodel: article entry 'loc29': Invalid field 'location' for entrytype 'article'",
+      "categoria": "limite de schema nativo: location de article no contrato UnDF",
+      "quantidade": 1
+    }
   ]
 }

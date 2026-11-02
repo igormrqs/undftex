@@ -6,6 +6,12 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ## [Não lançado]
 
+### Corrigido — F03-N
+
+- Localizadores nativos `eid` de artigos são apresentados literalmente no bloco do periódico, sem prefixo de páginas nem conversão em número, DOI ou URL.
+- Páginas e localizador coexistentes são preservados com orientação editorial; artigos sem `eid` mantêm a apresentação anterior.
+- Vinte e nove casos permanentes incluem V14 original, zeros, códigos, páginas, DOI/URL/eprint, herança, letras, quatro apud e controles de outros gêneros; integrados à seleção central e à validação nativa existente.
+
 ### Integração contínua — F03-M
 
 - Seleção única de 21 suítes/575 cenários e 45 documentos, com contagens de execução, saídas obrigatórias e indicação de validação parcial.

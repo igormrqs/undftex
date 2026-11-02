@@ -86,6 +86,12 @@ e `docs/integracao-continua.md` tornam a cobertura reproduzível em checkout lim
 As bases novas de controles preservam os dados históricos da auditoria, sem
 substituir ou editar as bases de modelos e exemplos. Não incluem PDFs ou normas.
 
+F03-N: `tests/bibliografia-localizadores.tex`, `.bib` e `.json` protegem
+29 casos de localizadores eletrônicos em artigos e controles de compatibilidade.
+A seleção central e os avisos nativos incluem a suíte; o bloco de article
+preserva eid literal, distinguindo-o de páginas e dos identificadores externos.
+Nenhuma mudança de schema, workflow ou dados reais acompanha a correção.
+
 ## Fora do trabalho distribuído
 
 Não fazem parte do trabalho distribuído por padrão:

@@ -173,6 +173,53 @@ ser fornecidos por \texttt{crossref} ou \texttt{xdata}.
 Se faltar \texttt{journaltitle}, o modelo emite aviso de dado essencial,
 mesmo que haja um subtítulo; confira a fonte antes da entrega.
 
+\subsection*{Localizadores eletrônicos de artigos}
+
+Use \texttt{eid} para o código que identifica o artigo no periódico, quando
+a publicação o fornece como localizador eletrônico. Cadastre o valor da fonte:
+zeros iniciais, letras e hífens fazem parte do código. O campo é literal,
+com a sintaxe TeX válida dos demais campos textuais; não é convertido em inteiro.
+Não acrescente um \texttt{e} a um código que não o contém. O formatador local
+permite quebrar códigos longos sem inserir hífen ou criar hiperlink; usa os
+recursos de quebra já disponíveis no projeto, sem alterar os campos de URL.
+
+\begin{lstlisting}
+@article{artigo-localizado,
+  author = {Silva, Ana}, title = {Resultados da pesquisa},
+  journaltitle = {Revista Sintetica}, location = {Brasilia},
+  volume = {4}, number = {2}, date = {2024},
+  eid = {e000123}
+}
+@article{artigo-paginado,
+  author = {Silva, Ana}, title = {Pesquisa com paginacao},
+  journaltitle = {Revista Sintetica}, location = {Brasilia},
+  volume = {4}, number = {2}, date = {2024},
+  pages = {17--24}
+}
+\end{lstlisting}
+
+Os exemplos são sintéticos. \texttt{pages} informa páginas ou intervalo;
+\texttt{pagetotal} descreve extensão total e não substitui essa localização.
+\texttt{volume} e \texttt{number} identificam volume e fascículo.
+DOI, URL, \texttt{eprint} e \texttt{urldate} mantêm funções distintas:
+o localizador não gera DOI, endereço ou data de acesso automaticamente.
+
+Na referência de \texttt{article}, o localizador aparece após o número do
+fascículo e antes das páginas, quando fornecidas, e da data. Não recebe
+\texttt{p.}, \texttt{art.} ou outro prefixo automático. A NBR 6023:2025,
+7.7.6, exemplo 8, apresenta um código iniciado por \texttt{e} nessa posição;
+isso não obriga todo identificador a começar por essa letra. A posição e
+a apresentação literal adotadas pelo UnDF-TeX são uma política técnica
+conservadora, sem promessa de resolver todo padrão editorial.
+
+Se \texttt{pages} e \texttt{eid} forem cadastrados, ambos são preservados
+e o log identifica a chave para revisão. Confira se representam funções
+distintas na publicação; não copie o localizador para \texttt{pages} como
+se fosse paginação. A igualdade textual não comprova equivalência semântica,
+por isso o modelo não deduplica esses campos automaticamente. Sem paginação
+tradicional, não invente páginas; sem localizador, não invente um código.
+Artigos paginados sem \texttt{eid} conservam a apresentação anterior.
+
 \subsection*{Notas de estado e de escopo da consulta}
 
 Use \texttt{note} para a observação bibliográfica que deve acompanhar a
