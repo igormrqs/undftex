@@ -9,6 +9,7 @@ try {
     function Compilar([string]$Nome, [string]$Conteudo, [switch]$FalhaEsperada, [string]$ErroEsperado = 'Capitulo obrigatorio ausente') {
         $fonte = "$diretorio/$Nome.tex"
         Set-Content -LiteralPath $fonte -Value $Conteudo -Encoding utf8
+        Preparar-DiretoriosAuxiliares $fonte $diretorio
         & lualatex -no-shell-escape -interaction=nonstopmode -halt-on-error "-output-directory=$diretorio" $fonte > "$diretorio/$Nome-saida.txt" 2>&1
         $codigo = $LASTEXITCODE
         if ($FalhaEsperada) {

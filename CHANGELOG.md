@@ -6,6 +6,11 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ## [Não lançado]
 
+### Corrigido — diretorios auxiliares do CI
+
+- Preparacao dos subdiretorios de auxiliares de capitulos antes do LuaLaTeX, incluindo inclusoes do exemplo e fontes geradas por F02, sem copiar fontes nem modificar modelos.
+- Caminhos de saida limitados a build e inclusoes literais verificadas; doze controles de diretorios, auxiliares reais e rejeicoes integrados ao CI, preservando a regressao bibliografica e as onze injecoes existentes.
+
 ### Corrigido — F03-N
 
 - Localizadores nativos `eid` de artigos são apresentados literalmente no bloco do periódico, sem prefixo de páginas nem conversão em número, DOI ou URL.

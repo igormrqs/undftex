@@ -57,9 +57,59 @@ function Confirmar-ResultadoPerfis($Resultado, $Contrato) {
     }
 }
 
+function Preparar-DiretoriosAuxiliares([string]$Documento, [string]$Diretorio) {
+    $raiz = (Get-Location).ProviderPath
+    $resolver = {
+        param([string]$Caminho)
+        $relativo = $Caminho.Replace('\', '/').Trim('"')
+        if (-not $relativo -or $relativo.StartsWith('/') -or
+            $relativo -match '[<>:"|?*{}$#\x00-\x1f]' -or '..' -in ($relativo -split '/')) {
+            throw "Caminho auxiliar nao autorizado: $Caminho"
+        }
+        $atual = $raiz
+        foreach ($parte in ($relativo -split '/')) {
+            $atual = Join-Path $atual $parte
+            if ((Test-Path -LiteralPath $atual) -and
+                ((Get-Item -LiteralPath $atual -Force).Attributes -band [IO.FileAttributes]::ReparsePoint)) {
+                throw "Link nao autorizado no caminho auxiliar: $Caminho"
+            }
+        }
+        return [IO.Path]::GetFullPath($atual)
+    }
+    $saida = & $resolver $Diretorio
+    $relSaida = [IO.Path]::GetRelativePath($raiz, $saida).Replace('\', '/')
+    if ($relSaida -ne 'build' -and -not $relSaida.StartsWith('build/')) {
+        throw "Diretorio auxiliar fora da area de compilacao: $Diretorio"
+    }
+    $pendentes = [Collections.Generic.Stack[string]]::new()
+    $visitados = [Collections.Generic.HashSet[string]]::new()
+    $pastas = [Collections.Generic.HashSet[string]]::new()
+    $pendentes.Push((& $resolver $Documento))
+    [void]$pastas.Add($saida)
+    while ($pendentes.Count) {
+        $fonte = $pendentes.Pop()
+        if (-not $visitados.Add($fonte) -or -not (Test-Path -LiteralPath $fonte -PathType Leaf)) { continue }
+        # Contrato: caminhos literais entre chaves, relativos a raiz de compilacao.
+        # Nao interpreta macros TeX; campos dinamicos de include sao recusados.
+        $texto = (Get-Content -LiteralPath $fonte -Raw -Encoding utf8) -replace '(?m)(?<!\\)%.*$', ''
+        foreach ($inclusao in [regex]::Matches($texto, '\\(undfincludechapter|include|input|undfinputoptional)\s*\{([^{}]*)\}')) {
+            $caminho = $inclusao.Groups[2].Value.Trim('"')
+            if (-not $caminho.EndsWith('.tex')) { $caminho += '.tex' }
+            $filho = & $resolver $caminho
+            $pendentes.Push($filho)
+            if ($inclusao.Groups[1].Value -in @('include', 'undfincludechapter')) {
+                $pai = [IO.Path]::GetRelativePath($raiz, (Split-Path $filho -Parent))
+                [void]$pastas.Add((& $resolver (Join-Path $relSaida $pai)))
+            }
+        }
+    }
+    # Valida todos os caminhos antes de criar somente diretorios, sem copiar fontes.
+    foreach ($pasta in $pastas) { New-Item -ItemType Directory -Force -Path $pasta | Out-Null }
+}
+
 function Compilar-Regressao([string]$Documento, [string]$Diretorio, [switch]$SemBibliografia) {
     if (-not (Test-Path -LiteralPath $Documento -PathType Leaf)) { throw "Fixture obrigatoria ausente: $Documento" }
-    New-Item -ItemType Directory -Force -Path $Diretorio | Out-Null
+    Preparar-DiretoriosAuxiliares $Documento $Diretorio
     $nome = [System.IO.Path]::GetFileNameWithoutExtension($Documento)
     Write-Host "Compilando $Documento"
     & lualatex -interaction=nonstopmode -halt-on-error "-output-directory=$Diretorio" $Documento > "$Diretorio/$nome-passagem-1.txt" 2>&1

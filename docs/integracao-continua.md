@@ -69,6 +69,30 @@ resumo da execução integral; o teste negativo de F02 também segue essa regra.
 Um BBL vazio é aceito somente para documento cujo BCF não contenha nenhuma
 citação; os quatro controles sem citações da regressão exercitam essa exceção.
 
+## Diretorios auxiliares de capitulos
+
+Antes do LuaLaTeX, o helper prepara dentro de `build/` os subdiretorios dos
+auxiliares de `include` e `undfincludechapter`. Isso inclui `capitulos/`,
+`exemplo/capitulos/` e os caminhos gerados pelos testes F02. Apenas diretorios
+sao criados: fontes nao sao copiadas, alteradas ou removidas. A estrutura
+relativa e preservada, sem reduzir caminhos ao nome-base.
+
+O contrato acompanha caminhos literais entre chaves, relativos a raiz em que
+a compilacao e executada, inclusive atraves de `input` e `undfinputoptional`.
+Comentarios sao ignorados; nao e um interpretador geral de TeX. Macros em
+caminhos nao recebem expansao automatica. Caminhos absolutos, segmentos `..`,
+links e destinos fora de `build/` sao recusados antes de criar diretorios.
+Arquivo-fonte ausente continua sujeito ao erro original de LuaLaTeX: preparar
+uma pasta nao cria um capitulo nem transforma falha em sucesso.
+
+`scripts/verificar-auxiliares-ci.ps1` exercita doze controles adicionais de
+preparacao anterior ao compilador, arquivos `.aux` e conteudo reais, espacos,
+caminhos aninhados/gerados, rejeicoes e falhas com PDF antigo ou sem produtos.
+Seu resultado fica em `build/ci/auxiliares.json`, no mesmo artefato de diagnostico.
+Esses controles nao alteram os 604 cenarios, 46 documentos nem as onze injecoes
+anteriores da infraestrutura. A homologacao Linux exige executar o workflow
+real no SHA correspondente; sucesso local MiKTeX nao a substitui.
+
 ## Erros esperados e Biber
 
 F02 aceita a falha deliberada somente com retorno de erro e mensagem da causa

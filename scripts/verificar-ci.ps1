@@ -60,6 +60,7 @@ try {
     & "$PSScriptRoot/verificar-organizacao.ps1"
     $resumo.grupos += 'organizacao'
     & "$PSScriptRoot/verificar-infraestrutura-ci.ps1"
+    & "$PSScriptRoot/verificar-auxiliares-ci.ps1"
     $resumo.grupos += 'infraestrutura'
     $resumo.completo = $true
 } catch {
