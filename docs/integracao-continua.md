@@ -16,6 +16,7 @@ que alterem contratos devem ser investigadas, não contornadas com tetos de avis
 | Bibliografia | 22 suítes, 604 cenários com leitura de chamadas, referências, ordem, letras, avisos e destinos aplicáveis |
 | F01 | 35 casos de nomes e metadados da folha de rosto |
 | F02 | Inclusões positivas e negativas, caminho/espaços/ordem, erro obrigatório com e sem halt, propagação pelo verificador e input de artigo |
+| F04 | Sete resultados de medição pré-textual, contadores, notas, AUX/BCF, artigo/TCC e avisos/bloqueio de tamanho; grupo próprio no resumo |
 | Compatibilidade | Nove tipos originalmente herdados; compilar não certifica padronização universal |
 | Auditoria | 32 casos originais e dois documentos mínimos, com asserções dos contratos atuais e limites preservados |
 | Corpus | Onze bases reais isoladas por refsection, 35 ocorrências de registros; chaves no BBL e títulos/notas materiais no PDF |
@@ -50,6 +51,11 @@ O nome padrão de Python é `python3`; outra instalação pode ser informada com
 existentes. Não as apaga automaticamente. Use outro checkout para repetir a
 validação integral preservando evidências anteriores. Isso impede que PDFs ou
 logs antigos sejam usados como prova de uma execução atual.
+
+O mesmo preflight recusa `build/f04` anterior. Os testes de
+[medição F04](verificacao-medicao-f04.md) geram fontes e produtos somente nessa
+área, com resultados em `build/ci/f04.json`; integram a entrada integral e os
+diagnósticos preservados no workflow.
 
 Para investigar uma suíte individual, em checkout de trabalho:
 
@@ -142,7 +148,8 @@ homologação remota pendente”.
 
 Comparação de PDFs entre commits, coordenadas, quebras visuais e revisão normativa
 continuam procedimentos de auditoria local: o CI não tem baseline visual
-versionada e não afirma executá-los. F06/F07 e F04/F05 permanecem separados.
+versionada e não afirma executá-los. F06 externa e F05 permanecem separadas;
+F07 integra os negativos de infraestrutura e F04 tem o grupo descrito acima.
 Os nomes atuais dos 46 documentos são distintos; a execução é sequencial e
 mantém os diretórios já suportados. Não houve correção global de nomes ou do
 mecanismo de distribuição. O CI não certifica conformidade integral ABNT.

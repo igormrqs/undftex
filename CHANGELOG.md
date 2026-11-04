@@ -6,6 +6,12 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ## [Não lançado]
 
+### Corrigido — F04
+
+- A medição de conteúdo pré-textual restaura os contadores registrados pelo LaTeX, incluindo notas e destinos Hyperref, e não registra citações descartadas como impressas ou consultadas.
+- Sete resultados de regressão específicos cobrem os dois perfis, os sete blocos medidos, notas e referências reais, entrada do TCC e preservação de avisos/bloqueio de tamanho; integrados ao CI sem alterar os 604 cenários, 22 suítes e 46 documentos existentes.
+- Critérios normativos e limites documentados em `docs/verificacao-medicao-f04.md`; a revisão tipográfica F05 permanece separada.
+
 ### Corrigido — F07
 
 - Nomes-base conflitantes na seleção de perfis e nos controles automáticos são recusados sem distinguir caixa, antes de compilar ou gravar resumos e produtos.

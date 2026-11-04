@@ -68,15 +68,37 @@
 \cs_new_eq:NN \undf@warnabstractwords \undf_warn_abstract_words:nn
 \ExplSyntaxOff
 
-\newcommand{\undf@warnrawpagefit}[3][\textwidth]{%
+% A caixa e descartada: restaura contadores registrados no LaTeX e nao
+% registra citacoes/auxiliares como se o conteudo tivesse sido impresso.
+% Nao desfaz definicoes globais arbitrarias feitas pelo autor.
+\newcommand{\undf@measurecontent}[2]{%
   \begingroup
+    \let\undf@savedelt\@elt
+    \def\@elt##1{\noexpand\setcounter{##1}{\number\value{##1}}}%
+    \edef\undf@restorecounters{\cl@@ckpt}%
+    \let\@elt\undf@savedelt
+    \@fileswfalse
+    \@ifpackageloaded{biblatex}{%
+      \boolfalse{citerequest}%
+      \boolfalse{citetracker}%
+      \boolfalse{pagetracker}%
+      \boolfalse{backtracker}%
+    }{}%
     \setbox\undf@abstractmeasurebox=\vbox{%
       \hsize=#1
       \setlength{\parindent}{0pt}%
       \setlength{\parskip}{0pt}%
       \noindent #2\par
     }%
-    \undf@abstractheight=\dimexpr\ht\undf@abstractmeasurebox+\dp\undf@abstractmeasurebox\relax
+    \undf@restorecounters
+    \edef\undf@measuredheight{\endgroup
+      \undf@abstractheight=\the\dimexpr\ht\undf@abstractmeasurebox+\dp\undf@abstractmeasurebox\relax}%
+  \undf@measuredheight
+}
+
+\newcommand{\undf@warnrawpagefit}[3][\textwidth]{%
+  \begingroup
+    \undf@measurecontent{#1}{#2}%
     \undf@abstractmaxheight=\dimexpr\textheight*85/100\relax
     \ifdim\undf@abstractheight>\undf@abstractmaxheight
       \PackageWarningNoLine{abnt-nbr6028-2021}{O #3 pode ultrapassar uma pagina; reduza o conteudo ou revise o elemento}%
@@ -106,13 +128,7 @@
   \undfifcontent{#1}
     {%
       \begingroup
-        \setbox\undf@abstractmeasurebox=\vbox{%
-          \hsize=\textwidth
-          \setlength{\parindent}{0pt}%
-          \setlength{\parskip}{0pt}%
-          \noindent\undfusecontent{#1}\par
-        }%
-        \undf@abstractheight=\dimexpr\ht\undf@abstractmeasurebox+\dp\undf@abstractmeasurebox\relax
+        \undf@measurecontent{\textwidth}{\undfusecontent{#1}}%
         \undf@abstractmaxheight=\dimexpr\textheight*85/100\relax
         \ifdim\undf@abstractheight<4\baselineskip
           \PackageWarningNoLine{abnt-nbr6028-2021}{O #2 parece curto demais; verifique se ha substancia suficiente}%

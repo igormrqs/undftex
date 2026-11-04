@@ -178,11 +178,14 @@
   % Limpa somente o alias local dos objetos cuja identidade nao vem de nomes.
   \ifboolexpr{test {\ifentrytype{proceedings}} or test {\ifentrytype{mvproceedings}} or test {\ifentrytype{periodical}}}
     {\clearname{labelname}}{}%
-  \ifundf@apudoriginal
-    \csgdef{undf@apudoriginal@\therefsection:\thefield{entrykey}}{}%
-  \else
-    \csgdef{undf@consultada@\therefsection:\thefield{entrykey}}{}%
-  \fi
+  % Uma citacao em medicao descartada nao equivale a leitura (F04).
+  \ifbool{citerequest}{%
+    \ifundf@apudoriginal
+      \csgdef{undf@apudoriginal@\therefsection:\thefield{entrykey}}{}%
+    \else
+      \csgdef{undf@consultada@\therefsection:\thefield{entrykey}}{}%
+    \fi
+  }{}%
 }
 \defbibcheck{undfconsultadas}{%
   \ifcsdef{undf@apudoriginal@\therefsection:\thefield{entrykey}}

@@ -49,6 +49,9 @@ jobs:
           if-no-files-found: error
           path: |
             build/ci/
+            build/f04/*.log
+            build/f04/*-biber.txt
+            build/f04/*-saida.txt
             build/perfis/resumo.json
             build/perfis/resumo-parcial.json
             build/perfis/*-resultados.json

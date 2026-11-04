@@ -5,13 +5,13 @@ $ErrorActionPreference = 'Stop'
 Push-Location (Split-Path $PSScriptRoot -Parent)
 $resumo = [ordered]@{ completo = $false; grupos = @(); perfis = $null; erro = $null; naoExecutados = @() }
 $perfisIniciados = $false
-$grupos = @('perfis', 'F01-F02', 'controles', 'manuais', 'artefato-projeto', 'organizacao', 'infraestrutura')
+$grupos = @('perfis', 'F01-F02', 'F04', 'controles', 'manuais', 'artefato-projeto', 'organizacao', 'infraestrutura')
 try {
     foreach ($ferramenta in (@('lualatex', 'biber', 'pdftotext', 'pdftohtml', 'pdfinfo', 'pwsh', 'git') + @($Python))) {
         if (-not (Get-Command $ferramenta -ErrorAction SilentlyContinue)) { throw "Ferramenta obrigatoria ausente: $ferramenta" }
     }
     # Recusa resultados anteriores em vez de apagar dados locais ou aceita-los.
-    foreach ($pasta in 'build/perfis', 'build/integridade', 'build/controles-ci', 'manuais/parte-i/build', 'manuais/parte-ii/build', 'manuais/build') {
+    foreach ($pasta in 'build/perfis', 'build/integridade', 'build/controles-ci', 'build/f04', 'manuais/parte-i/build', 'manuais/parte-ii/build', 'manuais/build') {
         if (Test-Path -LiteralPath $pasta) { throw "Saidas anteriores presentes: $pasta. Execute em checkout limpo." }
     }
     New-Item -ItemType Directory -Force -Path build/ci | Out-Null
@@ -29,6 +29,8 @@ try {
     $resumo.grupos += 'perfis'
     & "$PSScriptRoot/verificar-integridade.ps1"
     $resumo.grupos += 'F01-F02'
+    & "$PSScriptRoot/verificar-medicao.ps1"
+    $resumo.grupos += 'F04'
     foreach ($documento in $contrato.complementares) {
         Compilar-Regressao $documento 'build/controles-ci'
         $nome = [System.IO.Path]::GetFileNameWithoutExtension($documento)
