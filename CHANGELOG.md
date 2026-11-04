@@ -6,6 +6,11 @@ O formato segue uma adaptação simples do Keep a Changelog, em português.
 
 ## [Não lançado]
 
+### Corrigido — F07
+
+- Nomes-base conflitantes na seleção de perfis e nos controles automáticos são recusados sem distinguir caixa, antes de compilar ou gravar resumos e produtos.
+- O cadastro integral recebe a mesma validação; sete testes negativos verificam homônimos, diferenças de caixa, colisões com controles e preservação das saídas, mantendo os 604 cenários, 22 suítes e 46 documentos.
+
 ### Corrigido — diretorios auxiliares do CI
 
 - Preparacao dos subdiretorios de auxiliares de capitulos antes do LuaLaTeX, incluindo inclusoes do exemplo e fontes geradas por F02, sem copiar fontes nem modificar modelos.

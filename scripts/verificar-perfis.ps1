@@ -5,6 +5,7 @@ $ErrorActionPreference = 'Stop'
 $contrato = Obter-ContratoRegressao
 if (-not $PSBoundParameters.ContainsKey('Documentos')) { $Documentos = @($contrato.documentos) }
 if ($Documentos.Count -eq 0 -or @($Documentos | Sort-Object -Unique).Count -ne $Documentos.Count) { throw 'Selecao de documentos vazia ou duplicada' }
+Confirmar-NomesBaseUnicos (@($Documentos) + @($contrato.controles))
 Push-Location (Split-Path $PSScriptRoot -Parent)
 $compilados = @()
 $suites = @()

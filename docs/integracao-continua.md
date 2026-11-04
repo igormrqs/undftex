@@ -69,6 +69,16 @@ resumo da execução integral; o teste negativo de F02 também segue essa regra.
 Um BBL vazio é aceito somente para documento cujo BCF não contenha nenhuma
 citação; os quatro controles sem citações da regressão exercitam essa exceção.
 
+Antes de compilar ou gravar qualquer resumo de perfis, a seleção e os controles
+automáticos devem ter nomes-base únicos, sem distinguir maiúsculas de minúsculas.
+Por exemplo, `A/caso.tex` com `B/caso.tex` ou `B/CASO.tex` é recusado, assim como
+uma seleção que colida com um controle automático. O cadastro integral recebe a
+mesma validação. A rejeição informa os caminhos conflitantes e preserva produtos
+e resumos anteriores, sem criar `build/perfis` quando ausente. Sete injeções F07
+verificam esses contratos, incluindo sentinelas de compilador e hashes dos produtos.
+O layout das saídas permanece igual. Esta verificação não oferece isolamento entre
+execuções concorrentes no mesmo checkout; use checkouts separados.
+
 ## Diretorios auxiliares de capitulos
 
 Antes do LuaLaTeX, o helper prepara dentro de `build/` os subdiretorios dos

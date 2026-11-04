@@ -1,8 +1,20 @@
 # Contratos comuns de selecao e resultados; nao compila nem altera o cadastro.
+function Confirmar-NomesBaseUnicos([string[]]$Documentos) {
+    $nomes = [Collections.Generic.Dictionary[string,string]]::new([StringComparer]::OrdinalIgnoreCase)
+    foreach ($documento in $Documentos) {
+        $nome = [IO.Path]::GetFileNameWithoutExtension($documento.Replace('\', '/'))
+        if ($nomes.ContainsKey($nome)) {
+            throw "Nome-base conflitante: $($nomes[$nome]) e $documento ($nome)"
+        }
+        $nomes.Add($nome, $documento)
+    }
+}
+
 function Obter-ContratoRegressao {
     $raiz = Split-Path $PSScriptRoot -Parent
     $contrato = Get-Content -LiteralPath "$raiz/tests/regressao.json" -Raw -Encoding utf8 | ConvertFrom-Json
     $documentos = @($contrato.documentos) + @($contrato.controles)
+    Confirmar-NomesBaseUnicos $documentos
     if ($documentos.Count -ne $contrato.totalDocumentos -or
         @($documentos | Sort-Object -Unique).Count -ne $documentos.Count) { throw 'Contagem de documentos inconsistente no contrato' }
     foreach ($arquivo in $documentos) {

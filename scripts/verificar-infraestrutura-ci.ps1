@@ -75,7 +75,56 @@ Compilar-Regressao vazio.tex build/sem-produto
     if ($alterado -eq $log) { throw 'Aviso alvo da injecao de mesma quantidade nao encontrado' }
     Set-Content -LiteralPath "$temporario/$modelo/bibliografia-patentes.blg" -Value $alterado -Encoding utf8
     Rejeitar 'I11-aviso-novo-mesma-quantidade' './scripts/verificar-modelo-biber.ps1 -Documento bibliografia-patentes -SomenteLer' 'Avisos Biber divergentes do contrato'
-    if ($resultados.Count -ne 11) { throw 'Injecoes de infraestrutura incompletas' }
+    # F07: verifica a entrada real, com produtos anteriores e compilador sentinela.
+    function Estado-Produtos {
+        return (@(Get-ChildItem -LiteralPath "$temporario/build/perfis" -Recurse -Force | Sort-Object FullName | ForEach-Object {
+            $hash = if (-not $_.PSIsContainer) { (Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash } else { 'diretorio' }
+            "$($_.FullName)|$hash|$($_.LastWriteTimeUtc.Ticks)"
+        }) -join "`n")
+    }
+    $cadastro = "$temporario/tests/regressao.json"
+    $cadastroOriginal = Get-Content -LiteralPath $cadastro -Raw -Encoding utf8
+    $controleAutomatico = ($cadastroOriginal | ConvertFrom-Json).controles[0]
+    $nomeControle = [IO.Path]::GetFileNameWithoutExtension($controleAutomatico)
+    foreach ($pasta in 'A', 'B') {
+        New-Item -ItemType Directory -Force -Path "$temporario/$pasta" | Out-Null
+    }
+    foreach ($fonte in 'A/caso.tex', 'B/caso.tex', 'B/CASO.tex', "A/$nomeControle.tex") {
+        Set-Content -LiteralPath "$temporario/$fonte" -Value 'Fonte sentinela F07' -Encoding utf8
+    }
+    foreach ($modo in 'selecao', 'contrato') {
+        foreach ($tipo in 'homonimos', 'caixa', 'controle') {
+            $documentos = @(switch ($tipo) {
+                'homonimos' { @('A/caso.tex', 'B/caso.tex') }
+                'caixa' { @('A/caso.tex', 'B/CASO.tex') }
+                'controle' { @("A/$nomeControle.tex") }
+            })
+            $invocacao = './scripts/verificar-perfis.ps1'
+            if ($modo -eq 'contrato') {
+                $alterado = $cadastroOriginal | ConvertFrom-Json
+                for ($i = 0; $i -lt $documentos.Count; $i++) { $alterado.documentos[$i] = $documentos[$i] }
+                $alterado | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath $cadastro -Encoding utf8
+            } else {
+                $invocacao += " -Documentos @('" + ($documentos -join "','") + "')"
+            }
+            $antes = Estado-Produtos
+            $codigo = @'
+function lualatex { Set-Content compilador-f07.txt 'LuaLaTeX chamado'; throw 'Compilador nao deveria ser chamado' }
+function biber { Set-Content compilador-f07.txt 'Biber chamado'; throw 'Compilador nao deveria ser chamado' }
+'@ + "`n$invocacao"
+            Rejeitar "I12-F07-$modo-$tipo" $codigo 'Nome-base conflitante:'
+            if ((Test-Path -LiteralPath "$temporario/compilador-f07.txt") -or (Estado-Produtos) -cne $antes) {
+                throw "F07 alterou produtos ou chamou compilador: $modo/$tipo"
+            }
+            Set-Content -LiteralPath $cadastro -Value $cadastroOriginal -Encoding utf8
+        }
+    }
+    # Sem saidas anteriores, a mesma rejeicao nao pode criar build/perfis.
+    Move-Item -LiteralPath "$temporario/build/perfis" -Destination "$temporario/build/perfis-reserva"
+    Rejeitar 'I13-F07-sem-produtos' "./scripts/verificar-perfis.ps1 -Documentos @('A/caso.tex', 'B/caso.tex')" 'Nome-base conflitante:'
+    if (Test-Path -LiteralPath "$temporario/build/perfis") { throw 'F07 criou produtos antes da rejeicao' }
+    Move-Item -LiteralPath "$temporario/build/perfis-reserva" -Destination "$temporario/build/perfis"
+    if ($resultados.Count -ne 18) { throw 'Injecoes de infraestrutura incompletas' }
     New-Item -ItemType Directory -Force -Path "$raiz/build/ci" | Out-Null
     $resultados | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath "$raiz/build/ci/infraestrutura.json" -Encoding utf8
     Write-Host "Infraestrutura: $($resultados.Count) injecoes rejeitadas pela causa esperada."
